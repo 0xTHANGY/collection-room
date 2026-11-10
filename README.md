@@ -34,3 +34,5 @@ python3 site/tools/cutout.py \
 ```
 
 Requires Pillow, numpy, and OpenCV. The script only reads the incoming originals and writes layer WebPs plus optional JSON metadata (`layer` fields). See the module docstring for padding, threshold, and feather defaults.
+
+Version 1.4 opens collection cards with a FLIP scale/translate from the item (or list row) and adds a drop-shadow silhouette glow on hover and keyboard focus. Reduced motion uses a plain fade and a static glow.

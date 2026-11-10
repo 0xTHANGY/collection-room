@@ -7,6 +7,13 @@ const roomImage = $('room-image');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const HANG = { spring: 8, damping: 1.1, max: 10, push: 0.2 };
 const SKEW = { spring: 40, damping: 7, lag: 0.22, max: 2 };
+const FLIP_MS = 650;
+const FLIP_EASE = 'cubic-bezier(0.22, 1, 0.36, 1)';
+const layersById = new Map();
+let flipState = 'idle';
+let closeQueued = false;
+let originSnapshot = null;
+let currentItem = null;
 function roomReady() {
   $('room').setAttribute('aria-busy', 'false');
   $('room-status').hidden = roomImage.naturalWidth > 0;
@@ -15,8 +22,88 @@ function roomReady() {
 roomImage.addEventListener('load', roomReady);
 roomImage.addEventListener('error', roomReady);
 if (roomImage.complete) roomReady();
+function invertTransform(from, to) {
+  const sx = to.width ? from.width / to.width : 1;
+  const sy = to.height ? from.height / to.height : 1;
+  return `translate(${(from.left - to.left).toFixed(2)}px, ${(from.top - to.top).toFixed(2)}px) scale(${sx.toFixed(4)}, ${sy.toFixed(4)})`;
+}
+function originRectFor(trigger, item) {
+  if (trigger?.classList.contains('list-item')) return trigger.getBoundingClientRect();
+  const layer = item?.id ? layersById.get(item.id) : null;
+  if (layer) return layer.getBoundingClientRect();
+  return trigger?.getBoundingClientRect() ?? null;
+}
+function clearFlipStyles() {
+  dialog.style.transition = 'none';
+  dialog.style.transform = '';
+  dialog.style.opacity = '';
+}
+function waitForFlip(result, callback) {
+  let done = false;
+  const finish = () => {
+    if (done) return;
+    done = true;
+    window.clearTimeout(timer);
+    callback();
+  };
+  const timer = window.setTimeout(finish, FLIP_MS + 80);
+  if (result && typeof result.then === 'function') {
+    result.then(finish, finish);
+    return;
+  }
+  const onEnd = (event) => {
+    if (event.target !== dialog) return;
+    if (event.propertyName && event.propertyName !== 'transform' && event.propertyName !== 'opacity') return;
+    dialog.removeEventListener('transitionend', onEnd);
+    finish();
+  };
+  dialog.addEventListener('transitionend', onEnd);
+}
+function playFlip(from, opening) {
+  if (reduceMotion.matches) {
+    dialog.style.transform = '';
+    const start = opening ? 0 : 1;
+    const end = opening ? 1 : 0;
+    dialog.style.opacity = String(start);
+    const anim = dialog.animate(
+      [{ opacity: start }, { opacity: end }],
+      { duration: FLIP_MS, easing: FLIP_EASE, fill: 'forwards' }
+    );
+    return anim.finished;
+  }
+  dialog.style.transformOrigin = 'top left';
+  if (opening) {
+    dialog.style.transition = 'none';
+    const last = dialog.getBoundingClientRect();
+    dialog.style.transform = invertTransform(from, last);
+    dialog.style.opacity = '0.4';
+    dialog.getBoundingClientRect();
+    requestAnimationFrame(() => {
+      dialog.style.transition = `transform ${FLIP_MS}ms ${FLIP_EASE}, opacity ${FLIP_MS}ms ${FLIP_EASE}`;
+      dialog.style.transform = 'none';
+      dialog.style.opacity = '1';
+    });
+    return null;
+  }
+  const last = dialog.getBoundingClientRect();
+  dialog.style.transition = `transform ${FLIP_MS}ms ${FLIP_EASE}, opacity ${FLIP_MS}ms ${FLIP_EASE}`;
+  dialog.style.transform = invertTransform(from, last);
+  dialog.style.opacity = '0.4';
+  return null;
+}
+function finishOpen() {
+  flipState = 'open';
+  if (closeQueued) {
+    closeQueued = false;
+    requestClose();
+  }
+}
 function openItem(item, trigger) {
+  if (flipState === 'opening' || flipState === 'closing') return;
+  if (flipState === 'open') return;
   opener = trigger;
+  currentItem = item;
+  originSnapshot = originRectFor(trigger, item);
   $('detail-id').textContent = item.id;
   $('detail-name').textContent = item.display_name || item.id;
   $('detail-category').textContent = item.category;
@@ -40,17 +127,59 @@ function openItem(item, trigger) {
     status.textContent = `照片暂时无法显示 · ${item.display_name || item.id}`;
   };
   loader.src = item.image;
+  flipState = 'opening';
+  closeQueued = false;
   dialog.showModal();
   document.body.classList.add('modal-open');
+  dialog.classList.add('is-open');
+  const origin = originSnapshot;
+  if (!origin || origin.width < 2 || origin.height < 2) {
+    clearFlipStyles();
+    finishOpen();
+    return;
+  }
+  waitForFlip(playFlip(origin, true), finishOpen);
 }
-$('close-dialog').addEventListener('click', () => dialog.close());
+function requestClose() {
+  if (flipState === 'idle' || flipState === 'closing') return;
+  if (flipState === 'opening') {
+    closeQueued = true;
+    return;
+  }
+  flipState = 'closing';
+  dialog.classList.remove('is-open');
+  const origin = originRectFor(opener, currentItem) || originSnapshot;
+  if (reduceMotion.matches || !origin || origin.width < 2) {
+    if (reduceMotion.matches) {
+      waitForFlip(playFlip(origin || { left: 0, top: 0, width: 1, height: 1 }, false), () => dialog.close());
+      return;
+    }
+    dialog.close();
+    return;
+  }
+  waitForFlip(playFlip(origin, false), () => dialog.close());
+}
+$('close-dialog').addEventListener('click', (event) => {
+  event.preventDefault();
+  requestClose();
+});
 dialog.addEventListener('click', (event) => { if (event.target === dialog) {
   const rect = dialog.getBoundingClientRect();
-  if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+  if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) requestClose();
 }});
+dialog.addEventListener('cancel', (event) => {
+  event.preventDefault();
+  requestClose();
+});
 dialog.addEventListener('close', () => {
   imageRequest++;
   document.body.classList.remove('modal-open');
+  dialog.classList.remove('is-open');
+  clearFlipStyles();
+  flipState = 'idle';
+  closeQueued = false;
+  originSnapshot = null;
+  currentItem = null;
   opener?.focus({preventScroll:true});
 });
 $('reveal').addEventListener('click', () => {
@@ -84,16 +213,27 @@ function validateItem(item) {
   }
 }
 function createLayer(item) {
+  const wrap = document.createElement('div');
+  wrap.className = 'layer-wrap';
+  for (const key of ['left', 'top', 'width', 'height']) wrap.style[key] = `${item.layer[key]}%`;
   const layer = document.createElement('img');
   layer.className = 'layer';
   layer.src = item.layer.image;
   layer.alt = '';
   layer.draggable = false;
-  for (const key of ['left', 'top', 'width', 'height']) layer.style[key] = `${item.layer[key]}%`;
   layer.style.transformOrigin = `${item.layer.pivotX}% ${item.layer.pivotY}%`;
   if (item.layer.motion === 'rest') layer.classList.add('layer-rest');
-  $('layers').append(layer);
+  wrap.append(layer);
+  $('layers').append(wrap);
+  layer._wrap = wrap;
+  layersById.set(item.id, layer);
   return layer;
+}
+function setLayerGlow(layer, glowing, focused) {
+  const wrap = layer?._wrap;
+  if (!wrap) return;
+  wrap.classList.toggle('is-glow', glowing || focused);
+  wrap.classList.toggle('is-focus', !!focused);
 }
 function segmentHitsRect(x0, y0, x1, y1, rect, pad) {
   const left = rect.left - pad, right = rect.right + pad, top = rect.top - pad, bottom = rect.bottom + pad;
@@ -179,6 +319,18 @@ function setupMotion(entries) {
     if (reduceMotion.matches) return;
     entry.layer.classList.toggle(className, on);
   };
+  const syncGlow = (entry) => {
+    const focused = entry.hotspot.matches(':focus-visible');
+    const hovered = entry.hotspot.matches(':hover');
+    setLayerGlow(entry.layer, hovered || focused, focused);
+  };
+  for (const entry of entries) {
+    if (!entry.layer) continue;
+    entry.hotspot.addEventListener('pointerenter', () => syncGlow(entry));
+    entry.hotspot.addEventListener('pointerleave', () => syncGlow(entry));
+    entry.hotspot.addEventListener('focus', () => syncGlow(entry));
+    entry.hotspot.addEventListener('blur', () => syncGlow(entry));
+  }
   for (const entry of rest) {
     entry.hotspot.addEventListener('pointerenter', () => setRest(entry, 'is-hover', true));
     entry.hotspot.addEventListener('pointerleave', () => {
