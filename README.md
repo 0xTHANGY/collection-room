@@ -17,3 +17,20 @@ No remote, hosting, analytics, or external assets are used.
 Version 1.1 adds responsive room WebP sources, image-aligned non-overlapping hotspots, stronger muted text contrast, per-item validation, state-aware controls, English language tags, and a self-only Content Security Policy. Review items 3 and 10 are intentionally excluded.
 
 Version 1.2 swaps in the pink-chair room illustration (`style-v2-03` WebP srcset), keeps hotspot rectangles after visual re-check (no coordinate shift), and adds a same-origin SVG/ICO favicon.
+
+Version 1.3 uses an empty-room base (`style-v2-05` WebP srcset) plus per-item transparent layers. Hats and hanging clothes swing from their hang point on pointer pass; shorts and the tote lift slightly on hover. `prefers-reduced-motion: reduce` disables the motion and keeps the static highlight. Layers are built with `tools/cutout.py` from the furnished/empty room pair (originals are never modified).
+
+## Cutout tool
+
+From the collection-room directory:
+
+```sh
+python3 site/tools/cutout.py \
+  --full incoming/style-v2-03-pinkchair.png \
+  --empty incoming/style-v2-05-empty-pinkchair.png \
+  --items site/data/items.json \
+  --out site/assets/layers \
+  --update-json
+```
+
+Requires Pillow, numpy, and OpenCV. The script only reads the incoming originals and writes layer WebPs plus optional JSON metadata (`layer` fields). See the module docstring for padding, threshold, and feather defaults.

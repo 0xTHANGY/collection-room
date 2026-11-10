@@ -52,3 +52,11 @@ Inspected the actual 1280 × 720 room image. Values below are left/top/width/hei
 - Room assets: `assets/room/style-v2-03.webp` (1280×720), `-800.webp` (800×450), `-640.webp` (640×360), regenerated from `incoming/style-v2-03-pinkchair.png` without modifying the original. Old `style-v2-01` site WebPs removed.
 - Hotspots: phase-correlation shift on hats/wardrobe crops was (0,0); per-item crops on the new image still cover each object. Coordinates unchanged; AABB overlap check remains zero across all pairs.
 - Favicon: hand-written `favicon.svg` plus matching `favicon.ico` (Pillow), both same-origin under CSP `default-src 'self'`.
+
+## v1.3 layered motion
+
+- Empty room `assets/room/style-v2-05.webp` (1280×720, 800, 640) generated from `incoming/style-v2-05-empty-pinkchair.png`. Furnished `style-v2-03` site WebPs removed. Incoming originals were not modified.
+- Ten transparent WebP layers in `assets/layers/`, cut with `tools/cutout.py` (difference mask, morphological clean-up, seeded watershed, 1.6px feather). Hats include the peg under the cap; hanging clothes include their hanger.
+- Composite of layers over the empty room vs the furnished original: global MAE 3.77, PSNR 28.67. Much of the leftover is illustration variance outside the items (empty-vs-full already differs on the left wall/plant). Item-union MAE 3.62. Adjacent hanging garments share painted overlaps in the source illustration, so a neighbour sleeve sliver can remain on cr-008 and cr-010; cr-006 keeps a small pink sliver. Shorts/tote are clean aside from a faint contact shadow or tiny speck.
+- Motion: hang items use a requestAnimationFrame spring (stiffness 8, damping 1.1, max ±10deg, skewX ≤2deg) driven by pointer passes on the room, with `pointer-events: none` on sprites. Rest items use CSS `translateY(-4px) scale(1.03)` (300ms) and press `scale(0.98)` (100ms). Cards fade in and move up 8px. `prefers-reduced-motion: reduce` disables all of this.
+- CSP remains `default-src 'self'`. Hotspots, keyboard, and ARIA are unchanged.

@@ -12,7 +12,17 @@
       "height": 16
     },
     "zone": "hat_rack",
-    "number": "001"
+    "number": "001",
+    "layer": {
+      "image": "assets/layers/cr-001-layer.webp",
+      "left": 42.109,
+      "top": 5.417,
+      "width": 8.984,
+      "height": 18.333,
+      "pivotX": 44.35,
+      "pivotY": 18.0,
+      "motion": "hang"
+    }
   },
   {
     "id": "cr-002",
@@ -27,7 +37,17 @@
       "height": 17
     },
     "zone": "hat_rack",
-    "number": "002"
+    "number": "002",
+    "layer": {
+      "image": "assets/layers/cr-002-layer.webp",
+      "left": 50.078,
+      "top": 5.0,
+      "width": 9.844,
+      "height": 20.0,
+      "pivotX": 47.62,
+      "pivotY": 18.0,
+      "motion": "hang"
+    }
   },
   {
     "id": "cr-003",
@@ -42,7 +62,17 @@
       "height": 17
     },
     "zone": "hat_rack",
-    "number": "003"
+    "number": "003",
+    "layer": {
+      "image": "assets/layers/cr-003-layer.webp",
+      "left": 59.375,
+      "top": 5.278,
+      "width": 9.688,
+      "height": 20.0,
+      "pivotX": 45.97,
+      "pivotY": 18.0,
+      "motion": "hang"
+    }
   },
   {
     "id": "cr-004",
@@ -57,7 +87,17 @@
       "height": 17
     },
     "zone": "hat_rack",
-    "number": "004"
+    "number": "004",
+    "layer": {
+      "image": "assets/layers/cr-004-layer.webp",
+      "left": 68.516,
+      "top": 5.556,
+      "width": 9.766,
+      "height": 20.278,
+      "pivotX": 46.0,
+      "pivotY": 18.0,
+      "motion": "hang"
+    }
   },
   {
     "id": "cr-005",
@@ -72,7 +112,17 @@
       "height": 16.5
     },
     "zone": "wardrobe",
-    "number": "005"
+    "number": "005",
+    "layer": {
+      "image": "assets/layers/cr-005-layer.webp",
+      "left": 48.984,
+      "top": 60.972,
+      "width": 12.422,
+      "height": 21.806,
+      "pivotX": 50.0,
+      "pivotY": 50.0,
+      "motion": "rest"
+    }
   },
   {
     "id": "cr-006",
@@ -87,7 +137,17 @@
       "height": 33
     },
     "zone": "wardrobe",
-    "number": "006"
+    "number": "006",
+    "layer": {
+      "image": "assets/layers/cr-006-layer.webp",
+      "left": 49.375,
+      "top": 27.917,
+      "width": 13.984,
+      "height": 37.917,
+      "pivotX": 46.93,
+      "pivotY": 6.0,
+      "motion": "hang"
+    }
   },
   {
     "id": "cr-007",
@@ -102,7 +162,17 @@
       "height": 27
     },
     "zone": "bag_area",
-    "number": "007"
+    "number": "007",
+    "layer": {
+      "image": "assets/layers/cr-007-layer.webp",
+      "left": 64.766,
+      "top": 62.778,
+      "width": 14.531,
+      "height": 29.306,
+      "pivotX": 50.0,
+      "pivotY": 50.0,
+      "motion": "rest"
+    }
   },
   {
     "id": "cr-008",
@@ -117,7 +187,17 @@
       "height": 32
     },
     "zone": "wardrobe",
-    "number": "008"
+    "number": "008",
+    "layer": {
+      "image": "assets/layers/cr-008-layer.webp",
+      "left": 61.016,
+      "top": 28.611,
+      "width": 13.672,
+      "height": 37.917,
+      "pivotX": 48.29,
+      "pivotY": 6.0,
+      "motion": "hang"
+    }
   },
   {
     "id": "cr-009",
@@ -132,7 +212,17 @@
       "height": 31.4
     },
     "zone": "wardrobe",
-    "number": "009"
+    "number": "009",
+    "layer": {
+      "image": "assets/layers/cr-009-layer.webp",
+      "left": 72.031,
+      "top": 29.028,
+      "width": 10.938,
+      "height": 36.667,
+      "pivotX": 48.57,
+      "pivotY": 6.0,
+      "motion": "hang"
+    }
   },
   {
     "id": "cr-010",
@@ -147,6 +237,16 @@
       "height": 44
     },
     "zone": "wardrobe",
-    "number": "010"
+    "number": "010",
+    "layer": {
+      "image": "assets/layers/cr-010-layer.webp",
+      "left": 80.156,
+      "top": 29.583,
+      "width": 14.453,
+      "height": 51.944,
+      "pivotX": 52.16,
+      "pivotY": 6.0,
+      "motion": "hang"
+    }
   }
 ]
