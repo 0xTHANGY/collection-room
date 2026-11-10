@@ -4,139 +4,149 @@
     "display_name": "Museum of Peace & Quiet Cap",
     "category": "hat",
     "story": "故事待补充",
-    "image": "assets/items/cr-001-museum-of-peace-and-quiet-cap.png",
+    "image": "assets/items/cr-001-museum-of-peace-and-quiet-cap.webp",
     "hotspot": {
       "left": 42.2,
       "top": 6,
       "width": 7.8,
       "height": 16
     },
-    "zone": "hat_rack"
+    "zone": "hat_rack",
+    "number": "001"
   },
   {
     "id": "cr-002",
     "display_name": "Supreme Cap",
     "category": "hat",
     "story": "故事待补充",
-    "image": "assets/items/cr-002-supreme-cap.png",
+    "image": "assets/items/cr-002-supreme-cap.webp",
     "hotspot": {
       "left": 50.6,
       "top": 5.5,
       "width": 8.3,
       "height": 17
     },
-    "zone": "hat_rack"
+    "zone": "hat_rack",
+    "number": "002"
   },
   {
     "id": "cr-003",
     "display_name": "Aimé Leon Dore Cap",
     "category": "hat",
     "story": "故事待补充",
-    "image": "assets/items/cr-003-aime-leon-dore-cap.png",
+    "image": "assets/items/cr-003-aime-leon-dore-cap.webp",
     "hotspot": {
       "left": 59.8,
       "top": 6,
       "width": 8.1,
       "height": 17
     },
-    "zone": "hat_rack"
+    "zone": "hat_rack",
+    "number": "003"
   },
   {
     "id": "cr-004",
     "display_name": "Art Blocks Cap",
     "category": "hat",
     "story": "故事待补充",
-    "image": "assets/items/cr-004-art-blocks-cap.png",
+    "image": "assets/items/cr-004-art-blocks-cap.webp",
     "hotspot": {
       "left": 68.9,
       "top": 6.2,
       "width": 8.2,
       "height": 17
     },
-    "zone": "hat_rack"
+    "zone": "hat_rack",
+    "number": "004"
   },
   {
     "id": "cr-005",
     "display_name": "Aimé Leon Dore Shorts",
     "category": "bottoms",
     "story": "故事待补充",
-    "image": "assets/items/cr-005-aime-leon-dore-shorts.png",
+    "image": "assets/items/cr-005-aime-leon-dore-shorts.webp",
     "hotspot": {
       "left": 49.4,
       "top": 65.5,
       "width": 12,
       "height": 16.5
     },
-    "zone": "wardrobe"
+    "zone": "wardrobe",
+    "number": "005"
   },
   {
     "id": "cr-006",
     "display_name": "Bode Yale Sweatshirt",
     "category": "top",
     "story": "故事待补充",
-    "image": "assets/items/cr-006-bode-yale-sweatshirt.png",
+    "image": "assets/items/cr-006-bode-yale-sweatshirt.webp",
     "hotspot": {
       "left": 49.7,
       "top": 31,
-      "width": 14.5,
+      "width": 12.5,
       "height": 33
     },
-    "zone": "wardrobe"
+    "zone": "wardrobe",
+    "number": "006"
   },
   {
     "id": "cr-007",
     "display_name": "Bode Tote",
     "category": "bag",
     "story": "故事待补充",
-    "image": "assets/items/cr-007-bode-tote.png",
+    "image": "assets/items/cr-007-bode-tote.webp",
     "hotspot": {
       "left": 65.2,
       "top": 64,
       "width": 13.7,
       "height": 27
     },
-    "zone": "bag_area"
+    "zone": "bag_area",
+    "number": "007"
   },
   {
     "id": "cr-008",
     "display_name": "Stüssy Cardigan",
     "category": "knitwear",
     "story": "故事待补充",
-    "image": "assets/items/cr-008-stussy-cardigan.png",
+    "image": "assets/items/cr-008-stussy-cardigan.webp",
     "hotspot": {
       "left": 62.8,
       "top": 32,
-      "width": 11.3,
+      "width": 9.6,
       "height": 32
     },
-    "zone": "wardrobe"
+    "zone": "wardrobe",
+    "number": "008"
   },
   {
     "id": "cr-009",
     "display_name": "Sea NY Blouse",
     "category": "top",
     "story": "故事待补充",
-    "image": "assets/items/cr-009-sea-ny-blouse.png",
+    "image": "assets/items/cr-009-sea-ny-blouse.webp",
     "hotspot": {
       "left": 73,
       "top": 32,
-      "width": 11.1,
-      "height": 33
+      "width": 8.7,
+      "height": 31.4
     },
-    "zone": "wardrobe"
+    "zone": "wardrobe",
+    "number": "009"
   },
   {
     "id": "cr-010",
     "display_name": "Reformation Dress",
     "category": "dress",
     "story": "故事待补充",
-    "image": "assets/items/cr-010-reformation-dress.png",
+    "image": "assets/items/cr-010-reformation-dress.webp",
     "hotspot": {
       "left": 82.3,
       "top": 34,
       "width": 10.8,
       "height": 44
     },
-    "zone": "wardrobe"
+    "zone": "wardrobe",
+    "number": "010"
   }
 ]

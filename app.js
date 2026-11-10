@@ -53,39 +53,63 @@ dialog.addEventListener('close', () => {
 $('reveal').addEventListener('click', () => {
   const active = $('room').classList.toggle('reveal');
   $('reveal').setAttribute('aria-pressed', String(active));
+  $('reveal').textContent = active ? '隐藏收藏位置' : '显示收藏位置';
 });
+$('collection').addEventListener('toggle', () => {
+  document.querySelector('.summary-action').textContent = $('collection').open ? '收起' : '展开';
+});
+function validateItem(item) {
+  if (typeof item.image !== 'string' || !item.image || /^(?:[/\\]|[a-z][a-z\d+.-]*:)/i.test(item.image) || item.image.includes(':') || item.image.includes('\\') || item.image.split('/').includes('..')) {
+    throw new Error('Image must be a same-site relative path');
+  }
+  for (const key of ['left', 'top', 'width', 'height']) {
+    const value = item.hotspot?.[key];
+    if (!Number.isFinite(value) || value < 0 || value > 100 || (['width', 'height'].includes(key) && value === 0)) {
+      throw new Error(`Invalid hotspot ${key}`);
+    }
+  }
+  if (typeof item.number !== 'string' || !/^\d{3}$/.test(item.number)) throw new Error('Invalid item number');
+}
 async function init() {
   try {
     const response = await fetch('data/items.json');
     if (!response.ok) throw new Error('Could not load collection');
     const items = await response.json();
+    let loaded = 0;
     for (const item of items) {
-      const name = item.display_name || item.id;
-      const hotspot = document.createElement('button');
-      hotspot.type = 'button';
-      hotspot.className = 'hotspot';
-      hotspot.setAttribute('aria-label', `查看 ${name}`);
-      hotspot.setAttribute('aria-haspopup', 'dialog');
-      hotspot.title = name;
-      for (const key of ['left', 'top', 'width', 'height']) hotspot.style[key] = `${item.hotspot[key]}%`;
-      hotspot.addEventListener('click', () => openItem(item, hotspot));
-      $('hotspots').append(hotspot);
-      const li = document.createElement('li');
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'list-item';
-      button.setAttribute('aria-haspopup', 'dialog');
-      for (const [className, text] of [['number', item.id.slice(-3)], ['item-name', name], ['item-category', item.category]]) {
-        const span = document.createElement('span');
-        span.className = className;
-        span.textContent = text;
-        button.append(span);
+      try {
+        validateItem(item);
+        const name = item.display_name || item.id;
+        const hotspot = document.createElement('button');
+        hotspot.type = 'button';
+        hotspot.className = 'hotspot';
+        hotspot.setAttribute('aria-label', `查看 ${name}`);
+        hotspot.setAttribute('aria-haspopup', 'dialog');
+        hotspot.title = name;
+        for (const key of ['left', 'top', 'width', 'height']) hotspot.style[key] = `${item.hotspot[key]}%`;
+        hotspot.addEventListener('click', () => openItem(item, hotspot));
+        const li = document.createElement('li');
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'list-item';
+        button.setAttribute('aria-haspopup', 'dialog');
+        for (const [className, text] of [['number', item.number], ['item-name', name], ['item-category', item.category]]) {
+          const span = document.createElement('span');
+          span.className = className;
+          if (className === 'item-name' || className === 'item-category') span.lang = 'en';
+          span.textContent = text;
+          button.append(span);
+        }
+        button.addEventListener('click', () => openItem(item, button));
+        li.append(button);
+        $('hotspots').append(hotspot);
+        $('item-list').append(li);
+        loaded++;
+      } catch (error) {
+        console.error(`Skipping collection item ${item?.id ?? '(unknown)'}`, error);
       }
-      button.addEventListener('click', () => openItem(item, button));
-      li.append(button);
-      $('item-list').append(li);
     }
-    $('item-count').textContent = `${String(items.length).padStart(2, '0')} OBJECTS / COLLECTION INDEX`;
+    $('item-count').textContent = `${String(loaded).padStart(2, '0')} OBJECTS / COLLECTION INDEX`;
   } catch (error) {
     $('data-status').textContent = '收藏清单加载失败，请刷新重试。请通过本地静态服务器打开此页面。';
     console.error(error);
