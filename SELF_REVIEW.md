@@ -46,3 +46,9 @@ Inspected the actual 1280 × 720 room image. Values below are left/top/width/hei
 - CSP meta is `default-src 'self'`. Static audit confirms local scripts/styles/images/JSON, no inline scripts or HTML style attributes. Hotspot positions use individual element.style properties. No unsafe-inline exception is needed. Browser CSP/network verification remains with the coordinator.
 - Node syntax and DOM-stub behavior checks passed, including invalid paths/coordinates, skipping a bad entry while rendering subsequent entries, toggle labels, language tags, and explicit item numbering. Asset existence and unchanged names/categories/stories checked against original tracked JSON.
 - Review items 3 and 10 intentionally skipped. No server lifecycle actions, deployment, push, or remote changes performed.
+
+## v1.2 room swap
+
+- Room assets: `assets/room/style-v2-03.webp` (1280×720), `-800.webp` (800×450), `-640.webp` (640×360), regenerated from `incoming/style-v2-03-pinkchair.png` without modifying the original. Old `style-v2-01` site WebPs removed.
+- Hotspots: phase-correlation shift on hats/wardrobe crops was (0,0); per-item crops on the new image still cover each object. Coordinates unchanged; AABB overlap check remains zero across all pairs.
+- Favicon: hand-written `favicon.svg` plus matching `favicon.ico` (Pillow), both same-origin under CSP `default-src 'self'`.

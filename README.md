@@ -15,3 +15,5 @@ Open http://127.0.0.1:8000/ (opening index.html directly cannot fetch JSON).
 No remote, hosting, analytics, or external assets are used.
 
 Version 1.1 adds responsive room WebP sources, image-aligned non-overlapping hotspots, stronger muted text contrast, per-item validation, state-aware controls, English language tags, and a self-only Content Security Policy. Review items 3 and 10 are intentionally excluded.
+
+Version 1.2 swaps in the pink-chair room illustration (`style-v2-03` WebP srcset), keeps hotspot rectangles after visual re-check (no coordinate shift), and adds a same-origin SVG/ICO favicon.
