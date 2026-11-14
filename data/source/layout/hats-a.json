@@ -1,0 +1,89 @@
+{
+  "zone": "hats-a",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-006": {
+      "bbox": [
+        207,
+        498,
+        450,
+        763
+      ],
+      "confidence": "high",
+      "note": "Washed navy cap with cream NY monogram"
+    },
+    "batch2-017": {
+      "bbox": [
+        513,
+        501,
+        747,
+        761
+      ],
+      "confidence": "high",
+      "note": "Pink Patagonia cap with gray mesh sides"
+    },
+    "batch2-018": {
+      "bbox": [
+        815,
+        500,
+        1064,
+        763
+      ],
+      "confidence": "high",
+      "note": "Green cap with embroidered text and oval sticker"
+    },
+    "batch2-019": {
+      "bbox": [
+        1129,
+        500,
+        1376,
+        763
+      ],
+      "confidence": "high",
+      "note": "Navy US Open 2026 cap with yellow logo"
+    },
+    "batch2-021": {
+      "bbox": [
+        247,
+        179,
+        466,
+        409
+      ],
+      "confidence": "high",
+      "note": "Black cap with red and white vertical logo"
+    },
+    "batch2-022": {
+      "bbox": [
+        529,
+        179,
+        750,
+        409
+      ],
+      "confidence": "high",
+      "note": "Olive corduroy cap with white S"
+    },
+    "batch2-023": {
+      "bbox": [
+        817,
+        179,
+        1039,
+        407
+      ],
+      "confidence": "high",
+      "note": "Green patterned TaylorMade cap"
+    },
+    "batch2-024": {
+      "bbox": [
+        1110,
+        179,
+        1345,
+        409
+      ],
+      "confidence": "high",
+      "note": "Camouflage NYU cap with green brim sticker"
+    }
+  }
+}

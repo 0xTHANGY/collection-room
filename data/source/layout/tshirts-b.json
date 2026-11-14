@@ -1,0 +1,109 @@
+{
+  "zone": "tshirts-b",
+  "image_size": [
+    1672,
+    941
+  ],
+  "items": {
+    "batch2-174": {
+      "bbox": [
+        348,
+        105,
+        600,
+        369
+      ],
+      "confidence": "high",
+      "note": "Cream shirt with red fruit grid"
+    },
+    "batch2-175": {
+      "bbox": [
+        579,
+        105,
+        818,
+        367
+      ],
+      "confidence": "high",
+      "note": "Repeated red PIZZA text"
+    },
+    "batch2-176": {
+      "bbox": [
+        798,
+        113,
+        1023,
+        297
+      ],
+      "confidence": "high",
+      "note": "White cropped STAN shirt"
+    },
+    "batch2-177": {
+      "bbox": [
+        1020,
+        101,
+        1250,
+        366
+      ],
+      "confidence": "high",
+      "note": "White ringer with red collar and cuffs"
+    },
+    "batch2-178": {
+      "bbox": [
+        1228,
+        105,
+        1473,
+        369
+      ],
+      "confidence": "high",
+      "note": "Black shirt with white script chest logo"
+    },
+    "batch2-179": {
+      "bbox": [
+        311,
+        450,
+        561,
+        734
+      ],
+      "confidence": "high",
+      "note": "Cream shirt with chest pocket"
+    },
+    "batch2-180": {
+      "bbox": [
+        543,
+        450,
+        778,
+        736
+      ],
+      "confidence": "high",
+      "note": "Purple North Face shirt"
+    },
+    "batch2-181": {
+      "bbox": [
+        757,
+        449,
+        1017,
+        739
+      ],
+      "confidence": "high",
+      "note": "Nasty Nas portrait shirt"
+    },
+    "batch2-182": {
+      "bbox": [
+        998,
+        450,
+        1249,
+        739
+      ],
+      "confidence": "high",
+      "note": "Biggie Smalls collage shirt"
+    },
+    "batch2-183": {
+      "bbox": [
+        1227,
+        449,
+        1476,
+        736
+      ],
+      "confidence": "high",
+      "note": "Plain charcoal gray shirt"
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "zone": "jackets-c",
+  "image_size": [
+    1672,
+    941
+  ],
+  "items": {
+    "batch2-198": {
+      "bbox": [
+        434,
+        112,
+        623,
+        339
+      ],
+      "confidence": "high",
+      "note": "Navy zip jacket with hem drawcords"
+    },
+    "batch2-199": {
+      "bbox": [
+        622,
+        115,
+        809,
+        345
+      ],
+      "confidence": "high",
+      "note": "Beige snap jacket with Stussy logo"
+    },
+    "batch2-237": {
+      "bbox": [
+        1408,
+        125,
+        1610,
+        625
+      ],
+      "confidence": "high",
+      "note": "Long checked coat with teal lining"
+    },
+    "batch2-312": {
+      "bbox": [
+        1278,
+        116,
+        1464,
+        306
+      ],
+      "confidence": "high",
+      "note": "Teal windbreaker with vertical lettering"
+    },
+    "batch2-314": {
+      "bbox": [
+        815,
+        114,
+        984,
+        337
+      ],
+      "confidence": "high",
+      "note": "Mauve three button blazer"
+    },
+    "batch2-329": {
+      "bbox": [
+        428,
+        402,
+        622,
+        619
+      ],
+      "confidence": "high",
+      "note": "Brown fleece with white North Face logo"
+    },
+    "batch2-330": {
+      "bbox": [
+        613,
+        401,
+        797,
+        623
+      ],
+      "confidence": "high",
+      "note": "Sage ARMY windbreaker with dark chevrons"
+    },
+    "batch2-331": {
+      "bbox": [
+        794,
+        402,
+        986,
+        625
+      ],
+      "confidence": "high",
+      "note": "Pink four pocket jacket with tall snap collar"
+    },
+    "batch2-334": {
+      "bbox": [
+        996,
+        116,
+        1170,
+        332
+      ],
+      "confidence": "high",
+      "note": "Light blue denim trucker jacket"
+    },
+    "batch2-335": {
+      "bbox": [
+        984,
+        401,
+        1171,
+        622
+      ],
+      "confidence": "high",
+      "note": "Black denim with cream shearling collar"
+    },
+    "batch2-336": {
+      "bbox": [
+        1172,
+        111,
+        1362,
+        331
+      ],
+      "confidence": "high",
+      "note": "Green cream State varsity jacket"
+    },
+    "batch2-355": {
+      "bbox": [
+        1173,
+        403,
+        1373,
+        621
+      ],
+      "confidence": "high",
+      "note": "Brown leather jacket with patterned lining"
+    }
+  }
+}

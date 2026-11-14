@@ -1,0 +1,89 @@
+{
+  "zone": "hats-g",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "cr-002": {
+      "bbox": [
+        284,
+        469,
+        518,
+        702
+      ],
+      "confidence": "high",
+      "note": "Black Supreme cap"
+    },
+    "cr-003": {
+      "bbox": [
+        566,
+        464,
+        794,
+        703
+      ],
+      "confidence": "high",
+      "note": "Cream globe cap, green brim"
+    },
+    "cr-004": {
+      "bbox": [
+        841,
+        464,
+        1073,
+        704
+      ],
+      "confidence": "high",
+      "note": "Blue ArtBlocks cap"
+    },
+    "batch2-001": {
+      "bbox": [
+        1116,
+        463,
+        1366,
+        700
+      ],
+      "confidence": "high",
+      "note": "Navy New York or Nowhere knit"
+    },
+    "batch2-058": {
+      "bbox": [
+        305,
+        139,
+        531,
+        375
+      ],
+      "confidence": "high",
+      "note": "Black knit, outlined face patch"
+    },
+    "batch2-059": {
+      "bbox": [
+        578,
+        132,
+        788,
+        378
+      ],
+      "confidence": "high",
+      "note": "Red Kangol, cream stripes"
+    },
+    "batch2-061": {
+      "bbox": [
+        840,
+        130,
+        1078,
+        374
+      ],
+      "confidence": "high",
+      "note": "Mustard Brooklyn lettering"
+    },
+    "batch2-063": {
+      "bbox": [
+        1125,
+        116,
+        1344,
+        377
+      ],
+      "confidence": "high",
+      "note": "Blue pompom, White Castle cuff"
+    }
+  }
+}

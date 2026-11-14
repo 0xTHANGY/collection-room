@@ -29,7 +29,8 @@ function invertTransform(from, to) {
 }
 function originRectFor(trigger, item) {
   if (trigger?.classList.contains('list-item')) return trigger.getBoundingClientRect();
-  const layer = item?.id ? layersById.get(item.id) : null;
+  const scope = trigger?.closest('#zone-view') || $('hub-view');
+  const layer = item?.id ? scope.querySelector(`[data-layer-item-id="${item.id}"] .layer`) || layersById.get(item.id) : null;
   if (layer) return layer.getBoundingClientRect();
   return trigger?.getBoundingClientRect() ?? null;
 }
@@ -92,6 +93,7 @@ function playFlip(from, opening) {
   return null;
 }
 function finishOpen() {
+  if (!dialog.open) return;
   flipState = 'open';
   if (closeQueued) {
     closeQueued = false;
@@ -102,11 +104,15 @@ function openItem(item, trigger) {
   if (flipState === 'opening' || flipState === 'closing') return;
   if (flipState === 'open') return;
   opener = trigger;
+  if (item.card_images && location.hash !== `#/item/${item.id}`) history.pushState({ collectionCard: true }, '', `#/item/${item.id}`);
   currentItem = item;
   originSnapshot = originRectFor(trigger, item);
-  $('detail-id').textContent = item.id;
+  dialog.dataset.itemId = item.id;
+  $('detail-brand').textContent = item.brand || '';
+  $('detail-brand').hidden = !item.brand;
+  $('detail-id').textContent = `${item.id} / ${item.number}`;
   $('detail-name').textContent = item.display_name || item.id;
-  $('detail-category').textContent = item.category;
+  $('detail-category').textContent = categoryLabel(item.category);
   $('detail-story').textContent = typeof item.story === 'string' ? item.story : '故事待补充';
   const photo = $('detail-image');
   const status = $('photo-status');
@@ -118,7 +124,9 @@ function openItem(item, trigger) {
   const loader = new Image();
   loader.onload = () => {
     if (request !== imageRequest) return;
-    photo.src = item.image;
+    photo.sizes = '(max-width: 650px) 90vw, 430px';
+    photo.srcset = item.card_images ? srcset(item.card_images) : `${item.image} 800w`;
+    photo.src = item.card_images ? item.card_images[1].src : item.image;
     photo.hidden = false;
     status.hidden = true;
   };
@@ -126,7 +134,9 @@ function openItem(item, trigger) {
     if (request !== imageRequest) return;
     status.textContent = `照片暂时无法显示 · ${item.display_name || item.id}`;
   };
-  loader.src = item.image;
+  loader.sizes = '(max-width: 650px) 90vw, 430px';
+  loader.srcset = item.card_images ? srcset(item.card_images) : `${item.image} 800w`;
+  loader.src = item.card_images ? item.card_images[1].src : item.image;
   flipState = 'opening';
   closeQueued = false;
   dialog.showModal();
@@ -172,6 +182,11 @@ dialog.addEventListener('cancel', (event) => {
   requestClose();
 });
 dialog.addEventListener('close', () => {
+  if (!routing && currentItem?.card_images && location.hash === `#/item/${currentItem.id}`) {
+    if (history.state?.collectionCard) history.back();
+    else history.replaceState(null, '', zoneHash(catalog.zones.find(z => z.id === currentItem.zone)));
+  }
+  routing = false;
   imageRequest++;
   document.body.classList.remove('modal-open');
   dialog.classList.remove('is-open');
@@ -212,9 +227,10 @@ function validateItem(item) {
     if (item.layer.motion !== 'hang' && item.layer.motion !== 'rest') throw new Error('Invalid layer motion');
   }
 }
-function createLayer(item) {
+function createLayer(item, container = $('layers')) {
   const wrap = document.createElement('div');
   wrap.className = 'layer-wrap';
+  wrap.dataset.layerItemId = item.id;
   for (const key of ['left', 'top', 'width', 'height']) wrap.style[key] = `${item.layer[key]}%`;
   const layer = document.createElement('img');
   layer.className = 'layer';
@@ -222,9 +238,12 @@ function createLayer(item) {
   layer.alt = '';
   layer.draggable = false;
   layer.style.transformOrigin = `${item.layer.pivotX}% ${item.layer.pivotY}%`;
-  if (item.layer.motion === 'rest') layer.classList.add('layer-rest');
+  if (item.layer.motion !== 'hang') layer.classList.add('layer-rest');
   wrap.append(layer);
-  $('layers').append(wrap);
+  container.append(wrap);
+  if (item.layer.fallback) wrap.classList.add('layer-fallback');
+  layer.srcset = `${item.layer.image} 1x`;
+  layer.sizes = '(max-width: 700px) 100vw, 92vw';
   layer._wrap = wrap;
   layersById.set(item.id, layer);
   return layer;
@@ -296,7 +315,7 @@ function attachHang(layer) {
   const impulse = (dx, dtMs) => {
     if (reduceMotion.matches) return;
     const speed = Math.abs(dx) / Math.max(dtMs / 1000, 0.001);
-    state.vel -= dx * HANG.push * Math.min(1, 0.3 + speed / 900);
+    state.vel -= dx * (layer._wrap?.classList.contains('layer-fallback') ? 0.25 : 1) * HANG.push * Math.min(1, 0.3 + speed / 900);
     state.vel = Math.max(-HANG.max, Math.min(HANG.max, state.vel));
     kick();
   };
@@ -307,7 +326,7 @@ function attachHang(layer) {
   };
   return { layer, state, impulse, setPressed };
 }
-function setupMotion(entries) {
+function setupMotion(entries, surface = $('room')) {
   const hang = [];
   const rest = [];
   for (const entry of entries) {
@@ -348,7 +367,7 @@ function setupMotion(entries) {
     entry.hotspot.addEventListener('pointercancel', () => entry.spring.setPressed(false));
   }
   let last = null;
-  $('room').addEventListener('pointermove', (event) => {
+  surface.addEventListener('pointermove', (event) => {
     if (event.pointerType === 'touch' || reduceMotion.matches) {
       last = { x: event.clientX, y: event.clientY, t: event.timeStamp };
       return;
@@ -362,7 +381,7 @@ function setupMotion(entries) {
       entry.spring.impulse(last.x - prev.x, event.timeStamp - prev.t);
     }
   }, { passive: true });
-  $('room').addEventListener('pointerleave', () => { last = null; });
+  surface.addEventListener('pointerleave', () => { last = null; });
 }
 async function init() {
   try {
@@ -379,7 +398,8 @@ async function init() {
         const hotspot = document.createElement('button');
         hotspot.type = 'button';
         hotspot.className = 'hotspot';
-        hotspot.setAttribute('aria-label', `查看 ${name}`);
+        hotspot.setAttribute('aria-label', name);
+        hotspot.dataset.itemId = item.id;
         hotspot.setAttribute('aria-haspopup', 'dialog');
         hotspot.title = name;
         for (const key of ['left', 'top', 'width', 'height']) hotspot.style[key] = `${item.hotspot[key]}%`;
@@ -413,4 +433,70 @@ async function init() {
     console.error(error);
   }
 }
-init();
+let routing = false;
+let catalog = null;
+let activeZone = null;
+const srcset = (images) => [...new Map(images.map(i => [i.width, i])).values()].map(i => `${i.src} ${i.width}w`).join(', ');
+const categoryLabel = (id) => catalog?.categories.find(c => c.id === id)?.label || id;
+function makeButton(text, action, className = '') {
+  const b = document.createElement('button'); b.type = 'button'; b.textContent = text; b.className = className; b.addEventListener('click', action); return b;
+}
+function zoneHash(z) { return `#/${z.category}/${z.letter}`; }
+function renderZone(zone) {
+  activeZone = zone.id;
+  const view = $('zone-view'); view.replaceChildren();
+  const nav = document.createElement('nav'); nav.className = 'zone-nav'; nav.setAttribute('aria-label', '分室导航');
+  const home = document.createElement('a'); home.href = '#/'; home.textContent = '收藏房间 /'; nav.append(home);
+  const title = document.createElement('h1'); title.textContent = `${categoryLabel(zone.category)} · ${zone.letter.toUpperCase()}`; nav.append(title); view.append(nav);
+  const tabs = document.createElement('nav'); tabs.className = 'zone-tabs'; tabs.setAttribute('aria-label', '区域');
+  const siblings = catalog.zones.filter(z => z.category === zone.category); const index = siblings.indexOf(zone);
+  const prev = makeButton('← 上一区', () => { location.hash = zoneHash(siblings[index - 1]); }); prev.disabled = index === 0; tabs.append(prev);
+  for (const z of siblings) { const a = document.createElement('a'); a.href = zoneHash(z); a.textContent = z.letter.toUpperCase(); if (z === zone) a.setAttribute('aria-current', 'page'); tabs.append(a); }
+  const next = makeButton('下一区 →', () => { location.hash = zoneHash(siblings[index + 1]); }); next.disabled = index === siblings.length - 1; tabs.append(next); view.append(tabs);
+  const room = document.createElement('div'); room.className = 'room zone-room'; room.style.aspectRatio = String(zone.aspect); room.dataset.zoneId = zone.id;
+  const image = document.createElement('img'); image.src = zone.images[1].src; image.srcset = srcset(zone.images); image.sizes = '(max-width: 700px) 100vw, min(1360px, 92vw)'; image.width = zone.natural_size[0]; image.height = zone.natural_size[1]; image.alt = `${categoryLabel(zone.category)} · ${zone.letter.toUpperCase()}`; room.append(image);
+  const layers = document.createElement('div'); layers.className = 'zone-layers'; layers.setAttribute('aria-hidden','true'); room.append(layers);
+  const hotspots = document.createElement('div'); hotspots.className = 'zone-hotspots'; room.append(hotspots); view.append(room);
+  const note = document.createElement('p'); note.className = 'list-note'; note.textContent = zone.has_layout ? '点击物件，或从清单打开收藏卡片。' : '物件位置待补充，请从清单打开收藏卡片。'; view.append(note);
+  const list = document.createElement('ul'); list.className = 'zone-item-list'; view.append(list);
+  const entries = [];
+  for (const id of zone.items) {
+    const item = catalog.items.find(i => i.id === id); let hotspot = null;
+    const layer = item.layer ? createLayer(item, layers) : null;
+    if (item.hotspot) {
+      hotspot = makeButton('', () => openItem(item, hotspot), 'hotspot'); hotspot.dataset.itemId = id; hotspot.setAttribute('aria-label', item.name); hotspot.setAttribute('aria-haspopup','dialog');
+      for (const key of ['left','top','width','height']) hotspot.style[key] = `${item.hotspot[key]}%`; hotspots.append(hotspot);
+    }
+    const li = document.createElement('li'); const b = makeButton(`${item.number}  ${item.name}`, () => openItem(item,b), 'list-item'); b.dataset.itemId = id; b.setAttribute('aria-haspopup','dialog'); li.append(b); list.append(li);
+    if (layer && hotspot) entries.push({item,layer,hotspot});
+  }
+  setupMotion(entries, room);
+}
+function route() {
+  if (!catalog) return;
+  if (dialog.open) { routing = true; dialog.close(); }
+  const parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean);
+  const item = parts[0] === 'item' ? catalog.items.find(i => i.id === parts[1]) : null;
+  const zone = item ? catalog.zones.find(z => z.id === item.zone) : catalog.zones.find(z => z.category === parts[0] && (!parts[1] || z.letter === parts[1] || z.id === parts[1]));
+  const fromHub = !$('hub-view').hidden;
+  $('hub-view').hidden = !!zone; $('zone-view').hidden = !zone;
+  if (zone) {
+    if (activeZone !== zone.id) { renderZone(zone); window.scrollTo(0, 0); }
+    if (fromHub) window.scrollTo(0, 0);
+    if (item) requestAnimationFrame(() => openItem(item, $('zone-view').querySelector(`button[data-item-id="${item.id}"]`)));
+  } else window.scrollTo(0, 0);
+}
+async function initCatalog() {
+  try {
+    const response = await fetch('data/catalog.json'); if (!response.ok) throw new Error('Catalog unavailable'); catalog = await response.json();
+    for (const c of catalog.categories) {
+      const z = catalog.zones.find(z => z.id === c.cover_zone); const a = document.createElement('a'); a.className = 'room-tile'; a.href = `#/${c.id}`;
+      const cover = z.cover || z.images[2];
+      const img = document.createElement('img'); img.loading = 'lazy'; img.src = cover.src; img.srcset = `${cover.src} ${cover.width}w`; img.sizes = '(max-width: 650px) 45vw, 300px'; img.width = z.images[2].width; img.height = z.images[2].height; img.alt = '';
+      const label = document.createElement('span'); label.textContent = `${c.label} / ${c.label_en}`; const count = document.createElement('small'); count.textContent = `${c.count} 件`; a.append(img,label,count); $('room-tiles').append(a);
+    }
+    route();
+  } catch (error) { $('data-status').textContent = '分室清单加载失败，请刷新重试。'; console.error(error); }
+}
+window.addEventListener('hashchange', route);
+init(); initCatalog();

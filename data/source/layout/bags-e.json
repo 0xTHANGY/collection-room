@@ -1,0 +1,99 @@
+{
+  "zone": "bags-e",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-380": {
+      "bbox": [
+        126,
+        106,
+        325,
+        341
+      ],
+      "confidence": "high",
+      "note": "Cream tote with seated figure and red bowl"
+    },
+    "batch2-381": {
+      "bbox": [
+        342,
+        106,
+        634,
+        478
+      ],
+      "confidence": "high",
+      "note": "White IKEA tote with black handles and blue miniature bag"
+    },
+    "batch2-382": {
+      "bbox": [
+        660,
+        105,
+        921,
+        489
+      ],
+      "confidence": "high",
+      "note": "Sage tote with pink drawings and attached pouch"
+    },
+    "batch2-383": {
+      "bbox": [
+        948,
+        108,
+        1125,
+        495
+      ],
+      "confidence": "high",
+      "note": "Sheer FLEURISTE bag with yellow flowers"
+    },
+    "batch2-384": {
+      "bbox": [
+        131,
+        580,
+        473,
+        788
+      ],
+      "confidence": "high",
+      "note": "Long white BAGUETTE bag with ties and handles"
+    },
+    "batch2-385": {
+      "bbox": [
+        510,
+        542,
+        759,
+        786
+      ],
+      "confidence": "high",
+      "note": "Navy pouch with yellow patterned cord"
+    },
+    "batch2-386": {
+      "bbox": [
+        812,
+        528,
+        1036,
+        783
+      ],
+      "confidence": "high",
+      "note": "Gray topologie pouch with pale blue rope"
+    },
+    "batch2-387": {
+      "bbox": [
+        1068,
+        529,
+        1377,
+        782
+      ],
+      "confidence": "high",
+      "note": "Black topologie bag with navy strap and patterned handle"
+    },
+    "cr-007": {
+      "bbox": [
+        1156,
+        107,
+        1464,
+        493
+      ],
+      "confidence": "high",
+      "note": "Blue plaid tote with green bands and BODE label"
+    }
+  }
+}

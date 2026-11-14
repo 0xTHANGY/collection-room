@@ -1,0 +1,89 @@
+{
+  "zone": "accessories-c",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-128": {
+      "bbox": [
+        158,
+        74,
+        404,
+        361
+      ],
+      "confidence": "high",
+      "note": "Fuzzy cream olive plum green colorblocks"
+    },
+    "batch2-129": {
+      "bbox": [
+        465,
+        87,
+        765,
+        353
+      ],
+      "confidence": "high",
+      "note": "Red plaid pointed scarf; white label"
+    },
+    "batch2-240": {
+      "bbox": [
+        801,
+        85,
+        1121,
+        329
+      ],
+      "confidence": "high",
+      "note": "Orange ribbed flared neck warmer"
+    },
+    "batch2-241": {
+      "bbox": [
+        1207,
+        82,
+        1395,
+        426
+      ],
+      "confidence": "high",
+      "note": "Sage quilted scarf; white label"
+    },
+    "batch2-242": {
+      "bbox": [
+        130,
+        459,
+        447,
+        757
+      ],
+      "confidence": "high",
+      "note": "Charcoal stripes; left fringe and Our Legacy label"
+    },
+    "batch2-278": {
+      "bbox": [
+        499,
+        427,
+        707,
+        743
+      ],
+      "confidence": "high",
+      "note": "Pink fuzzy zip neck warmer"
+    },
+    "batch2-361": {
+      "bbox": [
+        762,
+        428,
+        1160,
+        794
+      ],
+      "confidence": "high",
+      "note": "Square navy scarf; colorful space horse print"
+    },
+    "batch2-363": {
+      "bbox": [
+        1220,
+        431,
+        1398,
+        840
+      ],
+      "confidence": "high",
+      "note": "Navy white Chanel ribbon; pointed ends"
+    }
+  }
+}

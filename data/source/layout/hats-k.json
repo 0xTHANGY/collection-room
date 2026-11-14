@@ -1,0 +1,89 @@
+{
+  "zone": "hats-k",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-147": {
+      "bbox": [
+        248,
+        443,
+        504,
+        673
+      ],
+      "confidence": "high",
+      "note": "Lavender ribbed bell hat with patch"
+    },
+    "batch2-049": {
+      "bbox": [
+        542,
+        441,
+        762,
+        701
+      ],
+      "confidence": "high",
+      "note": "Charcoal earflap cap with blue bear patch"
+    },
+    "batch2-135": {
+      "bbox": [
+        817,
+        439,
+        1015,
+        860
+      ],
+      "confidence": "high",
+      "note": "Navy miu miu knit hat with braided tassels"
+    },
+    "batch2-139": {
+      "bbox": [
+        1080,
+        420,
+        1302,
+        795
+      ],
+      "confidence": "high",
+      "note": "Pale green fuzzy spotted hat with ties"
+    },
+    "batch2-041": {
+      "bbox": [
+        315,
+        129,
+        517,
+        339
+      ],
+      "confidence": "high",
+      "note": "Black leather segmented cap"
+    },
+    "batch2-042": {
+      "bbox": [
+        564,
+        126,
+        776,
+        328
+      ],
+      "confidence": "high",
+      "note": "Rust brown segmented cap"
+    },
+    "batch2-052": {
+      "bbox": [
+        839,
+        123,
+        1028,
+        336
+      ],
+      "confidence": "high",
+      "note": "Tweed crown with brown bill"
+    },
+    "batch2-229": {
+      "bbox": [
+        1100,
+        134,
+        1304,
+        339
+      ],
+      "confidence": "high",
+      "note": "Charcoal cylindrical bucket hat"
+    }
+  }
+}

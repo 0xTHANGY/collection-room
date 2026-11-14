@@ -1,0 +1,109 @@
+{
+  "zone": "hats-l",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-068": {
+      "bbox": [
+        208,
+        151,
+        367,
+        387
+      ],
+      "confidence": "high",
+      "note": "Green knit hood with white double-C logo"
+    },
+    "batch2-134": {
+      "bbox": [
+        440,
+        151,
+        616,
+        386
+      ],
+      "confidence": "high",
+      "note": "Mustard ribbed balaclava"
+    },
+    "batch2-150": {
+      "bbox": [
+        646,
+        193,
+        879,
+        324
+      ],
+      "confidence": "high",
+      "note": "Black beret with cream emblem"
+    },
+    "batch2-149": {
+      "bbox": [
+        899,
+        169,
+        1148,
+        352
+      ],
+      "confidence": "high",
+      "note": "Taupe broad brim felt hat"
+    },
+    "batch2-212": {
+      "bbox": [
+        1167,
+        150,
+        1399,
+        433
+      ],
+      "confidence": "high",
+      "note": "Black outdoor hat with chin cord"
+    },
+    "batch2-226": {
+      "bbox": [
+        182,
+        503,
+        368,
+        680
+      ],
+      "confidence": "high",
+      "note": "Olive rolled cylindrical hat"
+    },
+    "batch2-227": {
+      "bbox": [
+        390,
+        507,
+        646,
+        681
+      ],
+      "confidence": "high",
+      "note": "Black broad brim rounded crown hat"
+    },
+    "batch2-228": {
+      "bbox": [
+        657,
+        504,
+        912,
+        679
+      ],
+      "confidence": "high",
+      "note": "Straw hat with beige ribbon"
+    },
+    "batch2-233": {
+      "bbox": [
+        922,
+        501,
+        1168,
+        736
+      ],
+      "confidence": "high",
+      "note": "Black flat crown hat with gold chain"
+    },
+    "batch2-144": {
+      "bbox": [
+        1191,
+        500,
+        1420,
+        681
+      ],
+      "confidence": "high",
+      "note": "Leather crown with cream shearling cuff"
+    }
+  }
+}

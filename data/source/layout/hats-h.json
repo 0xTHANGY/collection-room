@@ -1,0 +1,89 @@
+{
+  "zone": "hats-h",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-064": {
+      "bbox": [
+        190,
+        455,
+        465,
+        730
+      ],
+      "confidence": "high",
+      "note": "Rust Supreme knit"
+    },
+    "batch2-065": {
+      "bbox": [
+        499,
+        450,
+        742,
+        731
+      ],
+      "confidence": "high",
+      "note": "Olive Peace and Quiet knit"
+    },
+    "batch2-069": {
+      "bbox": [
+        782,
+        450,
+        1026,
+        732
+      ],
+      "confidence": "high",
+      "note": "Black checker knit, diagonal Vuitton text"
+    },
+    "batch2-070": {
+      "bbox": [
+        1075,
+        451,
+        1332,
+        732
+      ],
+      "confidence": "high",
+      "note": "Blue patterned double C knit"
+    },
+    "batch2-071": {
+      "bbox": [
+        326,
+        157,
+        542,
+        380
+      ],
+      "confidence": "high",
+      "note": "Navy knit, multicolored cuff patch"
+    },
+    "batch2-072": {
+      "bbox": [
+        582,
+        157,
+        815,
+        379
+      ],
+      "confidence": "high",
+      "note": "Burgundy knit, cream leaves and double C"
+    },
+    "batch2-136": {
+      "bbox": [
+        869,
+        156,
+        1106,
+        381
+      ],
+      "confidence": "high",
+      "note": "Red Stockholm Surfboard Club knit"
+    },
+    "batch2-137": {
+      "bbox": [
+        1167,
+        15,
+        1401,
+        382
+      ],
+      "confidence": "high",
+      "note": "Gray cable knit, tan fur pompom"
+    }
+  }
+}

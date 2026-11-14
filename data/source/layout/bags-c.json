@@ -1,0 +1,89 @@
+{
+  "zone": "bags-c",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-364": {
+      "bbox": [
+        178,
+        62,
+        399,
+        437
+      ],
+      "confidence": "high",
+      "note": "Cream Brain Dead head illustration tote"
+    },
+    "batch2-365": {
+      "bbox": [
+        485,
+        61,
+        719,
+        435
+      ],
+      "confidence": "high",
+      "note": "Navy John Waters quote tote"
+    },
+    "batch2-366": {
+      "bbox": [
+        794,
+        62,
+        1040,
+        447
+      ],
+      "confidence": "high",
+      "note": "Red Supreme bag with black shoulder strap"
+    },
+    "batch2-367": {
+      "bbox": [
+        1120,
+        61,
+        1383,
+        443
+      ],
+      "confidence": "high",
+      "note": "Cream 1LDK map print tote"
+    },
+    "batch2-368": {
+      "bbox": [
+        175,
+        480,
+        402,
+        860
+      ],
+      "confidence": "high",
+      "note": "Cream tote with illustrated man and 20 years badge"
+    },
+    "batch2-369": {
+      "bbox": [
+        479,
+        480,
+        720,
+        860
+      ],
+      "confidence": "high",
+      "note": "ALT & NEU tote with blue circle"
+    },
+    "batch2-370": {
+      "bbox": [
+        776,
+        481,
+        1078,
+        862
+      ],
+      "confidence": "high",
+      "note": "Wide navy aprl tote"
+    },
+    "batch2-371": {
+      "bbox": [
+        1131,
+        481,
+        1361,
+        859
+      ],
+      "confidence": "high",
+      "note": "Cream Acne Paper seated figure tote"
+    }
+  }
+}

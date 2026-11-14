@@ -1,0 +1,89 @@
+{
+  "zone": "shirts-a",
+  "image_size": [
+    1672,
+    941
+  ],
+  "items": {
+    "batch2-236": {
+      "bbox": [
+        331,
+        139,
+        586,
+        712
+      ],
+      "confidence": "high",
+      "note": "Black floral shirt with long asymmetric hem"
+    },
+    "batch2-260": {
+      "bbox": [
+        695,
+        119,
+        839,
+        354
+      ],
+      "confidence": "high",
+      "note": "Olive scoop neck tank"
+    },
+    "batch2-261": {
+      "bbox": [
+        857,
+        134,
+        1103,
+        326
+      ],
+      "confidence": "high",
+      "note": "Taupe gathered off shoulder puff sleeve blouse"
+    },
+    "batch2-292": {
+      "bbox": [
+        1100,
+        111,
+        1333,
+        370
+      ],
+      "confidence": "high",
+      "note": "Green Michigan State rugby shirt"
+    },
+    "batch2-328": {
+      "bbox": [
+        1335,
+        109,
+        1592,
+        376
+      ],
+      "confidence": "high",
+      "note": "White shirt with cream textured side panels"
+    },
+    "batch2-332": {
+      "bbox": [
+        682,
+        438,
+        950,
+        738
+      ],
+      "confidence": "high",
+      "note": "Blue striped shirt with white collar cuffs"
+    },
+    "batch2-333": {
+      "bbox": [
+        967,
+        439,
+        1218,
+        740
+      ],
+      "confidence": "high",
+      "note": "Plain pale blue button shirt"
+    },
+    "cr-009": {
+      "bbox": [
+        1247,
+        451,
+        1515,
+        720
+      ],
+      "confidence": "high",
+      "note": "Pale blue broad sailor collar blouse"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "zone": "accessories-d",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-130": {
+      "bbox": [
+        113,
+        301,
+        366,
+        449
+      ],
+      "confidence": "high",
+      "note": "Navy ribbed loop; small white tag"
+    },
+    "batch2-131": {
+      "bbox": [
+        393,
+        307,
+        644,
+        443
+      ],
+      "confidence": "high",
+      "note": "Navy band; red white vertical stripes"
+    },
+    "batch2-132": {
+      "bbox": [
+        662,
+        313,
+        915,
+        438
+      ],
+      "confidence": "high",
+      "note": "Olive cream pink Fair Isle zigzags"
+    },
+    "batch2-133": {
+      "bbox": [
+        935,
+        298,
+        1187,
+        446
+      ],
+      "confidence": "high",
+      "note": "Brown embroidery; cream shearling edges"
+    },
+    "batch2-238": {
+      "bbox": [
+        1207,
+        313,
+        1468,
+        442
+      ],
+      "confidence": "high",
+      "note": "Dark ribbed band; square white face patch"
+    }
+  }
+}

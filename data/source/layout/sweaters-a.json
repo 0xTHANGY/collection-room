@@ -1,0 +1,109 @@
+{
+  "zone": "sweaters-a",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-012": {
+      "bbox": [
+        231,
+        109,
+        479,
+        398
+      ],
+      "confidence": "high",
+      "note": "Brown polo knit with striped collar"
+    },
+    "batch2-082": {
+      "bbox": [
+        495,
+        98,
+        694,
+        396
+      ],
+      "confidence": "high",
+      "note": "Burgundy turtleneck with pale curved seams"
+    },
+    "batch2-253": {
+      "bbox": [
+        720,
+        110,
+        915,
+        379
+      ],
+      "confidence": "high",
+      "note": "Green and cream split vest with round crest"
+    },
+    "batch2-254": {
+      "bbox": [
+        934,
+        97,
+        1188,
+        389
+      ],
+      "confidence": "high",
+      "note": "Cream chunky turtleneck"
+    },
+    "batch2-255": {
+      "bbox": [
+        1191,
+        110,
+        1434,
+        397
+      ],
+      "confidence": "high",
+      "note": "Red sweater with cream N graphic"
+    },
+    "batch2-256": {
+      "bbox": [
+        225,
+        497,
+        476,
+        755
+      ],
+      "confidence": "high",
+      "note": "Cream cardigan with orange animal embroidery"
+    },
+    "batch2-257": {
+      "bbox": [
+        481,
+        475,
+        714,
+        754
+      ],
+      "confidence": "high",
+      "note": "Black polo knit with pink and cream stripes"
+    },
+    "batch2-259": {
+      "bbox": [
+        727,
+        474,
+        901,
+        744
+      ],
+      "confidence": "high",
+      "note": "Cream sleeveless turtleneck with brown and black chevrons"
+    },
+    "batch2-271": {
+      "bbox": [
+        913,
+        498,
+        1164,
+        770
+      ],
+      "confidence": "high",
+      "note": "Lavender sweater with dark fruit print"
+    },
+    "batch2-272": {
+      "bbox": [
+        1171,
+        483,
+        1454,
+        753
+      ],
+      "confidence": "high",
+      "note": "Green and charcoal patchwork cable knit"
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "zone": "tshirts-d",
+  "image_size": [
+    1672,
+    941
+  ],
+  "items": {
+    "batch2-263": {
+      "bbox": [
+        480,
+        61,
+        716,
+        337
+      ],
+      "confidence": "high",
+      "note": "Washed charcoal tee with rectangular chest graphic"
+    },
+    "batch2-264": {
+      "bbox": [
+        699,
+        61,
+        923,
+        279
+      ],
+      "confidence": "high",
+      "note": "White cropped tee with red PARSONS lettering"
+    },
+    "batch2-265": {
+      "bbox": [
+        909,
+        61,
+        1139,
+        343
+      ],
+      "confidence": "high",
+      "note": "Olive tee with multicolour chest graphic"
+    },
+    "batch2-266": {
+      "bbox": [
+        1125,
+        61,
+        1353,
+        343
+      ],
+      "confidence": "high",
+      "note": "Cream tee with small black script logo"
+    },
+    "batch2-267": {
+      "bbox": [
+        1340,
+        61,
+        1578,
+        343
+      ],
+      "confidence": "high",
+      "note": "Charcoal tee with faded pink lettering"
+    },
+    "batch2-268": {
+      "bbox": [
+        463,
+        356,
+        695,
+        660
+      ],
+      "confidence": "high",
+      "note": "Navy tee with orange graphic and yellow neck tag"
+    },
+    "batch2-270": {
+      "bbox": [
+        687,
+        356,
+        909,
+        661
+      ],
+      "confidence": "high",
+      "note": "Heather grey tee with brown script logo"
+    },
+    "batch2-283": {
+      "bbox": [
+        898,
+        356,
+        1122,
+        666
+      ],
+      "confidence": "high",
+      "note": "Black long sleeve with white crossed chest lettering"
+    },
+    "batch2-284": {
+      "bbox": [
+        1127,
+        356,
+        1346,
+        678
+      ],
+      "confidence": "high",
+      "note": "Black textured long sleeve with pocket and curved hem"
+    },
+    "batch2-290": {
+      "bbox": [
+        1353,
+        356,
+        1590,
+        673
+      ],
+      "confidence": "high",
+      "note": "Black long sleeve with large white script logo"
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "zone": "hoodies-c",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-293": {
+      "bbox": [
+        282,
+        88,
+        534,
+        378
+      ],
+      "confidence": "high",
+      "note": "Grey kangaroo pocket hoodie"
+    },
+    "batch2-294": {
+      "bbox": [
+        553,
+        80,
+        781,
+        382
+      ],
+      "confidence": "high",
+      "note": "Navy hoodie with vertical chest zip"
+    },
+    "batch2-295": {
+      "bbox": [
+        800,
+        94,
+        1048,
+        378
+      ],
+      "confidence": "high",
+      "note": "Grey crewneck with stacked black lettering"
+    },
+    "batch2-296": {
+      "bbox": [
+        1062,
+        96,
+        1324,
+        372
+      ],
+      "confidence": "high",
+      "note": "Green crewneck with white helmet graphic"
+    },
+    "batch2-297": {
+      "bbox": [
+        270,
+        454,
+        539,
+        738
+      ],
+      "confidence": "high",
+      "note": "Charcoal short sleeve hoodie"
+    },
+    "batch2-298": {
+      "bbox": [
+        531,
+        464,
+        790,
+        739
+      ],
+      "confidence": "high",
+      "note": "Yellow top with gathered cuffs"
+    },
+    "batch2-299": {
+      "bbox": [
+        799,
+        459,
+        1048,
+        740
+      ],
+      "confidence": "high",
+      "note": "Cream sweatshirt with red cherry text"
+    },
+    "cr-006": {
+      "bbox": [
+        1055,
+        454,
+        1339,
+        747
+      ],
+      "confidence": "high",
+      "note": "Navy collared Yale sweatshirt"
+    }
+  }
+}

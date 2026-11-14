@@ -1,0 +1,129 @@
+{
+  "zone": "jackets-a",
+  "image_size": [
+    1717,
+    916
+  ],
+  "items": {
+    "batch2-007": {
+      "bbox": [
+        288,
+        275,
+        433,
+        442
+      ],
+      "confidence": "high",
+      "note": "Beige quilted cardigan with yellow chest patch"
+    },
+    "batch2-009": {
+      "bbox": [
+        410,
+        278,
+        502,
+        428
+      ],
+      "confidence": "high",
+      "note": "Dusty rose fleece vest with small chest label"
+    },
+    "batch2-010": {
+      "bbox": [
+        481,
+        274,
+        611,
+        450
+      ],
+      "confidence": "high",
+      "note": "Silver and mauve color block windbreaker"
+    },
+    "batch2-013": {
+      "bbox": [
+        597,
+        275,
+        700,
+        440
+      ],
+      "confidence": "high",
+      "note": "Brown hooded zip shell with small chest logo"
+    },
+    "batch2-014": {
+      "bbox": [
+        749,
+        277,
+        844,
+        437
+      ],
+      "confidence": "high",
+      "note": "Black vest with orange art print and white bird"
+    },
+    "batch2-015": {
+      "bbox": [
+        839,
+        275,
+        952,
+        459
+      ],
+      "confidence": "high",
+      "note": "Black blazer with long lapels"
+    },
+    "batch2-073": {
+      "bbox": [
+        1050,
+        274,
+        1168,
+        562
+      ],
+      "confidence": "high",
+      "note": "Ochre long coat with broad lapels"
+    },
+    "batch2-074": {
+      "bbox": [
+        1199,
+        274,
+        1330,
+        607
+      ],
+      "confidence": "high",
+      "note": "Pink long coat with draped belt"
+    },
+    "batch2-075": {
+      "bbox": [
+        1318,
+        276,
+        1438,
+        611
+      ],
+      "confidence": "high",
+      "note": "Gray long coat with black collar and pocket trim"
+    },
+    "batch2-076": {
+      "bbox": [
+        1416,
+        276,
+        1536,
+        610
+      ],
+      "confidence": "high",
+      "note": "Navy long coat with purple lining"
+    },
+    "batch2-077": {
+      "bbox": [
+        942,
+        274,
+        1071,
+        450
+      ],
+      "confidence": "high",
+      "note": "Brown quilted puffer with white chest logo"
+    },
+    "batch2-078": {
+      "bbox": [
+        1516,
+        270,
+        1699,
+        516
+      ],
+      "confidence": "high",
+      "note": "Brown rounded coat with diagonal black buttons"
+    }
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "zones": [
+    {
+      "id": "jackets-a",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 12
+    },
+    {
+      "id": "jackets-b",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 12
+    },
+    {
+      "id": "jackets-c",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 12
+    },
+    {
+      "id": "shirts-a",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "tshirts-a",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 10
+    },
+    {
+      "id": "tshirts-b",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 10
+    },
+    {
+      "id": "tshirts-c",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 10
+    },
+    {
+      "id": "tshirts-d",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 10
+    },
+    {
+      "id": "bottoms-a",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "bottoms-b",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "bottoms-c",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "bottoms-d",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "dresses-a",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 18
+    },
+    {
+      "id": "dresses-b",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 17
+    },
+    {
+      "id": "sweaters-a",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 10
+    },
+    {
+      "id": "sweaters-b",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 9
+    },
+    {
+      "id": "sweaters-c",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 9
+    },
+    {
+      "id": "sweaters-d",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 9
+    },
+    {
+      "id": "hoodies-a",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 9
+    },
+    {
+      "id": "hoodies-b",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 9
+    },
+    {
+      "id": "hoodies-c",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "bags-a",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "bags-b",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "bags-c",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "bags-d",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "bags-e",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 9
+    },
+    {
+      "id": "accessories-a",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "accessories-b",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "accessories-c",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "accessories-d",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 5
+    },
+    {
+      "id": "shoes-a",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 2
+    },
+    {
+      "id": "hats-a",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "hats-b",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "hats-c",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "hats-d",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "hats-e",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "hats-f",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "hats-g",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "hats-h",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "hats-i",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "hats-j",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "hats-k",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "hats-l",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 10
+    }
+  ],
+  "items_checked": 384,
+  "hotspots_checked": 384,
+  "list_only_checked": 0,
+  "errors": [],
+  "console_errors": [],
+  "page_errors": [],
+  "failed_requests": [],
+  "http_errors": [],
+  "first_load_bytes": 869901,
+  "first_load_files": [
+    "app.js",
+    "assets/layers/cr-001-layer.webp",
+    "assets/layers/cr-002-layer.webp",
+    "assets/layers/cr-003-layer.webp",
+    "assets/layers/cr-004-layer.webp",
+    "assets/layers/cr-005-layer.webp",
+    "assets/layers/cr-006-layer.webp",
+    "assets/layers/cr-007-layer.webp",
+    "assets/layers/cr-008-layer.webp",
+    "assets/layers/cr-009-layer.webp",
+    "assets/layers/cr-010-layer.webp",
+    "assets/room/style-v2-05.webp",
+    "assets/zones/accessories-a-cover-640.webp",
+    "assets/zones/bags-a-cover-640.webp",
+    "assets/zones/bottoms-a-cover-640.webp",
+    "assets/zones/dresses-a-cover-640.webp",
+    "assets/zones/hats-a-cover-640.webp",
+    "assets/zones/hoodies-a-cover-640.webp",
+    "assets/zones/jackets-a-cover-640.webp",
+    "assets/zones/shirts-a-cover-640.webp",
+    "assets/zones/shoes-a-cover-640.webp",
+    "assets/zones/sweaters-a-cover-640.webp",
+    "assets/zones/tshirts-a-cover-640.webp",
+    "data/catalog.json",
+    "data/items.json",
+    "index.html",
+    "styles.css"
+  ],
+  "lazy_initial_cards": true,
+  "lazy_initial_zone_layers": true,
+  "hub_items_checked": 10,
+  "normal_motion_flip": true,
+  "mobile_horizontal_overflow": false,
+  "extra_layout_screenshot": "saved",
+  "passed": true
+}

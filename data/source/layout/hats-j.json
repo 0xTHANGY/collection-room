@@ -1,0 +1,89 @@
+{
+  "zone": "hats-j",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-239": {
+      "bbox": [
+        158,
+        490,
+        407,
+        722
+      ],
+      "confidence": "high",
+      "note": "Green Supreme knit"
+    },
+    "batch2-045": {
+      "bbox": [
+        457,
+        487,
+        748,
+        736
+      ],
+      "confidence": "high",
+      "note": "Brown corduroy Miu Miu bucket"
+    },
+    "batch2-046": {
+      "bbox": [
+        789,
+        485,
+        1081,
+        740
+      ],
+      "confidence": "high",
+      "note": "Pink Miu Miu bucket"
+    },
+    "batch2-054": {
+      "bbox": [
+        1137,
+        478,
+        1382,
+        884
+      ],
+      "confidence": "high",
+      "note": "Yellow olive bucket, long straps"
+    },
+    "batch2-060": {
+      "bbox": [
+        131,
+        112,
+        416,
+        367
+      ],
+      "confidence": "high",
+      "note": "Pink furry Supreme hat"
+    },
+    "batch2-062": {
+      "bbox": [
+        455,
+        128,
+        739,
+        356
+      ],
+      "confidence": "high",
+      "note": "Green Huf bucket, tan stripe"
+    },
+    "batch2-066": {
+      "bbox": [
+        776,
+        123,
+        1076,
+        347
+      ],
+      "confidence": "high",
+      "note": "Cream Everything Is Real bucket"
+    },
+    "batch2-146": {
+      "bbox": [
+        1122,
+        118,
+        1403,
+        432
+      ],
+      "confidence": "high",
+      "note": "Olive bucket, yellow black chin cord"
+    }
+  }
+}

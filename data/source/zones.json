@@ -1,0 +1,494 @@
+{
+ "accessories": {
+  "a": [
+   "batch2-112",
+   "batch2-113",
+   "batch2-230",
+   "batch2-300",
+   "batch2-114",
+   "batch2-115",
+   "batch2-116",
+   "batch2-117"
+  ],
+  "b": [
+   "batch2-118",
+   "batch2-119",
+   "batch2-121",
+   "batch2-122",
+   "batch2-123",
+   "batch2-124",
+   "batch2-126",
+   "batch2-127"
+  ],
+  "c": [
+   "batch2-128",
+   "batch2-129",
+   "batch2-240",
+   "batch2-241",
+   "batch2-242",
+   "batch2-278",
+   "batch2-361",
+   "batch2-363"
+  ],
+  "d": [
+   "batch2-130",
+   "batch2-131",
+   "batch2-132",
+   "batch2-133",
+   "batch2-238"
+  ]
+ },
+ "bags": {
+  "a": [
+   "batch2-056",
+   "batch2-316",
+   "batch2-317",
+   "batch2-318",
+   "batch2-319",
+   "batch2-320",
+   "batch2-321",
+   "batch2-322"
+  ],
+  "b": [
+   "batch2-323",
+   "batch2-324",
+   "batch2-325",
+   "batch2-326",
+   "batch2-358",
+   "batch2-359",
+   "batch2-360",
+   "batch2-362"
+  ],
+  "c": [
+   "batch2-364",
+   "batch2-365",
+   "batch2-366",
+   "batch2-367",
+   "batch2-368",
+   "batch2-369",
+   "batch2-370",
+   "batch2-371"
+  ],
+  "d": [
+   "batch2-372",
+   "batch2-373",
+   "batch2-374",
+   "batch2-375",
+   "batch2-376",
+   "batch2-377",
+   "batch2-378",
+   "batch2-379"
+  ],
+  "e": [
+   "batch2-380",
+   "batch2-381",
+   "batch2-382",
+   "batch2-383",
+   "batch2-384",
+   "batch2-385",
+   "batch2-386",
+   "batch2-387",
+   "cr-007"
+  ]
+ },
+ "bottoms": {
+  "a": [
+   "batch2-003",
+   "batch2-004",
+   "batch2-005",
+   "batch2-040",
+   "batch2-155",
+   "batch2-160",
+   "batch2-162",
+   "batch2-163"
+  ],
+  "b": [
+   "batch2-164",
+   "batch2-165",
+   "batch2-166",
+   "batch2-167",
+   "batch2-169",
+   "batch2-205",
+   "batch2-206",
+   "batch2-207"
+  ],
+  "c": [
+   "batch2-208",
+   "batch2-211",
+   "batch2-232",
+   "batch2-301",
+   "batch2-302",
+   "batch2-303",
+   "batch2-304",
+   "batch2-305"
+  ],
+  "d": [
+   "batch2-306",
+   "batch2-307",
+   "batch2-308",
+   "batch2-309",
+   "batch2-310",
+   "batch2-311",
+   "batch2-315",
+   "cr-005"
+  ]
+ },
+ "dresses": {
+  "a": [
+   "batch2-016",
+   "batch2-033",
+   "batch2-034",
+   "batch2-035",
+   "batch2-036",
+   "batch2-037",
+   "batch2-038",
+   "batch2-039",
+   "batch2-083",
+   "batch2-084",
+   "batch2-085",
+   "batch2-086",
+   "batch2-087",
+   "batch2-088",
+   "batch2-089",
+   "batch2-091",
+   "batch2-092",
+   "batch2-100"
+  ],
+  "b": [
+   "batch2-101",
+   "batch2-102",
+   "batch2-103",
+   "batch2-104",
+   "batch2-161",
+   "batch2-168",
+   "batch2-170",
+   "batch2-171",
+   "batch2-203",
+   "batch2-204",
+   "batch2-209",
+   "batch2-210",
+   "batch2-231",
+   "batch2-234",
+   "batch2-235",
+   "batch2-348",
+   "cr-010"
+  ]
+ },
+ "hats": {
+  "a": [
+   "batch2-006",
+   "batch2-017",
+   "batch2-018",
+   "batch2-019",
+   "batch2-021",
+   "batch2-022",
+   "batch2-023",
+   "batch2-024"
+  ],
+  "b": [
+   "batch2-025",
+   "batch2-026",
+   "batch2-027",
+   "batch2-028",
+   "batch2-029",
+   "batch2-030",
+   "batch2-031",
+   "batch2-032"
+  ],
+  "c": [
+   "batch2-043",
+   "batch2-044",
+   "batch2-047",
+   "batch2-048",
+   "batch2-050",
+   "batch2-051",
+   "batch2-053",
+   "batch2-067"
+  ],
+  "d": [
+   "batch2-105",
+   "batch2-106",
+   "batch2-107",
+   "batch2-109",
+   "batch2-110",
+   "batch2-111",
+   "batch2-191",
+   "batch2-192"
+  ],
+  "e": [
+   "batch2-193",
+   "batch2-213",
+   "batch2-214",
+   "batch2-215",
+   "batch2-216",
+   "batch2-217",
+   "batch2-218",
+   "batch2-219"
+  ],
+  "f": [
+   "batch2-220",
+   "batch2-221",
+   "batch2-222",
+   "batch2-313",
+   "batch2-327",
+   "batch2-356",
+   "batch2-357",
+   "cr-001"
+  ],
+  "g": [
+   "cr-002",
+   "cr-003",
+   "cr-004",
+   "batch2-001",
+   "batch2-058",
+   "batch2-059",
+   "batch2-061",
+   "batch2-063"
+  ],
+  "h": [
+   "batch2-064",
+   "batch2-065",
+   "batch2-069",
+   "batch2-070",
+   "batch2-071",
+   "batch2-072",
+   "batch2-136",
+   "batch2-137"
+  ],
+  "i": [
+   "batch2-138",
+   "batch2-140",
+   "batch2-141",
+   "batch2-142",
+   "batch2-143",
+   "batch2-145",
+   "batch2-148",
+   "batch2-190"
+  ],
+  "j": [
+   "batch2-239",
+   "batch2-045",
+   "batch2-046",
+   "batch2-054",
+   "batch2-060",
+   "batch2-062",
+   "batch2-066",
+   "batch2-146"
+  ],
+  "k": [
+   "batch2-147",
+   "batch2-049",
+   "batch2-135",
+   "batch2-139",
+   "batch2-041",
+   "batch2-042",
+   "batch2-052",
+   "batch2-229"
+  ],
+  "l": [
+   "batch2-068",
+   "batch2-134",
+   "batch2-150",
+   "batch2-149",
+   "batch2-212",
+   "batch2-226",
+   "batch2-227",
+   "batch2-228",
+   "batch2-233",
+   "batch2-144"
+  ]
+ },
+ "hoodies": {
+  "a": [
+   "batch2-008",
+   "batch2-011",
+   "batch2-095",
+   "batch2-159",
+   "batch2-243",
+   "batch2-244",
+   "batch2-245",
+   "batch2-246",
+   "batch2-247"
+  ],
+  "b": [
+   "batch2-249",
+   "batch2-250",
+   "batch2-251",
+   "batch2-252",
+   "batch2-282",
+   "batch2-285",
+   "batch2-286",
+   "batch2-288",
+   "batch2-289"
+  ],
+  "c": [
+   "batch2-293",
+   "batch2-294",
+   "batch2-295",
+   "batch2-296",
+   "batch2-297",
+   "batch2-298",
+   "batch2-299",
+   "cr-006"
+  ]
+ },
+ "jackets": {
+  "a": [
+   "batch2-007",
+   "batch2-009",
+   "batch2-010",
+   "batch2-013",
+   "batch2-014",
+   "batch2-015",
+   "batch2-073",
+   "batch2-074",
+   "batch2-075",
+   "batch2-076",
+   "batch2-077",
+   "batch2-078"
+  ],
+  "b": [
+   "batch2-079",
+   "batch2-080",
+   "batch2-081",
+   "batch2-090",
+   "batch2-093",
+   "batch2-094",
+   "batch2-096",
+   "batch2-097",
+   "batch2-098",
+   "batch2-099",
+   "batch2-196",
+   "batch2-197"
+  ],
+  "c": [
+   "batch2-198",
+   "batch2-199",
+   "batch2-237",
+   "batch2-312",
+   "batch2-314",
+   "batch2-329",
+   "batch2-330",
+   "batch2-331",
+   "batch2-334",
+   "batch2-335",
+   "batch2-336",
+   "batch2-355"
+  ]
+ },
+ "shirts": {
+  "a": [
+   "batch2-236",
+   "batch2-260",
+   "batch2-261",
+   "batch2-292",
+   "batch2-328",
+   "batch2-332",
+   "batch2-333",
+   "cr-009"
+  ]
+ },
+ "shoes": {
+  "a": [
+   "batch2-055",
+   "batch2-057"
+  ]
+ },
+ "sweaters": {
+  "a": [
+   "batch2-012",
+   "batch2-082",
+   "batch2-253",
+   "batch2-254",
+   "batch2-255",
+   "batch2-256",
+   "batch2-257",
+   "batch2-259",
+   "batch2-271",
+   "batch2-272"
+  ],
+  "b": [
+   "batch2-273",
+   "batch2-274",
+   "batch2-275",
+   "batch2-276",
+   "batch2-277",
+   "batch2-279",
+   "batch2-280",
+   "batch2-281",
+   "batch2-287"
+  ],
+  "c": [
+   "batch2-337",
+   "batch2-338",
+   "batch2-339",
+   "batch2-340",
+   "batch2-341",
+   "batch2-342",
+   "batch2-343",
+   "batch2-344",
+   "batch2-345"
+  ],
+  "d": [
+   "batch2-346",
+   "batch2-347",
+   "batch2-349",
+   "batch2-350",
+   "batch2-351",
+   "batch2-352",
+   "batch2-353",
+   "batch2-354",
+   "cr-008"
+  ]
+ },
+ "tshirts": {
+  "a": [
+   "batch2-002",
+   "batch2-151",
+   "batch2-152",
+   "batch2-153",
+   "batch2-154",
+   "batch2-156",
+   "batch2-157",
+   "batch2-158",
+   "batch2-172",
+   "batch2-173"
+  ],
+  "b": [
+   "batch2-174",
+   "batch2-175",
+   "batch2-176",
+   "batch2-177",
+   "batch2-178",
+   "batch2-179",
+   "batch2-180",
+   "batch2-181",
+   "batch2-182",
+   "batch2-183"
+  ],
+  "c": [
+   "batch2-184",
+   "batch2-185",
+   "batch2-186",
+   "batch2-187",
+   "batch2-188",
+   "batch2-189",
+   "batch2-194",
+   "batch2-195",
+   "batch2-258",
+   "batch2-262"
+  ],
+  "d": [
+   "batch2-263",
+   "batch2-264",
+   "batch2-265",
+   "batch2-266",
+   "batch2-267",
+   "batch2-268",
+   "batch2-270",
+   "batch2-283",
+   "batch2-284",
+   "batch2-290"
+  ]
+ }
+}

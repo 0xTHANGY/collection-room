@@ -1,0 +1,89 @@
+{
+  "zone": "hats-b",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-025": {
+      "bbox": [
+        228,
+        508,
+        459,
+        766
+      ],
+      "confidence": "high",
+      "note": "Purple NYU commencement cap"
+    },
+    "batch2-026": {
+      "bbox": [
+        498,
+        511,
+        727,
+        771
+      ],
+      "confidence": "high",
+      "note": "Green NYC Open tennis cap"
+    },
+    "batch2-027": {
+      "bbox": [
+        773,
+        513,
+        1014,
+        780
+      ],
+      "confidence": "high",
+      "note": "Stone cap with white kangaroo"
+    },
+    "batch2-028": {
+      "bbox": [
+        1069,
+        516,
+        1326,
+        783
+      ],
+      "confidence": "high",
+      "note": "Charcoal Trading Department cap"
+    },
+    "batch2-029": {
+      "bbox": [
+        343,
+        182,
+        561,
+        403
+      ],
+      "confidence": "high",
+      "note": "Mustard corduroy cap"
+    },
+    "batch2-030": {
+      "bbox": [
+        600,
+        175,
+        817,
+        402
+      ],
+      "confidence": "high",
+      "note": "Brown cap with yellow Bubs script"
+    },
+    "batch2-031": {
+      "bbox": [
+        869,
+        165,
+        1095,
+        401
+      ],
+      "confidence": "high",
+      "note": "Cream Mets cap with brim sticker"
+    },
+    "batch2-032": {
+      "bbox": [
+        1161,
+        153,
+        1401,
+        402
+      ],
+      "confidence": "high",
+      "note": "Navy Yankees cap with pins and gold sticker"
+    }
+  }
+}

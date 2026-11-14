@@ -1,0 +1,179 @@
+{
+  "zone": "dresses-b",
+  "image_size": [
+    1672,
+    941
+  ],
+  "items": {
+    "batch2-101": {
+      "bbox": [
+        308,
+        49,
+        450,
+        297
+      ],
+      "confidence": "high",
+      "note": "Red cream patchwork short-sleeved dress"
+    },
+    "batch2-102": {
+      "bbox": [
+        530,
+        61,
+        634,
+        299
+      ],
+      "confidence": "high",
+      "note": "Pale blush thin-strap slip dress"
+    },
+    "batch2-103": {
+      "bbox": [
+        701,
+        61,
+        819,
+        295
+      ],
+      "confidence": "high",
+      "note": "Golden yellow velvet slip dress"
+    },
+    "batch2-104": {
+      "bbox": [
+        884,
+        53,
+        1015,
+        282
+      ],
+      "confidence": "high",
+      "note": "Black off-shoulder ruffled dress"
+    },
+    "batch2-161": {
+      "bbox": [
+        1064,
+        52,
+        1271,
+        296
+      ],
+      "confidence": "high",
+      "note": "Navy long-sleeved tiered dress"
+    },
+    "batch2-168": {
+      "bbox": [
+        1285,
+        92,
+        1459,
+        233
+      ],
+      "confidence": "high",
+      "note": "Indigo button-front short skirt"
+    },
+    "batch2-170": {
+      "bbox": [
+        292,
+        371,
+        459,
+        550
+      ],
+      "confidence": "high",
+      "note": "Olive quilted wrap skirt"
+    },
+    "batch2-171": {
+      "bbox": [
+        494,
+        372,
+        650,
+        550
+      ],
+      "confidence": "high",
+      "note": "Gray wrap skirt with yellow tassel"
+    },
+    "batch2-203": {
+      "bbox": [
+        702,
+        340,
+        821,
+        566
+      ],
+      "confidence": "high",
+      "note": "Cream striped sleeveless wide-leg jumpsuit"
+    },
+    "batch2-204": {
+      "bbox": [
+        1446,
+        346,
+        1667,
+        854
+      ],
+      "confidence": "high",
+      "note": "Navy floral collared jumpsuit"
+    },
+    "batch2-209": {
+      "bbox": [
+        1120,
+        367,
+        1253,
+        551
+      ],
+      "confidence": "high",
+      "note": "Brown olive wrap skirt with blue fastening"
+    },
+    "batch2-210": {
+      "bbox": [
+        1285,
+        376,
+        1466,
+        519
+      ],
+      "confidence": "high",
+      "note": "Beige plaid flared skirt"
+    },
+    "batch2-231": {
+      "bbox": [
+        317,
+        603,
+        467,
+        852
+      ],
+      "confidence": "high",
+      "note": "Cream puff-sleeved dress with blue striped panel"
+    },
+    "batch2-234": {
+      "bbox": [
+        541,
+        602,
+        689,
+        851
+      ],
+      "confidence": "high",
+      "note": "Black T-shirt dress with multicolor striped collar"
+    },
+    "batch2-235": {
+      "bbox": [
+        771,
+        600,
+        922,
+        859
+      ],
+      "confidence": "high",
+      "note": "Navy eyelet dress with shoulder ruffles"
+    },
+    "batch2-348": {
+      "bbox": [
+        995,
+        598,
+        1167,
+        853
+      ],
+      "confidence": "high",
+      "note": "Navy knit dress with cream blocks and gold fastenings"
+    },
+    "cr-010": {
+      "bbox": [
+        1253,
+        606,
+        1373,
+        851
+      ],
+      "confidence": "high",
+      "note": "Cream cable-knit sleeveless dress"
+    }
+  }
+}

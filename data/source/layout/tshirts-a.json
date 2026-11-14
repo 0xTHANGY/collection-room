@@ -1,0 +1,109 @@
+{
+  "zone": "tshirts-a",
+  "image_size": [
+    1672,
+    941
+  ],
+  "items": {
+    "batch2-002": {
+      "bbox": [
+        390,
+        122,
+        649,
+        380
+      ],
+      "confidence": "high",
+      "note": "Black New York Special hotdog print"
+    },
+    "batch2-151": {
+      "bbox": [
+        646,
+        122,
+        808,
+        392
+      ],
+      "confidence": "high",
+      "note": "Orlando 32 basketball jersey"
+    },
+    "batch2-152": {
+      "bbox": [
+        811,
+        129,
+        1042,
+        315
+      ],
+      "confidence": "high",
+      "note": "Black cropped NYU Stern shirt"
+    },
+    "batch2-153": {
+      "bbox": [
+        1031,
+        120,
+        1257,
+        391
+      ],
+      "confidence": "high",
+      "note": "Red shoulders, pink checks, Kalshi 10"
+    },
+    "batch2-154": {
+      "bbox": [
+        1247,
+        120,
+        1479,
+        390
+      ],
+      "confidence": "high",
+      "note": "Navy collar, red sides, Kalshi 5"
+    },
+    "batch2-156": {
+      "bbox": [
+        374,
+        476,
+        607,
+        743
+      ],
+      "confidence": "high",
+      "note": "Black shirt with green chest graphic"
+    },
+    "batch2-157": {
+      "bbox": [
+        593,
+        476,
+        830,
+        743
+      ],
+      "confidence": "high",
+      "note": "White shirt with yellow chest logo"
+    },
+    "batch2-158": {
+      "bbox": [
+        813,
+        476,
+        1046,
+        743
+      ],
+      "confidence": "high",
+      "note": "Black shirt with white NB logo"
+    },
+    "batch2-172": {
+      "bbox": [
+        1030,
+        476,
+        1256,
+        743
+      ],
+      "confidence": "high",
+      "note": "Beige Wake the World text shirt"
+    },
+    "batch2-173": {
+      "bbox": [
+        1238,
+        475,
+        1479,
+        743
+      ],
+      "confidence": "high",
+      "note": "Green orange tie-dye Paulas shirt"
+    }
+  }
+}

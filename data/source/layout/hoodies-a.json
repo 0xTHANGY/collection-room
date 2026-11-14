@@ -1,0 +1,99 @@
+{
+  "zone": "hoodies-a",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-008": {
+      "bbox": [
+        92,
+        101,
+        378,
+        413
+      ],
+      "confidence": "high",
+      "note": "Black zip hoodie with curved pockets"
+    },
+    "batch2-011": {
+      "bbox": [
+        381,
+        108,
+        641,
+        409
+      ],
+      "confidence": "high",
+      "note": "Charcoal quarter zip with script logo"
+    },
+    "batch2-095": {
+      "bbox": [
+        645,
+        104,
+        921,
+        418
+      ],
+      "confidence": "high",
+      "note": "Teal fleece with coral pocket and collar"
+    },
+    "batch2-159": {
+      "bbox": [
+        925,
+        111,
+        1183,
+        402
+      ],
+      "confidence": "high",
+      "note": "Ivory crewneck with sleeve stripes"
+    },
+    "batch2-243": {
+      "bbox": [
+        1191,
+        98,
+        1465,
+        410
+      ],
+      "confidence": "high",
+      "note": "Taupe hoodie with long drawstrings"
+    },
+    "batch2-244": {
+      "bbox": [
+        152,
+        497,
+        443,
+        786
+      ],
+      "confidence": "high",
+      "note": "Black crewneck with small animal graphic"
+    },
+    "batch2-245": {
+      "bbox": [
+        460,
+        497,
+        759,
+        774
+      ],
+      "confidence": "high",
+      "note": "Cream Supreme crewneck with red stripes and green trim"
+    },
+    "batch2-246": {
+      "bbox": [
+        774,
+        484,
+        1066,
+        784
+      ],
+      "confidence": "high",
+      "note": "Ivory quarter zip with strawberry JWA logo"
+    },
+    "batch2-247": {
+      "bbox": [
+        1080,
+        485,
+        1386,
+        791
+      ],
+      "confidence": "high",
+      "note": "Gray quarter zip with script logo"
+    }
+  }
+}

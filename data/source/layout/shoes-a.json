@@ -1,0 +1,29 @@
+{
+  "zone": "shoes-a",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-055": {
+      "bbox": [
+        142,
+        478,
+        763,
+        997
+      ],
+      "confidence": "high",
+      "note": "Brown suede sneakers with cream PANE insoles"
+    },
+    "batch2-057": {
+      "bbox": [
+        881,
+        486,
+        1428,
+        1005
+      ],
+      "confidence": "high",
+      "note": "Black quilted Chanel flats with gold buckles"
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "zone": "bags-d",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-372": {
+      "bbox": [
+        155,
+        64,
+        384,
+        432
+      ],
+      "confidence": "high",
+      "note": "Cream Noma Projects rabbit tote"
+    },
+    "batch2-373": {
+      "bbox": [
+        456,
+        64,
+        718,
+        430
+      ],
+      "confidence": "high",
+      "note": "Navy Hotel Amour Nice sailboat tote"
+    },
+    "batch2-374": {
+      "bbox": [
+        778,
+        63,
+        1059,
+        426
+      ],
+      "confidence": "high",
+      "note": "Gray Off. Paris tote with blue lettering"
+    },
+    "batch2-375": {
+      "bbox": [
+        1096,
+        62,
+        1420,
+        420
+      ],
+      "confidence": "high",
+      "note": "Pink IKEA tote with black straps and blue insert"
+    },
+    "batch2-376": {
+      "bbox": [
+        174,
+        489,
+        392,
+        846
+      ],
+      "confidence": "high",
+      "note": "Multicolor patchwork paisley bag"
+    },
+    "batch2-377": {
+      "bbox": [
+        468,
+        486,
+        714,
+        846
+      ],
+      "confidence": "high",
+      "note": "Navy tote with yellow arches"
+    },
+    "batch2-378": {
+      "bbox": [
+        775,
+        486,
+        1066,
+        853
+      ],
+      "confidence": "high",
+      "note": "Olive sensing quantum tote"
+    },
+    "batch2-379": {
+      "bbox": [
+        1123,
+        483,
+        1383,
+        852
+      ],
+      "confidence": "high",
+      "note": "Cream Broad Art Museum geometric logo tote"
+    }
+  }
+}
