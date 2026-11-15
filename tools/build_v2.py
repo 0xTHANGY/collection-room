@@ -55,7 +55,8 @@ def main():
     fixes=json.loads((ROOT/'data/source/cutout-fixes.json').read_text())
     gate={}
     for old in (ROOT/'assets/items/v2').glob('*-800.webp'): old.unlink()
-    catalog={'version':'2.1','categories':[],'zones':[],'items':[]}
+    GEN=json.loads((ROOT/'data/source/generated-v22.json').read_text()) if (ROOT/'data/source/generated-v22.json').exists() else {'zones':{},'cutouts':{}}
+    catalog={'version':'2.2','categories':[],'zones':[],'items':[]}
     missing=[];fallback=[];counts={}
     for order,(cat,zh,en) in enumerate(LABELS):
         source=json.loads((FINAL/cat/'docs'/f'{cat}-items.json').read_text())
@@ -64,7 +65,8 @@ def main():
         catalog['categories'].append(dict(id=cat,label=zh,label_en=en,order=order,cover_zone=f'{cat}-{letters[0]}',count=sum(len(v) for v in mapping[cat].values())))
         for letter in letters:
             zid=f'{cat}-{letter}';ids=mapping[cat][letter]
-            painting=Image.open(FINAL/finals[cat,letter]['path_in_zip']).convert('RGB')
+            zone_src=ROOT/GEN['zones'][zid] if zid in GEN['zones'] else FINAL/finals[cat,letter]['path_in_zip']
+            painting=Image.open(zone_src).convert('RGB')
             ow,oh=painting.size;scale=min(1,1600/ow)
             painting=painting.resize((round(ow*scale),round(oh*scale)),Image.Resampling.LANCZOS)
             rgb=np.array(painting);h,w=rgb.shape[:2]
@@ -137,8 +139,8 @@ def main():
                     layers[iid]=dict(image=path,**lr,rect=lr,pivot={'x':50,'y':0 if motion=='hang' else 50},pivotX=50,pivotY=0 if motion=='hang' else 50,motion=motion,fallback=iid in bad)
             else: base=painting
             fallback.extend(sorted(bad))
-            paths=variants(base,f'assets/zones/{zid}',[1600,1024,640],source_path=ROOT/'tools/v21_images.py' if cat in ('hats','bags','accessories') else (ROOT/'data/source/overrides_v21.py' if zid=='shirts-a' else FINAL/finals[cat,letter]['path_in_zip']))
-            cover=variants(painting,f'assets/zones/{zid}-cover',[640],source_path=ROOT/'data/source/overrides_v21.py' if zid=='shirts-a' else FINAL/finals[cat,letter]['path_in_zip'])[0]
+            paths=variants(base,f'assets/zones/{zid}',[1600,1024,640],source_path=max([zone_src,ROOT/'tools/v21_images.py'],key=lambda p:p.stat().st_mtime) if cat in ('hats','bags','accessories') else (ROOT/'data/source/overrides_v21.py' if zid=='shirts-a' else FINAL/finals[cat,letter]['path_in_zip']))
+            cover=variants(painting,f'assets/zones/{zid}-cover',[640],source_path=zone_src if zid in GEN['zones'] else ROOT/'data/source/overrides_v21.py' if zid=='shirts-a' else FINAL/finals[cat,letter]['path_in_zip'])[0]
             catalog['zones'].append(dict(id=zid,category=cat,letter=letter,images=paths,cover=cover,natural_size=[ow,oh],aspect=ow/oh,has_layout=bool(layout),items=ids))
             # Inset then split overlapping rectangles along centre-to-centre axis.
             spots={iid:[b[0]+(b[2]-b[0])*.025,b[1]+(b[3]-b[1])*.025,b[2]-(b[2]-b[0])*.025,b[3]-(b[3]-b[1])*.025] for iid,b in boxes.items()}
@@ -160,6 +162,7 @@ def main():
             for iid in ids:
                 src=lookup[iid];cut=FINAL/cat/'cutouts'/f'{iid}.png'
                 if not cut.exists():cut=FINAL/next(r['path_in_zip'] for r in manifest if r['category']==cat and r['item_id']==iid.split('-')[-1])
+                if iid in GEN['cutouts']:cut=ROOT/GEN['cutouts'][iid]
                 original=Image.open(cut).convert('RGBA')
                 fixed=fix_card(original,iid,fixes,rgb,boxes.get(iid))
                 recipe=max([cut,ROOT/'tools/v21_images.py',ROOT/'data/source/cutout-fixes.json',ROOT/'data/source/overrides_v21.py'],key=lambda p:p.stat().st_mtime) if iid in fixes else cut

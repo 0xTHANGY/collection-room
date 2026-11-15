@@ -1,0 +1,14 @@
+{
+  "zones": {
+    "hats-h": "assets/generated/hats-zone-h-v22.webp",
+    "hats-d": "assets/generated/hats-zone-d-v22-192fix.webp",
+    "hats-g": "assets/generated/hats-zone-g-v22.webp",
+    "bottoms-c": "assets/generated/bottoms-zone-c-v22.webp"
+  },
+  "cutouts": {
+    "batch2-039": "assets/generated/dress-039-v22.webp",
+    "batch2-102": "assets/generated/dress-102-v22.webp",
+    "batch2-234": "assets/generated/dress-234-v22.webp"
+  },
+  "note": "v2.2: generated with Codex built-in image generation (ChatGPT plan) from final/ zone images, cutouts and reference photos; dress cutouts keyed locally from a #FF00FF background."
+}

@@ -3,9 +3,39 @@ import cv2
 import numpy as np
 from PIL import Image, ImageFilter
 
+def visor_slits(im, variant='card'):
+ """Replace only the visor interior; retain source outline, alpha and canvas."""
+ a=np.array(im);rgb=a[:,:,:3].copy();h,w=rgb.shape[:2]
+ if variant=='card':
+  top=np.array([[370,546],[380,534],[395,525],[410,518],[430,515],[450,516],[470,520],[490,529],[505,542],[513,559]],float)
+  bottom=np.array([[370,558],[377,581],[390,575],[410,560],[430,554],[450,552],[470,554],[490,559],[505,565],[513,566]],float)
+  centers=np.linspace(382,494,7);color=(22,52,39);cream=(226,224,205);radius=2.6;inset=6
+ else:
+  top=np.array([[1305,248],[1310,244],[1318,242.5],[1326,242.5],[1334,244],[1342,248],[1348,254]],float)
+  bottom=np.array([[1305,253],[1310,256],[1318,252],[1326,251],[1334,252],[1342,254],[1348,255]],float)
+  centers=np.linspace(1309,1340,7);color=(27,46,37);cream=(222,225,214);radius=.65;inset=1.4
+ scale=4;mask=Image.new('L',(w*scale,h*scale));from PIL import ImageDraw
+ d=ImageDraw.Draw(mask);poly=np.concatenate([top,bottom[::-1]])
+ d.polygon([tuple(v*scale) for v in poly],fill=255)
+ mask=np.array(mask.resize((w,h),Image.Resampling.LANCZOS)).astype(float)/255
+ yy,xx=np.indices((h,w));texture=3.8*np.sin(xx*2.3+yy*.8)+2.2*np.cos(yy*2.4)
+ fill=np.clip(np.array(cream)[None,None,:]+texture[:,:,None],0,255)
+ rgb=np.round(rgb*(1-mask[:,:,None])+fill*mask[:,:,None]).astype('uint8')
+ vents=Image.new('L',(w*scale,h*scale));d=ImageDraw.Draw(vents)
+ for x in centers:
+  y0=np.interp(x,top[:,0],top[:,1])+inset;y1=np.interp(x,bottom[:,0],bottom[:,1])-inset
+  shift=2 if variant=='card' else .3
+  d.line((round((x-shift)*scale),round(y0*scale),round((x+shift)*scale),round(y1*scale)),fill=255,width=round(radius*2*scale))
+  for cx,cy in [(x-shift,y0),(x+shift,y1)]:d.ellipse(((cx-radius)*scale,(cy-radius)*scale,(cx+radius)*scale,(cy+radius)*scale),fill=255)
+ v=np.array(vents.resize((w,h),Image.Resampling.LANCZOS).filter(ImageFilter.GaussianBlur(.3 if variant=='card' else .15))).astype(float)/255
+ rgb=np.round(rgb*(1-v[:,:,None])+np.array(color)*v[:,:,None]).astype('uint8')
+ a[:,:,:3]=rgb
+ return Image.fromarray(a)
+
 def card(im, spec):
  a=np.array(im);rgb=a[:,:,:3].astype(float);alpha=a[:,:,3];h,w=alpha.shape
  method=spec['method']
+ if method=='visor-slits':return visor_slits(im)
  if method=='upscale':
   target=1200
   # Resize alpha independently; RGB is extended into transparent pixels first.

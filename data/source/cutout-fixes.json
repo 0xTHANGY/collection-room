@@ -11,15 +11,6 @@
   "batch2-147": {
     "method": "edge-despill"
   },
-  "batch2-039": {
-    "method": "upscale"
-  },
-  "batch2-102": {
-    "method": "upscale"
-  },
-  "batch2-234": {
-    "method": "upscale"
-  },
   "cr-009": {
     "method": "cuff-clone"
   },
@@ -56,5 +47,8 @@
   },
   "batch2-242": {
     "method": "fringe"
+  },
+  "batch2-192": {
+    "method": "visor-slits"
   }
 }

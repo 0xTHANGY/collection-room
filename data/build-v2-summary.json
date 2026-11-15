@@ -1,11 +1,11 @@
 {
-  "card_images_bytes": 24237402,
+  "card_images_bytes": 24236180,
   "categories": 11,
   "zones": 43,
   "items": 384,
-  "asset_bytes_written": 39461380,
+  "asset_bytes_written": 39270268,
   "asset_files_written": 1324,
-  "assets_total_bytes": 40010798,
+  "assets_total_bytes": 48973124,
   "overlap_pairs": {
     "jackets-a": 0,
     "jackets-b": 0,
@@ -359,7 +359,7 @@
     "batch2-054",
     "batch2-135"
   ],
-  "first_load_bytes": 869152,
+  "first_load_bytes": 869134,
   "first_load_files": [
     "app.js",
     "assets/layers/cr-001-layer.webp",
