@@ -60,6 +60,19 @@ def wall_model(rgb, config, occupied):
 def reconstruct(rgb, boxes, config):
     h,w = rgb.shape[:2]
     yy,xx = np.indices((h,w))
+    if config.get('boxes_include_hooks'):
+        # Some layouts start at the metal hook, above the rail. The moving
+        # silhouette starts at the wooden hanger instead; using the hook y
+        # both admits wall above the hanger and falsely fails the top gate.
+        red,green,blue=rgb.astype(int).transpose(2,0,1)
+        adjusted={}
+        for iid,(x,y,r,b) in boxes.items():
+            rail=min(config['rails'],key=lambda z: abs(y-z[3])*4+(0 if z[0]<(x+r)/2<z[2] else w))
+            warm=(red-blue>48)&(red-green>24)&(rgb.mean(2)<200)
+            warm&=(np.abs(xx-(x+r)/2)<20)&(yy>rail[3]+5)&(yy<rail[3]+55)
+            rows=np.flatnonzero(warm.sum(1)>=3)
+            adjusted[iid]=(x,int(rows[0]) if len(rows) else rail[3]+12,r,b)
+        boxes=adjusted
     occupied=np.zeros((h,w),np.uint8)
     for x,y,r,b in boxes.values():
         occupied[max(0,y-3):min(h,b+15),max(0,x-4):min(w,r+4)]=1
@@ -82,6 +95,13 @@ def reconstruct(rgb, boxes, config):
         t=(pos-low)[:,None]
         background[reg]=profile[low]*(1-t)+profile[high]*t
         post_region|=reg
+    # Shirts can reach the shelf top. Rebuild its horizontal painted grain
+    # from exposed gaps, rather than filling the hidden wood with wall colour.
+    # Opt-in geometry leaves every existing rack's reconstruction unchanged.
+    for surface in config.get('surfaces', []):
+        x,y,r,b=surface['bbox']
+        donors=np.concatenate([rgb[y:b,a:c] for a,c in surface['donor_x']],axis=1)
+        background[y:b,x:r]=np.median(donors,axis=1).astype(np.uint8)[:,None,:]
     structure=np.zeros((h,w),np.uint8)
     for x,y,r,b in config['structure']:
         structure[y:b,x:r]=1
@@ -96,7 +116,19 @@ def reconstruct(rgb, boxes, config):
     red,green,blue=rgb.astype(int).transpose(2,0,1)
     hsv=cv2.cvtColor(rgb,cv2.COLOR_RGB2HSV).astype(float) if config.get('deep_overlap') else None
     wood=post_region&(red-green>28)&(green-blue>18)&(green-blue<36)
+    if config.get('exclude_post_wood'):
+        # Broad rack posts can include a second, vertical rear upright. Their
+        # warmer grain exceeds the old narrow blue-channel interval; do not
+        # classify that exposed wood as a shirt sleeve or a loose side strip.
+        wood=post_region&(red-green>12)&(green-blue>8)&(red-blue>24)
     wood=cv2.dilate(np.uint8(wood),np.ones((3,3),np.uint8)).astype(bool)&post_region
+    surface_wood=np.zeros((h,w),bool)
+    for surface in config.get('surfaces', []):
+        x,y,r,b=surface['bbox']
+        # The ROI includes the hem's contact shadow and can otherwise attach
+        # a long strip of shelf edge to a pale shirt. Warm exposed wood is
+        # surface, while the neutral cloth continues to its painted hem.
+        surface_wood[y:b,x:r]=(red-green>12)[y:b,x:r]&(green-blue>8)[y:b,x:r]
     fg=(delta>19)&~shadows&~structure.astype(bool)
     conservative_fg=fg.copy()
     if config.get('neutral_garments'):
@@ -166,9 +198,17 @@ def reconstruct(rgb, boxes, config):
         n,lab,stats,_=cv2.connectedComponentsWithStats(m)
         for k in range(1,n):
             if stats[k,4]<8:m[lab==k]=0
+        if config.get('symmetric_sleeves') and n>1:
+            # Remove neighbour trim before dilation: dilation can bridge a
+            # detached dark seam across the wall gap onto the real sleeve.
+            main=1+np.argmax(stats[1:,4])
+            for component in range(1,n):
+                a,c,d,e,area=stats[component]
+                hanger=c<y+8 and abs(a+d/2-(x+r)/2)<(r-x)*.3
+                if component!=main and not hanger:m[lab==component]=0
         m=cv2.morphologyEx(m,cv2.MORPH_CLOSE,np.ones((3,3),np.uint8))
         m=cv2.dilate(m,np.ones((3,3),np.uint8))
-        m[~roi|(structure>0)|(yy<hanger_top)]=0
+        m[~roi|(structure>0)|(yy<hanger_top)|surface_wood]=0
         # Ownership in overlapping boxes follows material sampled from the
         # unoccluded centre; the spatial term only breaks similar-colour ties.
         colors=np.float32(rgb[core])
@@ -180,6 +220,10 @@ def reconstruct(rgb, boxes, config):
         mirror_x=np.clip(np.rint(2*axis-xx).astype(int),0,w-1)
         symmetry=np.linalg.norm(rgb.astype(float)-rgb[yy,mirror_x].astype(float),axis=2)
         weight=np.where((b-y>2*(r-x))&(yy>y+(b-y)*.5),.7,.35)
+        if config.get('symmetric_sleeves'):
+            # Sleeve seams are often the same trim colour on neighbouring
+            # shirts. The matching opposite sleeve disambiguates that trim.
+            weight=np.where((yy>y+(b-y)*.12)&(yy<y+(b-y)*.57),.85,weight)
         cost=colorcost*(1-weight)+symmetry*weight+12*np.abs(xx-(x+r)/2)/max(1,r-x)
         # Reject exposed wood only when the opposite sleeve confirms a
         # different material; warm pink/ochre cloth can share wood's hue.
@@ -188,6 +232,8 @@ def reconstruct(rgb, boxes, config):
             # Patterned collars can share the post's warm hue. Require
             # agreement with the donor wood and stay below the collar.
             exposed &= (np.linalg.norm(rgb.astype(float)-background.astype(float),axis=2)<35)&(yy>y+(b-y)*.2)
+        if config.get('exclude_post_wood'):
+            exposed |= wood & (yy>y+12)
         m[exposed]=0
         candidates.append(m>0)
         if config.get('complete_overlap'):
@@ -210,11 +256,41 @@ def reconstruct(rgb, boxes, config):
                 candidates[-1]=m>0
         cost[~(m>0)]=1e6;costs.append(cost)
     allcost=np.stack(costs);owner=allcost.argmin(0);union=np.stack(candidates).any(0)
+    if config.get('symmetric_sleeves'):
+        # Palette-only ownership can alternate along a shared sleeve seam.
+        # A local graph cut keeps ownership on the painted material boundary;
+        # definite seeds come from each garment outside the overlapping band.
+        entries=list(boxes.items())
+        for left in range(len(entries)):
+            for right in range(left+1,len(entries)):
+                lb=entries[left][1];rb=entries[right][1]
+                if lb[0]>rb[0]:continue
+                shared=(candidates[left]|candidates[right])
+                shared &= (xx>=rb[0]-8)&(xx<lb[2]+8)
+                shared &= (yy>=max(lb[1],rb[1]))&(yy<min(lb[3],rb[3]))
+                sy,sx=np.where(shared)
+                if not len(sx):continue
+                x0=max(0,int(sx.min())-45);x1=min(w,int(sx.max())+46)
+                y0=max(0,int(sy.min())-12);y1=min(h,int(sy.max())+13)
+                own=owner[y0:y1,x0:x1]
+                seed=np.where(own==left,cv2.GC_PR_FGD,cv2.GC_PR_BGD).astype('uint8')
+                lc=candidates[left][y0:y1,x0:x1];rc=candidates[right][y0:y1,x0:x1]
+                band=shared[y0:y1,x0:x1]
+                seed[lc&~band]=cv2.GC_FGD
+                seed[rc&~band]=cv2.GC_BGD
+                if not (seed==1).any() or not (seed==0).any():continue
+                cv2.setRNGSeed(23)
+                cv2.grabCut(rgb[y0:y1,x0:x1].copy(),seed,None,np.zeros((1,65)),np.zeros((1,65)),5,cv2.GC_INIT_WITH_MASK)
+                selection=shared[y0:y1,x0:x1]
+                own[selection&((seed==1)|(seed==3))]=left
+                own[selection&((seed==0)|(seed==2))]=right
     # A dark edge on the neighbouring coat can match this garment's palette.
     # Reattach thin row fragments to the adjacent broad silhouette; do not
     # let a matching black cuff/hem become a long loose strip on another coat.
     for k,(iid,(x,y,r,b)) in enumerate(boxes.items()):
-        for row in range(max(0,round(y+(b-y)*(.25 if b-y>2*(r-x) else .5))),min(h,b+10)):
+        # Short shirts overlap at their sleeves, above the ordinary hem band.
+        start=.15 if config.get('symmetric_sleeves') else (.25 if b-y>2*(r-x) else .5)
+        for row in range(max(0,round(y+(b-y)*start)),min(h,b+10)):
             own=union[row]&(owner[row]==k)
             edges=np.diff(np.r_[False,own,False].astype(int))
             runs=list(zip(np.flatnonzero(edges==1),np.flatnonzero(edges==-1)))
@@ -249,9 +325,21 @@ def reconstruct(rgb, boxes, config):
                 free=(lab==j)&~union;m[free]=255
         # Thin post-grain remnants are not sleeve details. Regularise only
         # the known post band, leaving drawcords and garment hems elsewhere.
-        opened=cv2.morphologyEx(m,cv2.MORPH_OPEN,np.ones((7,7),np.uint8))
+        # A sleeve crossing a narrow post needs the smaller opening: the
+        # broad-post cleanup would round off its real pointed cuff.
+        post_size=config.get('post_opening',21 if config.get('exclude_post_wood') else 7)
+        post_kernel=cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(post_size,post_size)) if config.get('exclude_post_wood') else np.ones((7,7),np.uint8)
+        opened=cv2.morphologyEx(m,cv2.MORPH_OPEN,post_kernel)
         if not config.get('deep_overlap'):
             m[post_region]=opened[post_region]
+        if config.get('surfaces'):
+            # A neutral antialiased shelf lip survives the wood-colour test.
+            # Remove those one-pixel horizontal spurs only on the surface;
+            # the broad cloth hem and all sleeve/hanger detail stay intact.
+            clean=cv2.morphologyEx(m,cv2.MORPH_OPEN,np.ones((5,5),np.uint8))
+            for surface in config['surfaces']:
+                sx,sy,sr,sb=surface['bbox']
+                m[sy:sb,sx:sr]=clean[sy:sb,sx:sr]
         masks[iid]=m
         reasons[iid]=[]
         area=np.count_nonzero(m)/max(1,(r-x)*(b-y))
@@ -290,7 +378,60 @@ def reconstruct(rgb, boxes, config):
             # Only expand a genuine occlusion, never bridge a wall gap to
             # an adjacent garment. This closes ownership/antialiasing slots.
             front=cv2.dilate(np.uint8(front),np.ones((17,17),np.uint8)).astype(bool)
-        hidden=(reflected|envelope)&front&(yy>y+12)&(yy<b+3)&(xx>x-8)&(xx<r+8)
+        if config.get('symmetric_sleeves'):
+            # Painted shirts are slightly asymmetric. Align the mirrored
+            # sleeve to its own visible shoulder before the occlusion starts;
+            # hanger-axis reflection alone leaves a step at that boundary.
+            for side in (-1,1):
+                half=(xx-center)*side>0
+                contact=reflected&front&half&(yy>y+12)&(yy<b)
+                rows=np.flatnonzero(contact.sum(1)>2)
+                if not len(rows):continue
+                start=int(rows[0]);offsets=[]
+                for row in range(max(y+12,start-28),start-2):
+                    own_x=np.flatnonzero((m[row]>0)&half[row])
+                    mirror_x=np.flatnonzero(reflected[row]&half[row])
+                    if len(own_x)>8 and len(mirror_x)>8:
+                        edge=-1 if side==1 else 0
+                        offsets.append(own_x[edge]-mirror_x[edge])
+                shift=int(np.clip(np.median(offsets),-16,16)) if offsets else 0
+                reflected_x[half]=np.clip(reflected_x[half]+shift,0,w-1)
+            reflected=m[yy,reflected_x]>0
+            # Layout boxes describe visible cloth, so a hidden sleeve can
+            # extend beyond the box. Complete it from the opposite sleeve
+            # rather than clipping to that visible bbox or bridging row gaps.
+            front=cv2.dilate(np.uint8(front),np.ones((7,7),np.uint8)).astype(bool)
+            hidden=reflected&front&(yy>y+12)&(yy<b+3)&(m==0)
+            if config.get('complete_sleeve_edges'):
+                # Both sleeves can be occluded: mirroring then duplicates
+                # the inward cut on both sides. Extrapolate the visible outer
+                # shoulder and lower cuff edges to their intersection instead.
+                # Only complete behind a front garment, using own cloth below.
+                for side in (-1,1):
+                    samples=[]
+                    for row in range(y+1,min(h,b)):
+                        run=np.flatnonzero(m[row])
+                        if len(run)>30:
+                            samples.append((row,run[0] if side<0 else run[-1]))
+                    samples=np.array(samples)
+                    if not len(samples):continue
+                    outer=[]
+                    for lo,hi in ((.12,.25),(.48,.55)):
+                        q=samples[(samples[:,0]>y+(b-y)*lo)&(samples[:,0]<y+(b-y)*hi)]
+                        if len(q)<6:break
+                        outer.append(np.polyfit(q[:,0],q[:,1],1))
+                    if len(outer)!=2:continue
+                    shoulder,cuff=outer
+                    if not (.15<side*shoulder[0]<1.3 and -3<side*cuff[0]<-.4):continue
+                    for row in range(round(y+(b-y)*.25),round(y+(b-y)*.56)):
+                        edge=(min if side>0 else max)(np.polyval(shoulder,row),np.polyval(cuff,row))
+                        own=np.flatnonzero(m[row])
+                        if not len(own):continue
+                        start,stop=sorted((int(round(edge)),int(own[0] if side<0 else own[-1])))
+                        start=max(0,start);stop=min(w,stop+1)
+                        hidden[row,start:stop] |= front[row,start:stop] & (m[row,start:stop]==0)
+        else:
+            hidden=(reflected|envelope)&front&(yy>y+12)&(yy<b+3)&(xx>x-8)&(xx<r+8)
         if config.get('deep_overlap'):
             hidden &= m==0
         # Symmetry alone can reach across a real wall gap onto the next
@@ -326,7 +467,7 @@ def reconstruct(rgb, boxes, config):
             # Where symmetry has no visible donor (asymmetric sleeves), use
             # the closest own-texture pixel rather than copying the occluder.
             donor=m>0
-            if config.get('complete_overlap'):
+            if config.get('complete_overlap') and not config.get('symmetric_sleeves'):
                 # Ownership along touching, similarly coloured coats is
                 # uncertain by a pixel or two. Never magnify that boundary
                 # into a whole filled sleeve; sample safely inside own cloth.
@@ -348,6 +489,21 @@ def reconstruct(rgb, boxes, config):
                 fill=cv2.inpaint(rgb[t:bb,l:rr].copy(),np.uint8(~donor[t:bb,l:rr])*255,5,cv2.INPAINT_TELEA)
                 hm=(hidden&~mirrored)[t:bb,l:rr]
                 pixels[t:bb,l:rr][hm]=fill[hm]
+            if config.get('symmetric_sleeves'):
+                # A front sleeve's dark antialiased outline can remain on the
+                # rear cutout's edge. Replace that narrow seam from the same
+                # rear sleeve as the completion, feathering into visible cloth.
+                safe=cv2.erode(np.uint8(m>0),np.ones((5,5),np.uint8)).astype(bool)
+                _,labels=cv2.distanceTransformWithLabels(np.uint8(~safe),cv2.DIST_L2,5,labelType=cv2.DIST_LABEL_PIXEL)
+                sy,sx=np.where(safe)
+                nearest=np.clip(labels-1,0,len(sy)-1)
+                reflected_donor=nearest[yy,reflected_x]
+                texture=rgb[sy[reflected_donor],sx[reflected_donor]]
+                distance=cv2.distanceTransform(np.uint8(~hidden),cv2.DIST_L2,3)
+                seam=(distance<6)&(m>0)
+                blend=np.clip((6-distance[seam])/3,0,1)[:,None]
+                pixels[hidden]=texture[hidden]
+                pixels[seam]=pixels[seam]*(1-blend)+texture[seam]*blend
             masks.images[iid]=pixels
             masks[iid][hidden]=255
             # Completion must not grow a narrow tab at an asymmetric hem.
@@ -356,8 +512,70 @@ def reconstruct(rgb, boxes, config):
             if config.get('complete_overlap'):
                 rounded=cv2.GaussianBlur(masks[iid],(21,21),5)>127
                 smooth=np.uint8((smooth>0)&rounded)*255
-            if not substantial:
+            if not substantial and not config.get('symmetric_sleeves'):
                 masks[iid][hidden&(smooth==0)]=0
+            if config.get('smooth_overlap_edges'):
+                # A one-pixel ownership seam can become a tiny pointed tab
+                # when the front sleeve swings away. Regularise only the
+                # completed contact boundary, never hems, print or hangers.
+                contact=cv2.dilate(np.uint8(hidden),np.ones((17,17),np.uint8))>0
+                kernel=cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(9,9))
+                clean=cv2.morphologyEx(masks[iid],cv2.MORPH_CLOSE,kernel)
+                clean=cv2.morphologyEx(clean,cv2.MORPH_OPEN,kernel)
+                added=contact&(clean>0)&(masks[iid]==0)
+                pixels[added]=rgb[donor_y[added],donor_x[added]]
+                masks[iid][contact]=clean[contact]
+    if config.get('trim_sleeve_shadows'):
+        # A grey cuff's cast shadow can have the same palette as its cloth.
+        # Continue the short, visible diagonal cuff edge to the torso; a
+        # shadow's vertical/square outer edge must not become moving fabric.
+        for iid,m in masks.items():
+            x,y,r,b=boxes[iid]
+            for side in (-1,1):
+                profile=[]
+                for row in range(y+15,min(h,b)):
+                    run=np.flatnonzero(m[row])
+                    if len(run)>30:profile.append((row,run[0] if side<0 else run[-1]))
+                profile=np.array(profile)
+                if not len(profile):continue
+                search=profile[(profile[:,0]>y+(b-y)*.25)&(profile[:,0]<y+(b-y)*.7)]
+                if not len(search):continue
+                peak=int(search[np.argmax(side*search[:,1]),0])
+                cuff=profile[(profile[:,0]>=peak+4)&(profile[:,0]<peak+18)]
+                body=profile[(profile[:,0]>y+(b-y)*.78)&(profile[:,0]<y+(b-y)*.94)]
+                if len(cuff)<8 or len(body)<8:continue
+                slope,intercept=np.polyfit(cuff[:,0],cuff[:,1],1)
+                if not -2.5<side*slope<-.55:continue
+                torso=float(np.median(body[:,1]))
+                torso_line=np.array([0.,torso])
+                material=np.median(rgb[y+(b-y)//3:b-(b-y)//4,x+(r-x)//3:r-(r-x)//3],axis=(0,1))
+                if 120<material.mean()<195 and np.ptp(material)<14:
+                    # Neutral heather cloth casts a same-colour wall shadow.
+                    # Its dark painted side outline, unlike that shadow, is
+                    # visible throughout the torso. Fit that line from local
+                    # dark-edge donors, rejecting isolated print/buttons.
+                    outline=[]
+                    gray=rgb.mean(2)
+                    for row,edge in profile:
+                        if not y+(b-y)*.58<row<y+(b-y)*.78:continue
+                        lo=max(0,int(edge)-20);hi=min(w,int(edge)+21)
+                        strip=gray[row,lo:hi]
+                        pos=int(np.argmin(strip))
+                        if np.median(strip)-strip[pos]>30:outline.append((row,lo+pos))
+                    if len(outline)>15:
+                        outline=np.array(outline)
+                        line=np.polyfit(outline[:,0],outline[:,1],1)
+                        keep=np.abs(outline[:,1]-np.polyval(line,outline[:,0]))<5
+                        if keep.sum()>12:
+                            torso_line=np.polyfit(outline[keep,0],outline[keep,1],1)
+                            torso_line[1]+=side*2 # retain the antialiased outline
+                            for row in range(round(y+(b-y)*.56),b-7):
+                                outside=(xx[row]-np.polyval(torso_line,row))*side>0
+                                m[row,outside]=0
+                for row in range(peak+5,min(b,round(y+(b-y)*.72))):
+                    edge=(max if side>0 else min)(np.polyval(torso_line,row),slope*row+intercept)
+                    outside=(xx[row]-edge)*side>0
+                    m[row,outside]=0
     masks.visible=visible
     # Remove cloth and its cast shadows, preserving every rack/furniture pixel.
     removal=np.uint8(union)*255
@@ -379,6 +597,15 @@ def reconstruct(rgb, boxes, config):
         # the donor post profile while retaining its exposed painted grain.
         post_ratio=(rgb.astype(float)+1)/(background.astype(float)+1)
         post_shadow=post_region&(np.ptp(post_ratio,axis=2)<.10)&(post_ratio.mean(2)<.98)&(post_ratio.mean(2)>.55)
+        if config.get('exclude_post_wood'):
+            # Dark cuff outlines cast a deeper, slightly coloured shadow on
+            # warm wood than on plaster. Remove that darkening too, without
+            # replacing the whole exposed upright and losing its own grain.
+            post_shadow |= post_region&(np.ptp(post_ratio,axis=2)<.22)&(post_ratio.mean(2)<.95)&(post_ratio.mean(2)>.25)
+            # The antialiased pale cuff edge is brighter than donor wood,
+            # rather than a dark shadow. Remove this residual outline too.
+            cuff_edge=cv2.dilate(np.uint8(union),np.ones((11,11),np.uint8)).astype(bool)
+            post_shadow |= post_region&cuff_edge&(red-green<18)&(rgb.mean(2)>background.mean(2)*1.2)
         near_cloth=cv2.dilate(np.uint8(union),np.ones((71,71),np.uint8)).astype(bool)
         alpha[post_shadow&near_cloth]=1
         alpha[structure>0]=0
