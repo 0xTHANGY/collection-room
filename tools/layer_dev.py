@@ -64,6 +64,7 @@ def check(zid):
             edge=m&~cv2.erode(np.uint8(m),np.ones((3,3),np.uint8)).astype(bool)
             touching=set(np.unique(lab[edge&wallish]))-{0}
             d['wall_in_layer']=round(float(np.isin(lab,list(touching)).sum()/max(1,m.sum())),4) if touching else 0.0
+            if cat=='bags':d['wall_in_layer']=round(v21_images.attached_wall_fraction(rgb,base,masks[i]),4)
             d['suspect']=d['rest_err']>.01 or d['wall_in_layer']>.03
         res[i]=d
     # review sheets

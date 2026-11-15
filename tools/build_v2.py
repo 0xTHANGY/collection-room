@@ -56,7 +56,7 @@ def main():
     gate={}
     for old in (ROOT/'assets/items/v2').glob('*-800.webp'): old.unlink()
     GEN=json.loads((ROOT/'data/source/generated-v22.json').read_text()) if (ROOT/'data/source/generated-v22.json').exists() else {'zones':{},'cutouts':{}}
-    catalog={'version':'2.2','categories':[],'zones':[],'items':[]}
+    catalog={'version':'2.3','categories':[],'zones':[],'items':[]}
     missing=[];fallback=[];counts={}
     for order,(cat,zh,en) in enumerate(LABELS):
         source=json.loads((FINAL/cat/'docs'/f'{cat}-items.json').read_text())
@@ -109,17 +109,23 @@ def main():
                 if zid=='shirts-a':
                     rgb=neutral_shirts(rgb,masks)
                     painting=Image.fromarray(rgb)
-                if cat in ('hats','bags','accessories'):
-                    reconstructed,masks,reasons=reconstruct(rgb,boxes,zid)
-                    bad={iid for iid in boxes if reasons[iid]}
-                    base=Image.fromarray(reconstructed)
-                else:
-                    bad=set(boxes);base=painting
+                # v2.3: every category goes through the plate reconstruction + per-item gate.
+                prior_masks=masks
+                reconstructed,masks,reasons=reconstruct(rgb,boxes,zid)
+                ENABLED=json.loads((ROOT/'data/source/layers-v23.json').read_text())['enabled_categories']
+                if cat not in ENABLED:
+                    # Category not yet reviewed in v2.3: keep the v2.2 behaviour (painting + fallback layers).
                     reasons={iid:['wall reconstruction not validated for this background'] for iid in boxes}
+                    reconstructed=rgb
+                bad={iid for iid in boxes if reasons[iid]}
+                base=Image.fromarray(reconstructed)
+                if cat not in ('hats','bags','accessories'):
+                    # Clothing/shoes items that still fail keep their earlier conservative layer.
+                    for iid in bad: masks[iid]=prior_masks[iid]
                 gate[zid]={iid:dict(passed=iid not in bad,reasons=reasons[iid]) for iid in boxes}
                 review(zid,np.array(base),rgb,masks,reasons)
                 for iid,mask in masks.items():
-                    if cat not in ('hats','bags','accessories') and (ROOT/f'assets/zones/layers/{iid}.webp').exists():
+                    if cat not in ('hats','bags','accessories') and iid in bad and (ROOT/f'assets/zones/layers/{iid}.webp').exists():
                         prior=next(i for i in json.loads((ROOT/'data/catalog.json').read_text())['items'] if i['id']==iid)['layer']
                         if zid=='shirts-a':
                             x=round(prior['left']*w/100);y=round(prior['top']*h/100)
@@ -139,7 +145,7 @@ def main():
                     layers[iid]=dict(image=path,**lr,rect=lr,pivot={'x':50,'y':0 if motion=='hang' else 50},pivotX=50,pivotY=0 if motion=='hang' else 50,motion=motion,fallback=iid in bad)
             else: base=painting
             fallback.extend(sorted(bad))
-            paths=variants(base,f'assets/zones/{zid}',[1600,1024,640],source_path=max([zone_src,ROOT/'tools/v21_images.py'],key=lambda p:p.stat().st_mtime) if cat in ('hats','bags','accessories') else (ROOT/'data/source/overrides_v21.py' if zid=='shirts-a' else FINAL/finals[cat,letter]['path_in_zip']))
+            paths=variants(base,f'assets/zones/{zid}',[1600,1024,640],source_path=max([zone_src,ROOT/'tools/v21_images.py',ROOT/'tools/build_v2.py']+([ROOT/'data/source/overrides_v21.py'] if zid=='shirts-a' else [])+([ROOT/'data/source/layers-v23.json'] if (ROOT/'data/source/layers-v23.json').exists() else []),key=lambda p:p.stat().st_mtime))
             cover=variants(painting,f'assets/zones/{zid}-cover',[640],source_path=zone_src if zid in GEN['zones'] else ROOT/'data/source/overrides_v21.py' if zid=='shirts-a' else FINAL/finals[cat,letter]['path_in_zip'])[0]
             catalog['zones'].append(dict(id=zid,category=cat,letter=letter,images=paths,cover=cover,natural_size=[ow,oh],aspect=ow/oh,has_layout=bool(layout),items=ids))
             # Inset then split overlapping rectangles along centre-to-centre axis.
