@@ -3,9 +3,9 @@
   "categories": 11,
   "zones": 43,
   "items": 384,
-  "asset_bytes_written": 37260758,
+  "asset_bytes_written": 37153540,
   "asset_files_written": 1324,
-  "assets_total_bytes": 37810176,
+  "assets_total_bytes": 37702958,
   "overlap_pairs": {
     "jackets-a": 0,
     "jackets-b": 0,
@@ -53,14 +53,6 @@
   },
   "zones_lacking_layout": [],
   "fallback_ids": [
-    "batch2-236",
-    "batch2-260",
-    "batch2-261",
-    "batch2-292",
-    "batch2-328",
-    "batch2-332",
-    "batch2-333",
-    "cr-009",
     "batch2-002",
     "batch2-151",
     "batch2-152",
@@ -234,7 +226,7 @@
     "batch2-055",
     "batch2-057"
   ],
-  "first_load_bytes": 870053,
+  "first_load_bytes": 870093,
   "first_load_files": [
     "app.js",
     "assets/layers/cr-001-layer.webp",

@@ -98,6 +98,12 @@ def reconstruct(rgb, boxes, config):
     wood=post_region&(red-green>28)&(green-blue>18)&(green-blue<36)
     wood=cv2.dilate(np.uint8(wood),np.ones((3,3),np.uint8)).astype(bool)&post_region
     fg=(delta>19)&~shadows&~structure.astype(bool)
+    conservative_fg=fg.copy()
+    if config.get('neutral_garments'):
+        # Grey woven shirts can be a uniform darkening of plaster too.
+        # Let the local material GMM distinguish them from cast shadows;
+        # a global multiplicative-shadow veto removes whole pale sleeves.
+        fg=(delta>19)&~structure.astype(bool)
     masks=GarmentMasks(); reasons={}
     costs=[]; candidates=[]
     hooks=np.zeros((h,w),bool)
@@ -120,9 +126,27 @@ def reconstruct(rgb, boxes, config):
         # edges without turning the triangular hanger opening into opaque wall.
         seeds=np.zeros((h,w),np.uint8)
         seeds[roi]=cv2.GC_PR_BGD
-        seeds[roi&fg]=cv2.GC_PR_FGD
+        material=rgb[max(y,0):min(b,h),max(0,round(x+(r-x)*.3)):min(w,round(r-(r-x)*.3))]
+        pale=config.get('neutral_garments') and np.median(material.mean(2))>120
+        local_fg=fg if pale else conservative_fg
+        seeds[roi&local_fg]=cv2.GC_PR_FGD
         core=(xx>x+(r-x)*.25)&(xx<r-(r-x)*.25)&(yy>y+(b-y)*.15)&(yy<b-(b-y)*.12)&fg
-        seeds[core]=cv2.GC_FGD
+        seeds[core&local_fg]=cv2.GC_FGD
+        if pale:
+            # Painted hems can match plaster exactly. Closed outline contours
+            # provide interior seeds, not a filled cutout: erode well inside
+            # the outline so soft cast-shadow edges never become foreground.
+            patch=rgb[y:min(h,b+4),x:r]
+            edges=cv2.Canny(patch,35,90)
+            edges=cv2.morphologyEx(edges,cv2.MORPH_CLOSE,np.ones((3,3),np.uint8))
+            contours,_=cv2.findContours(edges,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+            interior=np.zeros(edges.shape,np.uint8)
+            for contour in contours:
+                if cv2.contourArea(contour)>(r-x)*(b-y)*.15:
+                    cv2.drawContours(interior,[contour],-1,1,-1)
+            interior=cv2.erode(interior,np.ones((15,15),np.uint8))
+            interior[:round((b-y)*.12)]=0
+            seeds[y:min(h,b+4),x:r][interior>0]=cv2.GC_FGD
         seeds[structure>0]=cv2.GC_BGD
         # A crop is essential: a full-size GMM can learn neighbouring clothes
         # as wall, even though they are outside this item's allowed silhouette.
