@@ -78,6 +78,22 @@ def reconstruct(rgb, boxes, config):
         occupied[max(0,y-3):min(h,b+15),max(0,x-4):min(w,r+4)]=1
     wall=wall_model(rgb,config,occupied)
     background=wall.copy()
+    # Wall-mounted rails cast a continuous shadow behind the hanger apex.
+    # A wall polynomial erases it; retaining a rectangular rail band instead
+    # preserves hanger fragments. Rebuild only that shadow from clean gaps.
+    for band in config.get('wall_profiles', []):
+        x,y,r,b=band['bbox']
+        donors=np.concatenate([rgb[y:b,a:c] for a,c in band['donor_x']],axis=1)
+        profile=np.median(donors,axis=1)
+        # Preserve the fitted wall's lateral illumination, using the donor
+        # strip only for the rail's vertical shadow profile.
+        donor_wall=np.concatenate([wall[y:b,a:c] for a,c in band['donor_x']],axis=1)
+        offset=profile-np.median(donor_wall,axis=1)
+        offset-=np.median(offset[-5:],axis=0)
+        offset=cv2.GaussianBlur(offset,(1,9),1.6)
+        fade_y=np.clip((b-1-np.arange(y,b))/8,0,1)
+        fade_x=np.minimum(np.clip((np.arange(x,r)-x)/16,0,1),np.clip((r-1-np.arange(x,r))/16,0,1))
+        background[y:b,x:r]=np.uint8(np.clip(wall[y:b,x:r].astype(float)+offset[:,None,:]*fade_y[:,None,None]*fade_x[None,:,None],0,255))
     post_region=np.zeros((h,w),bool)
     for x0,y0,x1,y1,width,dy0,dy1 in config.get('posts',[]):
         center=x0+(yy-y0)*(x1-x0)/(y1-y0)
@@ -105,6 +121,11 @@ def reconstruct(rgb, boxes, config):
     structure=np.zeros((h,w),np.uint8)
     for x,y,r,b in config['structure']:
         structure[y:b,x:r]=1
+    for x,y,r,b in config.get('wood_structure', []):
+        # Round rail end caps must not preserve a square of the old wall.
+        patch=rgb[y:b,x:r].astype(int)
+        wood=(patch[:,:,0]-patch[:,:,2]>25)&(patch[:,:,0]-patch[:,:,1]>10)
+        structure[y:b,x:r]|=cv2.dilate(np.uint8(wood),np.ones((3,3),np.uint8))
     # Cloth differs from the wall in colour or luminance. Smooth, neutral
     # cast shadows are excluded; textured pale fabric remains foreground.
     delta=np.linalg.norm(rgb.astype(float)-background.astype(float),axis=2)
@@ -152,14 +173,17 @@ def reconstruct(rgb, boxes, config):
         hanger_top=int(woodrows[0]) if len(woodrows) else top+6
         apex=np.flatnonzero(warm[hanger_top])
         hook_x=float(np.median(apex)) if len(apex) else (x+r)/2
-        hooks|=(np.abs(xx-hook_x)<=3)&(yy>=rail[3]-1)&(yy<hanger_top)
+        hanger_top-=config.get('hanger_top_margin',0)
+        hooks|=(np.abs(xx-hook_x)<=config.get('hook_radius',3))&(yy>=rail[3]-1)&(yy<hanger_top)
         roi=(xx>=x-8)&(xx<r+8)&(yy>=top)&(yy<b+10)
         # Local GrabCut separates pale cuffs from wall and retains fine hanger
         # edges without turning the triangular hanger opening into opaque wall.
         seeds=np.zeros((h,w),np.uint8)
         seeds[roi]=cv2.GC_PR_BGD
         material=rgb[max(y,0):min(b,h),max(0,round(x+(r-x)*.3)):min(w,round(r-(r-x)*.3))]
-        pale=config.get('neutral_garments') and np.median(material.mean(2))>120
+        pale=config.get('neutral_garments') and (np.median(material.mean(2))>120 or config.get('preserve_pale_details'))
+        # Dark denim can have pale rolled cuffs outside its central material
+        # sample. A shadow veto drops those cuffs before GrabCut sees them.
         local_fg=fg if pale else conservative_fg
         seeds[roi&local_fg]=cv2.GC_PR_FGD
         core=(xx>x+(r-x)*.25)&(xx<r-(r-x)*.25)&(yy>y+(b-y)*.15)&(yy<b-(b-y)*.12)&fg
@@ -180,6 +204,26 @@ def reconstruct(rgb, boxes, config):
             interior[:round((b-y)*.12)]=0
             seeds[y:min(h,b+4),x:r][interior>0]=cv2.GC_FGD
         seeds[structure>0]=cv2.GC_BGD
+        if config.get('preserve_leg_gaps'):
+            # The shadow between trouser legs is enclosed by the two hems
+            # in some painted outlines. Pale-cloth contour seeds otherwise
+            # teach GrabCut that this smooth, neutral shadow is textile.
+            # Follow only smooth wall-colour pixels connected to below the
+            # hems; a dark fold inside the garment is not a leg opening.
+            value=rgb.astype(np.float32)
+            mean=cv2.blur(value,(3,3))
+            variation=np.sqrt(np.maximum(0,cv2.blur(value*value,(3,3))-mean*mean).mean(2))
+            gap=(np.ptp(ratio,axis=2)<.10)&(ratio.mean(2)>.35)&(ratio.mean(2)<1.03)&(variation<3)
+            gap &= (np.abs(xx-(x+r)/2)<(r-x)*.20)&(yy>y+(b-y)*.42)&(yy<b+12)
+            _,labels=cv2.connectedComponents(np.uint8(gap))
+            bottom=labels[min(h-1,b+5),max(0,x):min(w,r)]
+            connected=np.isin(labels,np.unique(bottom[bottom>0]))&gap
+            # A bbox-centre foreground seed is appropriate for shirts, but
+            # lands on wall between split legs. Let the material GMM decide
+            # this band instead of forcing its cast shadow into the layer.
+            split=(np.abs(xx-(x+r)/2)<(r-x)*.23)&(yy>y+(b-y)*.40)&roi
+            seeds[split&(seeds==cv2.GC_FGD)]=cv2.GC_PR_FGD
+            seeds[connected]=cv2.GC_BGD
         # A crop is essential: a full-size GMM can learn neighbouring clothes
         # as wall, even though they are outside this item's allowed silhouette.
         px,py=max(0,x-12),max(0,top-4);pr,pb=min(w,r+12),min(h,b+14)
@@ -192,7 +236,10 @@ def reconstruct(rgb, boxes, config):
         if config.get('pale_cloth'):
             # Cream sleeves share the wall colour. GrabCut uses their folds
             # and borders; a global wall/shadow colour veto amputates them.
-            m[((delta<15)|shadows)&(yy<y+8)]=0
+            # Trouser labels can match plaster at the waistband. The wall
+            # veto belongs above the cloth, not eight pixels into its top.
+            cloth_top=y if config.get('preserve_waistband') else y+8
+            m[((delta<15)|shadows)&(yy<cloth_top)]=0
         else:
             m[(delta<15)|shadows]=0
         n,lab,stats,_=cv2.connectedComponentsWithStats(m)
@@ -209,6 +256,31 @@ def reconstruct(rgb, boxes, config):
         m=cv2.morphologyEx(m,cv2.MORPH_CLOSE,np.ones((3,3),np.uint8))
         m=cv2.dilate(m,np.ones((3,3),np.uint8))
         m[~roi|(structure>0)|(yy<hanger_top)|surface_wood]=0
+        if config.get('hanger_crossbars'):
+            # Thin silver trouser-hanger crossbars can match the wall and
+            # disappear under the above-waist shadow veto. Retain detected
+            # horizontal edges only, leaving the hanger opening transparent.
+            gray=cv2.GaussianBlur(rgb.mean(2).astype(np.float32),(3,3),.6)
+            rows=np.arange(max(top+1,y-8),min(h-1,y+1))
+            l=round(x+(r-x)*.25);rr=round(r-(r-x)*.25)
+            contrast=np.median(np.abs(gray[rows+1,l:rr]-gray[rows-1,l:rr]),axis=1)
+            strong=rows[contrast>8]
+            if len(strong):
+                row=int(strong[0])
+                waist=np.flatnonzero(m[min(h-1,y+5)])
+                waist=waist[(waist>=x)&(waist<r)]
+                if len(waist):
+                    samples=[]
+                    for col in range(int(waist[0]),int(waist[-1])+1):
+                        nearby=np.arange(max(top+1,row-2),min(h-1,row+3))
+                        edges=nearby[np.abs(gray[nearby+1,col]-gray[nearby-1,col])>8]
+                        if len(edges):samples.append((col,int(edges[0])))
+                    if len(samples)>8:
+                        samples=np.array(samples)
+                        line=np.polyfit(samples[:,0],samples[:,1],1)
+                        for col in range(int(waist[0]),int(waist[-1])+1):
+                            edge=int(round(np.polyval(line,col)))
+                            m[edge:edge+4,col]=1
         # Ownership in overlapping boxes follows material sampled from the
         # unoccluded centre; the spatial term only breaks similar-colour ties.
         colors=np.float32(rgb[core])
@@ -321,7 +393,7 @@ def reconstruct(rgb, boxes, config):
         inverse=np.uint8(m==0);n,lab,stats,_=cv2.connectedComponentsWithStats(inverse)
         for j in range(1,n):
             a,c,d,e,area=stats[j]
-            if area<(r-x)*(b-y)*.15 and c>y+8 and a>x and a+d<r and c+e<b:
+            if area<(r-x)*(b-y)*.15 and c>y+8 and a>x and a+d<r and c+e<b and not config.get('preserve_leg_gaps'):
                 free=(lab==j)&~union;m[free]=255
         # Thin post-grain remnants are not sleeve details. Regularise only
         # the known post band, leaving drawcords and garment hems elsewhere.
@@ -340,6 +412,36 @@ def reconstruct(rgb, boxes, config):
             for surface in config['surfaces']:
                 sx,sy,sr,sb=surface['bbox']
                 m[sy:sb,sx:sr]=clean[sy:sb,sx:sr]
+        if config.get('trim_hem_shadows') and np.median(material.mean(2))<120:
+            # Pale rolled cuffs and their contact shadows share a palette.
+            # Follow the last painted hem edge, removing only smooth neutral
+            # darkening below it; do not round off the cuff or its stitching.
+            gray=cv2.GaussianBlur(rgb.mean(2).astype(np.float32),(3,3),.6)
+            value=rgb.astype(np.float32)
+            mean=cv2.blur(value,(3,3))
+            variation=np.sqrt(np.maximum(0,cv2.blur(value*value,(3,3))-mean*mean).mean(2))
+            for col in range(max(0,x),min(w,r)):
+                rows=np.flatnonzero(m[:,col])
+                if not len(rows):continue
+                end=int(rows[-1])
+                lo=max(1,end-18,y+round((b-y)*.85))
+                edge=np.arange(lo,min(h-1,end))
+                edge=edge[(gray[edge+1,col]-gray[edge-1,col])>30]
+                if not len(edge):continue
+                hem=int(edge[-1])
+                cloth=rgb[max(lo,hem-8):max(lo+1,hem-2),col].astype(float)
+                if cloth.mean()>110 and np.median(np.ptp(cloth,axis=1))<25:
+                    # At a pale cuff, the outline itself is stronger evidence
+                    # than the GMM: keep the entire cloth up to that edge and
+                    # discard all contact shadow below, including its border.
+                    owned=rows[rows<=hem+1]
+                    if len(owned) and hem-owned[-1]<12:
+                        m[int(owned[-1]):hem+2,col]=1
+                        m[hem+2:end+1,col]=0
+                    continue
+                tail=np.arange(hem+2,end+1)
+                neutral=(np.ptp(ratio[tail,col],axis=1)<.08)&(ratio[tail,col].mean(1)>.6)
+                m[tail[neutral&(variation[tail,col]<3)],col]=0
         masks[iid]=m
         reasons[iid]=[]
         area=np.count_nonzero(m)/max(1,(r-x)*(b-y))
@@ -584,6 +686,13 @@ def reconstruct(rgb, boxes, config):
     # whole so the shadow inside a hanger opening cannot float on the plate.
     for x,y,r,b in config.get('clear_wall',[]):
         removal[y:b,x:r]=255
+    for surface in config.get('surfaces', []):
+        if surface.get('clear_surface'):
+            # Floor-contact garments cast shadows beyond their silhouettes,
+            # including in the gap between legs. Rebuild the supported surface
+            # continuously, rather than leaving islands of the original shadow.
+            x,y,r,b=surface['bbox']
+            removal[y:b,x:r]=255
     removal[structure>0]=0
     # Wide feather avoids rectangular seams while keeping reconstructed wall
     # opaque under the silhouette and its contact shadow.
@@ -609,6 +718,21 @@ def reconstruct(rgb, boxes, config):
         near_cloth=cv2.dilate(np.uint8(union),np.ones((71,71),np.uint8)).astype(bool)
         alpha[post_shadow&near_cloth]=1
         alpha[structure>0]=0
+    for surface in config.get('surfaces', []):
+        if surface.get('clear_surface'):
+            # The wall model is invalid below this floor band. Feather inward
+            # to the untouched floor, never outward into the rug with plaster.
+            x,y,r,b=surface['bbox']
+            for row in range(max(y,b-18), min(h,b+14)):
+                alpha[row,x:r] *= np.clip((b-row)/18,0,1)
+    if config.get('isolate_hooks'):
+        # Keeping a rectangular hook ROI also keeps its old wall shadow,
+        # producing tiny square patches on the empty rack. Retain only the
+        # metal's local contrast, including its antialiased edge and shine.
+        local=cv2.medianBlur(rgb,15)
+        detail=np.linalg.norm(rgb.astype(float)-local.astype(float),axis=2)>12
+        detail=cv2.morphologyEx(np.uint8(detail),cv2.MORPH_CLOSE,np.ones((3,3),np.uint8))
+        hooks &= cv2.dilate(detail,np.ones((3,3),np.uint8))>0
     alpha[hooks]=0
     plate=np.uint8(rgb*(1-alpha[:,:,None])+background*alpha[:,:,None])
     # Apply the same strict rest/removal checks to the completed layers that
