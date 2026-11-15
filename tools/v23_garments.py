@@ -118,6 +118,30 @@ def reconstruct(rgb, boxes, config):
         x,y,r,b=surface['bbox']
         donors=np.concatenate([rgb[y:b,a:c] for a,c in surface['donor_x']],axis=1)
         background[y:b,x:r]=np.median(donors,axis=1).astype(np.uint8)[:,None,:]
+    # Wall rails can be crossed by a long garment. Preserve structure only
+    # where its paint agrees with clean rail donors; otherwise it is cloth,
+    # not an immutable rectangular piece of the original painting.
+    rebuilt_structure=np.zeros((h,w),bool)
+    for rail in config.get('rebuild_rails', []):
+        x,y,r,b=rail['bbox']
+        donors=np.concatenate([rgb[y:b,a:c] for a,c in rail['donor_x']],axis=1)
+        profile=np.median(donors,axis=1).astype(np.uint8)
+        background[y:b,x:r]=profile[:,None,:]
+        rebuilt_structure[y:b,x:r]=True
+    for furniture in config.get('furniture_donors', []):
+        x,y,r,b=furniture['bbox'];a,c,d,e=furniture['donor_bbox']
+        donor=rgb[c:e,a:d]
+        if furniture.get('flip_x'):donor=donor[:,::-1]
+        donor=cv2.resize(donor,(r-x,b-y),interpolation=cv2.INTER_LINEAR)
+        if furniture.get('wood_donor_only'):
+            # A rectangular furniture donor includes old wall beside its
+            # sloped top. Transfer wood, not that wall's edge or illumination.
+            colour=donor.astype(int)
+            keep=(colour[:,:,0]-colour[:,:,2]>25)&(colour[:,:,0]-colour[:,:,1]>8)
+            keep=cv2.morphologyEx(np.uint8(keep),cv2.MORPH_CLOSE,np.ones((5,5),np.uint8)).astype(bool)
+            keep |= np.arange(y,b)[:,None]>=furniture['floor_y']
+            background[y:b,x:r][keep]=donor[keep]
+        else:background[y:b,x:r]=donor
     structure=np.zeros((h,w),np.uint8)
     for x,y,r,b in config['structure']:
         structure[y:b,x:r]=1
@@ -145,11 +169,15 @@ def reconstruct(rgb, boxes, config):
     wood=cv2.dilate(np.uint8(wood),np.ones((3,3),np.uint8)).astype(bool)&post_region
     surface_wood=np.zeros((h,w),bool)
     for surface in config.get('surfaces', []):
+        # Cream hems are warm too; a floor band has no exposed wood to veto.
+        if surface.get('cloth_over_surface'):continue
         x,y,r,b=surface['bbox']
         # The ROI includes the hem's contact shadow and can otherwise attach
         # a long strip of shelf edge to a pale shirt. Warm exposed wood is
         # surface, while the neutral cloth continues to its painted hem.
         surface_wood[y:b,x:r]=(red-green>12)[y:b,x:r]&(green-blue>8)[y:b,x:r]
+    if config.get('rebuild_rails'):
+        structure[rebuilt_structure&(delta>25)]=0
     fg=(delta>19)&~shadows&~structure.astype(bool)
     conservative_fg=fg.copy()
     if config.get('neutral_garments'):
@@ -164,12 +192,12 @@ def reconstruct(rgb, boxes, config):
         # Two stacked rows can share the same horizontal centre. Select the
         # rail above the garment by vertical distance, not centre-x alone.
         rail=min(config['rails'],key=lambda z: abs(y-z[3])*4 + (0 if z[0]< (x+r)/2 < z[2] else w))
-        top=rail[3]+3
+        top=rail[3]+(1 if config.get('retain_hanger_wood') else 3)
         # Metal hooks stay with the rack; the entire wooden hanger moves.
         # Find the first broad warm wood row, not a bbox-dependent stem cut.
         warm=(red-blue>48)&(red-green>24)&(rgb.mean(2)<200)&(np.abs(xx-(x+r)/2)<20)
         warm&=(yy>=rail[3])&(yy<y+8)
-        woodrows=np.flatnonzero(warm.sum(1)>=3)
+        woodrows=np.flatnonzero((warm.sum(1)>=3)&((warm.sum(1)<25) if config.get('retain_hanger_wood') else True))
         hanger_top=int(woodrows[0]) if len(woodrows) else top+6
         apex=np.flatnonzero(warm[hanger_top])
         hook_x=float(np.median(apex)) if len(apex) else (x+r)/2
@@ -256,7 +284,22 @@ def reconstruct(rgb, boxes, config):
         m=cv2.morphologyEx(m,cv2.MORPH_CLOSE,np.ones((3,3),np.uint8))
         m=cv2.dilate(m,np.ones((3,3),np.uint8))
         m[~roi|(structure>0)|(yy<hanger_top)|surface_wood]=0
-        if config.get('hanger_crossbars'):
+        if config.get('preserve_neck_openings') and np.median(material.mean(2))<170:
+            # Dark bodices can enclose a grey wall opening below the hanger.
+            # It is neither a cloth panel nor a hole to fill with opaque RGB.
+            neck=(np.abs(xx-hook_x)<(r-x)*.23)&(yy<min(y+(b-y)*.18,y+26))&(yy>hanger_top)
+            wall_neck=neck&(np.ptp(rgb.astype(int),axis=2)<12)&(rgb.mean(2)>180)&(delta<40)
+            m[wall_neck]=0
+        if config.get('retain_hanger_wood'):
+            # A cloth-trained GMM discards the differently coloured wooden
+            # hanger. Its warm paint is strong evidence only in the narrow
+            # band between the selected rail and the garment shoulders.
+            hanger=(red-blue>30)&(red-green>10)&(rgb.mean(2)<225)
+            hanger &= roi&(yy>=hanger_top)&(yy<y+14)&~structure.astype(bool)
+            hanger=cv2.morphologyEx(np.uint8(hanger),cv2.MORPH_CLOSE,np.ones((3,3),np.uint8))
+            hanger=cv2.dilate(hanger,np.ones((3,3),np.uint8))
+            m[(hanger>0)&roi&(delta>10)&(yy>=hanger_top)]=1
+        if config.get('hanger_crossbars') and (not config.get('retain_hanger_wood') or y-rail[3]>36):
             # Thin silver trouser-hanger crossbars can match the wall and
             # disappear under the above-waist shadow veto. Retain detected
             # horizontal edges only, leaving the hanger opening transparent.
@@ -283,6 +326,13 @@ def reconstruct(rgb, boxes, config):
                             m[edge:edge+4,col]=1
         # Ownership in overlapping boxes follows material sampled from the
         # unoccluded centre; the spatial term only breaks similar-colour ties.
+        if config.get('recover_warm_trim'):
+            # Cream binding on black cloth is absent from its central material
+            # sample. Restore its warm pixels next to the detected outline;
+            # neutral plaster and cast shadows cannot satisfy this evidence.
+            near=cv2.dilate(m,np.ones((9,9),np.uint8))>0
+            trim=near&roi&(red-blue>15)&(rgb.mean(2)>135)&(delta>15)
+            m[trim&~structure.astype(bool)&(yy>=hanger_top)]=1
         colors=np.float32(rgb[core])
         cv2.setRNGSeed(23)
         _,_,centers=cv2.kmeans(colors, min(5,len(colors)),None,(cv2.TERM_CRITERIA_EPS+cv2.TERM_CRITERIA_MAX_ITER,30,.5),3,cv2.KMEANS_PP_CENTERS)
@@ -328,7 +378,7 @@ def reconstruct(rgb, boxes, config):
                 candidates[-1]=m>0
         cost[~(m>0)]=1e6;costs.append(cost)
     allcost=np.stack(costs);owner=allcost.argmin(0);union=np.stack(candidates).any(0)
-    if config.get('symmetric_sleeves'):
+    if config.get('symmetric_sleeves') or config.get('ownership_graphcut'):
         # Palette-only ownership can alternate along a shared sleeve seam.
         # A local graph cut keeps ownership on the painted material boundary;
         # definite seeds come from each garment outside the overlapping band.
@@ -360,6 +410,7 @@ def reconstruct(rgb, boxes, config):
     # Reattach thin row fragments to the adjacent broad silhouette; do not
     # let a matching black cuff/hem become a long loose strip on another coat.
     for k,(iid,(x,y,r,b)) in enumerate(boxes.items()):
+        if config.get('preserve_overlap_tips'):continue
         # Short shirts overlap at their sleeves, above the ordinary hem band.
         start=.15 if config.get('symmetric_sleeves') else (.25 if b-y>2*(r-x) else .5)
         for row in range(max(0,round(y+(b-y)*start)),min(h,b+10)):
@@ -377,12 +428,45 @@ def reconstruct(rgb, boxes, config):
                     if ox-8<=a and e<=orr+8 and oy<=row<ob+10:
                         owner[row,a:e]=j
                         break
+    if config.get('solid_overlap_front'):
+        # A pale print on a dark front cuff can match the rear garment's
+        # palette. An island enclosed by the front silhouette on both sides
+        # belongs to that cuff; do not leave a print-shaped hole in it.
+        ids=list(boxes)
+        depth_order=config.get('depth_order',ids)
+        rank=np.array([depth_order.index(iid) for iid in ids])
+        candidate_count=np.sum(candidates,axis=0)
+        colour=cv2.cvtColor(rgb,cv2.COLOR_RGB2HSV) if config.get('front_colour_edges') else None
+        for iid in depth_order:
+            k=ids.index(iid)
+            shared=candidates[k]&(candidate_count>1)
+            if not shared.any():continue
+            if config.get('front_colour_edges'):
+                # Colour antialiasing can put one blue cuff pixel outside
+                # the graph-cut seam. Recover only the front material's
+                # saturated hue next to its silhouette, never beige wall.
+                x,y,r,b=boxes[iid]
+                sample=colour[y+(b-y)//4:b-(b-y)//4,x+(r-x)//3:r-(r-x)//3]
+                strong=sample[:,:,1]>65
+                if strong.mean()>.3:
+                    hues=sample[:,:,0][strong]
+                    hue=int(np.bincount(hues,minlength=180).argmax())
+                    delta_h=np.abs(colour[:,:,0].astype(int)-hue)
+                    match=(np.minimum(delta_h,180-delta_h)<12)&(colour[:,:,1]>65)
+                    near=cv2.dilate(np.uint8(union&(owner==k)),np.ones((5,5),np.uint8))>0
+                    owner[shared&near&match&(rank[owner]<rank[k])]=k
+            for row in np.flatnonzero(shared.any(1)):
+                run=np.flatnonzero(union[row]&(owner[row]==k))
+                if len(run):
+                    fill=shared[row]&(xx[row]>=run[0])&(xx[row]<=run[-1])&(rank[owner[row]]<rank[k])
+                    owner[row,fill]=k
     for k,(iid,box) in enumerate(boxes.items()):
         m=np.uint8(union&(owner==k))*255
         # Detached pieces in an adjacent bbox are not part of this garment.
         # The hanger and real drawcords remain attached to the main silhouette.
         n,labels,stats,_=cv2.connectedComponentsWithStats(m)
-        if n>1:
+        open_textile=config.get('open_textiles') and box[3]-box[1]>2.3*(box[2]-box[0])
+        if n>1 and not open_textile:
             main=1+np.argmax(stats[1:,4])
             for component in range(1,n):
                 a,c,d,e,area=stats[component]
@@ -393,7 +477,7 @@ def reconstruct(rgb, boxes, config):
         inverse=np.uint8(m==0);n,lab,stats,_=cv2.connectedComponentsWithStats(inverse)
         for j in range(1,n):
             a,c,d,e,area=stats[j]
-            if area<(r-x)*(b-y)*.15 and c>y+8 and a>x and a+d<r and c+e<b and not config.get('preserve_leg_gaps'):
+            if area<(r-x)*(b-y)*.15 and c>y+8 and a>x and a+d<r and c+e<b and not config.get('preserve_leg_gaps') and not open_textile and (not config.get('preserve_neck_openings') or c>y+(b-y)*.25):
                 free=(lab==j)&~union;m[free]=255
         # Thin post-grain remnants are not sleeve details. Regularise only
         # the known post band, leaving drawcords and garment hems elsewhere.
@@ -442,6 +526,34 @@ def reconstruct(rgb, boxes, config):
                 tail=np.arange(hem+2,end+1)
                 neutral=(np.ptp(ratio[tail,col],axis=1)<.08)&(ratio[tail,col].mean(1)>.6)
                 m[tail[neutral&(variation[tail,col]<3)],col]=0
+        if open_textile:
+            # Open lace is a network of threads and embroidery, not an
+            # opaque wall-coloured skirt. Keep its detached stitches; a
+            # largest-component filter or hole fill destroys this material.
+            local=cv2.medianBlur(rgb,25)
+            local_delta=np.linalg.norm(rgb.astype(float)-local.astype(float),axis=2)
+            detail=local_delta>10
+            pink=(red-green>12)&(blue-green>-12)
+            peach=(red-green>12)&(red-blue>18)&(rgb.mean(2)>130)
+            lace=(detail|pink|peach)&(rgb.mean(2)>100)
+            region=(xx>=x-8)&(xx<r+8)&(yy>y+(b-y)*.58)&(yy<b+10)
+            # Grow only onto the thread's antialiased edge, not onto smooth
+            # wall between stitches. Unconditional dilation makes opaque lace.
+            lace=(cv2.dilate(np.uint8(lace),np.ones((3,3),np.uint8))>0)&((local_delta>4)|pink|peach)
+            for furniture in config.get('furniture_donors', []):
+                sx,sy,sr,sb=furniture['bbox']
+                exposed_wood=(red-green>22)&(red-green<70)&(green-blue>15)&(red<180)&(green<125)&(blue<100)
+                lace[sy:sb,sx:sr]&=~exposed_wood[sy:sb,sx:sr]
+            # Long straight neutral edges belong to the underlying furniture,
+            # not to the small embroidered flowers or winding mesh threads.
+            for furniture in config.get('furniture_donors', []):
+                sx,sy,sr,sb=furniture['bbox']
+                patch=np.uint8(lace[sy:sb,sx:sr]&(np.ptp(rgb[sy:sb,sx:sr].astype(int),axis=2)<24))
+                straight=cv2.morphologyEx(patch,cv2.MORPH_OPEN,np.ones((1,25),np.uint8))
+                straight|=cv2.morphologyEx(patch,cv2.MORPH_OPEN,np.ones((25,1),np.uint8))
+                lace[sy:sb,sx:sr]&=~(straight>0)
+            lace &= ~(union&(owner!=k))
+            m[region]=np.uint8(lace[region])*255
         masks[iid]=m
         reasons[iid]=[]
         area=np.count_nonzero(m)/max(1,(r-x)*(b-y))
@@ -534,6 +646,34 @@ def reconstruct(rgb, boxes, config):
                         hidden[row,start:stop] |= front[row,start:stop] & (m[row,start:stop]==0)
         else:
             hidden=(reflected|envelope)&front&(yy>y+12)&(yy<b+3)&(xx>x-8)&(xx<r+8)
+        if config.get('complete_flared_edges'):
+            # A flare can be asymmetric about the hanger. Continue its own
+            # visible straight side behind the front sleeve, rather than
+            # mirroring a narrower opposite edge and leaving a cuff notch.
+            near=cv2.dilate(np.uint8(front),np.ones((9,9),np.uint8))>0
+            for side in (-1,1):
+                contact=[]
+                for row in range(y+20,min(h,b)):
+                    run=np.flatnonzero(m[row])
+                    if len(run)>20:
+                        edge=int(run[0] if side<0 else run[-1])
+                        if near[row,edge]:contact.append(row)
+                if not contact:continue
+                start=contact[0];samples=[]
+                for row in range(max(y+20,start-40),start-5):
+                    run=np.flatnonzero(m[row])
+                    if len(run)>20:samples.append((row,int(run[0] if side<0 else run[-1])))
+                if len(samples)<12:continue
+                sample=np.array(samples);line=np.polyfit(sample[:,0],sample[:,1],1)
+                if not .15<side*line[0]<1.0:continue
+                for row in range(start,min(h,b)):
+                    run=np.flatnonzero(m[row])
+                    if not len(run):continue
+                    edge=int(round(np.polyval(line,row)))
+                    own=int(run[0] if side<0 else run[-1])
+                    if side*(edge-own)<=0:continue
+                    a,e=sorted((edge,own));a=max(0,a);e=min(w,e+1)
+                    hidden[row,a:e] |= near[row,a:e]&(m[row,a:e]==0)
         if config.get('deep_overlap'):
             hidden &= m==0
         # Symmetry alone can reach across a real wall gap onto the next
@@ -550,7 +690,7 @@ def reconstruct(rgb, boxes, config):
         active=np.uint8(hidden.any(1))[:,None]
         vertical=cv2.distanceTransform(active,cv2.DIST_L2,3)[:,0]
         for row in np.flatnonzero(hidden.any(1)):
-            if substantial or row<=y+(b-y)*.5 or vertical[row]>=10:continue
+            if substantial or config.get('complete_flared_edges') or row<=y+(b-y)*.5 or vertical[row]>=10:continue
             own=np.flatnonzero(m[row])
             extra=np.flatnonzero(hidden[row])
             if not len(own) or not len(extra):continue
@@ -614,7 +754,7 @@ def reconstruct(rgb, boxes, config):
             if config.get('complete_overlap'):
                 rounded=cv2.GaussianBlur(masks[iid],(21,21),5)>127
                 smooth=np.uint8((smooth>0)&rounded)*255
-            if not substantial and not config.get('symmetric_sleeves'):
+            if not substantial and not config.get('symmetric_sleeves') and not config.get('complete_flared_edges'):
                 masks[iid][hidden&(smooth==0)]=0
             if config.get('smooth_overlap_edges'):
                 # A one-pixel ownership seam can become a tiny pointed tab
@@ -678,6 +818,28 @@ def reconstruct(rgb, boxes, config):
                     edge=(max if side>0 else min)(np.polyval(torso_line,row),slope*row+intercept)
                     outside=(xx[row]-edge)*side>0
                     m[row,outside]=0
+    if config.get('trim_flat_wall'):
+        value=rgb.astype(np.float32)
+        mean=cv2.blur(value,(5,5))
+        variation=np.sqrt(np.maximum(0,cv2.blur(value*value,(5,5))-mean*mean).mean(2))
+        plaster=(np.ptp(rgb.astype(int),axis=2)<12)&(rgb.mean(2)>145)&(variation<2.4)
+        for iid,m in masks.items():
+            x,y,r,b=boxes[iid]
+            # Contact shadows below a painted hem are neutral; unlike cream
+            # cloth they have no warm pigment, and unlike black cloth they
+            # are light. Keep the lower boundary tied to its visible outline.
+            hem=(yy>b-3)&(rgb.mean(2)>110)&(rgb.mean(2)<220)&(np.ptp(rgb.astype(int),axis=2)<14)
+            hem &= shadows
+            m[hem]=0
+            m[yy>b+1]=0
+            # Flat plaster islands can be left by a source crop around a hem.
+            # Only remove connected patches touching the silhouette boundary;
+            # enclosed cream fabric panels retain their folds and their area.
+            n,lab,stats,_=cv2.connectedComponentsWithStats(np.uint8(plaster&(yy>b-4)&shadows&(m>0)))
+            edge=(m>0)&~cv2.erode(np.uint8(m>0),np.ones((3,3),np.uint8)).astype(bool)
+            touching=set(np.unique(lab[edge&plaster]))-{0}
+            for j in touching:
+                if stats[j,4]>=12:m[lab==j]=0
     masks.visible=visible
     # Remove cloth and its cast shadows, preserving every rack/furniture pixel.
     removal=np.uint8(union)*255
@@ -724,7 +886,8 @@ def reconstruct(rgb, boxes, config):
             # to the untouched floor, never outward into the rug with plaster.
             x,y,r,b=surface['bbox']
             for row in range(max(y,b-18), min(h,b+14)):
-                alpha[row,x:r] *= np.clip((b-row)/18,0,1)
+                alpha[row,x:r] *= np.clip((b-row)/surface.get('feather',18),0,1)
+            if 'feather' in surface:alpha[b:,x:r]=0
     if config.get('isolate_hooks'):
         # Keeping a rectangular hook ROI also keeps its old wall shadow,
         # producing tiny square patches on the empty rack. Retain only the
@@ -733,6 +896,46 @@ def reconstruct(rgb, boxes, config):
         detail=np.linalg.norm(rgb.astype(float)-local.astype(float),axis=2)>12
         detail=cv2.morphologyEx(np.uint8(detail),cv2.MORPH_CLOSE,np.ones((3,3),np.uint8))
         hooks &= cv2.dilate(detail,np.ones((3,3),np.uint8))>0
+    if config.get('retain_hanger_wood'):hooks &= ~((red-blue>30)&(red-green>10))
+    alpha[hooks]=0
+    # The rail profile also repairs pre-existing crop seams. Reconstruct the
+    # whole straight band, including parts formerly covered by a long dress.
+    # Keep exposed grain, end caps and screw heads. Donor replacement is
+    # needed for cloth crossings and wall-colour gaps in the rail, not for
+    # every pixel of an already clean wooden bar.
+    crossing=np.zeros((h,w),bool)
+    for x,y,r,b in boxes.values():
+        crossing |= rebuilt_structure&(xx>=x-8)&(xx<r+8)&(yy>y+14)&(yy<b+10)
+    # A pale crop seam can interrupt a rail; dark screw heads and normal
+    # painted grain are legitimate rail detail and must survive at rest.
+    gaps=rebuilt_structure&(rgb.mean(2)>190)&(background.mean(2)<190)
+    source_wood=(red-blue>30)&(red-green>10)
+    donor_wood=(background[:,:,0].astype(int)-background[:,:,2]>30)&(background[:,:,0].astype(int)-background[:,:,1]>10)
+    repair=crossing|gaps|(rebuilt_structure&source_wood&~donor_wood)
+    alpha[rebuilt_structure]=0
+    alpha[repair]=1
+    for furniture in config.get('furniture_donors', []):
+        x,y,r,b=furniture['bbox']
+        if furniture.get('repair_occluded_only'):
+            # Donor geometry rebuilds hidden furniture, but exposed source
+            # grain is exact and must survive the at-rest composite.
+            near=cv2.dilate(np.uint8(union),np.ones((15,15),np.uint8))>0
+            alpha[y:b,x:r]=near[y:b,x:r]
+        else:alpha[y:b,x:r]=1
+    for furniture in config.get('furniture_donors', []):
+        if not furniture.get('retain_clean_wood'):continue
+        x,y,r,b=furniture['bbox']
+        # Original warm wood between the stitches is a better grain donor
+        # than a resized companion seat. Keep only its material, never the
+        # pale/pink embroidery or saturated gold/orange flower centres.
+        clean=(red-green>22)&(red-green<70)&(green-blue>15)&(red<180)&(green<125)&(blue<100)
+        patch=clean[y:b,x:r]
+        background[y:b,x:r][patch]=rgb[y:b,x:r][patch]
+        # The donor/source material boundary must not retain a dotted echo
+        # of the embroidery's negative space. Regularise only fine grain;
+        # the seat edges and legs stay sharp.
+        smooth=cv2.medianBlur(background[y:b,x:r],3)
+        background[y:b,x:r]=cv2.bilateralFilter(smooth,5,25,3)
     alpha[hooks]=0
     plate=np.uint8(rgb*(1-alpha[:,:,None])+background*alpha[:,:,None])
     # Apply the same strict rest/removal checks to the completed layers that

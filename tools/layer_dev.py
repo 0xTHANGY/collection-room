@@ -59,6 +59,8 @@ def check(zid):
     res={}
     for i,(x,y,r,b) in boxes.items():
         d=dict(passed=not reasons[i],reasons=reasons[i])
+        if reasons[i] and hasattr(masks,'metrics'):
+            d['diagnostics']=masks.metrics.get(i,{})
         if not reasons[i]:
             px,py=int((r-x)*.15),int((b-y)*.15)
             reg=np.zeros((h,w),bool);reg[max(0,y-py):b+py,max(0,x-px):r+px]=True
@@ -73,6 +75,10 @@ def check(zid):
             if cat=='bags':d['wall_in_layer']=round(v21_images.attached_wall_fraction(rgb,base,masks[i]),4)
             d['suspect']=d['rest_err']>.01 or d['wall_in_layer']>.03
         res[i]=d
+    # A rejected rack returns the original painting for safe export. Keep
+    # its candidate plate visible as a diagnostic rather than hiding defects.
+    if any(reasons.values()) and hasattr(masks,'preview_plate'):
+        Image.fromarray(masks.preview_plate).save(OUT/f'{zid}-candidate-plate.jpg',quality=92)
     # review sheets
     Image.fromarray(base).save(OUT/f'{zid}-plate.jpg',quality=88)
     Image.fromarray(np.uint8(np.clip(comp,0,255))).save(OUT/f'{zid}-rest.jpg',quality=88)
