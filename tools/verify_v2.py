@@ -8,7 +8,7 @@ BASE='http://127.0.0.1:8765/'
 def main():
     catalog=json.loads((ROOT/'data/catalog.json').read_text())
     out=ROOT/'screenshots';out.mkdir(exist_ok=True)
-    report={'zones':[], 'items_checked':0,'hotspots_checked':0,'list_only_checked':0,'errors':[],'console_errors':[],'page_errors':[],'failed_requests':[],'http_errors':[]}
+    report={'zones':[], 'items_checked':0,'hotspots_checked':0,'list_only_checked':0,'rest_layers_checked':0,'errors':[],'console_errors':[],'page_errors':[],'failed_requests':[],'http_errors':[]}
     with sync_playwright() as p:
         browser=p.chromium.launch(executable_path='/usr/bin/google-chrome',args=['--no-sandbox'])
         page=browser.new_page(viewport={'width':1440,'height':900},device_scale_factor=1,reduced_motion='reduce')
@@ -18,7 +18,7 @@ def main():
         page.on('response',lambda r:report['http_errors'].append({'url':r.url,'status':r.status}) if r.status>=400 else None)
         responses=set()
         page.on('response',lambda r:responses.add(r.url) if r.ok else None)
-        page.goto(BASE,wait_until='networkidle');page.wait_for_selector('#room-tiles a');page.screenshot(path=str(out/'v2.0-hub.png'))
+        page.goto(BASE,wait_until='networkidle');page.wait_for_selector('#room-tiles a');page.screenshot(path=str(out/'v2.1-hub.png'))
         paths=[u.removeprefix(BASE).split('?')[0] or 'index.html' for u in responses if u.startswith(BASE)]
         first_load=sum((ROOT/f).stat().st_size for f in paths if (ROOT/f).is_file())
         report['first_load_bytes']=first_load;report['first_load_files']=sorted(paths)
@@ -29,12 +29,16 @@ def main():
             print('Verifying', zone['id'], flush=True)
             page.goto(BASE+f"#/{zone['category']}/{zone['letter']}",wait_until='networkidle')
             page.wait_for_selector(f'[data-zone-id="{zone["id"]}"]')
+            passing=page.locator('#zone-view .layer-wrap:not(.layer-fallback)')
+            report['rest_layers_checked']+=passing.count()
+            invisible=passing.evaluate_all('els=>els.filter(e=>Number(getComputedStyle(e).opacity)<.99).map(e=>e.dataset.layerItemId)')
+            if invisible:report['errors'].append(f"invisible passing layers: {zone['id']} {invisible}")
             pairs=page.locator('#zone-view .hotspot').evaluate_all('''els => {const r=els.map(e=>({id:e.dataset.itemId,r:e.getBoundingClientRect()})); const pairs=[]; for(let i=0;i<r.length;i++)for(let j=i+1;j<r.length;j++){const a=r[i].r,b=r[j].r;if(Math.min(a.right,b.right)-Math.max(a.left,b.left)>.1&&Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)>.1)pairs.push([r[i].id,r[j].id]);}return pairs;}''')
             report['zones'].append({'id':zone['id'],'overlap_pairs':pairs,'has_layout':zone['has_layout'],'hotspots':page.locator('#zone-view .hotspot').count()})
             if pairs:report['errors'].append(f"overlaps: {zone['id']} {pairs}")
             page.evaluate('window.scrollTo(0,0)')
-            if zone['id'] in ('hats-a','jackets-a',extra_zone):
-                page.screenshot(path=str(out/f'v2.0-zone-{zone["id"]}.png'))
+            if zone['id'] in ('hats-a','bags-a','accessories-a','hats-d',extra_zone):
+                page.screenshot(path=str(out/f'v2.1-zone-{zone["id"]}.png'))
             for iid in zone['items']:
                 item=next(i for i in catalog['items'] if i['id']==iid)
                 selector=f'#zone-view .hotspot[data-item-id="{iid}"]' if item['hotspot'] else f'#zone-view .list-item[data-item-id="{iid}"]'
@@ -48,7 +52,7 @@ def main():
                     page.evaluate('document.getAnimations().forEach(a=>a.finish())')
                     page.wait_for_function('() => flipState === "open"')
                     page.wait_for_function('() => document.querySelector("#detail-image").naturalWidth > 0 && !document.querySelector("#detail-image").hidden')
-                    if iid==catalog['zones'][0]['items'][0]:page.screenshot(path=str(out/'v2.0-card-open.png'))
+                    if iid==catalog['zones'][0]['items'][0]:page.screenshot(path=str(out/'v2.1-card-open.png'))
                     page.locator('#close-dialog').click();page.evaluate('document.getAnimations().forEach(a=>a.finish())');page.wait_for_function('() => !document.querySelector("dialog").open')
                     page.wait_for_function('() => !location.hash.startsWith("#/item/")')
                     assert trigger.evaluate('(e)=>document.activeElement===e')
@@ -85,7 +89,7 @@ def main():
         report['extra_layout_screenshot']='unavailable: only hats-a and jackets-a have supplied layouts' if sum(z['has_layout'] for z in catalog['zones'])==2 else 'saved'
         browser.close()
     report['passed']=not any(report[k] for k in ('errors','console_errors','page_errors','failed_requests','http_errors')) and report['lazy_initial_cards'] and report['lazy_initial_zone_layers'] and not report['mobile_horizontal_overflow'] and report['items_checked']==len(catalog['items'])
-    (out/'v2.0-verify.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+    (out/'v2.1-verify.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
     summary_path=ROOT/'data/build-v2-summary.json';summary=json.loads(summary_path.read_text());summary['first_load_bytes']=first_load;summary['first_load_files']=report['first_load_files'];summary_path.write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps({k:v for k,v in report.items() if k not in ('zones','first_load_files')},ensure_ascii=False,indent=2))
     if not report['passed']:raise SystemExit(1)

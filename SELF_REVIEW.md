@@ -83,3 +83,33 @@ Final v2 build coverage: all 43 layouts arrived during implementation; all 384 i
 Generated v2 assets: 53,126,612 bytes across 1,324 files. Whole assets directory: 53,676,030 bytes. The first-load measurement and browser results are recorded in the final JSON reports; the verifier refreshes first-load bytes after any frontend changes. Screenshot coverage includes hats A, jackets A and jackets B, plus the hub and an open card. No git add, commit, publication or original-source mutation was performed.
 
 Final Playwright result: PASS. Checked 384/384 painted hotspots and all ten hub hotspots; zero list-only items, rendered overlaps, console errors, page errors, failed requests or HTTP errors. Lazy initial card/zone-layer checks, normal-motion FLIP, reduced-motion fades, history/deep links, keyboard activation/Escape, focus return and 375px horizontal-overflow checks passed. Measured hub first load at 1440×900: 869,901 bytes. All requested desktop screenshots are saved, including jackets B as the third layout zone.
+
+## V2.1
+
+Per-item wall reconstruction now uses a robust neutral-wall fit, seeded GrabCut, central components, filled hat silhouettes, rail removal/reconstruction and neighbour clipping. 142/384 items pass and show rest-state layers with unchanged spring/glow/FLIP parameters. Failed items retain original pixels and hover fallback. Other categories remain conservative fallback.
+
+Inspected all priority-zone layer montages and full hats A/bags A/accessories A plates and browser hover screenshots. Corrected pale cap holes, rail/neighbour fragments, repeated rail screws, contact shadows and furniture edges. Smooth rail row colours and fitted wall texture remain approximations; tight source bboxes and occluded edges limit precision. A numerical pass does not guarantee artistic perfection. All 43 zone decisions and labelled reviews are in ../work/v2.1/review/.
+
+Uncertain brands display Unknown; all ten shared IDs use hub display names. Pink 274/341 cutouts have opaque silhouettes (nonzero alpha median 255), soft edges, painting-derived pink, original knit luminance and preserved hook/hanger colours. Edge despill applies to 060/147. Reproducible overrides: data/source/cutout-fixes.json. Source docs label 274 American Vintage and 341 Ambush, opposite the task parentheticals; normal source brands remain unchanged.
+
+QA dispositions: data/source/qa-v21.json. Hats D clone attempt rejected, mirror/plant retained. Hats H A-frame, hats G embroidery (cr-003/058), and bottoms C pants remain unchanged. Estimate four painting revisions for those four zones. Helmet 192 needs a readable original; generating lettering would invent information. No generation used.
+
+Cards: 600/400 WebP q80, no upscale; old v2 -800 files removed. Card images: 24,182,260 bytes. Assets: 38,726,504 bytes. Hub first load: 869,633 bytes. All 1,347 WebPs decoded, no EXIF/XMP/ICC.
+
+Verifier PASS: 384/384 zone hotspots, 10/10 hub items, 142 visible passing rest layers; zero overlaps, console/page errors, failed requests or HTTP errors. Normal FLIP, reduced motion, history/deep links, keyboard/Escape/focus return, lazy loading and mobile overflow checks passed. Requested desktop screenshots and hover frames saved as screenshots/v2.1-*.png. Footer V2.1.
+
+No git writes, original-source writes, paid installs, API keys or image generation. Existing preview on 8765 remains running.
+
+### V2.1 part B — deterministic image repairs
+
+7. Dresses batch2-039 (186×293), 102 (124×300), 234 (156×282): separate Lanczos RGB/alpha upscale to a 1200px working height, light alpha feather and mild unsharp mask, then 600/400 variants. Consistent display size; smoother but still visibly soft, with rough source contours/edge residue, especially 102. No claim of recovered texture.
+
+8. Shirts A: background-weighted neutral correction uses the layout-derived garment masks, retaining wood/plant/garment colour. Applied consistently to the plate/base, all extracted layers and cover. Upper unobstructed wall sample RGB 205/205/205. Narrow warm contact edges remain; hidden wall is not reconstructed.
+
+9. cr-009: lettering on right cuff removed by a feathered clone of neighbouring striped cuff pixels. Clean at card size; enlarged inspection shows a small texture transition. Zone painting/layer was checked: no cuff lettering, so no lettering edit there. Neck label preserved.
+
+10. Accessory hooks 116/119/278/361: measured above-body hook-only greyscale regions; alpha and garment colours preserved. Fuzzy/tassel edge despill on 123/117/128/133/240/242 is restricted to semi-transparent pixels or a narrow alpha-boundary band and removes only magenta excess. Genuine pink bodies remain intact. Inspected matching zone layer montage: these painted layers do not contain the corresponding keyed hook/fringe casts, so were left unchanged.
+
+All recipes live in data/source/cutout-fixes.json and data/source/overrides_v21.py and run through tools/build_v2.py, preserving part A. All six requested after images saved; browser images are 1440×900, zone base evidence is 1600×900. Existing before evidence preserved. All 1,347 WebPs decode, zero EXIF/XMP/ICC. No AI image generation, paid paths, original/archive writes, or git writes. New generation needed for requested deterministic repairs: 0 images. If matching true high-resolution dress detail becomes required: three replacement images or better originals (not fabricated here). Part A's separately documented unresolved generation estimates remain unchanged.
+
+Part B final build: card images 24,237,402 bytes; assets total 38,782,508 bytes; hub first load 869,801 bytes at 1440×900. Verifier PASS: 384/384 zone items, 10/10 hub items, 142 visible passing rest layers; zero overlaps, console/page errors, failed requests or HTTP errors/404. Lazy-load, FLIP, history, keyboard/focus and mobile checks passed. Full results: screenshots/v2.1-verify.json.

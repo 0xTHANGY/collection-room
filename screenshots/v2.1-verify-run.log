@@ -1,0 +1,62 @@
+Verifying jackets-a
+Verifying jackets-b
+Verifying jackets-c
+Verifying shirts-a
+Verifying tshirts-a
+Verifying tshirts-b
+Verifying tshirts-c
+Verifying tshirts-d
+Verifying bottoms-a
+Verifying bottoms-b
+Verifying bottoms-c
+Verifying bottoms-d
+Verifying dresses-a
+Verifying dresses-b
+Verifying sweaters-a
+Verifying sweaters-b
+Verifying sweaters-c
+Verifying sweaters-d
+Verifying hoodies-a
+Verifying hoodies-b
+Verifying hoodies-c
+Verifying bags-a
+Verifying bags-b
+Verifying bags-c
+Verifying bags-d
+Verifying bags-e
+Verifying accessories-a
+Verifying accessories-b
+Verifying accessories-c
+Verifying accessories-d
+Verifying shoes-a
+Verifying hats-a
+Verifying hats-b
+Verifying hats-c
+Verifying hats-d
+Verifying hats-e
+Verifying hats-f
+Verifying hats-g
+Verifying hats-h
+Verifying hats-i
+Verifying hats-j
+Verifying hats-k
+Verifying hats-l
+{
+  "items_checked": 384,
+  "hotspots_checked": 384,
+  "list_only_checked": 0,
+  "rest_layers_checked": 142,
+  "errors": [],
+  "console_errors": [],
+  "page_errors": [],
+  "failed_requests": [],
+  "http_errors": [],
+  "first_load_bytes": 869801,
+  "lazy_initial_cards": true,
+  "lazy_initial_zone_layers": true,
+  "hub_items_checked": 10,
+  "normal_motion_flip": true,
+  "mobile_horizontal_overflow": false,
+  "extra_layout_screenshot": "saved",
+  "passed": true
+}

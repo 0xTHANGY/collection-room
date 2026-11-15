@@ -2,11 +2,15 @@
 """Deterministic, rerunnable v2 asset/catalog builder. Writes only inside site/.
 Requires Pillow, numpy and OpenCV; no browser build step. Source layouts are optional.
 """
-import csv, json, re
+import csv, json, re, sys
+from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"data/source"))
+from overrides_v21 import neutral_shirts
 from pathlib import Path
 import cv2
 import numpy as np
 from PIL import Image
+from v21_images import reconstruct, review, fix_card, REVIEW
 ROOT = Path(__file__).resolve().parents[1]
 FINAL = ROOT.parent / 'final'
 LABELS = [('jackets','外套','Jackets'),('shirts','衬衫','Shirts'),('tshirts','T恤','T-shirts'),('bottoms','下装','Bottoms'),('dresses','连衣裙','Dresses'),('sweaters','针织衫','Sweaters'),('hoodies','卫衣','Hoodies'),('bags','包袋','Bags'),('accessories','配饰','Accessories'),('shoes','鞋履','Shoes'),('hats','帽子','Hats')]
@@ -47,7 +51,11 @@ def main():
     mapping=json.loads((ROOT/'data/source/zones.json').read_text())
     manifest=list(csv.DictReader((FINAL/'manifest.csv').open()))
     finals={(r['category'],r['zone']):r for r in csv.DictReader((FINAL/'zone-finals.csv').open())}
-    catalog={'version':'2.0','categories':[],'zones':[],'items':[]}
+    hub={i['id']:i['display_name'] for i in json.loads((ROOT/'data/items.json').read_text())}
+    fixes=json.loads((ROOT/'data/source/cutout-fixes.json').read_text())
+    gate={}
+    for old in (ROOT/'assets/items/v2').glob('*-800.webp'): old.unlink()
+    catalog={'version':'2.1','categories':[],'zones':[],'items':[]}
     missing=[];fallback=[];counts={}
     for order,(cat,zh,en) in enumerate(LABELS):
         source=json.loads((FINAL/cat/'docs'/f'{cat}-items.json').read_text())
@@ -74,37 +82,51 @@ def main():
                     pad=max(12,round(max(x1-x0,y1-y0)*.12))
                     rx0=max(0,x0-pad);ry0=max(0,y0-pad);rx1=min(w,x1+pad);ry1=min(h,y1+pad)
                     roi=rgb[ry0:ry1,rx0:rx1]
-                    local=np.zeros(roi.shape[:2],np.uint8)
-                    cv2.setRNGSeed(42)
-                    cv2.grabCut(cv2.cvtColor(roi,cv2.COLOR_RGB2BGR),local,(x0-rx0,y0-ry0,x1-x0,y1-y0),np.zeros((1,65)),np.zeros((1,65)),5,cv2.GC_INIT_WITH_RECT)
                     mask=np.zeros((h,w),np.uint8)
-                    mask[ry0:ry1,rx0:rx1]=np.uint8((local==1)|(local==3))*255
+                    cached=ROOT/f'assets/zones/layers/{iid}.webp'
+                    old_catalog=ROOT/'data/catalog.json'
+                    if cat in ('hats','bags','accessories'):
+                        mask[y0:y1,x0:x1]=255  # replaced by wall-model masks below
+                    elif cached.exists():
+                        # Unchanged conservative fallback: reuse its deterministic extraction.
+                        prior=next(i for i in json.loads(old_catalog.read_text())['items'] if i['id']==iid)['layer']
+                        alpha=np.array(Image.open(cached).convert('RGBA'))[:,:,3]
+                        ax=round(prior['left']*w/100);ay=round(prior['top']*h/100)
+                        ah,aw=alpha.shape;mask[ay:ay+ah,ax:ax+aw]=np.uint8(alpha>127)*255
+                    else:
+                        local=np.zeros(roi.shape[:2],np.uint8)
+                        cv2.grabCut(cv2.cvtColor(roi,cv2.COLOR_RGB2BGR),local,(x0-rx0,y0-ry0,x1-x0,y1-y0),np.zeros((1,65)),np.zeros((1,65)),5,cv2.GC_INIT_WITH_RECT)
+                        mask[ry0:ry1,rx0:rx1]=np.uint8((local==1)|(local==3))*255
                     # Reject fragmented or implausibly sparse/solid extractions.
                     n,labels,stats,_=cv2.connectedComponentsWithStats(mask)
                     if n>1:
                         largest=1+np.argmax(stats[1:,cv2.CC_STAT_AREA]);mask=np.uint8(labels==largest)*255
                     coverage=np.count_nonzero(mask)/((x1-x0)*(y1-y0))
                     if coverage<.18 or coverage>.95: bad.add(iid)
-                    # Overlapping garments cannot be reliably separated from one painting.
-                    if any(intersect(box,b) for k,b in boxes.items() if k!=iid):
-                        bad.add(iid)
-                        bad.update(k for k,b in boxes.items() if k!=iid and intersect(box,b))
                     masks[iid]=mask
-                # Large opaque holes produced visible Telea wedges in visual QA.
-                # Reject an entire zone if one layer is unsafe: mixed bases erase neighbours.
-                union=np.zeros((h,w),np.uint8)
-                for mask in masks.values(): union=cv2.bitwise_or(union,mask)
-                union=cv2.dilate(union,np.ones((5,5),np.uint8))
-                radius=float(cv2.distanceTransform(union,cv2.DIST_L2,3).max())
-                if radius>24: bad.update(boxes)
-                if bad: bad=set(boxes)
-                if not bad and union.any():
-                    candidate=cv2.inpaint(cv2.cvtColor(rgb,cv2.COLOR_RGB2BGR),union,5,cv2.INPAINT_TELEA)
-                    base=Image.fromarray(cv2.cvtColor(candidate,cv2.COLOR_BGR2RGB))
-                else: base=painting
+                if zid=='shirts-a':
+                    rgb=neutral_shirts(rgb,masks)
+                    painting=Image.fromarray(rgb)
+                if cat in ('hats','bags','accessories'):
+                    reconstructed,masks,reasons=reconstruct(rgb,boxes,zid)
+                    bad={iid for iid in boxes if reasons[iid]}
+                    base=Image.fromarray(reconstructed)
+                else:
+                    bad=set(boxes);base=painting
+                    reasons={iid:['wall reconstruction not validated for this background'] for iid in boxes}
+                gate[zid]={iid:dict(passed=iid not in bad,reasons=reasons[iid]) for iid in boxes}
+                review(zid,np.array(base),rgb,masks,reasons)
                 for iid,mask in masks.items():
+                    if cat not in ('hats','bags','accessories') and (ROOT/f'assets/zones/layers/{iid}.webp').exists():
+                        prior=next(i for i in json.loads((ROOT/'data/catalog.json').read_text())['items'] if i['id']==iid)['layer']
+                        if zid=='shirts-a':
+                            x=round(prior['left']*w/100);y=round(prior['top']*h/100)
+                            al=np.array(Image.open(ROOT/prior['image']).convert('RGBA'))[:,:,3]
+                            hh,ww=al.shape
+                            save(Image.fromarray(np.dstack([rgb[y:y+hh,x:x+ww],al])),prior['image'],82)
+                        layers[iid]=prior;written.add(prior['image']);continue
                     # Include the inpaint boundary under opaque source pixels, feather outward.
-                    alpha=cv2.GaussianBlur(cv2.dilate(mask,np.ones((7,7),np.uint8)),(5,5),.8)
+                    alpha=cv2.GaussianBlur(mask,(3,3),.55)
                     yy,xx=np.where(alpha>0)
                     if not len(xx): bad.add(iid);continue
                     x0,x1=xx.min(),xx.max()+1;y0,y1=yy.min(),yy.max()+1
@@ -115,8 +137,8 @@ def main():
                     layers[iid]=dict(image=path,**lr,rect=lr,pivot={'x':50,'y':0 if motion=='hang' else 50},pivotX=50,pivotY=0 if motion=='hang' else 50,motion=motion,fallback=iid in bad)
             else: base=painting
             fallback.extend(sorted(bad))
-            paths=variants(base,f'assets/zones/{zid}',[1600,1024,640])
-            cover=variants(painting,f'assets/zones/{zid}-cover',[640])[0]
+            paths=variants(base,f'assets/zones/{zid}',[1600,1024,640],source_path=ROOT/'tools/v21_images.py' if cat in ('hats','bags','accessories') else (ROOT/'data/source/overrides_v21.py' if zid=='shirts-a' else FINAL/finals[cat,letter]['path_in_zip']))
+            cover=variants(painting,f'assets/zones/{zid}-cover',[640],source_path=ROOT/'data/source/overrides_v21.py' if zid=='shirts-a' else FINAL/finals[cat,letter]['path_in_zip'])[0]
             catalog['zones'].append(dict(id=zid,category=cat,letter=letter,images=paths,cover=cover,natural_size=[ow,oh],aspect=ow/oh,has_layout=bool(layout),items=ids))
             # Inset then split overlapping rectangles along centre-to-centre axis.
             spots={iid:[b[0]+(b[2]-b[0])*.025,b[1]+(b[3]-b[1])*.025,b[2]-(b[2]-b[0])*.025,b[3]-(b[3]-b[1])*.025] for iid,b in boxes.items()}
@@ -138,12 +160,17 @@ def main():
             for iid in ids:
                 src=lookup[iid];cut=FINAL/cat/'cutouts'/f'{iid}.png'
                 if not cut.exists():cut=FINAL/next(r['path_in_zip'] for r in manifest if r['category']==cat and r['item_id']==iid.split('-')[-1])
-                cards=variants(Image.open(cut).convert('RGBA'),f'assets/items/v2/{iid}',[800,400],True,cut)
+                original=Image.open(cut).convert('RGBA')
+                fixed=fix_card(original,iid,fixes,rgb,boxes.get(iid))
+                recipe=max([cut,ROOT/'tools/v21_images.py',ROOT/'data/source/cutout-fixes.json',ROOT/'data/source/overrides_v21.py'],key=lambda p:p.stat().st_mtime) if iid in fixes else cut
+                cards=variants(fixed,f'assets/items/v2/{iid}',[600,400],True,recipe)
                 brand=src.get('brand') or ''
-                if src.get('brand_uncertain') or re.search('不确定|unknown',brand,re.I):brand=''
-                catalog['items'].append(dict(id=iid,category=cat,zone=zid,number=iid.split('-')[-1],name=src['name'],display_name=src['name'],brand=brand,type=src.get('type',''),story='故事待补充',image=cards[0]['src'],card_images=cards,hotspot=rect(spots[iid],w,h) if iid in spots else None,layer=layers.get(iid)))
+                if src.get('brand_uncertain') or re.search('不确定|unknown',brand,re.I):brand='Unknown'
+                catalog['items'].append(dict(id=iid,category=cat,zone=zid,number=iid.split('-')[-1],name=hub.get(iid,src['name']),display_name=hub.get(iid,src['name']),brand=brand,type=src.get('type',''),story='故事待补充',image=cards[0]['src'],card_images=cards,hotspot=rect(spots[iid],w,h) if iid in spots else None,layer=layers.get(iid)))
+    (REVIEW/'gate.json').write_text(json.dumps(gate,indent=2))
+    (REVIEW/'gate-table.md').write_text('Zone | Passed/total | Failures\n---|---|---\n'+'\n'.join(z+' | '+str(sum(v['passed'] for v in g.values()))+'/'+str(len(g))+' | '+'; '.join(i+': '+', '.join(v['reasons']) for i,v in g.items() if not v['passed']) for z,g in gate.items()))
     (ROOT/'data/catalog.json').write_text(json.dumps(catalog,ensure_ascii=False,separators=(',',':'))+'\n')
-    summary=dict(categories=len(catalog['categories']),zones=len(catalog['zones']),items=len(catalog['items']),asset_bytes_written=sum((ROOT/p).stat().st_size for p in written),asset_files_written=len(written),assets_total_bytes=sum(p.stat().st_size for p in (ROOT/'assets').rglob('*') if p.is_file()),overlap_pairs=counts,zones_lacking_layout=missing,fallback_ids=fallback,first_load_bytes=None)
+    summary=dict(card_images_bytes=sum(p.stat().st_size for p in (ROOT/'assets/items/v2').glob('*.webp')),categories=len(catalog['categories']),zones=len(catalog['zones']),items=len(catalog['items']),asset_bytes_written=sum((ROOT/p).stat().st_size for p in written),asset_files_written=len(written),assets_total_bytes=sum(p.stat().st_size for p in (ROOT/'assets').rglob('*') if p.is_file()),overlap_pairs=counts,zones_lacking_layout=missing,fallback_ids=fallback,first_load_bytes=None)
     # Measure the actual responsive/lazy hub requests at the requested viewport.
     try:
         from playwright.sync_api import sync_playwright
