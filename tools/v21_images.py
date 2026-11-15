@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw
 REVIEW=Path('/workspace/collection-room/work/v2.1/review')
 REVIEW.mkdir(parents=True,exist_ok=True)
 
-def bag_wall_bottom(rgb, boxes):
+def bag_wall_bottom(rgb, boxes, hanging=False):
  """Strong horizontal wall/baseboard edge, sampled away from bag columns."""
  h,w=rgb.shape[:2]
  gray=cv2.cvtColor(rgb,cv2.COLOR_RGB2GRAY).astype(float)
@@ -15,10 +15,35 @@ def bag_wall_bottom(rgb, boxes):
  cols=np.r_[int(w*.035):int(w*.09),int(w*.92):int(w*.97)]
  profile=np.median(gray[:,cols],axis=1)
  edges=np.abs(np.diff(profile))
- start=max(int(h*.80), min(int(h*.94),max(b for x,y,r,b in boxes.values())+8))
+ start=int(h*.76) if hanging else max(int(h*.80), min(int(h*.94),max(b for x,y,r,b in boxes.values())+8))
  candidates=np.where(edges[start:int(h*.96)]>8)[0]
  return start+int(candidates[0])+1 if len(candidates) else int(h*.86)
 
+
+
+def hat_wall_boundary(rgb, boxes):
+ """Fit the main wall's baseboard edge from clean columns on its right side.
+ Opposite side walls can have a different baseboard height; pooling their
+ row medians let wall reconstruction eat a ten-pixel strip of the main trim.
+ """
+ h,w=rgb.shape[:2]
+ gray=cv2.GaussianBlur(cv2.cvtColor(rgb,cv2.COLOR_RGB2GRAY).astype(float),(5,1),1)
+ edges=np.abs(np.diff(gray,axis=0));points=[]
+ for x in range(round(w*.40),round(w*.98),8):
+  candidates=np.where(edges[round(h*.76):round(h*.92),x]>12)[0]+round(h*.76)
+  for y in candidates:
+   if not any(a-8<=x<d+8 and c-8<=y<e+8 for a,c,d,e in boxes.values()):
+    points.append((x,y));break
+ if len(points)>=20:
+  pts=np.array(points,float);keep=np.ones(len(pts),bool)
+  for _ in range(4):
+   slope,offset=np.polyfit(pts[keep,0],pts[keep,1],1)
+   residual=pts[:,1]-(slope*pts[:,0]+offset)
+   keep=np.abs(residual-np.median(residual[keep]))<4
+   if keep.sum()<20:break
+  if keep.sum()>=20 and abs(slope)<.10:
+   return np.clip(np.floor(slope*np.arange(w)+offset)-1,0,h).astype(int)
+ return np.full(w,bag_wall_bottom(rgb,boxes,hanging=True),int)
 
 
 def bag_hooks(rgb, boxes, rail_core, model):
@@ -99,12 +124,34 @@ def attached_wall_fraction(rgb, plate, mask):
  return float(np.isin(labels,touching).sum()/max(1,np.count_nonzero(mask)))
 
 
+def configured_rails(rgb, outside, specs):
+ """Sample straight perspective rails in rail coordinates, not image rows.
+ Geometry is zone-level; every depth has independent unoccluded wood donors.
+ """
+ h,w=rgb.shape[:2]; yy,xx=np.indices((h,w))
+ region=np.zeros((h,w),bool); paint=rgb.copy(); supported=True
+ for spec in specs:
+  left,top,right,end,bottom,endbottom=spec
+  left*=w/1536;right*=w/1536;top*=h/1024;end*=h/1024;bottom*=h/1024;endbottom*=h/1024
+  t=(np.arange(w)-left)/(right-left)
+  upper=top+(end-top)*t;lower=bottom+(endbottom-bottom)*t
+  depth=np.rint((yy-upper[None,:])/np.maximum(1,lower-upper)[None,:]*48).astype(int)
+  rr=(xx>left+5)&(xx<right-5)&(depth>=-3)&(depth<=58)
+  for k in range(-3,59):
+   donor=rr&(depth==k)&outside
+   if np.count_nonzero(donor)<20:supported=False;continue
+   target=rr&(depth==k);paint[target]=np.median(rgb[donor],axis=0)
+  region|=rr
+ return region,paint,supported
+
+
 def reconstruct(rgb, boxes, zid, rejected=None):
  rejected = rejected or {}
  h,w=rgb.shape[:2]; outside=np.ones((h,w),bool)
  config_path=Path(__file__).resolve().parents[1]/'data/source/layers-v23.json'
  config=json.loads(config_path.read_text()).get(zid,{}) if config_path.exists() else {}
  wall_bags=zid.startswith('bags-') and not config.get('surfaces')
+ wall_boundary=hat_wall_boundary(rgb,boxes) if zid.startswith('hats-') else None
  for x,y,r,b in boxes.values(): outside[max(0,y-5):min(h,b+5),max(0,x-5):min(w,r+5)]=False
  # Exclude contact-shadow donors as well as the item itself.
  # Neutral wall samples exclude windows, rails, floor and coloured furnishings.
@@ -125,25 +172,27 @@ def reconstruct(rgb, boxes, zid, rejected=None):
  model=np.zeros_like(rgb,dtype=float)
  for ch in range(3):
   A=np.column_stack([np.ones(valid.sum()),xx[valid]/w,yy[valid]/h,(xx[valid]/w)**2,(yy[valid]/h)**2])
+  if config.get('wall_fit')=='linear-y':A[:,4]=0  # sparse lower-wall donors beside long cords
   vals=rgb[:,:,ch][valid].astype(float)
   for _ in range(3):
    coeff=np.linalg.lstsq(A,vals,rcond=None)[0]; keep=np.abs(A@coeff-vals)<12;A=A[keep];vals=vals[keep]
   model[:,:,ch]=coeff[0]+coeff[1]*xx/w+coeff[2]*yy/h+coeff[3]*(xx/w)**2+coeff[4]*(yy/h)**2
  model=np.clip(model,0,255).astype(np.uint8)
- if wall_bags:
+ if wall_bags or zid.startswith('hats-'):
   # A low-order wall fit cannot represent a window's light pattern. Interpolate
   # its neutral positive residual from clean wall donors, never from cloth or
   # cast shadows. This keeps the light continuous through a removed silhouette.
   residual=rgb.astype(float)-model.astype(float)
-  illumination=np.clip(residual.min(2),0,70).astype(np.uint8)
-  unknown=~outside | (np.ptp(residual,axis=2)>15) | (yy>h*.85)
-  illumination[yy>h*.85]=0
+  illumination=np.clip(residual.min(2),0,120 if zid.startswith('hats-') else 70).astype(np.uint8)
+  wall_limit=wall_boundary[None,:] if wall_boundary is not None else h*.85
+  unknown=~outside | (np.ptp(residual,axis=2)>15) | (yy>wall_limit)
+  illumination[yy>wall_limit]=0
   small=(max(1,w//4),max(1,h//4))
   field=cv2.resize(illumination,small,interpolation=cv2.INTER_AREA)
   missing=cv2.resize(np.uint8(unknown)*255,small,interpolation=cv2.INTER_NEAREST)
   field=cv2.inpaint(field,missing,5,cv2.INPAINT_TELEA)
   field=cv2.GaussianBlur(cv2.resize(field,(w,h)),(0,0),8)
-  field[yy>h*.85]=0
+  field[yy>wall_limit]=0
   model=np.clip(model.astype(float)+field[:,:,None],0,255).astype(np.uint8)
  brown=(rgb[:,:,0].astype(int)>rgb[:,:,2].astype(int)*1.22)&(rgb[:,:,0]>60)&(rgb.mean(2)<155)
  joined=cv2.morphologyEx(brown.astype('uint8'),cv2.MORPH_CLOSE,np.ones((1,max(3,int(w*.025))),np.uint8))
@@ -155,6 +204,7 @@ def reconstruct(rgb, boxes, zid, rejected=None):
  rail |= near & ((brown&outside).sum(1)>max(20,w*.08))
  rail_core=cv2.dilate(rail.astype('uint8')[:,None],np.ones((9,1),np.uint8))[:,0]>0
  rail=cv2.dilate(rail.astype('uint8')[:,None],np.ones((17,1),np.uint8))[:,0]>0
+ rail_geometry,rail_paint,geometry_valid=configured_rails(rgb,outside,config.get('rails',[]))
  # Rail rows are not background everywhere: crowns and pom-poms cross them.
  # Compare against clean row donors instead of deleting the whole +/-8 band.
  delta=np.linalg.norm(rgb.astype(float)-model.astype(float),axis=2)
@@ -170,11 +220,34 @@ def reconstruct(rgb, boxes, zid, rejected=None):
   # A dark neutral cast-shadow row is not wood. Preserving it as a rail
   # produced hard rectangular remnants immediately above the lower rail.
   rail_core &= (rail_tone[:,0]-rail_tone[:,2]>15)
+ # A rail is a thin horizontal wood band with independent clean donors.
+ # Lower wall rails used to be labelled benches solely because of their y.
+ # Keep furniture rejection for thick/unsupported bands, and audit repainted
+ # rail pixels against these same donors below.
+ validated_rail=np.zeros(h,bool)
+ runs=np.split(np.where(rail_core)[0],np.where(np.diff(np.where(rail_core)[0])>1)[0]+1)
+ for rows in runs:
+  if not len(rows) or len(rows)>h*.09:continue
+  supported=[row for row in rows if np.count_nonzero(brown[row]&outside[row])>max(20,w*.08)]
+  if len(supported)>=len(rows)*.65:
+   validated_rail[rows]=True
  # Black coated straps can be warm under room light; a strict neutral-only
  # test confuses their shaded buckles with the wooden rail.
  cloth_chroma=35 if wall_bags else 18
  dark_cloth=(rgb.mean(2)<90)&((rgb.max(2).astype(int)-rgb.min(2))<cloth_chroma)
  wood=rail[:,None]&(np.linalg.norm(rgb.astype(float)-rail_tone[:,None,:],axis=2)<35)&~dark_cloth
+ if zid.startswith('hats-'):
+  wood &= np.linalg.norm(rgb.astype(float)-rail_tone[:,None,:],axis=2)<18
+  # Brown/olive corduroy may match rail luminance, but lacks the wood's
+  # red-green chroma. A broad RGB radius alone punched holes in crown edges.
+  wood &= np.abs((rgb[:,:,0].astype(float)-rgb[:,:,1])-(rail_tone[:,0]-rail_tone[:,1])[:,None])<6
+ if rail_geometry.any():
+  wood=rail_geometry&(np.linalg.norm(rgb.astype(float)-rail_paint.astype(float),axis=2)<22)&~dark_cloth
+ rail_area=rail_geometry if rail_geometry.any() else np.broadcast_to(rail[:,None],(h,w))
+ # Fine knit/embroidery texture is foreground evidence even when pale cloth
+ # shares wall colour. A neutral-shadow seed alone erased an entire grey knit.
+ gray=rgb.mean(2).astype(np.float32)
+ texture=np.sqrt(np.maximum(0,cv2.blur(gray*gray,(5,5))-cv2.blur(gray,(5,5))**2))
  # Neutral, smooth darkening is cast shadow, not a textile foreground seed.
  ratio=(rgb.astype(float)+1)/(model.astype(float)+1)
  shadow_seed=(ratio.max(2)<.98)&(ratio.min(2)>.55)&(np.ptp(ratio,axis=2)<.10)&(rgb.mean(2)>100)
@@ -204,6 +277,11 @@ def reconstruct(rgb, boxes, zid, rejected=None):
   local=np.where(m[py:pb,px:pr]>0,cv2.GC_PR_FGD,cv2.GC_PR_BGD).astype('uint8')
   if zid.startswith('hats-'):local[shadow_seed[py:pb,px:pr]]=cv2.GC_PR_BGD
   local[wood[py:pb,px:pr]]=cv2.GC_BGD
+  if zid.startswith('hats-'):
+   textile=(texture[py:pb,px:pr]>7)&(delta[py:pb,px:pr]>10)&~rail[py:pb,None]
+   textile &= (xx[py:pb,px:pr]>x+(r-x)*.2)&(xx[py:pb,px:pr]<r-(r-x)*.2)&(yy[py:pb,px:pr]>y+(b-y)*.15)&(yy[py:pb,px:pr]<b-(b-y)*.15)
+   centre=np.median(rgb[y+(b-y)//3:b-(b-y)//5,x+(r-x)//4:r-(r-x)//4].reshape(-1,3),axis=0)
+   if centre.mean()>145 and np.ptp(centre)<25:local[textile]=cv2.GC_FGD
   local[[0,-1],:]=0;local[:,[0,-1]]=0
   cx=(x+r)//2-px;cy=(y+b)//2-py
   local[max(0,cy-4):cy+5,max(0,cx-4):cx+5]=cv2.GC_FGD
@@ -220,9 +298,14 @@ def reconstruct(rgb, boxes, zid, rejected=None):
    # Recover nearby neutral textile before the thin rail-texture rejection.
    strap=(cv2.dilate(m,np.ones((17,17),np.uint8))>0)&dark_cloth&rail[:,None]&~wood
    if wall_bags:m[strap]=255
+  if zid.startswith('hats-'):
+   fringe=(cv2.dilate(m,np.ones((3,3),np.uint8))>0)&(delta>28)&~wood
+   m[fringe]=255
   # Reject thin horizontal rail texture attached to a dark crown.
   opened=cv2.morphologyEx(m,cv2.MORPH_OPEN,np.ones((5,1),np.uint8))
-  m[rail[:,None]&dark_cloth&(opened==0)]=0
+  thin_rail=rail_area&(opened==0)
+  if not zid.startswith('hats-'):thin_rail &= dark_cloth
+  m[thin_rail]=0
   if zid.startswith('bags-'):
    # Cream canvas is warm; the wall visible through its handle is neutral.
    # GrabCut can merge that wall into a shaded pale handle. Recover the opening
@@ -289,8 +372,19 @@ def reconstruct(rgb, boxes, zid, rejected=None):
    hook[py:top,max(px,mid-7):min(pr,mid+8)]=np.uint8(
     (delta[py:top,max(px,mid-7):min(pr,mid+8)]>24)&
     ~wood[py:top,max(px,mid-7):min(pr,mid+8)])*255
+   if zid.startswith('hats-'):
+    above=np.where(rail_area[:top].any(1))[0]
+    if len(above) and top-above[-1]<h*.15:
+     end=int(above[-1]);start=end
+     while start>0 and rail_area[start-1].any():start-=1
+     hook[:max(py,start-12)]=0
+     hook[np.ptp(rgb.astype(int),axis=2)>=30]=0
+     hook[rgb.mean(2)<80]=0
+    else:hook[:]=0
    hook=cv2.dilate(hook,np.ones((3,3),np.uint8));hook[top:]=0
-   hooks|=hook;m[:top]=0
+   hooks|=hook
+   if zid.startswith('hats-'):m[hooks>0]=0
+   else:m[:top]=0
   if zid.startswith('accessories-'):
    # Silver stems can continue a few pixels into a coiled belt. Retain whole
    # narrow metal components, rather than leaving their lower tips in the layer.
@@ -302,27 +396,97 @@ def reconstruct(rgb, boxes, zid, rejected=None):
     if e>max(8,d*2) and np.any((ll==k)&(cv2.dilate(hooks,np.ones((5,5),np.uint8))>0)) and d<max(20,(r-x)*.4) and area<(r-x)*(b-y)*.03 and abs(a+d/2-(x+r)/2)<(r-x)*.25:
      stem=cv2.dilate(np.uint8(ll==k),np.ones((3,3),np.uint8))>0
      hooks[stem]=255;m[stem]=0
+  if zid.startswith('hats-'):
+   textile_evidence=(texture>6)|(np.ptp(rgb.astype(int),axis=2)>25)|(rgb.mean(2)<110)
+   widths=((m>0)&textile_evidence).sum(1)
+   broad_rows=np.where((widths>(r-x)*.5)&(yy[:,0]>=y))[0]
+   if len(broad_rows) and broad_rows[-1]<b-(b-y)*.12:
+    bt=int(broad_rows[-1])
+    gap=(m>0)&(yy>bt)&(np.ptp(rgb.astype(int),axis=2)<16)&(rgb.mean(2)>120)&(texture<6)
+    clean_gap=cv2.morphologyEx(np.uint8(gap),cv2.MORPH_OPEN,np.ones((5,5),np.uint8))
+    clean_gap=(cv2.dilate(clean_gap,np.ones((5,5),np.uint8))>0)&gap
+    m[clean_gap]=0
   # Fill small enclosed textile holes, never a convex hull (diagonal wall wedges).
   # Retain genuine handle/strap gaps, including shadow-darkened wall inside them.
   inverse=np.uint8(m==0);nn,ll,ss,_=cv2.connectedComponentsWithStats(inverse)
   for k in range(1,nn):
    # Bag openings are structural, including small handles on short totes.
    hole_limit=.001 if zid.startswith('bags-') else .08
-   if ss[k,4] < (r-x)*(b-y)*hole_limit and ss[k,0]>x and ss[k,1]>y and ss[k,0]+ss[k,2]<r and ss[k,1]+ss[k,3]<b and np.mean(shadow_seed[ll==k])<.5:m[ll==k]=255
+   enclosed=ss[k,4] < (r-x)*(b-y)*hole_limit and ss[k,0]>x and ss[k,1]>y and ss[k,0]+ss[k,2]<r and ss[k,1]+ss[k,3]<b
+   if not enclosed:continue
+   if zid.startswith('hats-'):
+    # Embroidery holes lie within broad textile rows. The space between ear
+    # flaps or long chin cords is wall, even when a cord closes that space.
+    filled_rows=cv2.morphologyEx(m,cv2.MORPH_CLOSE,np.ones((1,max(3,round((r-x)*.20))),np.uint8))
+    broad=(filled_rows>0).sum(1)>(r-x)*.55
+    textile_hole=np.all(broad[ss[k,1]:ss[k,1]+ss[k,3]])
+    if textile_hole and not np.any(rail[ss[k,1]:ss[k,1]+ss[k,3]]):m[ll==k]=255
+   elif np.mean(shadow_seed[ll==k])<.5:m[ll==k]=255
   m[wood]=0
-  if zid.startswith('bags-'):m[hooks>0]=0
+  if zid.startswith('hats-'):
+   # Remove horizontal grain threads while retaining vertical cords. Closing
+   # tiny holes only after wood rejection keeps woven crowns solid.
+   tall=cv2.morphologyEx(m,cv2.MORPH_OPEN,np.ones((9,1),np.uint8))
+   m[rail_area&(tall==0)&(np.abs(xx-(x+r)//2)>12)]=0
+   # Vertical corduroy ribs continue through the rail band; horizontal wood
+   # grain does not. Recover those near-crown pixels instead of leaving the
+   # wood-colour test's narrow vertical slits in brown crowns.
+   gx=cv2.blur(np.abs(cv2.Sobel(gray,cv2.CV_32F,1,0,ksize=3)),(3,3))
+   gy=cv2.blur(np.abs(cv2.Sobel(gray,cv2.CV_32F,0,1,ksize=3)),(3,3))
+   ribs=rail_area&(gx>12)&(gx>gy*1.5)&(np.abs(xx-(x+r)/2)<(r-x)*.3)&(cv2.dilate(m,np.ones((9,1),np.uint8))>0)
+   m[ribs]=255
+   closed=cv2.morphologyEx(m,cv2.MORPH_CLOSE,np.ones((3,5),np.uint8))
+   m[rail_area]=closed[rail_area]
+   inv=np.uint8(m==0);nn,ll,ss,_=cv2.connectedComponentsWithStats(inv)
+   for k in range(1,nn):
+    if ss[k,4]<(r-x)*(b-y)*.003 and ss[k,0]>x and ss[k,1]>y and ss[k,0]+ss[k,2]<r and ss[k,1]+ss[k,3]<b:m[ll==k]=255
+  if zid.startswith(('bags-','hats-')):m[hooks>0]=0
   cov=np.count_nonzero(m)/max(1,(r-x)*(b-y))
   if not .15<cov<.98:reason.append('mask coverage out of range')
   foreground_y=np.where(m>0)[0]
   if zid.startswith('bags-') and len(foreground_y) and foreground_y.min()>y+(b-y)*.18:reason.append('missing pale handle or upper silhouette')
-  if zid=='hats-h':reason.append('A-frame background requires redrawing')
-  if zid in ('hats-b','hats-d'):reason.append('rail geometry reconstruction unvalidated')
-  if b>h*.83 and not zid.startswith('bags-'):reason.append('floor or furnishing reconstruction unsupported')
+  if b>h*.83 and not zid.startswith(('bags-','hats-')):reason.append('floor or furnishing reconstruction unsupported')
   # A wall fit cannot remove objects crossing lower wood/furniture surfaces.
-  if not zid.startswith('bags-') and np.any(bench_core[max(y,int(h*.48)):b+8]):reason.append('bench boundary: wood reconstruction unvalidated')
+  unvalidated_wood=bench_core.copy()
+  if zid.startswith('hats-'):unvalidated_wood &= ~cv2.dilate(np.uint8(validated_rail)[:,None],np.ones((17,1),np.uint8))[:,0].astype(bool)
+  if not zid.startswith('bags-') and np.any(unvalidated_wood[max(y,int(h*.48)):b+8]):reason.append('bench boundary: wood reconstruction unvalidated')
+  if config.get('rails') and not geometry_valid:reason.append('rail geometry: insufficient clean donors')
   reason.extend(rejected.get(iid, []))
-  if y<h*.05:reason.append('item touches image boundary')
+  if (np.any(m[:2]) if zid.startswith('hats-') else y<h*.05):reason.append('item touches image boundary')
   masks[iid]=m;reasons[iid]=reason
+ # Long chin straps/tassels can cross the baseboard. Reconstruct only a
+ # narrow silhouette neighbourhood there; a wall fit must not erase the floor.
+ # Wide furnishing-crossing bodies still fail until a surface is configured.
+ lower_repair=np.zeros((h,w),np.uint8);lower_alpha=np.zeros((h,w),float);lower_model=rgb.copy()
+ if zid.startswith('hats-'):
+  boundary=wall_boundary
+  for iid,m in masks.items():
+   lower=m.copy();lower[yy<boundary[None,:]-4]=0
+   if not np.any(lower) or reasons[iid]:continue
+   if np.any(cv2.morphologyEx(lower,cv2.MORPH_OPEN,np.ones((1,max(3,round(w*.06))),np.uint8))):
+    reasons[iid].append('floor or furnishing: wide silhouette needs surface donors');continue
+   sy,sx=np.where(lower>0);a=max(0,int(sx.min())-65);d=min(w,int(sx.max())+80)
+   c=max(0,int(boundary[a:d].min())-12);e=min(h,int(sy.max())+56)
+   donor_left=np.arange(max(0,a-60),max(1,a-25))
+   donor_right=np.arange(min(w-1,d+25),min(w,d+60))
+   # Straight baseboard/floor surfaces are sampled at the SAME y. Inpainting
+   # across their edge bent it into tassel-shaped grey blobs. Interpolate
+   # clean flank strips instead; remove contact shadows with a soft margin.
+   ramp=np.linspace(0,1,d-a)[None,:,None]
+   left=np.median(rgb[c:e,donor_left],axis=1)[:,None,:]
+   right=np.median(rgb[c:e,donor_right],axis=1)[:,None,:]
+   tones=left*(1-ramp)+right*ramp
+   detail=rgb[c:e,a:d].astype(float)-cv2.GaussianBlur(rgb,(0,0),3)[c:e,a:d].astype(float)
+   texture_region=(yy[c:e,a:d]>boundary[None,a:d]+8)&(cv2.dilate(m,np.ones((13,13),np.uint8))[c:e,a:d]==0)
+   tones[texture_region]+=detail[texture_region]
+   lower_model[c:e,a:d]=np.uint8(np.clip(tones,0,255))
+   core=cv2.dilate(lower,np.ones((41,41),np.uint8));core[:c]=0;core[e:]=0
+   distance=cv2.distanceTransform(255-core,cv2.DIST_L2,5)
+   alpha=np.clip(1-distance/30,0,1);alpha=alpha*alpha*(3-2*alpha)
+   region=np.zeros((h,w),bool);region[c:e,a:d]=True
+   alpha*=np.clip((yy-c)/10,0,1)
+   alpha[~region]=0
+   lower_alpha=np.maximum(lower_alpha,alpha);lower_repair|=core
  # Rebuild straight furnishing surfaces from clean columns of that same
  # surface. Config records geometry/donor strips, never item-painted pixels.
  surface=np.zeros((h,w),bool)
@@ -374,7 +538,8 @@ def reconstruct(rgb, boxes, zid, rejected=None):
   # transition rather than a Gaussian-blurred rectangular patch.
   top=max(0,y-24)
   if zid.startswith('bags-') and np.any(m):top=min(top,max(0,int(np.where(m>0)[0].min())-6))
-  hole[top:min(h,b+25),max(0,x-12):min(w,r+12)]=255
+  shadow_pad=65 if zid.startswith('hats-') else 25
+  hole[top:min(h,b+shadow_pad),max(0,x-12):min(w,r+12)]=255
   removed |= hole>0
   distance=cv2.distanceTransform(255-hole,cv2.DIST_L2,5)
   blend=np.clip(1-distance/85,0,1)
@@ -388,7 +553,8 @@ def reconstruct(rgb, boxes, zid, rejected=None):
    protection=np.clip(1-distance/60,0,1)
    protection=protection*protection*(3-2*protection)
    blend*=1-protection
-  blend[rail_core]=0
+  if rail_geometry.any():blend[rail_geometry]=0
+  else:blend[rail_core]=0
   blend[hooks>0]=0
   # Do not wash out the floor, baseboard, or furniture outside the wall.
   if zid.startswith('bags-'):
@@ -396,6 +562,8 @@ def reconstruct(rgb, boxes, zid, rejected=None):
    # from clean side columns instead of a fixed 84% cutoff through the bags.
    boundary=bag_wall_bottom(rgb, boxes)
    blend[boundary:]=0
+  elif zid.startswith('hats-'):
+   blend[yy>=wall_boundary[None,:]]=0
   else:blend[int(h*.84):]=0
   if surface.any():
    # A finite bench has sloping end caps. Never smear wall over the wood
@@ -407,7 +575,7 @@ def reconstruct(rgb, boxes, zid, rejected=None):
   base=np.uint8(base*(1-blend[:,:,None])+replacement*blend[:,:,None])
   # Rebuild rail pixels under each removed item from unoccluded rail pixels.
   rail_hole=cv2.dilate(m,np.ones((7,7),np.uint8))
-  for row in np.where(rail_core)[0]:
+  for row in ([] if rail_geometry.any() else np.where(rail_core)[0]):
    if row<y-24 or row>b+10:continue
    donor=rgb[row,outside[row]&(xx[row]>w*.15)&(xx[row]<w*.90)]
    if len(donor)>20:
@@ -418,10 +586,14 @@ def reconstruct(rgb, boxes, zid, rejected=None):
     edge=np.clip(edge,0,1)[:,None]
     # Repaint occluded rail only. A bbox can extend past the physical rail
     # end; replacing its entire row manufactured a rectangular wooden stub.
-    if zid.startswith('bags-'):
+    if zid.startswith(('bags-','hats-')):
      edge[rail_hole[row,left:right]==0]=0
     edge[hooks[row,left:right]>0]=0
     base[row,left:right]=rgb[row,left:right]*(1-edge)+tone*edge
+  if rail_geometry.any():
+   target=rail_geometry&(rail_hole>0)&(hooks==0)
+   base[target]=rail_paint[target]
+ if np.any(lower_repair):base=np.uint8(base*(1-lower_alpha[:,:,None])+lower_model*lower_alpha[:,:,None])
  # Preserve complete furnishing boundaries, including their antialiased edges.
  n,lab,stats,_=cv2.connectedComponentsWithStats(np.uint8(brown&outside))
  for a,c,d,e,area in stats[1:]:
@@ -444,13 +616,15 @@ def reconstruct(rgb, boxes, zid, rejected=None):
   if not core.any():core=m>0
   change=np.linalg.norm(base.astype(float)-rgb.astype(float),axis=2)
   expected=model.astype(float).copy()
-  expected[rail_core]=np.broadcast_to(rail_tone[:,None,:],rgb.shape)[rail_core]
+  expected[lower_repair>0]=lower_model[lower_repair>0]
+  if rail_geometry.any():expected[rail_geometry]=rail_paint[rail_geometry]
+  else:expected[rail_core]=np.broadcast_to(rail_tone[:,None,:],rgb.shape)[rail_core]
   residual=np.linalg.norm(base.astype(float)-expected,axis=2)
   # Pale canvas can already be within 24 RGB of clean wall. Only pixels
   # distinguishable from the expected surface can measure removal by change;
   # the independent residual audit still covers the entire eroded silhouette.
   distinguishable=core
-  if zid.startswith('bags-'):
+  if zid.startswith(('bags-','hats-')):
    distinguishable=core&(np.linalg.norm(rgb.astype(float)-expected,axis=2)>24)
   changed=float(np.mean(change[distinguishable]>24)) if distinguishable.any() else 1
   background=float(np.mean(residual[core]<24)) if core.any() else 0
@@ -480,22 +654,33 @@ def reconstruct(rgb, boxes, zid, rejected=None):
    smooth_wall=cv2.erode(np.uint8(np.linalg.norm(rgb.astype(float)-model.astype(float),axis=2)<24),np.ones((5,5),np.uint8))>0
    region=np.zeros((h,w),bool);region[max(0,y-100):min(h,b+110),max(0,x-100):min(w,r+110)]=True
    samples=smooth_wall&region
+   if zid.startswith('hats-'):samples&=~rail[:,None]
+   if zid.startswith('hats-'):
+    # Existing painted wall texture is not a patch seam. Count only new
+    # discontinuities above the source's local variation, with the same 8-RGB
+    # tolerance; untouched rough wall must contribute zero seam evidence.
+    source_error=rgb.astype(float)-replacement.astype(float)
+    original_jump=np.maximum(np.linalg.norm(np.diff(source_error,axis=0,prepend=source_error[:1]),axis=2),np.linalg.norm(np.diff(source_error,axis=1,prepend=source_error[:,:1]),axis=2))
+    jump=np.maximum(0,jump-original_jump)
    seam_fraction=float(np.mean(jump[samples]>8)) if samples.any() else 0
    metrics[iid]['seam_fraction']=round(seam_fraction,5)
    if seam_fraction>.02:why.append('patch seam check: abrupt wall transition')
    x,y,r,b=boxes[iid];rail_errors=[]
    rail_audit=cv2.dilate(m,np.ones((7,7),np.uint8))
-   for row in np.where(rail_core)[0]:
+   for row in ([] if rail_geometry.any() else np.where(rail_core)[0]):
     if row<y-24 or row>b+10:continue
     donor=rgb[row,outside[row]&(xx[row]>w*.15)&(xx[row]<w*.90)]
     if len(donor)>20:
      audit=hooks[row,x:r]==0
-     if zid.startswith('bags-'):
+     if zid.startswith(('bags-','hats-')):
       # Clean retained rail grain is its own ground truth, not the median.
       # Audit only the reconstructed neighbourhood; lost-content below still
       # independently audits all non-wood pixels, including missed straps.
       audit &= rail_audit[row,x:r]>0
      rail_errors.extend((np.linalg.norm(base[row,x:r][audit].astype(float)-np.median(donor,axis=0),axis=1)>32).tolist())
+   if rail_geometry.any():
+    audit=rail_geometry&(rail_audit>0)&(hooks==0)
+    rail_errors=(np.linalg.norm(base[audit].astype(float)-rail_paint[audit].astype(float),axis=1)>32).tolist()
    rail_background=1-float(np.mean(rail_errors)) if rail_errors else 1
    metrics[iid]['rail_background_fraction']=round(rail_background,4)
    if rail_background<.93:why.append('rail background check: silhouette fragments')
@@ -538,6 +723,7 @@ def reconstruct(rgb, boxes, zid, rejected=None):
    metrics[iid]['feathered_rest_error']=round(feather_error,4)
    if feather_error>.01:failures.setdefault(iid,[]).append('rest check: feathered silhouette loses content')
  if failures:
+  (REVIEW/f'{zid}-attempt-integrity.json').write_text(json.dumps(metrics,indent=2)+'\n')
   return reconstruct(rgb,boxes,zid,{**rejected,**failures})
  (REVIEW/f'{zid}-integrity.json').write_text(json.dumps(metrics,indent=2)+'\n')
  return base,masks,reasons
