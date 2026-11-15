@@ -224,6 +224,9 @@ def reconstruct(rgb, boxes, zid, rejected=None):
  h,w=rgb.shape[:2]; outside=np.ones((h,w),bool)
  config_path=Path(__file__).resolve().parents[1]/'data/source/layers-v23.json'
  config=json.loads(config_path.read_text()).get(zid,{}) if config_path.exists() else {}
+ if config.get('garment_rack'):
+  from v23_garments import reconstruct as reconstruct_garments
+  return reconstruct_garments(rgb, boxes, config['garment_rack'])
  wall_bags=zid.startswith('bags-') and not config.get('surfaces')
  wall_boundary=hat_wall_boundary(rgb,boxes) if zid.startswith('hats-') or config.get('surface_reconstruction') else None
  for x,y,r,b in boxes.values(): outside[max(0,y-5):min(h,b+5),max(0,x-5):min(w,r+5)]=False
@@ -872,7 +875,7 @@ def review(zid,base,rgb,masks,reasons):
  for j,(iid,m) in enumerate(masks.items()):
   y,x=np.where(m>0)
   if not len(x):continue
-  box=(x.min(),y.min(),x.max()+1,y.max()+1);rgba=Image.fromarray(np.dstack([rgb,m])).crop(box);rgba.thumbnail((230,185))
+  box=(x.min(),y.min(),x.max()+1,y.max()+1);rgba=Image.fromarray(np.dstack([getattr(masks,'images',{}).get(iid,rgb),m])).crop(box);rgba.thumbnail((230,185))
   tile=np.indices((190,240)).sum(0)//12%2*25+210;tile=Image.fromarray(np.repeat(tile[:,:,None],3,2).astype('uint8'))
   tile.paste(rgba,((240-rgba.width)//2,0),rgba);px=j%4*250;py=j//4*240;sheet.paste(tile,(px,py));draw.text((px,py+190),iid+' '+('FAIL' if reasons[iid] else 'PASS'),fill='black');draw.text((px,py+207),'; '.join(reasons[iid])[:34],fill='black')
  sheet.save(REVIEW/f'{zid}-layers.jpg',quality=90)

@@ -139,13 +139,16 @@ def main():
                     if not len(xx): bad.add(iid);continue
                     x0,x1=xx.min(),xx.max()+1;y0,y1=yy.min(),yy.max()+1
                     path=f'assets/zones/layers/{iid}.webp'
-                    save(Image.fromarray(np.dstack([rgb,alpha])[y0:y1,x0:x1]),path,82)
+                    layer_rgb=getattr(masks,'images',{}).get(iid,rgb)
+                    save(Image.fromarray(np.dstack([layer_rgb,alpha])[y0:y1,x0:x1]),path,82)
                     motion=layout['items'][iid].get('motion') or ('lift' if cat in ('shoes','accessories','bottoms') or boxes[iid][1]/h>.7 else 'hang')
                     lr=rect([x0,y0,x1,y1],w,h)
                     layers[iid]=dict(image=path,**lr,rect=lr,pivot={'x':50,'y':0 if motion=='hang' else 50},pivotX=50,pivotY=0 if motion=='hang' else 50,motion=motion,fallback=iid in bad)
+                for depth,iid in enumerate(getattr(masks,'order',[])):
+                    if iid in layers: layers[iid]['zIndex']=depth+1
             else: base=painting
             fallback.extend(sorted(bad))
-            paths=variants(base,f'assets/zones/{zid}',[1600,1024,640],source_path=max([zone_src,ROOT/'tools/v21_images.py',ROOT/'tools/build_v2.py']+([ROOT/'data/source/overrides_v21.py'] if zid=='shirts-a' else [])+([ROOT/'data/source/layers-v23.json'] if (ROOT/'data/source/layers-v23.json').exists() else []),key=lambda p:p.stat().st_mtime))
+            paths=variants(base,f'assets/zones/{zid}',[1600,1024,640],source_path=max([zone_src,ROOT/'tools/v21_images.py',ROOT/'tools/v23_garments.py',ROOT/'tools/build_v2.py']+([ROOT/'data/source/overrides_v21.py'] if zid=='shirts-a' else [])+([ROOT/'data/source/layers-v23.json'] if (ROOT/'data/source/layers-v23.json').exists() else []),key=lambda p:p.stat().st_mtime))
             cover=variants(painting,f'assets/zones/{zid}-cover',[640],source_path=zone_src if zid in GEN['zones'] else ROOT/'data/source/overrides_v21.py' if zid=='shirts-a' else FINAL/finals[cat,letter]['path_in_zip'])[0]
             catalog['zones'].append(dict(id=zid,category=cat,letter=letter,images=paths,cover=cover,natural_size=[ow,oh],aspect=ow/oh,has_layout=bool(layout),items=ids))
             # Inset then split overlapping rectangles along centre-to-centre axis.

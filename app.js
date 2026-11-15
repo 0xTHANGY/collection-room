@@ -231,6 +231,7 @@ function createLayer(item, container = $('layers')) {
   const wrap = document.createElement('div');
   wrap.className = 'layer-wrap';
   wrap.dataset.layerItemId = item.id;
+  if (Number.isFinite(item.layer.zIndex)) wrap.style.zIndex = item.layer.zIndex;
   for (const key of ['left', 'top', 'width', 'height']) wrap.style[key] = `${item.layer[key]}%`;
   const layer = document.createElement('img');
   layer.className = 'layer';

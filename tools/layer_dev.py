@@ -44,8 +44,12 @@ def check(zid):
     for i,m in masks.items():
         if reasons[i]: continue
         a=cv2.GaussianBlur(m,(3,3),.55).astype(float)/255; alphas[i]=a
-    order=getattr(v21_images,'LAYER_ORDER',None)
-    for i,a in alphas.items(): comp=comp*(1-a[:,:,None])+rgb*a[:,:,None]
+    order=getattr(masks,'order',list(alphas))
+    layer_images=getattr(masks,'images',{})
+    for i in order:
+        if i not in alphas: continue
+        a=alphas[i]; pixels=layer_images.get(i,rgb)
+        comp=comp*(1-a[:,:,None])+pixels*a[:,:,None]
     diff=np.linalg.norm(comp-rgb,axis=2)>30
     # Contact/drop shadows are intentionally dropped (the site renders its own drop-shadow): a pixel that is
     # a uniform darkening of the plate is not counted as lost content.
@@ -64,6 +68,8 @@ def check(zid):
             edge=m&~cv2.erode(np.uint8(m),np.ones((3,3),np.uint8)).astype(bool)
             touching=set(np.unique(lab[edge&wallish]))-{0}
             d['wall_in_layer']=round(float(np.isin(lab,list(touching)).sum()/max(1,m.sum())),4) if touching else 0.0
+            if getattr(masks,'background_metric',False):
+                d['wall_in_layer']=masks.metrics[i]['unchanged_fraction']
             if cat=='bags':d['wall_in_layer']=round(v21_images.attached_wall_fraction(rgb,base,masks[i]),4)
             d['suspect']=d['rest_err']>.01 or d['wall_in_layer']>.03
         res[i]=d
@@ -75,7 +81,7 @@ def check(zid):
     for i,m in masks.items():
         yy,xx=np.where(m>0)
         if not len(xx): continue
-        crop=Image.fromarray(np.dstack([rgb,m])).crop((xx.min(),yy.min(),xx.max()+1,yy.max()+1)); crop.thumbnail((230,230))
+        crop=Image.fromarray(np.dstack([layer_images.get(i,rgb),m])).crop((xx.min(),yy.min(),xx.max()+1,yy.max()+1)); crop.thumbnail((230,230))
         t2=Image.new('RGB',(240,260),(255,0,255) ); t2.paste(crop,((240-crop.width)//2,0),crop)
         ImageDraw.Draw(t2).text((3,234),f"{i} {'PASS' if not reasons[i] else 'FAIL'} {'SUSPECT' if res[i].get('suspect') else ''}",fill='black')
         ImageDraw.Draw(t2).text((3,246),'; '.join(reasons[i])[:38],fill='black'); tiles.append(t2)
