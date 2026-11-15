@@ -18,13 +18,13 @@ def run():
  for label,hat in [('before',im),('after',fixed)]:
   bg=Image.new('RGBA',hat.size,(225,225,225,255));bg.alpha_composite(hat);bg.convert('RGB').save(out/f'v2.2-{label}-192-card.png')
  fixed.crop((350,500,530,595)).resize((1080,570)).save(ROOT/'work/v2.2/after-card-detail.png')
- zone=Image.open(ROOT/'assets/generated/hats-zone-d-v22.webp').convert('RGB')
+ zone=Image.open(ROOT/'data/source/generated/hats-zone-d-v22.webp').convert('RGB')
  fixedzone=visor_slits(zone,'zone')
- save(fixedzone,ROOT/'assets/generated/hats-zone-d-v22-192fix.webp')
+ save(fixedzone,ROOT/'data/source/generated/hats-zone-d-v22-192fix.webp')
  for label,img in [('before',zone),('after',fixedzone)]:
   img.crop((1222,167,1445,398)).resize((669,693),Image.Resampling.LANCZOS).save(out/f'v2.2-{label}-192-zone.png')
  fixedzone.crop((1300,235,1360,265)).resize((960,480)).save(ROOT/'work/v2.2/after-zone-detail.png')
- manifest=ROOT/'data/source/generated-v22.json';data=json.loads(manifest.read_text());data['zones']['hats-d']='assets/generated/hats-zone-d-v22-192fix.webp';manifest.write_text(json.dumps(data,indent=2)+'\n')
+ manifest=ROOT/'data/source/generated-v22.json';data=json.loads(manifest.read_text());data['zones']['hats-d']='data/source/generated/hats-zone-d-v22-192fix.webp';manifest.write_text(json.dumps(data,indent=2)+'\n')
  for n in ['039','102','234']:
   rgb=np.array(Image.open(ROOT/f'work/v2.2/gen/dress-{n}-v22.png').convert('RGB')).astype(np.float32)
   # Pure magenta compositing: G contains only foreground; excess R/B
@@ -50,6 +50,6 @@ def run():
    neutral=cuffs&(alpha>0)
    clean[neutral]=np.repeat(clean[:,:,1,None],3,axis=2)[neutral]
   rgba=np.dstack([clean.astype(np.uint8),np.round(alpha*255).astype(np.uint8)])
-  save(Image.fromarray(rgba),ROOT/f'assets/generated/dress-{n}-v22.webp')
+  save(Image.fromarray(rgba),ROOT/f'data/source/generated/dress-{n}-v22.webp')
   bg=Image.new('RGBA',(1024,1536),(220,220,220,255));bg.alpha_composite(Image.fromarray(rgba));bg.convert('RGB').resize((512,768)).save(ROOT/f'work/v2.2/dress-{n}-after.png')
 if __name__=='__main__':run()
