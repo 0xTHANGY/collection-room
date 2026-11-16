@@ -46,7 +46,16 @@ def rect(box,w,h):
 def intersect(a,b):
     return min(a[2],b[2])-max(a[0],b[0])>1e-6 and min(a[3],b[3])-max(a[1],b[1])>1e-6
 
+def stamp_version():
+    """Fill the footer version in index.html from data/source/site.json (the one place to change it)."""
+    version=json.loads((ROOT/'data/source/site.json').read_text())['version']
+    page=ROOT/'index.html';html=page.read_text()
+    new,n=re.subn(r'(<span lang="en" id="site-version">)[^<]*(</span>)',lambda m:m.group(1)+'COLLECTION ROOM · '+version+m.group(2),html)
+    if n!=1: raise SystemExit('footer version span #site-version not found exactly once in index.html')
+    if new!=html: page.write_text(new)
+    print('footer version:',version)
 def main():
+    stamp_version()
     cv2.setNumThreads(1);cv2.setRNGSeed(42)
     mapping=json.loads((ROOT/'data/source/zones.json').read_text())
     manifest=list(csv.DictReader((FINAL/'manifest.csv').open()))
