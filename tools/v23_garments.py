@@ -77,6 +77,36 @@ def reconstruct(rgb, boxes, config):
     for x,y,r,b in boxes.values():
         occupied[max(0,y-3):min(h,b+15),max(0,x-4):min(w,r+4)]=1
     wall=wall_model(rgb,config,occupied)
+    if config.get('directional_light'):
+        # Window light is a diagonal donor profile, not part of the broad
+        # plaster polynomial. Shift clean columns along its projection and
+        # fit attenuation only on exposed wall, then continue it behind cloth.
+        light=config['directional_light']
+        lx,ly,lr,lb=light['bbox'];a,c=light['donor_x']
+        slope=light['slope'];ref=(a+c-1)/2
+        residual=rgb.astype(float)-wall.astype(float)
+        donor_profiles=[]
+        for col in range(a,c):
+            rows=np.arange(h)+slope*(col-ref)
+            donor_profiles.append(np.stack([
+                np.interp(rows,np.arange(h),residual[:,col,ch])
+                for ch in range(3)],axis=1))
+        profile=np.median(donor_profiles,axis=0)
+        profile=np.maximum(profile,0)
+        clean=cv2.dilate(occupied,np.ones((31,31),np.uint8))==0
+        for sx,sy,sr,sb in config['structure']:clean[sy:sb,sx:sr]=False
+        amplitudes=[]
+        projected=[]
+        for col in range(lx,lr):
+            donor=np.stack([np.interp(np.arange(h)-slope*(col-ref),np.arange(h),profile[:,ch]) for ch in range(3)],axis=1)
+            sel=clean[:,col]&(np.arange(h)>=ly)&(np.arange(h)<lb)&(donor.mean(1)>10)
+            projected.append(donor)
+            amplitudes.append(np.clip((donor[sel]*residual[sel,col]).sum()/max(1,(donor[sel]**2).sum()),0,1.3) if sel.sum()>12 else np.nan)
+        amplitudes=np.array(amplitudes);valid=np.flatnonzero(np.isfinite(amplitudes))
+        amplitudes=np.interp(np.arange(lr-lx),valid,amplitudes[valid]) if len(valid) else np.zeros(lr-lx)
+        amplitudes=cv2.GaussianBlur(amplitudes[None,:],(31,1),7)[0]
+        for col,donor,amplitude in zip(range(lx,lr),projected,amplitudes):
+            wall[ly:lb,col]=np.uint8(np.clip(wall[ly:lb,col]+donor[ly:lb]*amplitude,0,255))
     background=wall.copy()
     # Wall-mounted rails cast a continuous shadow behind the hanger apex.
     # A wall polynomial erases it; retaining a rectangular rail band instead
@@ -840,6 +870,95 @@ def reconstruct(rgb, boxes, config):
             touching=set(np.unique(lab[edge&plaster]))-{0}
             for j in touching:
                 if stats[j,4]>=12:m[lab==j]=0
+    if any(config.get(k) for k in ('trim_boundary_shadows', 'trim_neutral_hem_shadows', 'trim_smooth_boundary_shadows')):
+        # Pale knits and their grey cast shadows can share the GrabCut GMM.
+        # Remove smooth, neutral shadow patches only when connected to the
+        # cutout edge. Enclosed labels/prints and warm cream yarn survive.
+        value=rgb.astype(np.float32)
+        mean=cv2.blur(value,(5,5))
+        variation=np.sqrt(np.maximum(0,cv2.blur(value*value,(5,5))-mean*mean).mean(2))
+        neutral=(np.ptp(value,axis=2)<14)&(value.mean(2)>95)
+        shadow_colour=neutral&(np.ptp(ratio,axis=2)<.10)&(ratio.mean(2)>.5)&(ratio.mean(2)<.99)
+        smooth_shadow=shadow_colour&(variation<4)
+    if config.get('trim_boundary_shadows'):
+        for iid,m in masks.items():
+            edge=(m>0)&~cv2.erode(np.uint8(m>0),np.ones((3,3),np.uint8)).astype(bool)
+            n,labels,stats,_=cv2.connectedComponentsWithStats(np.uint8(shadow_colour&(m>0)))
+            touching=set(np.unique(labels[edge&shadow_colour]))-{0}
+            for j in touching:
+                patch=labels==j
+                # A thin crop-edge shadow can be narrower than the texture
+                # window, so its two borders hide every smooth interior pixel.
+                thin=stats[j,4]>=12 and min(stats[j,2],stats[j,3])<=8
+                # Heather knit is neutral too, but only a small fraction of
+                # its yarn is smooth. Require a zone-configured smooth share
+                # before removing a whole connected neutral component.
+                smooth_count=np.count_nonzero(patch&smooth_shadow)
+                smooth_enough=smooth_count>=12 and smooth_count/max(1,stats[j,4])>=config.get('boundary_shadow_smooth_fraction',0)
+                if thin or smooth_enough:m[patch]=0
+            # Removing a shadow can detach its antialiased outer outline.
+            # Keep the main knit and the wooden hanger, not loose grey arcs.
+            n,labels,stats,_=cv2.connectedComponentsWithStats(m)
+            if n>1:
+                main=1+np.argmax(stats[1:,4]);x,y,r,b=boxes[iid]
+                for j in range(1,n):
+                    a,c,d,e,area=stats[j]
+                    hanger=c<y+8 and abs(a+d/2-(x+r)/2)<(r-x)*.3
+                    if j!=main and not hanger:m[labels==j]=0
+    if config.get('trim_smooth_boundary_shadows'):
+        # Ribbed knit contours can enclose smooth cast-shadow corners in
+        # their contour seeds. Test the smooth patch itself, rather than its
+        # whole neutral-colour component (which also includes grey yarn).
+        for iid,m in masks.items():
+            x,y,r,b=boxes[iid]
+            boundary_shadow=shadow_colour&(variation<8)&(m>0)
+            n,labels,stats,_=cv2.connectedComponentsWithStats(np.uint8(boundary_shadow))
+            edge=(m>0)&~cv2.erode(np.uint8(m>0),np.ones((3,3),np.uint8)).astype(bool)
+            touching=set(np.unique(labels[edge&boundary_shadow]))-{0}
+            # Broad smooth cream panels are fabric, not corner shadows.
+            limit=np.count_nonzero(m)*.02
+            for j in touching:
+                if 20<=stats[j,4]<limit:m[labels==j]=0
+            # Antialiased shadow borders can remain after their smooth core
+            # is gone. Open only neutral shadow pixels below the shoulder;
+            # hanger wood and the textured sleeve outline are left intact.
+            opened=cv2.morphologyEx(m,cv2.MORPH_OPEN,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(9,9)))
+            m[shadow_colour&(opened==0)&(yy>y+(b-y)*.22)]=0
+    if config.get('trim_neutral_hem_shadows'):
+        # Heather yarn and its cast shadow are one neutral colour component.
+        # Follow the dark painted hem above a smooth shadow tail rather than
+        # removing that entire component (which would delete the sweater).
+        gray=cv2.GaussianBlur(rgb.mean(2).astype(np.float32),(3,3),.6)
+        for iid,m in masks.items():
+            x,y,r,b=boxes[iid]
+            limits=np.full(w,np.nan)
+            for col in range(max(0,x),min(w,r)):
+                rows=np.flatnonzero(m[:,col])
+                if not len(rows):continue
+                end=int(rows[-1])
+                if end<y+(b-y)*.65:continue
+                tail=np.arange(max(y,end-14),end+1)
+                smooth=shadow_colour[tail,col]&(variation[tail,col]<4)
+                if smooth.sum()<4:continue
+                lo=max(y+1,end-32);edge=np.arange(lo,min(h-2,end-3))
+                if not len(edge):continue
+                drop=gray[edge+1,col]-gray[edge-1,col]
+                strongest=int(np.argmin(drop))
+                if drop[strongest]>-16:continue
+                hem=int(edge[strongest])
+                after=np.arange(hem+1,min(end+1,hem+7))
+                hem=int(after[np.argmin(gray[after,col])])
+                if np.count_nonzero(smooth&(tail>hem))<4:continue
+                limits[col]=hem+2
+            # The shadow edge is soft and occasionally misses a column.
+            # Median support continues the detected painted hem through
+            # those gaps without leaving one-pixel hanging shadow spikes.
+            for col in range(max(0,x),min(w,r)):
+                nearby=limits[max(0,col-7):min(w,col+8)]
+                if np.isfinite(nearby).sum()<5:continue
+                hem=int(np.nanmedian(nearby))
+                rows=np.flatnonzero(m[:,col])
+                if len(rows) and 0<rows[-1]-hem<34:m[hem:int(rows[-1])+1,col]=0
     masks.visible=visible
     # Remove cloth and its cast shadows, preserving every rack/furniture pixel.
     removal=np.uint8(union)*255
