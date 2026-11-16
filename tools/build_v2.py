@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """Deterministic, rerunnable v2 asset/catalog builder. Writes only inside site/.
 Requires Pillow, numpy and OpenCV; no browser build step. Source layouts are optional.
+Reproducible from sources only: it never reads its own previous outputs (assets/zones, assets/items/v2,
+data/catalog.json) and never skips work based on file mtimes. Outputs that cannot be recomputed are
+listed in data/source/frozen-assets.json and copied through byte-for-byte from data/source/frozen/.
 """
-import csv, json, re, sys
+import csv, json, os, re, shutil, sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"data/source"))
 from overrides_v21 import neutral_shirts
@@ -15,29 +18,26 @@ ROOT = Path(__file__).resolve().parents[1]
 FINAL = ROOT.parent / 'final'
 LABELS = [('jackets','外套','Jackets'),('shirts','衬衫','Shirts'),('tshirts','T恤','T-shirts'),('bottoms','下装','Bottoms'),('dresses','连衣裙','Dresses'),('sweaters','针织衫','Sweaters'),('hoodies','卫衣','Hoodies'),('bags','包袋','Bags'),('accessories','配饰','Accessories'),('shoes','鞋履','Shoes'),('hats','帽子','Hats')]
 written=set()
+FROZEN_LIST=ROOT/'data/source/frozen-assets.json'
+FROZEN=json.loads(FROZEN_LIST.read_text())['assets'] if FROZEN_LIST.exists() else {}
 def save(im, path, quality=80):
     p=ROOT/path;p.parent.mkdir(parents=True,exist_ok=True)
+    if path in FROZEN:
+        # Explicit frozen source: copy the recorded bytes, never re-encode.
+        shutil.copyfile(ROOT/FROZEN[path],p);written.add(path);return
     # A new pixel-only image prevents metadata propagation.
     clean=Image.fromarray(np.asarray(im))
     temporary=p.with_suffix('.webp.tmp')
     clean.save(temporary,'WEBP',quality=quality,method=4)
     temporary.replace(p)
     written.add(path)
-def variants(im, stem, sizes, longest=False, source_path=None):
+def variants(im, stem, sizes, longest=False):
     result=[]
     for size in sizes:
         scale=min(1,size/(max(im.size) if longest else im.width))
         out=im.resize((max(1,round(im.width*scale)),max(1,round(im.height*scale))),Image.Resampling.LANCZOS)
         path=f'{stem}-{size}.webp'
-        target=ROOT/path
-        reusable=False
-        if source_path and target.exists() and target.stat().st_mtime >= source_path.stat().st_mtime:
-            try:
-                with Image.open(target) as existing:
-                    existing.load();reusable=existing.size==out.size
-            except (OSError,ValueError): pass
-        if reusable: written.add(path)
-        else: save(out,path)
+        save(out,path)
         result.append({'src':path,'width':out.width,'height':out.height})
     return result
 def rect(box,w,h):
@@ -94,17 +94,10 @@ def main():
                     rx0=max(0,x0-pad);ry0=max(0,y0-pad);rx1=min(w,x1+pad);ry1=min(h,y1+pad)
                     roi=rgb[ry0:ry1,rx0:rx1]
                     mask=np.zeros((h,w),np.uint8)
-                    cached=ROOT/f'assets/zones/layers/{iid}.webp'
-                    old_catalog=ROOT/'data/catalog.json'
                     if cat in ('hats','bags','accessories'):
                         mask[y0:y1,x0:x1]=255  # replaced by wall-model masks below
-                    elif cached.exists():
-                        # Unchanged conservative fallback: reuse its deterministic extraction.
-                        prior=next(i for i in json.loads(old_catalog.read_text())['items'] if i['id']==iid)['layer']
-                        alpha=np.array(Image.open(cached).convert('RGBA'))[:,:,3]
-                        ax=round(prior['left']*w/100);ay=round(prior['top']*h/100)
-                        ah,aw=alpha.shape;mask[ay:ay+ah,ax:ax+aw]=np.uint8(alpha>127)*255
                     else:
+                        # Conservative fallback mask, always computed from the source painting.
                         local=np.zeros(roi.shape[:2],np.uint8)
                         cv2.grabCut(cv2.cvtColor(roi,cv2.COLOR_RGB2BGR),local,(x0-rx0,y0-ry0,x1-x0,y1-y0),np.zeros((1,65)),np.zeros((1,65)),5,cv2.GC_INIT_WITH_RECT)
                         mask[ry0:ry1,rx0:rx1]=np.uint8((local==1)|(local==3))*255
@@ -138,14 +131,6 @@ def main():
                 gate[zid]={iid:dict(passed=iid not in bad,reasons=reasons[iid]) for iid in boxes}
                 review(zid,np.array(base),rgb,masks,reasons)
                 for iid,mask in masks.items():
-                    if cat not in ('hats','bags','accessories') and iid in bad and (ROOT/f'assets/zones/layers/{iid}.webp').exists():
-                        prior=next(i for i in json.loads((ROOT/'data/catalog.json').read_text())['items'] if i['id']==iid)['layer']
-                        if zid=='shirts-a':
-                            x=round(prior['left']*w/100);y=round(prior['top']*h/100)
-                            al=np.array(Image.open(ROOT/prior['image']).convert('RGBA'))[:,:,3]
-                            hh,ww=al.shape
-                            save(Image.fromarray(np.dstack([rgb[y:y+hh,x:x+ww],al])),prior['image'],82)
-                        layers[iid]=prior;written.add(prior['image']);continue
                     # Include the inpaint boundary under opaque source pixels, feather outward.
                     alpha=cv2.GaussianBlur(mask,(3,3),.55)
                     yy,xx=np.where(alpha>0)
@@ -161,8 +146,8 @@ def main():
                     if iid in layers: layers[iid]['zIndex']=depth+1
             else: base=painting
             fallback.extend(sorted(bad))
-            paths=variants(base,f'assets/zones/{zid}',[1600,1024,640],source_path=max([zone_src,ROOT/'tools/v21_images.py',ROOT/'tools/v23_garments.py',ROOT/'tools/build_v2.py']+([ROOT/'data/source/overrides_v21.py',ROOT/'data/source/shirts-a-neutral-protect.png'] if zid=='shirts-a' else [])+([ROOT/'data/source/layers-v23.json'] if (ROOT/'data/source/layers-v23.json').exists() else []),key=lambda p:p.stat().st_mtime))
-            cover=variants(painting,f'assets/zones/{zid}-cover',[640],source_path=zone_src if zid in GEN['zones'] else ROOT/'data/source/overrides_v21.py' if zid=='shirts-a' else FINAL/finals[cat,letter]['path_in_zip'])[0]
+            paths=variants(base,f'assets/zones/{zid}',[1600,1024,640])
+            cover=variants(painting,f'assets/zones/{zid}-cover',[640])[0]
             catalog['zones'].append(dict(id=zid,category=cat,letter=letter,images=paths,cover=cover,natural_size=[ow,oh],aspect=ow/oh,has_layout=bool(layout),items=ids))
             # Inset then split overlapping rectangles along centre-to-centre axis.
             spots={iid:[b[0]+(b[2]-b[0])*.025,b[1]+(b[3]-b[1])*.025,b[2]-(b[2]-b[0])*.025,b[3]-(b[3]-b[1])*.025] for iid,b in boxes.items()}
@@ -187,8 +172,7 @@ def main():
                 if iid in GEN['cutouts']:cut=ROOT/GEN['cutouts'][iid]
                 original=Image.open(cut).convert('RGBA')
                 fixed=fix_card(original,iid,fixes,rgb,boxes.get(iid))
-                recipe=max([cut,ROOT/'tools/v21_images.py',ROOT/'data/source/cutout-fixes.json',ROOT/'data/source/overrides_v21.py'],key=lambda p:p.stat().st_mtime) if iid in fixes else cut
-                cards=variants(fixed,f'assets/items/v2/{iid}',[600,400],True,recipe)
+                cards=variants(fixed,f'assets/items/v2/{iid}',[600,400],True)
                 brand=src.get('brand') or ''
                 if src.get('brand_uncertain') or re.search('不确定|unknown',brand,re.I):brand='Unknown'
                 catalog['items'].append(dict(id=iid,category=cat,zone=zid,number=iid.split('-')[-1],name=hub.get(iid,src['name']),display_name=hub.get(iid,src['name']),brand=brand,type=src.get('type',''),story='故事待补充',image=cards[0]['src'],card_images=cards,hotspot=rect(spots[iid],w,h) if iid in spots else None,layer=layers.get(iid)))
@@ -202,7 +186,7 @@ def main():
         with sync_playwright() as p:
             browser=p.chromium.launch(executable_path='/usr/bin/google-chrome',args=['--no-sandbox'])
             page=browser.new_page(viewport={'width':1440,'height':900},device_scale_factor=1)
-            urls=set();base_url='http://127.0.0.1:8765/'
+            urls=set();base_url=os.environ.get('BUILD_PREVIEW_URL','http://127.0.0.1:8765/')
             page.on('response',lambda r:urls.add(r.url) if r.ok and r.url.startswith(base_url) else None)
             page.goto(base_url,wait_until='networkidle');page.wait_for_selector('#room-tiles a')
             files=sorted({u.removeprefix(base_url).split('?')[0] or 'index.html' for u in urls})
