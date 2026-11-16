@@ -52,7 +52,7 @@ def main():
                     page.evaluate('document.getAnimations().forEach(a=>a.finish())')
                     page.wait_for_function('() => flipState === "open"')
                     page.wait_for_function('() => document.querySelector("#detail-image").naturalWidth > 0 && !document.querySelector("#detail-image").hidden')
-                    if iid==catalog['zones'][0]['items'][0]:page.screenshot(path=str(out/'v2.1-card-open.png'))
+                    if iid==catalog['zones'][0]['items'][0]:(ROOT/'work/verify').mkdir(parents=True,exist_ok=True);page.screenshot(path=str(ROOT/'work/verify/v2.1-card-open.png'))  # card capture varies with idle motion timing; keep it out of git
                     page.locator('#close-dialog').click();page.evaluate('document.getAnimations().forEach(a=>a.finish())');page.wait_for_function('() => !document.querySelector("dialog").open')
                     page.wait_for_function('() => !location.hash.startsWith("#/item/")')
                     assert trigger.evaluate('(e)=>document.activeElement===e')
