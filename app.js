@@ -11,7 +11,11 @@ const FLIP_MS = 650;
 const FLIP_EASE = 'cubic-bezier(0.22, 1, 0.36, 1)';
 const layersById = new Map();
 let flipState = 'idle';
-let closeQueued = false;
+let closeQueued = false;  // kept for diagnostics only: a close during opening now interrupts instead of queueing
+let flipAnim = null;      // the one running card flight (Web Animations)
+let flipTimer = 0;        // wall-clock fallback that ends that flight
+let ghost = null;         // visual stand-in that flies; the real dialog never moves
+let veil = null;          // stand-in for the dialog backdrop while a closed card flies home
 let originSnapshot = null;
 let currentItem = null;
 function roomReady() {
@@ -35,77 +39,122 @@ function originRectFor(trigger, item) {
   return trigger?.getBoundingClientRect() ?? null;
 }
 function clearFlipStyles() {
+  stopFlip();
   dialog.style.transition = 'none';
   dialog.style.transform = '';
   dialog.style.opacity = '';
 }
-function waitForFlip(result, callback) {
-  let done = false;
-  const finish = () => {
-    if (done) return;
-    done = true;
-    window.clearTimeout(timer);
-    callback();
-  };
-  const timer = window.setTimeout(finish, FLIP_MS + 80);
-  if (result && typeof result.then === 'function') {
-    result.then(finish, finish);
-    return;
+// v2.3.2 close fix. Before, the dialog itself flew (CSS transitions) and closing was a chain of deferred steps:
+// a close asked for while the card was opening only set closeQueued and waited for the opening flight to end
+// (transitionend or a 730 ms timer), then the closing flight ran and dialog.close() came from another
+// transitionend/timer. When the page is starved (heavy parallel load) frames and timers are delayed by seconds
+// while input still arrives, so after Esc / ✕ the dialog stayed open for seconds. Stray transitionend events
+// of one flight could also end the next one, and the opening transition started in an unguarded rAF.
+// Now the real dialog never moves: Esc / ✕ close it synchronously inside the input handler, and a ghost
+// copy in the top layer plays the same flight (same keyframes, 650 ms, same easing). The ghost never takes
+// pointer events, so the ✕ is clickable and stable from the first frame.
+function removeGhost() {
+  for (const el of [ghost, veil]) {
+    if (!el) continue;
+    try { el.hidePopover(); } catch (e) { /* not shown as popover */ }
+    el.remove();
   }
-  const onEnd = (event) => {
-    if (event.target !== dialog) return;
-    if (event.propertyName && event.propertyName !== 'transform' && event.propertyName !== 'opacity') return;
-    dialog.removeEventListener('transitionend', onEnd);
-    finish();
-  };
-  dialog.addEventListener('transitionend', onEnd);
+  ghost = veil = null;
 }
-function playFlip(from, opening) {
-  if (reduceMotion.matches) {
-    dialog.style.transform = '';
-    const start = opening ? 0 : 1;
-    const end = opening ? 1 : 0;
-    dialog.style.opacity = String(start);
-    const anim = dialog.animate(
-      [{ opacity: start }, { opacity: end }],
-      { duration: FLIP_MS, easing: FLIP_EASE, fill: 'forwards' }
-    );
-    return anim.finished;
+function stopFlip() {
+  if (flipTimer) { window.clearTimeout(flipTimer); flipTimer = 0; }
+  const anim = flipAnim;
+  flipAnim = null;
+  anim?.cancel();
+  removeGhost();
+}
+function showOnTop(el) {
+  el.setAttribute('aria-hidden', 'true');
+  el.inert = true;
+  el.popover = 'manual';
+  document.body.append(el);
+  try { el.showPopover(); } catch (e) { /* falls back to the fixed z-index layer */ }
+}
+function makeGhost(rect) {
+  const g = document.createElement('div');
+  g.className = 'card-ghost';
+  const cs = getComputedStyle(dialog);
+  for (const p of ['display', 'gridTemplateColumns', 'boxSizing', 'padding', 'borderTop', 'borderRight', 'borderBottom', 'borderLeft', 'borderRadius', 'background', 'color', 'boxShadow', 'font', 'lineHeight', 'letterSpacing']) g.style[p] = cs[p];
+  Object.assign(g.style, {
+    position: 'fixed', inset: 'auto', left: `${rect.left}px`, top: `${rect.top}px`, width: `${rect.width}px`, height: `${rect.height}px`,
+    margin: '0', maxWidth: 'none', maxHeight: 'none', overflow: 'hidden', pointerEvents: 'none', transformOrigin: 'top left', zIndex: '2147483647'
+  });
+  for (const child of dialog.children) g.append(child.cloneNode(true));
+  const brand = $('detail-brand');
+  g.querySelectorAll('[id]').forEach((el) => {
+    if (el.id === 'detail-brand') { el.style.fontSize = getComputedStyle(brand).fontSize; el.style.color = getComputedStyle(brand).color; }
+    el.removeAttribute('id');
+  });
+  const closeButton = $('close-dialog');
+  const ghostClose = g.querySelector('.close');
+  if (ghostClose && closeButton.matches(':focus-visible')) {
+    const fc = getComputedStyle(closeButton);
+    Object.assign(ghostClose.style, { outline: fc.outline, outlineOffset: fc.outlineOffset });
   }
-  dialog.style.transformOrigin = 'top left';
-  if (opening) {
-    dialog.style.transition = 'none';
-    const last = dialog.getBoundingClientRect();
-    dialog.style.transform = invertTransform(from, last);
-    dialog.style.opacity = '0.4';
-    dialog.getBoundingClientRect();
-    requestAnimationFrame(() => {
-      dialog.style.transition = `transform ${FLIP_MS}ms ${FLIP_EASE}, opacity ${FLIP_MS}ms ${FLIP_EASE}`;
-      dialog.style.transform = 'none';
-      dialog.style.opacity = '1';
-    });
-    return null;
-  }
+  g.querySelectorAll('[autofocus]').forEach((el) => el.removeAttribute('autofocus'));
+  g.querySelectorAll('img').forEach((img) => { img.loading = 'eager'; });
+  g.scrollTop = dialog.scrollTop;
+  showOnTop(g);
+  return g;
+}
+function fitGhost() {
+  // The real card grows when its photo arrives; the flying copy follows, as the flying dialog used to.
+  if (!ghost || flipState !== 'opening') return;
+  const r = dialog.getBoundingClientRect();
+  Object.assign(ghost.style, { left: `${r.left}px`, top: `${r.top}px`, width: `${r.width}px`, height: `${r.height}px` });
+}
+$('detail-image').addEventListener('load', fitGhost);
+function syncGhostPhoto() {
+  if (!ghost) return;
+  const photo = $('detail-image');
+  const img = ghost.querySelector('.detail-photo img');
+  const status = ghost.querySelector('.detail-photo p');
+  if (img) { img.sizes = photo.sizes; img.srcset = photo.srcset; img.src = photo.src; img.hidden = photo.hidden; }
+  if (status) { status.hidden = $('photo-status').hidden; status.textContent = $('photo-status').textContent; }
+  fitGhost();
+}
+function runFlip(target, keyframes, duration, done) {
+  if (flipTimer) { window.clearTimeout(flipTimer); flipTimer = 0; }
+  flipAnim?.cancel();
+  const anim = target.animate(keyframes, { duration, easing: FLIP_EASE, fill: 'forwards' });
+  flipAnim = anim;
+  let finished = false;
+  const finish = () => {
+    if (finished || flipAnim !== anim) return;
+    finished = true;
+    if (flipTimer) { window.clearTimeout(flipTimer); flipTimer = 0; }
+    done();
+  };
+  anim.finished.then(finish, () => {});  // a cancelled flight was superseded: nothing to do
+  flipTimer = window.setTimeout(finish, duration + 80);
+}
+function openFlip(from) {
   const last = dialog.getBoundingClientRect();
-  dialog.style.transition = `transform ${FLIP_MS}ms ${FLIP_EASE}, opacity ${FLIP_MS}ms ${FLIP_EASE}`;
-  dialog.style.transform = invertTransform(from, last);
-  dialog.style.opacity = '0.4';
-  return null;
+  ghost = makeGhost(last);
+  dialog.style.opacity = '0';  // the real card waits, in place and clickable, under its flying copy
+  const frames = reduceMotion.matches
+    ? [{ opacity: 0 }, { opacity: 1 }]
+    : [{ transform: invertTransform(from, last), opacity: 0.4 }, { transform: 'none', opacity: 1 }];
+  runFlip(ghost, frames, FLIP_MS, finishOpen);
 }
 function finishOpen() {
-  if (!dialog.open) return;
+  if (!dialog.open || flipState !== 'opening') return;
   flipState = 'open';
-  if (closeQueued) {
-    closeQueued = false;
-    requestClose();
-  }
+  closeQueued = false;
+  dialog.style.opacity = '';
+  stopFlip();
 }
 function openItem(item, trigger) {
   // v2.3 keyboard fix: dialog.close() dispatches 'close' asynchronously. A key press that lands
   // between the two used to see flipState === 'closing' and was ignored. Settle the close first.
-  if (flipState === 'closing' && !dialog.open) settleClose(false);
-  if (flipState === 'opening' || flipState === 'closing') return;
-  if (flipState === 'open') return;
+  if (flipState !== 'idle' && !dialog.open) settleClose(false);  // closed elsewhere; its 'close' event is still queued
+  if (flipState !== 'idle') return;
+  stopFlip();  // a previous card may still be flying home
   opener = trigger;
   // v2.3 history fix: a card never adds a history entry and never calls history.back(), so no async
   // navigation can race a following zone switch. On a zone page the card replaces the zone URL with its
@@ -141,10 +190,12 @@ function openItem(item, trigger) {
     photo.src = item.card_images ? item.card_images[1].src : item.image;
     photo.hidden = false;
     status.hidden = true;
+    syncGhostPhoto();
   };
   loader.onerror = () => {
     if (request !== imageRequest) return;
     status.textContent = `照片暂时无法显示 · ${item.display_name || item.id}`;
+    syncGhostPhoto();
   };
   loader.sizes = '(max-width: 650px) 90vw, 430px';
   loader.srcset = item.card_images ? srcset(item.card_images) : `${item.image} 800w`;
@@ -160,29 +211,56 @@ function openItem(item, trigger) {
     finishOpen();
     return;
   }
-  const gen = ++flipGen;
-  waitForFlip(playFlip(origin, true), () => { if (gen === flipGen) finishOpen(); });
+  ++flipGen;
+  openFlip(origin);
 }
 function requestClose() {
   if (flipState === 'idle' || flipState === 'closing') return;
-  if (flipState === 'opening') {
-    closeQueued = true;
-    return;
+  if (!dialog.open) { settleClose(true); return; }
+  const last = dialog.getBoundingClientRect();  // the real dialog is never transformed
+  const origin = originRectFor(opener, currentItem) || originSnapshot;
+  const backdrop = Number(getComputedStyle(dialog, '::backdrop').opacity);
+  // Build the flight first (it needs the open dialog's layout), then close for real, synchronously.
+  let from = { transform: 'none', opacity: 1 };
+  let duration = FLIP_MS;
+  let g = null;
+  if (flipState === 'opening' && ghost && flipAnim) {
+    // Opening is interrupted, not waited for: fly back from where the copy is now, as fast as it came.
+    const cs = getComputedStyle(ghost);
+    from = { transform: cs.transform, opacity: Number(cs.opacity) };
+    duration = Math.max(0, Math.min(FLIP_MS, Number(flipAnim.currentTime) || 0));
+    flipAnim.cancel();
+    flipAnim = null;
+    g = ghost;
+    ghost = null;
+  } else {
+    stopFlip();
+    g = makeGhost(last);
   }
   flipState = 'closing';
-  const gen = ++flipGen;
-  const closeNow = () => { if (gen === flipGen && dialog.open) dialog.close(); };
+  closeQueued = false;
   dialog.classList.remove('is-open');
-  const origin = originRectFor(opener, currentItem) || originSnapshot;
-  if (reduceMotion.matches || !origin || origin.width < 2) {
-    if (reduceMotion.matches) {
-      waitForFlip(playFlip(origin || { left: 0, top: 0, width: 1, height: 1 }, false), closeNow);
-      return;
-    }
-    dialog.close();
+  dialog.close();
+  settleClose(true);  // URL, focus and state are restored now; the queued 'close' event finds nothing to do
+  const animate = duration >= 17 && (reduceMotion.matches || (origin && origin.width >= 2 && origin.height >= 2));
+  if (!animate) {
+    try { g.hidePopover(); } catch (e) { /* not shown as popover */ }
+    g.remove();
     return;
   }
-  waitForFlip(playFlip(origin, false), closeNow);
+  if (!reduceMotion.matches && backdrop > 0) {
+    veil = document.createElement('div');
+    veil.className = 'card-veil';
+    Object.assign(veil.style, { position: 'fixed', inset: '0', width: 'auto', height: 'auto', margin: '0', padding: '0', border: '0', background: '#25271f80', backdropFilter: 'blur(4px)', pointerEvents: 'none', zIndex: '2147483646' });
+    showOnTop(veil);
+    veil.animate([{ opacity: backdrop }, { opacity: 0 }], { duration, easing: FLIP_EASE, fill: 'forwards' });
+    if (g.matches(':popover-open')) { g.hidePopover(); g.showPopover(); }  // keep the card above its veil
+  }
+  ghost = g;
+  const frames = reduceMotion.matches
+    ? [{ opacity: from.opacity }, { opacity: 0 }]
+    : [from, { transform: invertTransform(origin, last), opacity: 0.4 }];
+  runFlip(g, frames, duration, removeGhost);
 }
 $('close-dialog').addEventListener('click', (event) => {
   event.preventDefault();
@@ -500,6 +578,7 @@ function route(event) {
   if (dialog.open && currentItem && location.hash === `#/item/${currentItem.id}`) return;
   // Any real navigation (Back/Forward, zone tabs, links) closes an open or closing card immediately.
   if (dialog.open || flipState !== 'idle') { routing = true; if (dialog.open) dialog.close(); settleClose(false); }
+  if (ghost || veil) stopFlip();  // a card still flying home does not follow us to another page
   const parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean);
   let item = parts[0] === 'item' ? catalog.items.find(i => i.id === parts[1]) : null;
   // Back/Forward onto an entry whose card was opened in-page (tagged state) returns to the zone only:

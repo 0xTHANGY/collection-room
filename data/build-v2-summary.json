@@ -53,7 +53,7 @@
   },
   "zones_lacking_layout": [],
   "fallback_ids": [],
-  "first_load_bytes": 874121,
+  "first_load_bytes": 879461,
   "first_load_files": [
     "app.js",
     "assets/layers/cr-001-layer.webp",
