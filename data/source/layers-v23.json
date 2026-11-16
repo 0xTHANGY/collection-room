@@ -9,7 +9,8 @@
     "bottoms",
     "dresses",
     "sweaters",
-    "hoodies"
+    "hoodies",
+    "shoes"
   ],
   "bags-b": {
     "surfaces": [
@@ -3901,6 +3902,94 @@
       "rail_gap_brightness": 130,
       "trim_neutral_hem_shadows": true,
       "neutral_hem_material_only": true
+    }
+  },
+  "shoes-a": {
+    "surface_items": {
+      "surfaces": [
+        {
+          "bbox": [
+            60,
+            465,
+            1535,
+            535
+          ],
+          "donor_x": [
+            900,
+            980
+          ]
+        },
+        {
+          "bbox": [
+            60,
+            535,
+            1535,
+            650
+          ],
+          "donor_x": [
+            805,
+            880
+          ],
+          "donor_y": [
+            535,
+            650
+          ],
+          "slope": 0.023
+        },
+        {
+          "bbox": [
+            60,
+            650,
+            1535,
+            960
+          ],
+          "donor_x": [
+            805,
+            870
+          ],
+          "donor_y": [
+            850,
+            960
+          ]
+        },
+        {
+          "bbox": [
+            60,
+            960,
+            1535,
+            1024
+          ],
+          "donor_x": [
+            790,
+            870
+          ]
+        }
+      ],
+      "floor": {
+        "fit_top": 465,
+        "blend_top": 535,
+        "edge": [
+          200,
+          543,
+          0.023
+        ],
+        "span": [
+          200,
+          1470
+        ],
+        "exclude": [
+          575,
+          0,
+          870,
+          515
+        ],
+        "grain_donor": [
+          900,
+          480,
+          1000,
+          535
+        ]
+      }
     }
   }
 }

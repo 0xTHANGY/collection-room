@@ -224,6 +224,10 @@ def reconstruct(rgb, boxes, zid, rejected=None):
  h,w=rgb.shape[:2]; outside=np.ones((h,w),bool)
  config_path=Path(__file__).resolve().parents[1]/'data/source/layers-v23.json'
  config=json.loads(config_path.read_text()).get(zid,{}) if config_path.exists() else {}
+ # Surface-standing shoes use donor rug/floor repair, isolated from racks.
+ if config.get('surface_items'):
+  from v23_surfaces import reconstruct as reconstruct_surfaces
+  return reconstruct_surfaces(rgb, boxes, config['surface_items'])
  if config.get('garment_rack'):
   from v23_garments import reconstruct as reconstruct_garments
   return reconstruct_garments(rgb, boxes, config['garment_rack'])
