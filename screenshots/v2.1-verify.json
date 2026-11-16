@@ -268,7 +268,7 @@
   "page_errors": [],
   "failed_requests": [],
   "http_errors": [],
-  "first_load_bytes": 874101,
+  "first_load_bytes": 874121,
   "first_load_files": [
     "app.js",
     "assets/layers/cr-001-layer.webp",

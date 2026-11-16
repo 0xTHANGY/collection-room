@@ -116,7 +116,11 @@ def main():
                     if coverage<.18 or coverage>.95: bad.add(iid)
                     masks[iid]=mask
                 if zid=='shirts-a':
-                    rgb=neutral_shirts(rgb,masks)
+                    # Reproducible: protect garments with a frozen mask (data/source/shirts-a-neutral-protect.png,
+                    # snapshot of the layer masks at bcd8174), never with this build's own previous layer outputs.
+                    protect=np.array(Image.open(ROOT/'data/source/shirts-a-neutral-protect.png').convert('L'))
+                    assert protect.shape==rgb.shape[:2],protect.shape
+                    rgb=neutral_shirts(rgb,{'frozen':np.uint8(protect>127)*255})
                     painting=Image.fromarray(rgb)
                 # v2.3: every category goes through the plate reconstruction + per-item gate.
                 prior_masks=masks
@@ -157,7 +161,7 @@ def main():
                     if iid in layers: layers[iid]['zIndex']=depth+1
             else: base=painting
             fallback.extend(sorted(bad))
-            paths=variants(base,f'assets/zones/{zid}',[1600,1024,640],source_path=max([zone_src,ROOT/'tools/v21_images.py',ROOT/'tools/v23_garments.py',ROOT/'tools/build_v2.py']+([ROOT/'data/source/overrides_v21.py'] if zid=='shirts-a' else [])+([ROOT/'data/source/layers-v23.json'] if (ROOT/'data/source/layers-v23.json').exists() else []),key=lambda p:p.stat().st_mtime))
+            paths=variants(base,f'assets/zones/{zid}',[1600,1024,640],source_path=max([zone_src,ROOT/'tools/v21_images.py',ROOT/'tools/v23_garments.py',ROOT/'tools/build_v2.py']+([ROOT/'data/source/overrides_v21.py',ROOT/'data/source/shirts-a-neutral-protect.png'] if zid=='shirts-a' else [])+([ROOT/'data/source/layers-v23.json'] if (ROOT/'data/source/layers-v23.json').exists() else []),key=lambda p:p.stat().st_mtime))
             cover=variants(painting,f'assets/zones/{zid}-cover',[640],source_path=zone_src if zid in GEN['zones'] else ROOT/'data/source/overrides_v21.py' if zid=='shirts-a' else FINAL/finals[cat,letter]['path_in_zip'])[0]
             catalog['zones'].append(dict(id=zid,category=cat,letter=letter,images=paths,cover=cover,natural_size=[ow,oh],aspect=ow/oh,has_layout=bool(layout),items=ids))
             # Inset then split overlapping rectangles along centre-to-centre axis.
