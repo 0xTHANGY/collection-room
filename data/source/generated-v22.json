@@ -10,5 +10,16 @@
     "batch2-102": "data/source/generated/dress-102-v22.webp",
     "batch2-234": "data/source/generated/dress-234-v22.webp"
   },
-  "note": "v2.2: generated with Codex built-in image generation (ChatGPT plan) from final/ zone images, cutouts and reference photos; dress cutouts keyed locally from a #FF00FF background."
+  "note": "v2.2: generated with Codex built-in image generation (ChatGPT plan) from final/ zone images, cutouts and reference photos; dress cutouts keyed locally from a #FF00FF background.",
+  "plates": {
+    "shoes-a": {
+      "file": "data/source/generated/shoes-zone-a-rug-v231.webp",
+      "version": "v2.3.1",
+      "use": "rug fill behind shoes 055/057 only (masked to shoe + contact-shadow areas); rest of zone is original painting",
+      "generator": "Codex CLI imagegen (ChatGPT plan), refs: original shoes-a zone plate + rug crop",
+      "metadata": "stripped",
+      "raw": "work/v2.3.1/gen/shoes-zone-a-rug-v231.png (not in git)",
+      "approved": "2026-11-15 by user via PM"
+    }
+  }
 }
