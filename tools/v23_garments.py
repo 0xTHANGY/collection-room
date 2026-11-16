@@ -77,17 +77,25 @@ def reconstruct(rgb, boxes, config):
     for x,y,r,b in boxes.values():
         occupied[max(0,y-3):min(h,b+15),max(0,x-4):min(w,r+4)]=1
     wall=wall_model(rgb,config,occupied)
-    if config.get('directional_light'):
+    # Stacked rails may have different exposed window-light donor columns.
+    # Fit each bay independently so an upper-row donor does not project a
+    # bright window patch into clean, shaded wall beside the lower row.
+    lights=config.get('directional_lights')
+    if lights is None:
+        lights=[config['directional_light']] if config.get('directional_light') else []
+    for light in lights:
         # Window light is a diagonal donor profile, not part of the broad
         # plaster polynomial. Shift clean columns along its projection and
         # fit attenuation only on exposed wall, then continue it behind cloth.
-        light=config['directional_light']
         lx,ly,lr,lb=light['bbox'];a,c=light['donor_x']
         slope=light['slope'];ref=(a+c-1)/2
         residual=rgb.astype(float)-wall.astype(float)
         donor_profiles=[]
         for col in range(a,c):
             rows=np.arange(h)+slope*(col-ref)
+            # Do not project a rail or its contact shadow as window muntins.
+            # Continue the clean wall profile beyond its supported donor rows.
+            if 'donor_y' in light:rows=np.clip(rows,*light['donor_y'])
             donor_profiles.append(np.stack([
                 np.interp(rows,np.arange(h),residual[:,col,ch])
                 for ch in range(3)],axis=1))
@@ -105,6 +113,13 @@ def reconstruct(rgb, boxes, config):
         amplitudes=np.array(amplitudes);valid=np.flatnonzero(np.isfinite(amplitudes))
         amplitudes=np.interp(np.arange(lr-lx),valid,amplitudes[valid]) if len(valid) else np.zeros(lr-lx)
         amplitudes=cv2.GaussianBlur(amplitudes[None,:],(31,1),7)[0]
+        if light.get('falloff'):
+            # When cloth hides every right-hand wall donor, continue the
+            # exposed window light with a smooth decay rather than holding
+            # the last fitted amplitude until an abrupt rectangular cutoff.
+            amplitudes=np.exp(-(np.maximum(0,np.arange(lx,lr)-ref)/light['falloff'])**2)
+        if light.get('fade_right'):
+            amplitudes*=np.clip((lr-1-np.arange(lx,lr))/light['fade_right'],0,1)
         for col,donor,amplitude in zip(range(lx,lr),projected,amplitudes):
             wall[ly:lb,col]=np.uint8(np.clip(wall[ly:lb,col]+donor[ly:lb]*amplitude,0,255))
     background=wall.copy()
@@ -931,6 +946,13 @@ def reconstruct(rgb, boxes, config):
         gray=cv2.GaussianBlur(rgb.mean(2).astype(np.float32),(3,3),.6)
         for iid,m in masks.items():
             x,y,r,b=boxes[iid]
+            if config.get('neutral_hem_material_only'):
+                # A saturated cuff can cast a neutral shadow too. Following
+                # its dark fold as a grey-knit hem cuts through real fabric;
+                # only neutral yarn needs this ambiguous-shadow treatment.
+                material=np.median(rgb[y+(b-y)//3:b-(b-y)//4,
+                                       x+(r-x)//3:r-(r-x)//3],axis=(0,1))
+                if np.ptp(material)>14 or material.mean()<95:continue
             limits=np.full(w,np.nan)
             for col in range(max(0,x),min(w,r)):
                 rows=np.flatnonzero(m[:,col])
@@ -1027,7 +1049,12 @@ def reconstruct(rgb, boxes, config):
         crossing |= rebuilt_structure&(xx>=x-8)&(xx<r+8)&(yy>y+14)&(yy<b+10)
     # A pale crop seam can interrupt a rail; dark screw heads and normal
     # painted grain are legitimate rail detail and must survive at rest.
-    gaps=rebuilt_structure&(rgb.mean(2)>190)&(background.mean(2)<190)
+    # Some source crops erase the dark lower rail edge with shaded plaster,
+    # which is dimmer than the default white-gap threshold. A rack may supply
+    # its measured plaster threshold; ordinary racks keep the existing test.
+    gap_brightness=config.get('rail_gap_brightness',190)
+    gaps=rebuilt_structure&(rgb.mean(2)>gap_brightness)&(background.mean(2)<gap_brightness)
+    if 'rail_gap_brightness' in config:gaps &= (red-blue<30)
     source_wood=(red-blue>30)&(red-green>10)
     donor_wood=(background[:,:,0].astype(int)-background[:,:,2]>30)&(background[:,:,0].astype(int)-background[:,:,1]>10)
     repair=crossing|gaps|(rebuilt_structure&source_wood&~donor_wood)
@@ -1041,6 +1068,21 @@ def reconstruct(rgb, boxes, config):
             near=cv2.dilate(np.uint8(union),np.ones((15,15),np.uint8))>0
             alpha[y:b,x:r]=near[y:b,x:r]
         else:alpha[y:b,x:r]=1
+    for furniture in config.get('furniture_donors', []):
+        if not furniture.get('surface_illumination'):continue
+        # A polished top reflects wall light, so donor wood alone is too dark.
+        # Continue its exposed row lighting across cloth, using no cloth RGB
+        # as a donor; smooth the broad reflection independently of wood grain.
+        x,y,r,b=furniture['bbox']
+        covered=cv2.dilate(np.uint8(union),np.ones((9,9),np.uint8))>0
+        residual=rgb[y:b,x:r].astype(float)-background[y:b,x:r].astype(float)
+        columns=np.arange(r-x)
+        for row in range(b-y):
+            clean=~covered[y+row,x:r]
+            if not clean.any():continue
+            offset=np.stack([np.interp(columns,columns[clean],residual[row,clean,ch]) for ch in range(3)],axis=1)
+            offset=cv2.GaussianBlur(offset[None,:,:],(101,1),25)[0]
+            background[y+row,x:r]=np.clip(background[y+row,x:r].astype(float)+offset,0,255)
     for furniture in config.get('furniture_donors', []):
         if not furniture.get('retain_clean_wood'):continue
         x,y,r,b=furniture['bbox']

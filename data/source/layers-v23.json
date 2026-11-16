@@ -8,7 +8,8 @@
     "tshirts",
     "bottoms",
     "dresses",
-    "sweaters"
+    "sweaters",
+    "hoodies"
   ],
   "bags-b": {
     "surfaces": [
@@ -3263,6 +3264,643 @@
         }
       ],
       "trim_smooth_boundary_shadows": true
+    }
+  },
+  "hoodies-a": {
+    "garment_rack": {
+      "rails": [
+        [
+          90,
+          54,
+          1446,
+          69
+        ],
+        [
+          92,
+          441,
+          1447,
+          456
+        ]
+      ],
+      "structure": [
+        [
+          90,
+          54,
+          1446,
+          70
+        ],
+        [
+          92,
+          441,
+          1447,
+          457
+        ],
+        [
+          58,
+          830,
+          1479,
+          926
+        ]
+      ],
+      "wood_structure": [
+        [
+          78,
+          46,
+          106,
+          81
+        ],
+        [
+          1431,
+          45,
+          1462,
+          82
+        ],
+        [
+          80,
+          434,
+          107,
+          469
+        ],
+        [
+          1431,
+          433,
+          1462,
+          469
+        ],
+        [
+          58,
+          803,
+          1479,
+          831
+        ]
+      ],
+      "wall_donors": [
+        [
+          120,
+          5,
+          1400,
+          43
+        ],
+        [
+          1480,
+          100,
+          1520,
+          800
+        ],
+        [
+          385,
+          105,
+          394,
+          320
+        ],
+        [
+          639,
+          115,
+          646,
+          330
+        ],
+        [
+          923,
+          110,
+          930,
+          330
+        ],
+        [
+          180,
+          420,
+          1400,
+          432
+        ],
+        [
+          450,
+          795,
+          1390,
+          802
+        ],
+        [
+          760,
+          520,
+          770,
+          750
+        ]
+      ],
+      "clear_wall": [
+        [
+          82,
+          71,
+          1480,
+          433
+        ],
+        [
+          135,
+          458,
+          1410,
+          803
+        ]
+      ],
+      "pale_cloth": true,
+      "neutral_garments": true,
+      "retain_hanger_wood": true,
+      "isolate_hooks": true,
+      "hook_radius": 5,
+      "hanger_top_margin": 1,
+      "complete_overlap": true,
+      "trim_boundary_shadows": true,
+      "boundary_shadow_smooth_fraction": 0.1,
+      "trim_smooth_boundary_shadows": true,
+      "wall_profiles": [
+        {
+          "bbox": [
+            90,
+            70,
+            1446,
+            105
+          ],
+          "donor_x": [
+            [
+              110,
+              180
+            ],
+            [
+              340,
+              400
+            ],
+            [
+              830,
+              900
+            ]
+          ]
+        },
+        {
+          "bbox": [
+            92,
+            457,
+            1447,
+            492
+          ],
+          "donor_x": [
+            [
+              150,
+              240
+            ],
+            [
+              350,
+              430
+            ],
+            [
+              690,
+              760
+            ]
+          ]
+        }
+      ],
+      "directional_lights": [
+        {
+          "bbox": [
+            50,
+            71,
+            500,
+            433
+          ],
+          "donor_x": [
+            82,
+            90
+          ],
+          "slope": 0.85,
+          "fade_right": 150
+        },
+        {
+          "bbox": [
+            120,
+            458,
+            650,
+            803
+          ],
+          "donor_x": [
+            135,
+            140
+          ],
+          "slope": 0.85,
+          "donor_y": [
+            485,
+            802
+          ],
+          "fade_right": 300,
+          "falloff": 150
+        }
+      ]
+    }
+  },
+  "hoodies-b": {
+    "garment_rack": {
+      "rails": [
+        [
+          168,
+          52,
+          1429,
+          69
+        ],
+        [
+          160,
+          425,
+          1430,
+          442
+        ]
+      ],
+      "structure": [
+        [
+          168,
+          52,
+          1429,
+          69
+        ],
+        [
+          160,
+          425,
+          1430,
+          442
+        ],
+        [
+          183,
+          837,
+          766,
+          926
+        ],
+        [
+          786,
+          814,
+          1349,
+          926
+        ],
+        [
+          183,
+          814,
+          205,
+          837
+        ]
+      ],
+      "wood_structure": [
+        [
+          163,
+          48,
+          187,
+          75
+        ],
+        [
+          1411,
+          48,
+          1435,
+          75
+        ],
+        [
+          155,
+          420,
+          179,
+          448
+        ],
+        [
+          1411,
+          420,
+          1435,
+          448
+        ]
+      ],
+      "wall_donors": [
+        [
+          200,
+          5,
+          1400,
+          43
+        ],
+        [
+          1450,
+          100,
+          1500,
+          800
+        ],
+        [
+          470,
+          398,
+          1390,
+          416
+        ],
+        [
+          80,
+          852,
+          165,
+          870
+        ],
+        [
+          1400,
+          500,
+          1490,
+          850
+        ],
+        [
+          1080,
+          760,
+          1300,
+          800
+        ]
+      ],
+      "clear_wall": [
+        [
+          150,
+          70,
+          1455,
+          418
+        ],
+        [
+          167,
+          443,
+          1405,
+          814
+        ]
+      ],
+      "pale_cloth": true,
+      "neutral_garments": true,
+      "retain_hanger_wood": true,
+      "isolate_hooks": true,
+      "hook_radius": 5,
+      "hanger_top_margin": 1,
+      "complete_overlap": true,
+      "trim_boundary_shadows": true,
+      "boundary_shadow_smooth_fraction": 0.1,
+      "trim_smooth_boundary_shadows": true,
+      "surfaces": [
+        {
+          "bbox": [
+            183,
+            814,
+            766,
+            837
+          ],
+          "donor_x": [
+            [
+              210,
+              450
+            ]
+          ],
+          "cloth_over_surface": false
+        }
+      ],
+      "directional_lights": [
+        {
+          "bbox": [
+            120,
+            70,
+            1440,
+            418
+          ],
+          "donor_x": [
+            130,
+            150
+          ],
+          "donor_y": [
+            78,
+            410
+          ],
+          "slope": 0.75,
+          "falloff": 250,
+          "fade_right": 180
+        },
+        {
+          "bbox": [
+            130,
+            443,
+            1405,
+            814
+          ],
+          "donor_x": [
+            135,
+            155
+          ],
+          "donor_y": [
+            480,
+            800
+          ],
+          "slope": 0.75,
+          "falloff": 200,
+          "fade_right": 180
+        }
+      ],
+      "wall_profiles": [
+        {
+          "bbox": [
+            168,
+            69,
+            1429,
+            104
+          ],
+          "donor_x": [
+            [
+              350,
+              410
+            ],
+            [
+              600,
+              680
+            ],
+            [
+              860,
+              920
+            ]
+          ]
+        },
+        {
+          "bbox": [
+            160,
+            442,
+            1430,
+            478
+          ],
+          "donor_x": [
+            [
+              500,
+              570
+            ]
+          ]
+        }
+      ],
+      "furniture_donors": [
+        {
+          "bbox": [
+            205,
+            814,
+            766,
+            837
+          ],
+          "donor_bbox": [
+            210,
+            814,
+            450,
+            837
+          ],
+          "surface_illumination": true
+        }
+      ]
+    }
+  },
+  "hoodies-c": {
+    "garment_rack": {
+      "rails": [
+        [
+          237,
+          38,
+          1373,
+          68
+        ],
+        [
+          237,
+          405,
+          1373,
+          433
+        ]
+      ],
+      "structure": [
+        [
+          237,
+          38,
+          1373,
+          68
+        ],
+        [
+          237,
+          405,
+          1373,
+          433
+        ],
+        [
+          233,
+          775,
+          1318,
+          891
+        ]
+      ],
+      "wood_structure": [
+        [
+          233,
+          34,
+          267,
+          77
+        ],
+        [
+          1344,
+          34,
+          1378,
+          77
+        ],
+        [
+          232,
+          402,
+          270,
+          437
+        ],
+        [
+          1344,
+          402,
+          1378,
+          437
+        ]
+      ],
+      "wall_donors": [
+        [
+          180,
+          0,
+          1450,
+          28
+        ],
+        [
+          180,
+          90,
+          252,
+          765
+        ],
+        [
+          1390,
+          90,
+          1500,
+          765
+        ],
+        [
+          270,
+          387,
+          1330,
+          398
+        ],
+        [
+          540,
+          120,
+          548,
+          340
+        ],
+        [
+          790,
+          120,
+          797,
+          340
+        ],
+        [
+          1050,
+          120,
+          1057,
+          340
+        ],
+        [
+          550,
+          751,
+          1300,
+          770
+        ]
+      ],
+      "clear_wall": [
+        [
+          255,
+          69,
+          1350,
+          398
+        ],
+        [
+          255,
+          434,
+          1355,
+          772
+        ]
+      ],
+      "pale_cloth": true,
+      "neutral_garments": true,
+      "retain_hanger_wood": true,
+      "isolate_hooks": true,
+      "hook_radius": 5,
+      "hanger_top_margin": 1,
+      "complete_overlap": true,
+      "rebuild_rails": [
+        {
+          "bbox": [
+            237,
+            38,
+            1373,
+            68
+          ],
+          "donor_x": [
+            [
+              300,
+              370
+            ],
+            [
+              820,
+              880
+            ],
+            [
+              1000,
+              1070
+            ]
+          ]
+        }
+      ],
+      "rail_gap_brightness": 130,
+      "trim_neutral_hem_shadows": true,
+      "neutral_hem_material_only": true
     }
   }
 }
