@@ -1,5 +1,7 @@
 # Collection Room
 
+Current version: V2.3.2 (the footer version is stamped at build time from `data/source/site.json`).
+
 A buildless static HTML/CSS/JavaScript website. No dependencies, API keys, or build step.
 
 From this directory, run:
@@ -73,3 +75,7 @@ Accessory card hooks 116/119/278/361 are desaturated only in measured above-item
 Recreate the six matching after images with `python3 tools/capture_v21_part_b.py` while the preview serves port 8765. Browser evidence is 1440×900. Byte weights and complete verification results are in `data/build-v2-summary.json` and `screenshots/v2.1-verify.json`.
 
 Part B final build: card images 24,237,402 bytes; assets total 38,782,508 bytes; hub first load 869,801 bytes at 1440×900. Verifier PASS: 384/384 zone items, 10/10 hub items, 142 visible passing rest layers; zero overlaps, console/page errors, failed requests or HTTP errors/404. Lazy-load, FLIP, history, keyboard/focus and mobile checks passed. Full results: screenshots/v2.1-verify.json.
+
+## V2.3.2
+
+Collection cards close immediately on Esc or ✕, including while a card is still opening: the dialog is closed synchronously and a non-interactive top-layer copy plays the same 650 ms FLIP (or the reduced-motion fade), so the real dialog and its ✕ never move. The open card keeps the compositor-layer state the animated dialog had in V2.3.1, so its pixels match V2.3.1. Footer version V2.3.2.

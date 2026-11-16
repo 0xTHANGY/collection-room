@@ -43,6 +43,7 @@ function clearFlipStyles() {
   dialog.style.transition = 'none';
   dialog.style.transform = '';
   dialog.style.opacity = '';
+  dialog.style.willChange = '';
 }
 // v2.3.2 close fix. Before, the dialog itself flew (CSS transitions) and closing was a chain of deferred steps:
 // a close asked for while the card was opening only set closeQueued and waited for the opening flight to end
@@ -136,6 +137,11 @@ function runFlip(target, keyframes, duration, done) {
 function openFlip(from) {
   const last = dialog.getBoundingClientRect();
   ghost = makeGhost(last);
+  // v2.3.2 1px fix: until v2.3.1 the real dialog itself was animated, so it was rasterised as its own compositor
+  // layer from its first frame (reduced motion: a filled opacity animation that stays on it; normal motion: the
+  // transform/opacity transition, dropped when it ends). Text at fractional y (tag, brand, rule, story) snaps to
+  // pixels differently with and without that layer, which moved the right column 1px. Keep the same layer state.
+  dialog.style.willChange = reduceMotion.matches ? 'opacity' : 'transform, opacity';
   dialog.style.opacity = '0';  // the real card waits, in place and clickable, under its flying copy
   const frames = reduceMotion.matches
     ? [{ opacity: 0 }, { opacity: 1 }]
@@ -148,6 +154,7 @@ function finishOpen() {
   closeQueued = false;
   dialog.style.opacity = '';
   stopFlip();
+  if (!reduceMotion.matches) dialog.style.willChange = '';  // as the old transition did when it ended
 }
 function openItem(item, trigger) {
   // v2.3 keyboard fix: dialog.close() dispatches 'close' asynchronously. A key press that lands
