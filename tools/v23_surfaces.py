@@ -10,6 +10,62 @@ class SurfaceMasks(dict):
     pass
 
 
+def generated_plate(rgb, union, config):
+    """v2.3.1: the empty surface comes from a generated edit of this zone (data/source/generated).
+    It is registered to the painting, colour-matched at low frequency, and used only inside a
+    feathered collar around the items; every other pixel stays the original painting."""
+    from pathlib import Path
+    from PIL import Image
+    h,w=rgb.shape[:2]
+    src=Path(__file__).resolve().parents[1]/config['generated_plate']
+    gen=np.array(Image.open(src).convert('RGB').resize((w,h),Image.Resampling.LANCZOS))
+    known=(cv2.dilate(union,np.ones((41,41),np.uint8))==0)
+    near=cv2.dilate(union,np.ones((141,141),np.uint8))>0
+    known[:config['floor']['fit_top']]=False
+    g0=cv2.GaussianBlur(cv2.cvtColor(rgb,cv2.COLOR_RGB2GRAY).astype(np.float32),(0,0),1.2)
+    g1=cv2.GaussianBlur(cv2.cvtColor(gen,cv2.COLOR_RGB2GRAY).astype(np.float32),(0,0),1.2)
+    warp=np.eye(2,3,dtype=np.float32)
+    try:
+        _,warp=cv2.findTransformECC(g0,g1,warp,cv2.MOTION_AFFINE,(cv2.TERM_CRITERIA_EPS|cv2.TERM_CRITERIA_COUNT,200,1e-6),np.uint8(known)*255,5)
+    except cv2.error:
+        pass
+    gen=cv2.warpAffine(gen,warp,(w,h),flags=cv2.INTER_LINEAR|cv2.WARP_INVERSE_MAP,borderMode=cv2.BORDER_REFLECT)
+    # Low-frequency colour/illumination match from clean (non-item, non-shadow) pixels.
+    ratio=(rgb.astype(float)+1)/(gen.astype(float)+1)
+    clean=known&(np.abs(np.log(ratio)).max(2)<.25)
+    # first pass far-field gain to spot darker (shadowed) pixels near the items and exclude them
+    f=cv2.GaussianBlur(clean.astype(float),(0,0),sig0:=config.get('generated_match_sigma',18)*4)
+    gf=np.exp(cv2.GaussianBlur(np.log(ratio)*clean[:,:,None],(0,0),sig0)/np.maximum(f[:,:,None],1e-3))
+    lr0=cv2.GaussianBlur(rgb.astype(float),(0,0),4)/np.maximum(cv2.GaussianBlur(gen*gf,(0,0),4),1)
+    clean&=~(near&(lr0.max(2)<.95))
+    sig=config.get('generated_match_sigma',18)
+    wgt=cv2.GaussianBlur(clean.astype(float),(0,0),sig)
+    num=cv2.GaussianBlur(np.log(ratio)*clean[:,:,None],(0,0),sig)
+    gain=np.exp(num/np.maximum(wgt[:,:,None],1e-3))
+    far=cv2.GaussianBlur(clean.astype(float),(0,0),sig*4)
+    gnum=cv2.GaussianBlur(np.log(ratio)*clean[:,:,None],(0,0),sig*4)
+    gain_far=np.exp(gnum/np.maximum(far[:,:,None],1e-3))
+    t=np.clip(wgt/.25,0,1)[:,:,None]
+    gain=gain*t+gain_far*(1-t)
+    gen=np.clip(gen*gain,0,255)
+    # Cast shadows of the removed items are also replaced: smooth, colour-neutral darkening of the
+    # painting relative to the matched empty surface, connected to the items.
+    lr=cv2.GaussianBlur(rgb.astype(float),(0,0),4)/np.maximum(cv2.GaussianBlur(gen,(0,0),4),1)
+    dark=(lr.max(2)<config.get('generated_shadow_ratio',.94))&(np.ptp(lr,axis=2)<.12)
+    dark&=cv2.dilate(union,np.ones((121,121),np.uint8))>0
+    dark[:config['floor']['fit_top']]=False
+    dark=cv2.morphologyEx(np.uint8(dark)*255,cv2.MORPH_OPEN,np.ones((5,5),np.uint8))
+    n,ll,st,_=cv2.connectedComponentsWithStats(dark)
+    touch=cv2.dilate(union,np.ones((15,15),np.uint8))>0
+    shadow=np.isin(ll,[k for k in range(1,n) if np.any(touch&(ll==k))])
+    collar=config.get('generated_collar',9)
+    region=cv2.dilate(np.uint8((union>0)|shadow)*255,np.ones((2*collar+1,2*collar+1),np.uint8)).astype(float)
+    alpha=cv2.GaussianBlur(region,(0,0),collar/3)/255
+    alpha=np.maximum(alpha,(union>0).astype(float))
+    alpha[:config['floor']['fit_top']-20]=0
+    return np.uint8(np.clip(rgb*(1-alpha[:,:,None])+gen*alpha[:,:,None],0,255))
+
+
 def reconstruct(rgb, boxes, config):
     h,w=rgb.shape[:2]
     yy,xx=np.indices((h,w))
@@ -127,6 +183,9 @@ def reconstruct(rgb, boxes, config):
     correction=np.clip(target/np.maximum(average,1),.8,1.5)
     correction[:floor_split]=1
     plate=np.uint8(np.clip(plate*(1+(correction-1)*weight[:,:,None]),0,255))
+    if config.get('generated_plate'):
+        plate=generated_plate(rgb,union,config)
+        masks.generated=True
     comp=plate.astype(float)
     for iid,m in masks.items():
         a=cv2.GaussianBlur(m,(3,3),.55).astype(float)/255

@@ -114,7 +114,8 @@ function openItem(item, trigger) {
   if (item.card_images && !$('zone-view').hidden) {
     const z = catalog.zones.find(z => z.id === item.zone);
     cardReturnHash = location.hash && location.hash !== `#/item/${item.id}` ? location.hash : zoneHash(z);
-    if (location.hash !== `#/item/${item.id}`) history.replaceState(null, '', `#/item/${item.id}`);
+    // The entry is tagged so a later Forward onto it shows the zone only (v2.3.1).
+    history.replaceState({ collectionCard: true }, '', `#/item/${item.id}`);
   }
   currentItem = item;
   originSnapshot = originRectFor(trigger, item);
@@ -493,15 +494,22 @@ function renderZone(zone) {
   }
   setupMotion(entries, room);
 }
-function route() {
+function route(event) {
   if (!catalog) return;
   // A card opened right after our own back-navigation already owns this URL: nothing to route.
   if (dialog.open && currentItem && location.hash === `#/item/${currentItem.id}`) return;
   // Any real navigation (Back/Forward, zone tabs, links) closes an open or closing card immediately.
   if (dialog.open || flipState !== 'idle') { routing = true; if (dialog.open) dialog.close(); settleClose(false); }
   const parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean);
-  const item = parts[0] === 'item' ? catalog.items.find(i => i.id === parts[1]) : null;
+  let item = parts[0] === 'item' ? catalog.items.find(i => i.id === parts[1]) : null;
+  // Back/Forward onto an entry whose card was opened in-page (tagged state) returns to the zone only:
+  // the card is not reopened and the entry is rewritten to the zone URL. Typed/shared #/item links
+  // and a reload still open the card (no tag, or not a navigation event).
   const zone = item ? catalog.zones.find(z => z.id === item.zone) : catalog.zones.find(z => z.category === parts[0] && (!parts[1] || z.letter === parts[1] || z.id === parts[1]));
+  if (item && zone && event && history.state?.collectionCard) {
+    history.replaceState(null, '', zoneHash(zone));
+    item = null;
+  }
   const fromHub = !$('hub-view').hidden;
   $('hub-view').hidden = !!zone; $('zone-view').hidden = !zone;
   if (zone) {
