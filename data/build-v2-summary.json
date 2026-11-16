@@ -3,9 +3,9 @@
   "categories": 11,
   "zones": 43,
   "items": 384,
-  "asset_bytes_written": 34864572,
+  "asset_bytes_written": 34874332,
   "asset_files_written": 1324,
-  "assets_total_bytes": 35413990,
+  "assets_total_bytes": 35423750,
   "overlap_pairs": {
     "jackets-a": 0,
     "jackets-b": 0,
@@ -56,7 +56,7 @@
     "batch2-055",
     "batch2-057"
   ],
-  "first_load_bytes": 871841,
+  "first_load_bytes": 873610,
   "first_load_files": [
     "app.js",
     "assets/layers/cr-001-layer.webp",

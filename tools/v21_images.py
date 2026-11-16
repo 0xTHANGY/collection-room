@@ -501,12 +501,18 @@ def reconstruct(rgb, boxes, zid, rejected=None):
      stem=cv2.dilate(np.uint8(ll==k),np.ones((3,3),np.uint8))>0
      hooks[stem]=255;m[stem]=0
   if zid.startswith('hats-'):
-   textile_evidence=(texture>6)|(np.ptp(rgb.astype(int),axis=2)>25)|(rgb.mean(2)<110)
+   gap_texture=12 if config.get('open_earflap_gaps') else 6
+   textile_evidence=(texture>gap_texture)|(np.ptp(rgb.astype(int),axis=2)>25)|(rgb.mean(2)<110)
    widths=((m>0)&textile_evidence).sum(1)
+   if config.get('open_earflap_gaps'):
+    # Separated tassels can sum to a broad row; only a contiguous textile
+    # span locates the crown above the open wall between the cords.
+    solid=cv2.morphologyEx(np.uint8((m>0)&textile_evidence),cv2.MORPH_OPEN,np.ones((1,max(3,round((r-x)*.5))),np.uint8))
+    widths=solid.sum(1)
    broad_rows=np.where((widths>(r-x)*.5)&(yy[:,0]>=y))[0]
    if len(broad_rows) and broad_rows[-1]<b-(b-y)*.12:
     bt=int(broad_rows[-1])
-    gap=(m>0)&(yy>bt)&(np.ptp(rgb.astype(int),axis=2)<16)&(rgb.mean(2)>120)&(texture<6)
+    gap=(m>0)&(yy>bt)&(np.ptp(rgb.astype(int),axis=2)<16)&(rgb.mean(2)>(100 if config.get('open_earflap_gaps') else 120))&(texture<gap_texture)
     clean_gap=cv2.morphologyEx(np.uint8(gap),cv2.MORPH_OPEN,np.ones((5,5),np.uint8))
     clean_gap=(cv2.dilate(clean_gap,np.ones((5,5),np.uint8))>0)&gap
     m[clean_gap]=0
@@ -524,7 +530,8 @@ def reconstruct(rgb, boxes, zid, rejected=None):
     filled_rows=cv2.morphologyEx(m,cv2.MORPH_CLOSE,np.ones((1,max(3,round((r-x)*.20))),np.uint8))
     broad=(filled_rows>0).sum(1)>(r-x)*.55
     textile_hole=np.all(broad[ss[k,1]:ss[k,1]+ss[k,3]])
-    if textile_hole and not np.any(rail[ss[k,1]:ss[k,1]+ss[k,3]]):m[ll==k]=255
+    wall_hole=config.get('open_earflap_gaps') and np.mean(shadow_seed[ll==k]|(delta[ll==k]<28))>.5
+    if textile_hole and not wall_hole and not np.any(rail[ss[k,1]:ss[k,1]+ss[k,3]]):m[ll==k]=255
    elif np.mean(shadow_seed[ll==k])<.5:m[ll==k]=255
   m[wood]=0
   if zid.startswith('hats-'):
@@ -570,6 +577,18 @@ def reconstruct(rgb, boxes, zid, rejected=None):
   reason.extend(rejected.get(iid, []))
   if (np.any(m[:2]) if zid.startswith('hats-') else y<h*.05):reason.append('item touches image boundary')
   masks[iid]=m;reasons[iid]=reason
+ if config.get('open_earflap_gaps'):
+  # Thin pale cords need their AA fringe as well as their central component.
+  # Limit recovery to narrow lower rows and textile evidence, leaving the
+  # smooth neutral wall between the cords on the plate.
+  for iid,m in masks.items():
+   x,y,r,b=boxes[iid]
+   if b-y<(r-x)*1.3:continue  # no cords on compact caps/crowns
+   narrow=(m>0).sum(1)<(r-x)*.4
+   collar=(cv2.dilate(m,np.ones((5,5),np.uint8))>0)&narrow[:,None]
+   collar &= (yy>y+(b-y)*.55)&(delta>20)&~wood&(hooks==0)
+   collar &= np.ptp(rgb.astype(int),axis=2)>16
+   m[collar]=255
  if config.get('surface_reconstruction'):
   hooks=furnishing_hooks(rgb,model,masks,boxes,physical_rail)
   near_hooks=cv2.dilate(hooks,np.ones((41,41),np.uint8))>0
@@ -626,6 +645,16 @@ def reconstruct(rgb, boxes, zid, rejected=None):
   for m in masks.values():m[furnishing]=0
  # Furniture is a finite rectangle, not a rail spanning the entire room.
  rail_core[np.any(surface,axis=1)]=False
+ # The exported alpha is blurred by 3x3. GrabCut's hard boundary alone
+ # leaves the item's antialiased fringe exposed to the repainted plate.
+ # Extend only the immediate silhouette collar; hooks/wood remain on plate.
+ if config.get('edge_collar'):
+  for m in masks.values():
+   size=2*config['edge_collar']+1
+   collar=cv2.dilate(m,np.ones((size,size),np.uint8))>0
+   collar &= ~wood & (hooks==0) & (delta>24)
+   collar &= ~shadow_seed | (texture>6)
+   m[collar]=255
  # Actual mask collisions, never bbox intersection alone.
  keys=list(masks)
  for i,a in enumerate(keys):
@@ -745,7 +774,13 @@ def reconstruct(rgb, boxes, zid, rejected=None):
    preserve=cv2.GaussianBlur(cv2.dilate(silhouette,np.ones((5,5),np.uint8)),(5,5),1).astype(float)/255
    # Furniture preservation must never repaint removed hats/straps along
    # the rail. The rail has already been reconstructed from clean row donors.
-   preserve[removed|surface]=0
+   if config.get('edge_collar') and c>h*.7:
+    # A hanging tie's padded removal box can overlap a bench end cap.
+    # Preserve that real furnishing up to the layer's silhouette, rather
+    # than discarding it merely because it lies inside the padded box.
+    occupied=cv2.dilate(np.maximum.reduce(list(masks.values())),np.ones((7,7),np.uint8))>0
+    preserve[occupied|surface]=0
+   else:preserve[removed|surface]=0
    base=np.uint8(base*(1-preserve[:,:,None])+rgb*preserve[:,:,None])
  base[hooks>0]=rgb[hooks>0]
  # Audit the FINAL plate (after furniture preservation), never an intermediate.

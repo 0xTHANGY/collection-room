@@ -141,7 +141,7 @@ def main():
                     path=f'assets/zones/layers/{iid}.webp'
                     layer_rgb=getattr(masks,'images',{}).get(iid,rgb)
                     save(Image.fromarray(np.dstack([layer_rgb,alpha])[y0:y1,x0:x1]),path,82)
-                    motion=layout['items'][iid].get('motion') or ('lift' if cat in ('shoes','accessories','bottoms') or boxes[iid][1]/h>.7 else 'hang')
+                    motion='hang' if cat=='bottoms' else (layout['items'][iid].get('motion') or ('lift' if cat in ('shoes','accessories') or boxes[iid][1]/h>.7 else 'hang'))  # v2.3: bottoms hang from hangers -> same swing as shirts/jackets (user decision)
                     lr=rect([x0,y0,x1,y1],w,h)
                     layers[iid]=dict(image=path,**lr,rect=lr,pivot={'x':50,'y':0 if motion=='hang' else 50},pivotX=50,pivotY=0 if motion=='hang' else 50,motion=motion,fallback=iid in bad)
                 for depth,iid in enumerate(getattr(masks,'order',[])):

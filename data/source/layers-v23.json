@@ -185,7 +185,8 @@
           ]
         ]
       }
-    ]
+    ],
+    "edge_collar": 2
   },
   "jackets-a": {
     "garment_rack": {
@@ -3991,5 +3992,14 @@
         ]
       }
     }
+  },
+  "hats-k": {
+    "open_earflap_gaps": true
+  },
+  "accessories-a": {
+    "edge_collar": 2
+  },
+  "accessories-d": {
+    "edge_collar": 2
   }
 }

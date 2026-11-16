@@ -101,10 +101,21 @@ function finishOpen() {
   }
 }
 function openItem(item, trigger) {
+  // v2.3 keyboard fix: dialog.close() dispatches 'close' asynchronously. A key press that lands
+  // between the two used to see flipState === 'closing' and was ignored. Settle the close first.
+  if (flipState === 'closing' && !dialog.open) settleClose(false);
   if (flipState === 'opening' || flipState === 'closing') return;
   if (flipState === 'open') return;
   opener = trigger;
-  if (item.card_images && location.hash !== `#/item/${item.id}`) history.pushState({ collectionCard: true }, '', `#/item/${item.id}`);
+  // v2.3 history fix: a card never adds a history entry and never calls history.back(), so no async
+  // navigation can race a following zone switch. On a zone page the card replaces the zone URL with its
+  // own (#/item/<id>, shareable); closing restores the zone URL. The hub keeps its URL unchanged.
+  cardReturnHash = null;
+  if (item.card_images && !$('zone-view').hidden) {
+    const z = catalog.zones.find(z => z.id === item.zone);
+    cardReturnHash = location.hash && location.hash !== `#/item/${item.id}` ? location.hash : zoneHash(z);
+    if (location.hash !== `#/item/${item.id}`) history.replaceState(null, '', `#/item/${item.id}`);
+  }
   currentItem = item;
   originSnapshot = originRectFor(trigger, item);
   dialog.dataset.itemId = item.id;
@@ -148,7 +159,8 @@ function openItem(item, trigger) {
     finishOpen();
     return;
   }
-  waitForFlip(playFlip(origin, true), finishOpen);
+  const gen = ++flipGen;
+  waitForFlip(playFlip(origin, true), () => { if (gen === flipGen) finishOpen(); });
 }
 function requestClose() {
   if (flipState === 'idle' || flipState === 'closing') return;
@@ -157,17 +169,19 @@ function requestClose() {
     return;
   }
   flipState = 'closing';
+  const gen = ++flipGen;
+  const closeNow = () => { if (gen === flipGen && dialog.open) dialog.close(); };
   dialog.classList.remove('is-open');
   const origin = originRectFor(opener, currentItem) || originSnapshot;
   if (reduceMotion.matches || !origin || origin.width < 2) {
     if (reduceMotion.matches) {
-      waitForFlip(playFlip(origin || { left: 0, top: 0, width: 1, height: 1 }, false), () => dialog.close());
+      waitForFlip(playFlip(origin || { left: 0, top: 0, width: 1, height: 1 }, false), closeNow);
       return;
     }
     dialog.close();
     return;
   }
-  waitForFlip(playFlip(origin, false), () => dialog.close());
+  waitForFlip(playFlip(origin, false), closeNow);
 }
 $('close-dialog').addEventListener('click', (event) => {
   event.preventDefault();
@@ -181,11 +195,13 @@ dialog.addEventListener('cancel', (event) => {
   event.preventDefault();
   requestClose();
 });
-dialog.addEventListener('close', () => {
-  if (!routing && currentItem?.card_images && location.hash === `#/item/${currentItem.id}`) {
-    if (history.state?.collectionCard) history.back();
-    else history.replaceState(null, '', zoneHash(catalog.zones.find(z => z.id === currentItem.zone)));
-  }
+let cardReturnHash = null, flipGen = 0;
+function settleClose(restoreFocus = true) {
+  if (flipState === 'idle' && !currentItem) return;  // already settled (idempotent)
+  flipGen++;  // invalidate any pending open/close animation callbacks
+  // Synchronous URL restore (no history.back()): the zone URL comes back before any later click runs.
+  if (!routing && cardReturnHash && currentItem && location.hash === `#/item/${currentItem.id}`) history.replaceState(null, '', cardReturnHash);
+  cardReturnHash = null;
   routing = false;
   imageRequest++;
   document.body.classList.remove('modal-open');
@@ -195,8 +211,12 @@ dialog.addEventListener('close', () => {
   closeQueued = false;
   originSnapshot = null;
   currentItem = null;
-  opener?.focus({preventScroll:true});
-});
+  // Only return focus when it is not already somewhere the user chose (never steal a re-focus).
+  const active = document.activeElement;
+  if (restoreFocus && (!active || active === document.body || dialog.contains(active))) opener?.focus({preventScroll:true});
+}
+// A 'close' event that arrives after the card was already settled and a new card opened is stale.
+dialog.addEventListener('close', () => { if (!dialog.open) settleClose(true); });
 $('reveal').addEventListener('click', () => {
   const active = $('room').classList.toggle('reveal');
   $('reveal').setAttribute('aria-pressed', String(active));
@@ -475,7 +495,10 @@ function renderZone(zone) {
 }
 function route() {
   if (!catalog) return;
-  if (dialog.open) { routing = true; dialog.close(); }
+  // A card opened right after our own back-navigation already owns this URL: nothing to route.
+  if (dialog.open && currentItem && location.hash === `#/item/${currentItem.id}`) return;
+  // Any real navigation (Back/Forward, zone tabs, links) closes an open or closing card immediately.
+  if (dialog.open || flipState !== 'idle') { routing = true; if (dialog.open) dialog.close(); settleClose(false); }
   const parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean);
   const item = parts[0] === 'item' ? catalog.items.find(i => i.id === parts[1]) : null;
   const zone = item ? catalog.zones.find(z => z.id === item.zone) : catalog.zones.find(z => z.category === parts[0] && (!parts[1] || z.letter === parts[1] || z.id === parts[1]));
