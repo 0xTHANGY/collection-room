@@ -1,0 +1,252 @@
+[
+  {
+    "id": "cr-001",
+    "display_name": "Museum of Peace & Quiet Cap",
+    "category": "hat",
+    "story": "故事待补充",
+    "image": "assets/layers/cr-001-layer.webp",
+    "hotspot": {
+      "left": 42.2,
+      "top": 6,
+      "width": 7.8,
+      "height": 16
+    },
+    "zone": "hat_rack",
+    "number": "001",
+    "layer": {
+      "image": "assets/layers/cr-001-layer.webp",
+      "left": 42.109,
+      "top": 5.417,
+      "width": 8.984,
+      "height": 18.333,
+      "pivotX": 44.35,
+      "pivotY": 18.0,
+      "motion": "hang"
+    }
+  },
+  {
+    "id": "cr-002",
+    "display_name": "Supreme Cap",
+    "category": "hat",
+    "story": "故事待补充",
+    "image": "assets/layers/cr-002-layer.webp",
+    "hotspot": {
+      "left": 50.6,
+      "top": 5.5,
+      "width": 8.3,
+      "height": 17
+    },
+    "zone": "hat_rack",
+    "number": "002",
+    "layer": {
+      "image": "assets/layers/cr-002-layer.webp",
+      "left": 50.078,
+      "top": 5.0,
+      "width": 9.844,
+      "height": 20.0,
+      "pivotX": 47.62,
+      "pivotY": 18.0,
+      "motion": "hang"
+    }
+  },
+  {
+    "id": "cr-003",
+    "display_name": "Aimé Leon Dore Cap",
+    "category": "hat",
+    "story": "故事待补充",
+    "image": "assets/layers/cr-003-layer.webp",
+    "hotspot": {
+      "left": 59.8,
+      "top": 6,
+      "width": 8.1,
+      "height": 17
+    },
+    "zone": "hat_rack",
+    "number": "003",
+    "layer": {
+      "image": "assets/layers/cr-003-layer.webp",
+      "left": 59.375,
+      "top": 5.278,
+      "width": 9.688,
+      "height": 20.0,
+      "pivotX": 45.97,
+      "pivotY": 18.0,
+      "motion": "hang"
+    }
+  },
+  {
+    "id": "cr-004",
+    "display_name": "Art Blocks Cap",
+    "category": "hat",
+    "story": "故事待补充",
+    "image": "assets/layers/cr-004-layer.webp",
+    "hotspot": {
+      "left": 68.9,
+      "top": 6.2,
+      "width": 8.2,
+      "height": 17
+    },
+    "zone": "hat_rack",
+    "number": "004",
+    "layer": {
+      "image": "assets/layers/cr-004-layer.webp",
+      "left": 68.516,
+      "top": 5.556,
+      "width": 9.766,
+      "height": 20.278,
+      "pivotX": 46.0,
+      "pivotY": 18.0,
+      "motion": "hang"
+    }
+  },
+  {
+    "id": "cr-005",
+    "display_name": "Aimé Leon Dore Shorts",
+    "category": "bottoms",
+    "story": "故事待补充",
+    "image": "assets/layers/cr-005-layer.webp",
+    "hotspot": {
+      "left": 49.4,
+      "top": 65.5,
+      "width": 12,
+      "height": 16.5
+    },
+    "zone": "wardrobe",
+    "number": "005",
+    "layer": {
+      "image": "assets/layers/cr-005-layer.webp",
+      "left": 48.984,
+      "top": 60.972,
+      "width": 12.422,
+      "height": 21.806,
+      "pivotX": 50.0,
+      "pivotY": 50.0,
+      "motion": "rest"
+    }
+  },
+  {
+    "id": "cr-006",
+    "display_name": "Bode Yale Sweatshirt",
+    "category": "top",
+    "story": "故事待补充",
+    "image": "assets/layers/cr-006-layer.webp",
+    "hotspot": {
+      "left": 49.7,
+      "top": 31,
+      "width": 12.5,
+      "height": 33
+    },
+    "zone": "wardrobe",
+    "number": "006",
+    "layer": {
+      "image": "assets/layers/cr-006-layer.webp",
+      "left": 49.375,
+      "top": 27.917,
+      "width": 13.984,
+      "height": 37.917,
+      "pivotX": 46.93,
+      "pivotY": 6.0,
+      "motion": "hang"
+    }
+  },
+  {
+    "id": "cr-007",
+    "display_name": "Bode Tote",
+    "category": "bag",
+    "story": "故事待补充",
+    "image": "assets/layers/cr-007-layer.webp",
+    "hotspot": {
+      "left": 65.2,
+      "top": 64,
+      "width": 13.7,
+      "height": 27
+    },
+    "zone": "bag_area",
+    "number": "007",
+    "layer": {
+      "image": "assets/layers/cr-007-layer.webp",
+      "left": 64.766,
+      "top": 62.778,
+      "width": 14.531,
+      "height": 29.306,
+      "pivotX": 50.0,
+      "pivotY": 50.0,
+      "motion": "rest"
+    }
+  },
+  {
+    "id": "cr-008",
+    "display_name": "Stüssy Cardigan",
+    "category": "knitwear",
+    "story": "故事待补充",
+    "image": "assets/layers/cr-008-layer.webp",
+    "hotspot": {
+      "left": 62.8,
+      "top": 32,
+      "width": 9.6,
+      "height": 32
+    },
+    "zone": "wardrobe",
+    "number": "008",
+    "layer": {
+      "image": "assets/layers/cr-008-layer.webp",
+      "left": 61.016,
+      "top": 28.611,
+      "width": 13.672,
+      "height": 37.917,
+      "pivotX": 48.29,
+      "pivotY": 6.0,
+      "motion": "hang"
+    }
+  },
+  {
+    "id": "cr-009",
+    "display_name": "Sea NY Blouse",
+    "category": "top",
+    "story": "故事待补充",
+    "image": "assets/layers/cr-009-layer.webp",
+    "hotspot": {
+      "left": 73,
+      "top": 32,
+      "width": 8.7,
+      "height": 31.4
+    },
+    "zone": "wardrobe",
+    "number": "009",
+    "layer": {
+      "image": "assets/layers/cr-009-layer.webp",
+      "left": 72.031,
+      "top": 29.028,
+      "width": 10.938,
+      "height": 36.667,
+      "pivotX": 48.57,
+      "pivotY": 6.0,
+      "motion": "hang"
+    }
+  },
+  {
+    "id": "cr-010",
+    "display_name": "Reformation Dress",
+    "category": "dress",
+    "story": "故事待补充",
+    "image": "assets/layers/cr-010-layer.webp",
+    "hotspot": {
+      "left": 82.3,
+      "top": 34,
+      "width": 10.8,
+      "height": 44
+    },
+    "zone": "wardrobe",
+    "number": "010",
+    "layer": {
+      "image": "assets/layers/cr-010-layer.webp",
+      "left": 80.156,
+      "top": 29.583,
+      "width": 14.453,
+      "height": 51.944,
+      "pivotX": 52.16,
+      "pivotY": 6.0,
+      "motion": "hang"
+    }
+  }
+]

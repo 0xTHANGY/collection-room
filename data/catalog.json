@@ -1,0 +1,377 @@
+{
+  "version": "2.3",
+  "categories": [
+    {
+      "id": "jackets",
+      "label": "外套",
+      "label_en": "Jackets",
+      "order": 0,
+      "cover_zone": "jackets-a",
+      "count": 1
+    },
+    {
+      "id": "shirts",
+      "label": "衬衫",
+      "label_en": "Shirts",
+      "order": 1,
+      "cover_zone": "shirts-a",
+      "count": 1
+    },
+    {
+      "id": "tshirts",
+      "label": "T恤",
+      "label_en": "T-shirts",
+      "order": 2,
+      "cover_zone": "tshirts-a",
+      "count": 1
+    },
+    {
+      "id": "bottoms",
+      "label": "下装",
+      "label_en": "Bottoms",
+      "order": 3,
+      "cover_zone": "bottoms-a",
+      "count": 1
+    },
+    {
+      "id": "sweaters",
+      "label": "针织衫",
+      "label_en": "Sweaters",
+      "order": 5,
+      "cover_zone": "sweaters-a",
+      "count": 1
+    },
+    {
+      "id": "bags",
+      "label": "包袋",
+      "label_en": "Bags",
+      "order": 7,
+      "cover_zone": "bags-a",
+      "count": 1
+    },
+    {
+      "id": "shoes",
+      "label": "鞋履",
+      "label_en": "Shoes",
+      "order": 9,
+      "cover_zone": "shoes-a",
+      "count": 1
+    },
+    {
+      "id": "hats",
+      "label": "帽子",
+      "label_en": "Hats",
+      "order": 10,
+      "cover_zone": "hats-a",
+      "count": 1
+    }
+  ],
+  "zones": [
+    {
+      "id": "jackets-a",
+      "category": "jackets",
+      "letter": "a",
+      "images": [
+        {
+          "src": "assets/zones/jackets-a-cover-640.webp",
+          "width": 640,
+          "height": 342
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/jackets-a-cover-640.webp",
+        "width": 640,
+        "height": 342
+      },
+      "natural_size": [
+        1717,
+        916
+      ],
+      "aspect": 1.8744541484716157,
+      "has_layout": false,
+      "items": [
+        "batch2-007"
+      ]
+    },
+    {
+      "id": "shirts-a",
+      "category": "shirts",
+      "letter": "a",
+      "images": [
+        {
+          "src": "assets/zones/shirts-a-cover-640.webp",
+          "width": 640,
+          "height": 360
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/shirts-a-cover-640.webp",
+        "width": 640,
+        "height": 360
+      },
+      "natural_size": [
+        1672,
+        941
+      ],
+      "aspect": 1.7768331562167907,
+      "has_layout": false,
+      "items": [
+        "batch2-236"
+      ]
+    },
+    {
+      "id": "tshirts-a",
+      "category": "tshirts",
+      "letter": "a",
+      "images": [
+        {
+          "src": "assets/zones/tshirts-a-cover-640.webp",
+          "width": 640,
+          "height": 360
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/tshirts-a-cover-640.webp",
+        "width": 640,
+        "height": 360
+      },
+      "natural_size": [
+        1672,
+        941
+      ],
+      "aspect": 1.7768331562167907,
+      "has_layout": false,
+      "items": [
+        "batch2-002"
+      ]
+    },
+    {
+      "id": "bottoms-a",
+      "category": "bottoms",
+      "letter": "a",
+      "images": [
+        {
+          "src": "assets/zones/bottoms-a-cover-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/bottoms-a-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5,
+      "has_layout": false,
+      "items": [
+        "batch2-003"
+      ]
+    },
+    {
+      "id": "sweaters-a",
+      "category": "sweaters",
+      "letter": "a",
+      "images": [
+        {
+          "src": "assets/zones/sweaters-a-cover-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/sweaters-a-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5,
+      "has_layout": false,
+      "items": [
+        "batch2-012"
+      ]
+    },
+    {
+      "id": "bags-a",
+      "category": "bags",
+      "letter": "a",
+      "images": [
+        {
+          "src": "assets/zones/bags-a-cover-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/bags-a-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5,
+      "has_layout": false,
+      "items": [
+        "batch2-056"
+      ]
+    },
+    {
+      "id": "shoes-a",
+      "category": "shoes",
+      "letter": "a",
+      "images": [
+        {
+          "src": "assets/zones/shoes-a-cover-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/shoes-a-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5,
+      "has_layout": false,
+      "items": [
+        "batch2-055"
+      ]
+    },
+    {
+      "id": "hats-a",
+      "category": "hats",
+      "letter": "a",
+      "images": [
+        {
+          "src": "assets/zones/hats-a-cover-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/hats-a-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5,
+      "has_layout": false,
+      "items": [
+        "batch2-006"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "batch2-007",
+      "category": "jackets",
+      "zone": "jackets-a",
+      "number": "007",
+      "name": "Eat Dust beige quilted jacket",
+      "display_name": "Eat Dust beige quilted jacket",
+      "brand": "Eat Dust",
+      "type": "jacket",
+      "story": "此示例使用分室插画。",
+      "image": "assets/zones/jackets-a-cover-640.webp"
+    },
+    {
+      "id": "batch2-236",
+      "category": "shirts",
+      "zone": "shirts-a",
+      "number": "236",
+      "name": "Yohji Yamamoto black asymmetric shirt",
+      "display_name": "Yohji Yamamoto black asymmetric shirt",
+      "brand": "Yohji Yamamoto",
+      "type": "shirt",
+      "story": "此示例使用分室插画。",
+      "image": "assets/zones/shirts-a-cover-640.webp"
+    },
+    {
+      "id": "batch2-002",
+      "category": "tshirts",
+      "zone": "tshirts-a",
+      "number": "002",
+      "name": "ONLY NY “New York Special” tee",
+      "display_name": "ONLY NY “New York Special” tee",
+      "brand": "ONLY NY",
+      "type": "tee",
+      "story": "此示例使用分室插画。",
+      "image": "assets/zones/tshirts-a-cover-640.webp"
+    },
+    {
+      "id": "batch2-003",
+      "category": "bottoms",
+      "zone": "bottoms-a",
+      "number": "003",
+      "name": "American Vintage navy side-stripe pants",
+      "display_name": "American Vintage navy side-stripe pants",
+      "brand": "American Vintage",
+      "type": "pants",
+      "story": "此示例使用分室插画。",
+      "image": "assets/zones/bottoms-a-cover-640.webp"
+    },
+    {
+      "id": "batch2-012",
+      "category": "sweaters",
+      "zone": "sweaters-a",
+      "number": "012",
+      "name": "Bode brown long-sleeve polo",
+      "display_name": "Bode brown long-sleeve polo",
+      "brand": "Bode",
+      "type": "knit-polo",
+      "story": "此示例使用分室插画。",
+      "image": "assets/zones/sweaters-a-cover-640.webp"
+    },
+    {
+      "id": "batch2-056",
+      "category": "bags",
+      "zone": "bags-a",
+      "number": "056",
+      "name": "Chanel quilted bucket bag",
+      "display_name": "Chanel quilted bucket bag",
+      "brand": "Chanel",
+      "type": "bucket-bag",
+      "story": "此示例使用分室插画。",
+      "image": "assets/zones/bags-a-cover-640.webp"
+    },
+    {
+      "id": "batch2-055",
+      "category": "shoes",
+      "zone": "shoes-a",
+      "number": "055",
+      "name": "Pane dark sneakers",
+      "display_name": "Pane dark sneakers",
+      "brand": "Pane",
+      "type": "sneakers",
+      "story": "此示例使用分室插画。",
+      "image": "assets/zones/shoes-a-cover-640.webp"
+    },
+    {
+      "id": "batch2-006",
+      "category": "hats",
+      "zone": "hats-a",
+      "number": "006",
+      "name": "Kith × Yankees navy NY cap",
+      "display_name": "Kith × Yankees navy NY cap",
+      "brand": "Kith × Yankees",
+      "type": "cap",
+      "story": "此示例使用分室插画。",
+      "image": "assets/zones/hats-a-cover-640.webp"
+    }
+  ]
+}
