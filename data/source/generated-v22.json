@@ -4,7 +4,10 @@
     "hats-d": "data/source/generated/hats-zone-d-v22-192fix.webp",
     "hats-g": "data/source/generated/hats-zone-g-v22.webp",
     "bottoms-c": "data/source/generated/bottoms-zone-c-v22.webp",
-    "shoes-c": "data/source/newshoes/zones/shoes-c.webp"
+    "shoes-c": "data/source/newshoes/zones/shoes-c.webp",
+    "shoes-d": "data/source/newshoes/zones/shoes-d.webp",
+    "shoes-e": "data/source/newshoes/zones/shoes-e.webp",
+    "shoes-f": "data/source/newshoes/zones/shoes-f.webp"
   },
   "cutouts": {
     "batch2-039": "data/source/generated/dress-039-v22.webp",
@@ -15,7 +18,25 @@
     "shoes-n009": "data/source/newshoes/cutouts/shoes-n009.webp",
     "shoes-n010": "data/source/newshoes/cutouts/shoes-n010.webp",
     "shoes-n011": "data/source/newshoes/cutouts/shoes-n011.webp",
-    "shoes-n012": "data/source/newshoes/cutouts/shoes-n012.webp"
+    "shoes-n012": "data/source/newshoes/cutouts/shoes-n012.webp",
+    "shoes-n013": "data/source/newshoes/cutouts/shoes-n013.webp",
+    "shoes-n014": "data/source/newshoes/cutouts/shoes-n014.webp",
+    "shoes-n015": "data/source/newshoes/cutouts/shoes-n015.webp",
+    "shoes-n016": "data/source/newshoes/cutouts/shoes-n016.webp",
+    "shoes-n017": "data/source/newshoes/cutouts/shoes-n017.webp",
+    "shoes-n018": "data/source/newshoes/cutouts/shoes-n018.webp",
+    "shoes-n019": "data/source/newshoes/cutouts/shoes-n019.webp",
+    "shoes-n020": "data/source/newshoes/cutouts/shoes-n020.webp",
+    "shoes-n021": "data/source/newshoes/cutouts/shoes-n021.webp",
+    "shoes-n022": "data/source/newshoes/cutouts/shoes-n022.webp",
+    "shoes-n023": "data/source/newshoes/cutouts/shoes-n023.webp",
+    "shoes-n024": "data/source/newshoes/cutouts/shoes-n024.webp",
+    "shoes-n025": "data/source/newshoes/cutouts/shoes-n025.webp",
+    "shoes-n026": "data/source/newshoes/cutouts/shoes-n026.webp",
+    "shoes-n027": "data/source/newshoes/cutouts/shoes-n027.webp",
+    "shoes-n028": "data/source/newshoes/cutouts/shoes-n028.webp",
+    "shoes-n029": "data/source/newshoes/cutouts/shoes-n029.webp",
+    "shoes-n030": "data/source/newshoes/cutouts/shoes-n030.webp"
   },
   "note": "v2.2: generated with Codex built-in image generation (ChatGPT plan) from final/ zone images, cutouts and reference photos; dress cutouts keyed locally from a #FF00FF background. v2.4.0: shoes-c (zone-01 of the new-shoes delivery) painting and shoes-n007..n012 card cutouts come from data/source/newshoes/ (local deterministic cutouts, tools/newshoes_prep.py).",
   "plates": {
@@ -35,6 +56,33 @@
       "generator": "Codex CLI imagegen (ChatGPT plan), refs: zone-01 painting + two rug crops",
       "metadata": "stripped",
       "raw": "work/newshoes/pilot/gen/shoes-zone-c-rug-v240.png (not in git)",
+      "approved": "2026-11-17 by user via PM"
+    },
+    "shoes-d": {
+      "file": "data/source/generated/shoes-zone-d-rug-v240.webp",
+      "version": "v2.4.0",
+      "use": "empty-rug plate for zone-02 (shoes-d); registered/colour-matched and used only in a collar around the pairs and their shadows",
+      "generator": "Codex CLI imagegen (ChatGPT plan), refs: zone-02 painting + two rug crops",
+      "metadata": "stripped",
+      "raw": "work/newshoes/rollout/gen/shoes-zone-d-rug-v240.png (not in git)",
+      "approved": "2026-11-17 by user via PM"
+    },
+    "shoes-e": {
+      "file": "data/source/generated/shoes-zone-e-rug-v240.webp",
+      "version": "v2.4.0",
+      "use": "empty-rug plate for zone-03 (shoes-e); registered/colour-matched and used only in a collar around the pairs and their shadows",
+      "generator": "Codex CLI imagegen (ChatGPT plan), refs: zone-03 painting + two rug crops",
+      "metadata": "stripped",
+      "raw": "work/newshoes/rollout/gen/shoes-zone-e-rug-v240.png (not in git)",
+      "approved": "2026-11-17 by user via PM"
+    },
+    "shoes-f": {
+      "file": "data/source/generated/shoes-zone-f-rug-v240.webp",
+      "version": "v2.4.0",
+      "use": "empty-rug plate for zone-04 (shoes-f); registered/colour-matched and used only in a collar around the pairs and their shadows",
+      "generator": "Codex CLI imagegen (ChatGPT plan), refs: zone-04 painting + two rug crops",
+      "metadata": "stripped",
+      "raw": "work/newshoes/rollout/gen/shoes-zone-f-rug-v240.png (not in git)",
       "approved": "2026-11-17 by user via PM"
     }
   }

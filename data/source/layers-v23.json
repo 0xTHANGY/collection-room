@@ -4060,5 +4060,179 @@
       "generated_collar": 2,
       "external_mask_core": 15
     }
+  },
+  "shoes-d": {
+    "surface_items": {
+      "surfaces": [
+        {
+          "bbox": [
+            0,
+            372,
+            1536,
+            1024
+          ],
+          "donor_x": [
+            20,
+            90
+          ],
+          "donor_y": [
+            800,
+            900
+          ]
+        }
+      ],
+      "floor": {
+        "fit_top": 250,
+        "blend_top": 372,
+        "edge": [
+          0,
+          372,
+          0.0
+        ],
+        "span": [
+          200,
+          1400
+        ],
+        "exclude": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "grain_donor": [
+          20,
+          420,
+          120,
+          520
+        ]
+      },
+      "generated_plate": "data/source/generated/shoes-zone-d-rug-v240.webp",
+      "generated_collar": 2,
+      "external_masks": {
+        "shoes-n013": "data/source/newshoes/masks/shoes-n013.png",
+        "shoes-n014": "data/source/newshoes/masks/shoes-n014.png",
+        "shoes-n015": "data/source/newshoes/masks/shoes-n015.png",
+        "shoes-n016": "data/source/newshoes/masks/shoes-n016.png",
+        "shoes-n017": "data/source/newshoes/masks/shoes-n017.png",
+        "shoes-n018": "data/source/newshoes/masks/shoes-n018.png"
+      },
+      "external_mask_core": 15
+    }
+  },
+  "shoes-e": {
+    "surface_items": {
+      "surfaces": [
+        {
+          "bbox": [
+            0,
+            372,
+            1536,
+            1024
+          ],
+          "donor_x": [
+            20,
+            90
+          ],
+          "donor_y": [
+            800,
+            900
+          ]
+        }
+      ],
+      "floor": {
+        "fit_top": 250,
+        "blend_top": 372,
+        "edge": [
+          0,
+          372,
+          0.0
+        ],
+        "span": [
+          200,
+          1400
+        ],
+        "exclude": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "grain_donor": [
+          20,
+          420,
+          120,
+          520
+        ]
+      },
+      "generated_plate": "data/source/generated/shoes-zone-e-rug-v240.webp",
+      "generated_collar": 2,
+      "external_masks": {
+        "shoes-n019": "data/source/newshoes/masks/shoes-n019.png",
+        "shoes-n020": "data/source/newshoes/masks/shoes-n020.png",
+        "shoes-n021": "data/source/newshoes/masks/shoes-n021.png",
+        "shoes-n022": "data/source/newshoes/masks/shoes-n022.png",
+        "shoes-n023": "data/source/newshoes/masks/shoes-n023.png",
+        "shoes-n024": "data/source/newshoes/masks/shoes-n024.png"
+      },
+      "external_mask_core": 15
+    }
+  },
+  "shoes-f": {
+    "surface_items": {
+      "surfaces": [
+        {
+          "bbox": [
+            0,
+            372,
+            1536,
+            1024
+          ],
+          "donor_x": [
+            20,
+            90
+          ],
+          "donor_y": [
+            800,
+            900
+          ]
+        }
+      ],
+      "floor": {
+        "fit_top": 140,
+        "blend_top": 372,
+        "edge": [
+          0,
+          372,
+          0.0
+        ],
+        "span": [
+          200,
+          1400
+        ],
+        "exclude": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "grain_donor": [
+          20,
+          420,
+          120,
+          520
+        ]
+      },
+      "generated_plate": "data/source/generated/shoes-zone-f-rug-v240.webp",
+      "generated_collar": 2,
+      "external_masks": {
+        "shoes-n025": "data/source/newshoes/masks/shoes-n025.png",
+        "shoes-n026": "data/source/newshoes/masks/shoes-n026.png",
+        "shoes-n027": "data/source/newshoes/masks/shoes-n027.png",
+        "shoes-n028": "data/source/newshoes/masks/shoes-n028.png",
+        "shoes-n029": "data/source/newshoes/masks/shoes-n029.png",
+        "shoes-n030": "data/source/newshoes/masks/shoes-n030.png"
+      },
+      "external_mask_core": 15
+    }
   }
 }

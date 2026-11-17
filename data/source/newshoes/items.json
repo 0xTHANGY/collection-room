@@ -1,6 +1,66 @@
 {
- "note": "V2.4.0 new shoes (Bruce, 2026-11-16 delivery). Names = catalogue-label text from the original photos (Chinese parentheticals of new-items-list.md dropped). Story is always the placeholder. id shoes-nNNN follows the delivery order (list rows 1-4,6,7 = test zone, 8-13 = zone-01, ...); display numbers continue from 388 in that order. Pilot contains zone-01 only.",
+ "note": "V2.4.0 new shoes (Bruce, 2026-11-16 delivery). Names = catalogue-label text from the original photos (Chinese parentheticals of new-items-list.md dropped). Story is always the placeholder. id shoes-nNNN follows the delivery order (list rows 1-4,6,7 = test zone, 8-13 = zone-01, ...); display numbers continue from 388 in that order. Zones: b=test image, c=zone-01 ... k=zone-09 (59 pairs).",
  "items": [
+  {
+   "id": "shoes-n001",
+   "number": "388",
+   "name": "Nike x Sacai VaporWaffle Sesame/Blue Void",
+   "brand": "Nike x Sacai",
+   "type": "sneakers",
+   "source_file": "d01a923139789ea952f9931673aad404d3a69358cc2d356e4a0c764bcee84c03.png",
+   "list_row": 1,
+   "zone": "shoes-b"
+  },
+  {
+   "id": "shoes-n002",
+   "number": "389",
+   "name": "Church's Shoes",
+   "brand": "Church's",
+   "type": "shoes",
+   "source_file": "cc7a3d90eb11a4792a72a20ae7560c521cd4d2a16f8a9a44ae6df10fea92a0ed.png",
+   "list_row": 2,
+   "zone": "shoes-b"
+  },
+  {
+   "id": "shoes-n003",
+   "number": "390",
+   "name": "Acne Studios AW Leather Heels",
+   "brand": "Acne Studios",
+   "type": "heels",
+   "source_file": "39a4388bf4594a8e673e4777cb063a87c538be1dca7d924a3a2a64e3435f9b64.png",
+   "list_row": 3,
+   "zone": "shoes-b"
+  },
+  {
+   "id": "shoes-n004",
+   "number": "391",
+   "name": "Aimé Leon Dore x New Balance 1000 Grey/Beige",
+   "brand": "Aimé Leon Dore x New Balance",
+   "type": "sneakers",
+   "source_file": "4fab0f2678647ead80f791b9f8e887ecb31c5d5277b65c37a23faebbd5342643.png",
+   "list_row": 4,
+   "zone": "shoes-b"
+  },
+  {
+   "id": "shoes-n005",
+   "number": "392",
+   "name": "Miu Miu Leather Lace-Up Shoes Brunette",
+   "brand": "Miu Miu",
+   "type": "shoes",
+   "source_file": "63fe64bbf420b276dfe34c5dcbae73b314be0b8be5d6727e8bed033d5adf2d38.png",
+   "list_row": 6,
+   "zone": "shoes-b"
+  },
+  {
+   "id": "shoes-n006",
+   "number": "393",
+   "name": "Birkenstock Boston",
+   "brand": "Birkenstock",
+   "type": "sneakers",
+   "source_file": "b5b5b995119d40029ee9e193d9fd5cb2dc41d661c1f62294c5f9ac74b4b8477f.jpg",
+   "list_row": 7,
+   "zone": "shoes-b"
+  },
   {
    "id": "shoes-n007",
    "number": "394",
@@ -60,6 +120,476 @@
    "source_file": "948a58447a218753d7a0013f18d434f30662ab3897ae019920e92426b2123d4a.png",
    "list_row": 13,
    "zone": "shoes-c"
+  },
+  {
+   "id": "shoes-n013",
+   "number": "400",
+   "name": "Gucci AW Studded Web Loafers",
+   "brand": "Gucci",
+   "type": "loafers",
+   "source_file": "b07e9d3aa612aa983aa8969449d852fc565a72254c1e560cc41a704bbb119d87.png",
+   "list_row": 14,
+   "zone": "shoes-d"
+  },
+  {
+   "id": "shoes-n014",
+   "number": "401",
+   "name": "Nike Fresh Foam X 1080v13 Running Shoes",
+   "brand": "Nike",
+   "type": "sneakers",
+   "source_file": "331ea5cd18e386d05e4b15b6ffd5b10730d2d4c3572427e78bc68d77bc2a3ee9.jpg",
+   "list_row": 15,
+   "zone": "shoes-d"
+  },
+  {
+   "id": "shoes-n015",
+   "number": "402",
+   "name": "Nike Air Jordan 1 Retro High OG Crimson Tint",
+   "brand": "Nike",
+   "type": "sneakers",
+   "source_file": "e4b20723512498be4e671522e0497960e0fc72ab8192db2e9fab840930fe799a.png",
+   "list_row": 16,
+   "zone": "shoes-d"
+  },
+  {
+   "id": "shoes-n016",
+   "number": "403",
+   "name": "Lemaire Shoes",
+   "brand": "Lemaire",
+   "type": "shoes",
+   "source_file": "edadc04ab58cf105a072b73d02e4782cdf7cffa8e192f51d09ea0e8a4b96ab74.png",
+   "list_row": 17,
+   "zone": "shoes-d"
+  },
+  {
+   "id": "shoes-n017",
+   "number": "404",
+   "name": "baziszt SS Suede Fringe Slides",
+   "brand": "baziszt",
+   "type": "slides",
+   "source_file": "d656a2aaffe6ba3bbb7cd21cddc36758ef1ec310c6908bf0d7cacdee4caf623a.png",
+   "list_row": 18,
+   "zone": "shoes-d"
+  },
+  {
+   "id": "shoes-n018",
+   "number": "405",
+   "name": "adidas S.F.T.M. Sneakers",
+   "brand": "adidas",
+   "type": "sneakers",
+   "source_file": "fdb8e0b8e77b1ccd6d20b7346ac6331a7cdddb8e4064b87d54b619dedeab4ecb.png",
+   "list_row": 19,
+   "zone": "shoes-d"
+  },
+  {
+   "id": "shoes-n019",
+   "number": "406",
+   "name": "Hereu Fisherman Sandals",
+   "brand": "Hereu",
+   "type": "sandals",
+   "source_file": "7ed98b50d0f3ae056c648416134ac5c9f1b938a7cff1f696bdf35b3ae6cd6ce2.png",
+   "list_row": 20,
+   "zone": "shoes-e"
+  },
+  {
+   "id": "shoes-n020",
+   "number": "407",
+   "name": "Acne Studios Leather Ankle Boots Grey/Pink Marble Heel",
+   "brand": "Acne Studios",
+   "type": "ankle boots",
+   "source_file": "2bc96fab49447b0ece87d565d5beae994f1b505988662a6d40ad5cf9dd7dcb3d.png",
+   "list_row": 21,
+   "zone": "shoes-e"
+  },
+  {
+   "id": "shoes-n021",
+   "number": "408",
+   "name": "The North Face x Skims Thermoball Mule Onyx",
+   "brand": "The North Face x Skims",
+   "type": "mules",
+   "source_file": "f852c1b3467fa9f4ba0fd5c3fe6f8c79b3aa5282da9d4206c59f34704cda9bc4.png",
+   "list_row": 22,
+   "zone": "shoes-e"
+  },
+  {
+   "id": "shoes-n022",
+   "number": "409",
+   "name": "Giuseppe Zanotti Velvet Mule Sandal Black",
+   "brand": "Giuseppe Zanotti",
+   "type": "sandals",
+   "source_file": "7fdc7086212859ba46dbc4309d56b4e45f2affd5d2f6d12dc7b42441cef2b7f0.png",
+   "list_row": 24,
+   "zone": "shoes-e"
+  },
+  {
+   "id": "shoes-n023",
+   "number": "410",
+   "name": "Prada Sneakers",
+   "brand": "Prada",
+   "type": "sneakers",
+   "source_file": "847c5173f18278fb8a54af4effd4b72f8269b127e94af7a48f1cdd909122875b.png",
+   "list_row": 25,
+   "zone": "shoes-e"
+  },
+  {
+   "id": "shoes-n024",
+   "number": "411",
+   "name": "Khaite The Amelia Sandal Cream",
+   "brand": "Khaite",
+   "type": "sandals",
+   "source_file": "07271524c55e39b8c9e4b663d0ae0602f20222231a3ee0c03e3b71b00462a93f.png",
+   "list_row": 26,
+   "zone": "shoes-e"
+  },
+  {
+   "id": "shoes-n025",
+   "number": "412",
+   "name": "Nike Air Force 1 '07 LX",
+   "brand": "Nike",
+   "type": "sneakers",
+   "source_file": "d164456701ae4a256805972b54db2647eccca81ae5602b3775652b8f229a07a6.png",
+   "list_row": 27,
+   "zone": "shoes-f"
+  },
+  {
+   "id": "shoes-n026",
+   "number": "413",
+   "name": "New Balance x Aimé Leon Dore 991 Green/Cream",
+   "brand": "New Balance x Aimé Leon Dore",
+   "type": "sneakers",
+   "source_file": "1bcbe275a7c72262db29bf48dab60cb2ea3e17290b7aff23c5f721fd9031dcc1.png",
+   "list_row": 28,
+   "zone": "shoes-f"
+  },
+  {
+   "id": "shoes-n027",
+   "number": "414",
+   "name": "adidas x Kith Samba Classic White/Fairway",
+   "brand": "adidas x Kith",
+   "type": "sneakers",
+   "source_file": "a05713b61a5fb34c684770b7b1bc7d1ce2ccea174c1ab20be633a2229544fe98.png",
+   "list_row": 29,
+   "zone": "shoes-f"
+  },
+  {
+   "id": "shoes-n028",
+   "number": "415",
+   "name": "adidas x Hello Kitty Gazelle Indoor",
+   "brand": "adidas x Hello Kitty",
+   "type": "sneakers",
+   "source_file": "3ae91989129d37e253a17146327cdf6130dc7c5e6ea4c5ec59df5897b3b9147c.png",
+   "list_row": 30,
+   "zone": "shoes-f"
+  },
+  {
+   "id": "shoes-n029",
+   "number": "416",
+   "name": "Miu Miu AW Star Embroidered Ankle Boots",
+   "brand": "Miu Miu",
+   "type": "ankle boots",
+   "source_file": "748504fcc0b444e3a378df9582ff5201d13ad052772522ce59a75f8ce5fd9534.png",
+   "list_row": 31,
+   "zone": "shoes-f"
+  },
+  {
+   "id": "shoes-n030",
+   "number": "417",
+   "name": "Loewe x On Sneakers",
+   "brand": "Loewe x On",
+   "type": "sneakers",
+   "source_file": "deb54bbb4424663de9828aa6d2e94fbb0274824413717b1d13c9b1b27ad0e6a6.png",
+   "list_row": 32,
+   "zone": "shoes-f"
+  },
+  {
+   "id": "shoes-n031",
+   "number": "418",
+   "name": "Miu Miu Loafers",
+   "brand": "Miu Miu",
+   "type": "loafers",
+   "source_file": "590366920e1b812e94309030f7cb099cae1690c90f2887ea66fe96b805546d4b.png",
+   "list_row": 33,
+   "zone": "shoes-g"
+  },
+  {
+   "id": "shoes-n032",
+   "number": "419",
+   "name": "Miu Miu Ballet Flats",
+   "brand": "Miu Miu",
+   "type": "flats",
+   "source_file": "108ffa75c0dc975c3c196c594d4850261e26a9ac6fba0ea00ef67fa471805c78.png",
+   "list_row": 34,
+   "zone": "shoes-g"
+  },
+  {
+   "id": "shoes-n033",
+   "number": "420",
+   "name": "Prada All Season Loafers",
+   "brand": "Prada",
+   "type": "loafers",
+   "source_file": "32dfa61176a768f19c017b2f03f9079f5d8d501715c45485ebaad38d67fbf731.png",
+   "list_row": 35,
+   "zone": "shoes-g"
+  },
+  {
+   "id": "shoes-n034",
+   "number": "421",
+   "name": "Jil Sander Loafers",
+   "brand": "Jil Sander",
+   "type": "loafers",
+   "source_file": "5cf73bb4670724b8096ec8cdcc05f2e99bb5dd4025ab04869a84e2c4bf23ead5.png",
+   "list_row": 36,
+   "zone": "shoes-g"
+  },
+  {
+   "id": "shoes-n035",
+   "number": "422",
+   "name": "Songtsam Canvas Slip-On",
+   "brand": "Songtsam",
+   "type": "slip-ons",
+   "source_file": "afefed09fb50cf37b4158e859078f1f1d9648e3e3d77204a6db47e5b7e2c7255.png",
+   "list_row": 37,
+   "zone": "shoes-g"
+  },
+  {
+   "id": "shoes-n036",
+   "number": "423",
+   "name": "Chanel Rain Boots",
+   "brand": "Chanel",
+   "type": "boots",
+   "source_file": "65fbb6bf7968771dbeac0104ec07d9df1c211eacc252b4b785123fb9cf8e1625.jpg",
+   "list_row": 38,
+   "zone": "shoes-g"
+  },
+  {
+   "id": "shoes-n037",
+   "number": "424",
+   "name": "Converse x Golf le Fleur Chuck 70 Hi Purple Velvet",
+   "brand": "Converse x Golf le Fleur",
+   "type": "sneakers",
+   "source_file": "33fbda96d4e304925e47bc2ff7dc4a9ea2fcad013b56b3f9fa12ca9c84471e97.png",
+   "list_row": 39,
+   "zone": "shoes-h"
+  },
+  {
+   "id": "shoes-n038",
+   "number": "425",
+   "name": "Vans Authentic 44 DX Multi Bandana",
+   "brand": "Vans",
+   "type": "sneakers",
+   "source_file": "25e0cce8b57a1782f326ebbd3f1dc3a1fb727c181cb6e06baed217f28e5414be.png",
+   "list_row": 40,
+   "zone": "shoes-h"
+  },
+  {
+   "id": "shoes-n039",
+   "number": "426",
+   "name": "Uniqlo Strap Sandals Olive",
+   "brand": "Uniqlo",
+   "type": "sandals",
+   "source_file": "35da840ead538d28d9cd9e3571892c5b8ae55f98e6d638417e7bef0eabcc13c3.jpg",
+   "list_row": 41,
+   "zone": "shoes-h"
+  },
+  {
+   "id": "shoes-n040",
+   "number": "427",
+   "name": "Hoka Challenger 7 Black",
+   "brand": "Hoka",
+   "type": "sneakers",
+   "source_file": "972708e3068d0a53752f4fc1095516c608920e5b50116aab61918c533ba6e98c.jpg",
+   "list_row": 42,
+   "zone": "shoes-h"
+  },
+  {
+   "id": "shoes-n041",
+   "number": "428",
+   "name": "New Balance 327",
+   "brand": "New Balance",
+   "type": "sneakers",
+   "source_file": "76b33485975a95e637bc28ea38f1785681cc9568cce829ea3aa1a45fd4b5f9ae.png",
+   "list_row": 43,
+   "zone": "shoes-h"
+  },
+  {
+   "id": "shoes-n042",
+   "number": "429",
+   "name": "Chanel Loafers",
+   "brand": "Chanel",
+   "type": "loafers",
+   "source_file": "2a53b6548e0ad7a22af8b5522d34c7f92ecbdaca667aeeda98bbdd48113f935b.png",
+   "list_row": 44,
+   "zone": "shoes-h"
+  },
+  {
+   "id": "shoes-n043",
+   "number": "430",
+   "name": "Arc'teryx Acrux LT GTX",
+   "brand": "Arc'teryx",
+   "type": "sneakers",
+   "source_file": "08b4d85c6b1750ad470c12e9df4168f66a7d7aeb64212394657452e9948012e6.jpg",
+   "list_row": 45,
+   "zone": "shoes-i"
+  },
+  {
+   "id": "shoes-n044",
+   "number": "431",
+   "name": "Kith x Salomon XT-6 GTX",
+   "brand": "Kith x Salomon",
+   "type": "sneakers",
+   "source_file": "f3333c76e06280ef103b97cb6aa41cfd6009b1f12c695f98e66103680e307627.png",
+   "list_row": 46,
+   "zone": "shoes-i"
+  },
+  {
+   "id": "shoes-n045",
+   "number": "432",
+   "name": "Thom Browne Slingback Brogue Loafer",
+   "brand": "Thom Browne",
+   "type": "loafers",
+   "source_file": "3ff2351190e5cc4c2d2a90b20fdc506c71a2ff2ccbe6bc3ed3d259b6fcb38580.png",
+   "list_row": 47,
+   "zone": "shoes-i"
+  },
+  {
+   "id": "shoes-n046",
+   "number": "433",
+   "name": "Kith x New Balance 990V3",
+   "brand": "Kith x New Balance",
+   "type": "sneakers",
+   "source_file": "471b0c47aaa36fba717cf510b4ce9f87e44249a9c49f35b8a951b504c2cde085.png",
+   "list_row": 48,
+   "zone": "shoes-i"
+  },
+  {
+   "id": "shoes-n047",
+   "number": "434",
+   "name": "Nike Air Rift Sail",
+   "brand": "Nike",
+   "type": "sneakers",
+   "source_file": "0c024745cfb0ab9adc911abec40300402f6c20228942c2dbae2974fa19777532.jpg",
+   "list_row": 49,
+   "zone": "shoes-i"
+  },
+  {
+   "id": "shoes-n048",
+   "number": "435",
+   "name": "New Balance x Kith 990v3 Steel Blue/Purple Pink",
+   "brand": "New Balance x Kith",
+   "type": "sneakers",
+   "source_file": "49d124fc432097e6ce51abc93728d9ca06ffe04631c7fb8dacd4b59886c8be72.jpg",
+   "list_row": 50,
+   "zone": "shoes-i"
+  },
+  {
+   "id": "shoes-n049",
+   "number": "436",
+   "name": "Toteme The Leather Ankle Boot",
+   "brand": "Toteme",
+   "type": "ankle boots",
+   "source_file": "36912ae64bacc63ab656b4f4e8aff506c048ec3c98dfb971898a5729f47b0ca8.png",
+   "list_row": 51,
+   "zone": "shoes-j"
+  },
+  {
+   "id": "shoes-n050",
+   "number": "437",
+   "name": "Nike x Stussy Air Zoom Spiridon CG 2",
+   "brand": "Nike x Stussy",
+   "type": "sneakers",
+   "source_file": "fe0f64c998f25a916b7f943cee4f5980a07d1801a76f4917a0b2a52c6d343b59.png",
+   "list_row": 52,
+   "zone": "shoes-j"
+  },
+  {
+   "id": "shoes-n051",
+   "number": "438",
+   "name": "Acne Studios Bolin Hiking Sneakers",
+   "brand": "Acne Studios",
+   "type": "sneakers",
+   "source_file": "d4cfa397e36c7b8b4684b859b9c170fa2316ba1a621f36408636ad9e7a99b2be.png",
+   "list_row": 53,
+   "zone": "shoes-j"
+  },
+  {
+   "id": "shoes-n052",
+   "number": "439",
+   "name": "Miu Miu AW Buckle Leather Shoes",
+   "brand": "Miu Miu",
+   "type": "shoes",
+   "source_file": "f72824423cbef00600feefa41465d6e8c91ed0399af00f1749ca49f80bf1ed40.png",
+   "list_row": 54,
+   "zone": "shoes-j"
+  },
+  {
+   "id": "shoes-n053",
+   "number": "440",
+   "name": "Kith x New Balance 996",
+   "brand": "Kith x New Balance",
+   "type": "sneakers",
+   "source_file": "89d479cf8c8493cb0eb096dca733efdb24214945ab656b07044387f1041f1830.png",
+   "list_row": 55,
+   "zone": "shoes-j"
+  },
+  {
+   "id": "shoes-n054",
+   "number": "441",
+   "name": "Fendi AW Leather & Haircalf Ankle Boots",
+   "brand": "Fendi",
+   "type": "ankle boots",
+   "source_file": "9622bb1f7c958e5b4702bdf2474709a88b81f64d1c6295dfc433bbe87d5cadc5.png",
+   "list_row": 56,
+   "zone": "shoes-j"
+  },
+  {
+   "id": "shoes-n055",
+   "number": "442",
+   "name": "Converse Chuck Taylor All Star Hi Pink Quartz",
+   "brand": "Converse",
+   "type": "sneakers",
+   "source_file": "0d4bb841816a602dc7c287d8d5b2eec41ae892ff75eb50e2343b976fac6b63d5.png",
+   "list_row": 57,
+   "zone": "shoes-k"
+  },
+  {
+   "id": "shoes-n056",
+   "number": "443",
+   "name": "Chloé Woody Slides",
+   "brand": "Chloé",
+   "type": "slides",
+   "source_file": "3f256c87ee521b649bfd817d050fd957221e9440f7741782edda160190887991.jpg",
+   "list_row": 58,
+   "zone": "shoes-k"
+  },
+  {
+   "id": "shoes-n057",
+   "number": "444",
+   "name": "Chanel CC Denim Sandals Navy/Gold",
+   "brand": "Chanel",
+   "type": "sandals",
+   "source_file": "4b5a3ce0cc3470809cfc15eed89ea65030c7fddf641dd8b7378b27a8f4507c81.jpg",
+   "list_row": 59,
+   "zone": "shoes-k"
+  },
+  {
+   "id": "shoes-n058",
+   "number": "445",
+   "name": "Prada AW Logo Loafers",
+   "brand": "Prada",
+   "type": "loafers",
+   "source_file": "6ce6f9dd8753960da81013664c08601e9b3e73b4032f6ec35b2c7ac419c5e478.png",
+   "list_row": 60,
+   "zone": "shoes-k"
+  },
+  {
+   "id": "shoes-n059",
+   "number": "446",
+   "name": "Chanel Loafers",
+   "brand": "Chanel",
+   "type": "loafers",
+   "source_file": "de4ea666e107d2e0589723d39f798e37fd1f95aff95cb810d313769c258823b3.png",
+   "list_row": 61,
+   "zone": "shoes-k"
   }
  ]
 }
