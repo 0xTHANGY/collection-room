@@ -4408,5 +4408,178 @@
       },
       "external_mask_core": 15
     }
+  },
+  "shoes-j": {
+    "surface_items": {
+      "surfaces": [
+        {
+          "bbox": [
+            0,
+            372,
+            1536,
+            1024
+          ],
+          "donor_x": [
+            20,
+            90
+          ],
+          "donor_y": [
+            800,
+            900
+          ]
+        }
+      ],
+      "floor": {
+        "fit_top": 250,
+        "blend_top": 372,
+        "edge": [
+          0,
+          372,
+          0.0
+        ],
+        "span": [
+          200,
+          1400
+        ],
+        "exclude": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "grain_donor": [
+          20,
+          420,
+          120,
+          520
+        ]
+      },
+      "generated_plate": "data/source/generated/shoes-zone-j-rug-v240.webp",
+      "generated_collar": 2,
+      "external_masks": {
+        "shoes-n049": "data/source/newshoes/masks/shoes-n049.png",
+        "shoes-n050": "data/source/newshoes/masks/shoes-n050.png",
+        "shoes-n051": "data/source/newshoes/masks/shoes-n051.png",
+        "shoes-n052": "data/source/newshoes/masks/shoes-n052.png",
+        "shoes-n053": "data/source/newshoes/masks/shoes-n053.png",
+        "shoes-n054": "data/source/newshoes/masks/shoes-n054.png"
+      },
+      "external_mask_core": 15
+    }
+  },
+  "shoes-k": {
+    "surface_items": {
+      "surfaces": [
+        {
+          "bbox": [
+            0,
+            372,
+            1536,
+            1024
+          ],
+          "donor_x": [
+            20,
+            90
+          ],
+          "donor_y": [
+            800,
+            900
+          ]
+        }
+      ],
+      "floor": {
+        "fit_top": 250,
+        "blend_top": 372,
+        "edge": [
+          0,
+          372,
+          0.0
+        ],
+        "span": [
+          200,
+          1400
+        ],
+        "exclude": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "grain_donor": [
+          20,
+          420,
+          120,
+          520
+        ]
+      },
+      "generated_plate": "data/source/generated/shoes-zone-k-rug-v240.webp",
+      "generated_collar": 2,
+      "external_masks": {
+        "shoes-n055": "data/source/newshoes/masks/shoes-n055.png",
+        "shoes-n056": "data/source/newshoes/masks/shoes-n056.png",
+        "shoes-n057": "data/source/newshoes/masks/shoes-n057.png",
+        "shoes-n058": "data/source/newshoes/masks/shoes-n058.png",
+        "shoes-n059": "data/source/newshoes/masks/shoes-n059.png"
+      },
+      "external_mask_core": 15
+    }
+  },
+  "shoes-b": {
+    "surface_items": {
+      "surfaces": [
+        {
+          "bbox": [
+            0,
+            372,
+            1536,
+            1024
+          ],
+          "donor_x": [
+            20,
+            90
+          ],
+          "donor_y": [
+            800,
+            900
+          ]
+        }
+      ],
+      "floor": {
+        "fit_top": 250,
+        "blend_top": 372,
+        "edge": [
+          0,
+          372,
+          0.0
+        ],
+        "span": [
+          200,
+          1400
+        ],
+        "exclude": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "grain_donor": [
+          20,
+          420,
+          120,
+          520
+        ]
+      },
+      "generated_plate": "data/source/generated/shoes-zone-b-rug-v240.webp",
+      "generated_collar": 2,
+      "external_masks": {
+        "shoes-n001": "data/source/newshoes/masks/shoes-n001.png",
+        "shoes-n002": "data/source/newshoes/masks/shoes-n002.png",
+        "shoes-n003": "data/source/newshoes/masks/shoes-n003.png",
+        "shoes-n004": "data/source/newshoes/masks/shoes-n004.png",
+        "shoes-n005": "data/source/newshoes/masks/shoes-n005.png",
+        "shoes-n006": "data/source/newshoes/masks/shoes-n006.png"
+      },
+      "external_mask_core": 15
+    }
   }
 }

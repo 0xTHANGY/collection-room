@@ -221,6 +221,7 @@ def run_zone(zid='shoes-c',zone_png='zones/new-shoes-zone-01.png',plate_png=None
 
 
 ZONE_FILES={'b':'zones/new-shoes-zone-test.png','d':'zones/new-shoes-zone-02.png','e':'zones/new-shoes-zone-03-v2.png','f':'zones/new-shoes-zone-04-v2.png','g':'zones/new-shoes-zone-05.png','h':'zones/new-shoes-zone-06-v2.png','i':'zones/new-shoes-zone-07.png','j':'zones/new-shoes-zone-08.png','k':'zones/new-shoes-zone-09.png'}
+ZONE_HULL={}   # optional per-item convex hull of each shoe (tried for n053, no gain; unused)
 ZONE_SPLIT={'e':606,'g':618,'h':((382,610),(1132,640)),'i':592,'j':624,'b':634}      # optional: y that separates the back row from the front row where the rows touch
 ZONE_NOSHADOW={'f':[(240,190,560,330)]}   # optional rects where dark shoe parts look like shadow: no shadow rule there
 ZONE_SEEDS={'d':[(368,795),(690,795),(1170,780),(428,495),(772,480),(1118,480)],
@@ -233,7 +234,7 @@ ZONE_SEEDS={'d':[(368,795),(690,795),(1170,780),(428,495),(772,480),(1118,480)],
  'k':[(300,788),(772,818),(1185,810),(502,518),(922,518)],
  'b':[(330,832),(750,832),(1185,832),(390,472),(780,495),(1162,495)]}
 BODY_T=float(__import__('os').environ.get('NS_BODY',16))
-ZONE_PARAMS={'d':(27,19),'e':(27,23),'f':(45,23),'g':(15,23),'h':(45,19),'i':(27,19)}   # letter -> (closing, margin) chosen per zone by work/newshoes/rollout/tune.py (default 33, 19)
+ZONE_PARAMS={'d':(27,19),'e':(27,23),'f':(45,23),'g':(15,23),'h':(45,19),'i':(27,19),'j':(27,23),'k':(45,23),'b':(45,23)}   # letter -> (closing, margin) chosen per zone by work/newshoes/rollout/tune.py (default 33, 19)
 def run_zone_auto(letter,plate_png,outdir=None):
     """Other zones (V2.4.0 rollout): same recipe as run_zone (painting vs empty plate), but the pairs are found
     automatically (connected clusters of the difference map) and assigned in delivery order: the first three items
@@ -308,6 +309,12 @@ def run_zone_auto(letter,plate_png,outdir=None):
             x,y,cw,ch,a=hs[q]
             if x==0 or y==0 or x+cw==w or y+ch==h: continue
             if a<HOLE_MAX: m[hl==q]=255
+        if iid in ZONE_HULL.get(letter,[]):                    # pale laces on pale uppers leave holes open to the outside: take the hull of each shoe
+            nh,hl2,hs2,_=cv2.connectedComponentsWithStats(m);hm=np.zeros_like(m)
+            for q in range(1,nh):
+                if hs2[q,4]>5000:
+                    cs,_=cv2.findContours(np.uint8(hl2==q),cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_NONE);cv2.fillPoly(hm,[cv2.convexHull(np.vstack(cs))],255)
+            m=np.maximum(m,hm)
         others=np.zeros_like(m)
         for j in ids:
             if j!=iid: others|=base[j]

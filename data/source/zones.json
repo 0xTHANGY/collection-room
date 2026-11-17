@@ -393,6 +393,14 @@
    "batch2-055",
    "batch2-057"
   ],
+  "b": [
+   "shoes-n001",
+   "shoes-n002",
+   "shoes-n003",
+   "shoes-n004",
+   "shoes-n005",
+   "shoes-n006"
+  ],
   "c": [
    "shoes-n007",
    "shoes-n008",
@@ -448,6 +456,21 @@
    "shoes-n046",
    "shoes-n047",
    "shoes-n048"
+  ],
+  "j": [
+   "shoes-n049",
+   "shoes-n050",
+   "shoes-n051",
+   "shoes-n052",
+   "shoes-n053",
+   "shoes-n054"
+  ],
+  "k": [
+   "shoes-n055",
+   "shoes-n056",
+   "shoes-n057",
+   "shoes-n058",
+   "shoes-n059"
   ]
  },
  "sweaters": {
