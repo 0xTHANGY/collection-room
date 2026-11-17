@@ -1,0 +1,65 @@
+{
+ "note": "V2.4.0 new shoes (Bruce, 2026-11-16 delivery). Names = catalogue-label text from the original photos (Chinese parentheticals of new-items-list.md dropped). Story is always the placeholder. id shoes-nNNN follows the delivery order (list rows 1-4,6,7 = test zone, 8-13 = zone-01, ...); display numbers continue from 388 in that order. Pilot contains zone-01 only.",
+ "items": [
+  {
+   "id": "shoes-n007",
+   "number": "394",
+   "name": "Puma Speedcat OG Black/White",
+   "brand": "Puma",
+   "type": "sneakers",
+   "source_file": "288b117061f2b942e00176b2358fb7651f40ef8db044ca9f7346b1d3f6309684.jpg",
+   "list_row": 8,
+   "zone": "shoes-c"
+  },
+  {
+   "id": "shoes-n008",
+   "number": "395",
+   "name": "Ganni AW Chunky Chelsea Boots",
+   "brand": "Ganni",
+   "type": "boots",
+   "source_file": "2b5566168fc50de05b420f57edfa4c9b87c79be99ec1592bf58f04bd9088ee9d.png",
+   "list_row": 9,
+   "zone": "shoes-c"
+  },
+  {
+   "id": "shoes-n009",
+   "number": "396",
+   "name": "Dries Van Noten Sneakers",
+   "brand": "Dries Van Noten",
+   "type": "sneakers",
+   "source_file": "f9e26edb8a5140e45aaed2d9540a67ad1de0081fb6e115c70f32f8d0721e0cd8.png",
+   "list_row": 10,
+   "zone": "shoes-c"
+  },
+  {
+   "id": "shoes-n010",
+   "number": "397",
+   "name": "Chanel Flats SS",
+   "brand": "Chanel",
+   "type": "flats",
+   "source_file": "e95f34d71a108fbf3415a9edaccc0aaf6604b07f98c41d25ea2c68c94197bc46.png",
+   "list_row": 11,
+   "zone": "shoes-c"
+  },
+  {
+   "id": "shoes-n011",
+   "number": "398",
+   "name": "Mango AW Color-Block Ankle Boots",
+   "brand": "Mango",
+   "type": "ankle boots",
+   "source_file": "daf874e81f2e650cf122b4bcd4174d4d79ced4acfac66be4caf945b846357421.png",
+   "list_row": 12,
+   "zone": "shoes-c"
+  },
+  {
+   "id": "shoes-n012",
+   "number": "399",
+   "name": "Miu Miu AW Suede Sneakers",
+   "brand": "Miu Miu",
+   "type": "sneakers",
+   "source_file": "948a58447a218753d7a0013f18d434f30662ab3897ae019920e92426b2123d4a.png",
+   "list_row": 13,
+   "zone": "shoes-c"
+  }
+ ]
+}

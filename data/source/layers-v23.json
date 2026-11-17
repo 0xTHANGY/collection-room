@@ -4002,5 +4002,63 @@
   },
   "accessories-d": {
     "edge_collar": 2
+  },
+  "shoes-c": {
+    "surface_items": {
+      "surfaces": [
+        {
+          "bbox": [
+            0,
+            372,
+            1536,
+            1024
+          ],
+          "donor_x": [
+            20,
+            90
+          ],
+          "donor_y": [
+            800,
+            900
+          ]
+        }
+      ],
+      "floor": {
+        "fit_top": 250,
+        "blend_top": 372,
+        "edge": [
+          0,
+          372,
+          0.0
+        ],
+        "span": [
+          200,
+          1400
+        ],
+        "exclude": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "grain_donor": [
+          20,
+          420,
+          120,
+          520
+        ]
+      },
+      "generated_plate": "data/source/generated/shoes-zone-c-rug-v240.webp",
+      "external_masks": {
+        "shoes-n007": "data/source/newshoes/masks/shoes-n007.png",
+        "shoes-n008": "data/source/newshoes/masks/shoes-n008.png",
+        "shoes-n009": "data/source/newshoes/masks/shoes-n009.png",
+        "shoes-n010": "data/source/newshoes/masks/shoes-n010.png",
+        "shoes-n011": "data/source/newshoes/masks/shoes-n011.png",
+        "shoes-n012": "data/source/newshoes/masks/shoes-n012.png"
+      },
+      "generated_collar": 2,
+      "external_mask_core": 15
+    }
   }
 }

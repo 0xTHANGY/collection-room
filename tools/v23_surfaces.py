@@ -74,6 +74,14 @@ def reconstruct(rgb, boxes, config):
     floor_split=floor_config['blend_top']
     masks=SurfaceMasks(); masks.metrics={}; reasons={}
     for iid,(x,y,r,b) in boxes.items():
+        if iid in config.get('external_masks',{}):
+            # V2.4.0: the pair silhouette comes from a prepared mask (tools/newshoes_prep.py: painting vs the
+            # empty-rug plate). Only zones that list external_masks take this path; shoes-a is unchanged.
+            from pathlib import Path
+            from PIL import Image
+            ext=np.array(Image.open(Path(__file__).resolve().parents[1]/config['external_masks'][iid]).convert('L'))
+            masks[iid]=np.uint8(ext>127)*255;reasons[iid]=[]
+            continue
         pad=16
         x0,y0,x1,y1=max(0,x-pad),max(0,y-pad),min(w,r+pad),min(h,b+pad)
         crop=rgb[y0:y1,x0:x1]
@@ -202,8 +210,13 @@ def reconstruct(rgb, boxes, config):
         masks.metrics[iid]={'rest_err':round(error,4)}
         if error>.01:
             reasons[iid].append('rest check: lost item or surface mismatch')
-        unchanged=(np.linalg.norm(rgb.astype(float)-plate.astype(float),axis=2)<14)&m
-        if unchanged.sum()/max(1,m.sum())>.03:
+        core=m
+        if iid in config.get('external_masks',{}):
+            # prepared masks carry a deliberate safety margin of plain rug; judge removal on the object core only
+            k=config.get('external_mask_core',15)
+            core=cv2.erode(np.uint8(m)*255,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(k,k)))>0
+        unchanged=(np.linalg.norm(rgb.astype(float)-plate.astype(float),axis=2)<14)&core
+        if unchanged.sum()/max(1,core.sum())>.03:
             reasons[iid].append('removal check: unchanged foreground')
     # Never export an empty hole where a rejected layer will be omitted.
     if any(reasons.values()):

@@ -1,0 +1,69 @@
+{
+ "zone": "shoes-c",
+ "image_size": [
+  1536,
+  1024
+ ],
+ "items": {
+  "shoes-n010": {
+   "bbox": [
+    326,
+    327,
+    564,
+    593
+   ],
+   "confidence": "local GrabCut on the zone painting, visually checked",
+   "note": "V2.4.0 pilot, mask in data/source/newshoes/masks"
+  },
+  "shoes-n011": {
+   "bbox": [
+    661,
+    250,
+    906,
+    586
+   ],
+   "confidence": "local GrabCut on the zone painting, visually checked",
+   "note": "V2.4.0 pilot, mask in data/source/newshoes/masks"
+  },
+  "shoes-n012": {
+   "bbox": [
+    1021,
+    313,
+    1286,
+    601
+   ],
+   "confidence": "local GrabCut on the zone painting, visually checked",
+   "note": "V2.4.0 pilot, mask in data/source/newshoes/masks"
+  },
+  "shoes-n007": {
+   "bbox": [
+    229,
+    616,
+    499,
+    969
+   ],
+   "confidence": "local GrabCut on the zone painting, visually checked",
+   "note": "V2.4.0 pilot, mask in data/source/newshoes/masks"
+  },
+  "shoes-n008": {
+   "bbox": [
+    618,
+    582,
+    924,
+    979
+   ],
+   "confidence": "local GrabCut on the zone painting, visually checked",
+   "note": "V2.4.0 pilot, mask in data/source/newshoes/masks"
+  },
+  "shoes-n009": {
+   "bbox": [
+    1041,
+    622,
+    1347,
+    971
+   ],
+   "confidence": "local GrabCut on the zone painting, visually checked",
+   "note": "V2.4.0 pilot, mask in data/source/newshoes/masks"
+  }
+ }
+}

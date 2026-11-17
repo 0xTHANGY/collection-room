@@ -3,14 +3,21 @@
     "hats-h": "data/source/generated/hats-zone-h-v22.webp",
     "hats-d": "data/source/generated/hats-zone-d-v22-192fix.webp",
     "hats-g": "data/source/generated/hats-zone-g-v22.webp",
-    "bottoms-c": "data/source/generated/bottoms-zone-c-v22.webp"
+    "bottoms-c": "data/source/generated/bottoms-zone-c-v22.webp",
+    "shoes-c": "data/source/newshoes/zones/shoes-c.webp"
   },
   "cutouts": {
     "batch2-039": "data/source/generated/dress-039-v22.webp",
     "batch2-102": "data/source/generated/dress-102-v22.webp",
-    "batch2-234": "data/source/generated/dress-234-v22.webp"
+    "batch2-234": "data/source/generated/dress-234-v22.webp",
+    "shoes-n007": "data/source/newshoes/cutouts/shoes-n007.webp",
+    "shoes-n008": "data/source/newshoes/cutouts/shoes-n008.webp",
+    "shoes-n009": "data/source/newshoes/cutouts/shoes-n009.webp",
+    "shoes-n010": "data/source/newshoes/cutouts/shoes-n010.webp",
+    "shoes-n011": "data/source/newshoes/cutouts/shoes-n011.webp",
+    "shoes-n012": "data/source/newshoes/cutouts/shoes-n012.webp"
   },
-  "note": "v2.2: generated with Codex built-in image generation (ChatGPT plan) from final/ zone images, cutouts and reference photos; dress cutouts keyed locally from a #FF00FF background.",
+  "note": "v2.2: generated with Codex built-in image generation (ChatGPT plan) from final/ zone images, cutouts and reference photos; dress cutouts keyed locally from a #FF00FF background. v2.4.0: shoes-c (zone-01 of the new-shoes delivery) painting and shoes-n007..n012 card cutouts come from data/source/newshoes/ (local deterministic cutouts, tools/newshoes_prep.py).",
   "plates": {
     "shoes-a": {
       "file": "data/source/generated/shoes-zone-a-rug-v231.webp",
@@ -20,6 +27,15 @@
       "metadata": "stripped",
       "raw": "work/v2.3.1/gen/shoes-zone-a-rug-v231.png (not in git)",
       "approved": "2026-11-15 by user via PM"
+    },
+    "shoes-c": {
+      "file": "data/source/generated/shoes-zone-c-rug-v240.webp",
+      "version": "v2.4.0",
+      "use": "empty-rug plate for zone-01 (shoes-c); registered/colour-matched and used only in a collar around the six pairs and their shadows",
+      "generator": "Codex CLI imagegen (ChatGPT plan), refs: zone-01 painting + two rug crops",
+      "metadata": "stripped",
+      "raw": "work/newshoes/pilot/gen/shoes-zone-c-rug-v240.png (not in git)",
+      "approved": "2026-11-17 by user via PM"
     }
   }
 }

@@ -70,6 +70,8 @@ def main():
     for order,(cat,zh,en) in enumerate(LABELS):
         source=json.loads((FINAL/cat/'docs'/f'{cat}-items.json').read_text())
         lookup={i['id']:i for i in source['items']}
+        extra=ROOT/'data/source/newshoes/items.json'   # V2.4.0 second source (new shoes); same fields as final/<cat>/docs
+        if extra.exists(): lookup.update({i['id']:i for i in json.loads(extra.read_text())['items'] if i['zone'].startswith(cat+'-')})
         letters=sorted(mapping[cat])
         catalog['categories'].append(dict(id=cat,label=zh,label_en=en,order=order,cover_zone=f'{cat}-{letters[0]}',count=sum(len(v) for v in mapping[cat].values())))
         for letter in letters:
@@ -168,14 +170,14 @@ def main():
             print(zid,'overlap pairs:',pairs)
             for iid in ids:
                 src=lookup[iid];cut=FINAL/cat/'cutouts'/f'{iid}.png'
-                if not cut.exists():cut=FINAL/next(r['path_in_zip'] for r in manifest if r['category']==cat and r['item_id']==iid.split('-')[-1])
+                if not cut.exists() and iid not in GEN['cutouts']:cut=FINAL/next(r['path_in_zip'] for r in manifest if r['category']==cat and r['item_id']==iid.split('-')[-1])
                 if iid in GEN['cutouts']:cut=ROOT/GEN['cutouts'][iid]
                 original=Image.open(cut).convert('RGBA')
                 fixed=fix_card(original,iid,fixes,rgb,boxes.get(iid))
                 cards=variants(fixed,f'assets/items/v2/{iid}',[600,400],True)
                 brand=src.get('brand') or ''
                 if src.get('brand_uncertain') or re.search('不确定|unknown',brand,re.I):brand='Unknown'
-                catalog['items'].append(dict(id=iid,category=cat,zone=zid,number=iid.split('-')[-1],name=hub.get(iid,src['name']),display_name=hub.get(iid,src['name']),brand=brand,type=src.get('type',''),story='故事待补充',image=cards[0]['src'],card_images=cards,hotspot=rect(spots[iid],w,h) if iid in spots else None,layer=layers.get(iid)))
+                catalog['items'].append(dict(id=iid,category=cat,zone=zid,number=src.get('number') or iid.split('-')[-1],name=hub.get(iid,src['name']),display_name=hub.get(iid,src['name']),brand=brand,type=src.get('type',''),story='故事待补充',image=cards[0]['src'],card_images=cards,hotspot=rect(spots[iid],w,h) if iid in spots else None,layer=layers.get(iid)))
     (REVIEW/'gate.json').write_text(json.dumps(gate,indent=2))
     (REVIEW/'gate-table.md').write_text('Zone | Passed/total | Failures\n---|---|---\n'+'\n'.join(z+' | '+str(sum(v['passed'] for v in g.values()))+'/'+str(len(g))+' | '+'; '.join(i+': '+', '.join(v['reasons']) for i,v in g.items() if not v['passed']) for z,g in gate.items()))
     (ROOT/'data/catalog.json').write_text(json.dumps(catalog,ensure_ascii=False,separators=(',',':'))+'\n')
