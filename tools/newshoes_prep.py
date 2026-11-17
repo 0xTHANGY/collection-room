@@ -36,7 +36,7 @@ def find_label(rgb):
         if cw<=6 and ch>=h*.025 and (best is None or x>best[0]): best=(x,y,cw,ch)
     return None if best is None else (x0+best[0],y0+best[1],best[2],best[3])
 
-def cutout(path):
+def cutout(path,inset=0):
     rgb=np.array(Image.open(path).convert('RGB'));h,w=rgb.shape[:2]
     lab=lab_of(rgb)
     rule=find_label(rgb)
@@ -55,6 +55,8 @@ def cutout(path):
     free=(~edge)&(~label)
     n,fl,fs,_=cv2.connectedComponentsWithStats(np.uint8(free),connectivity=4)
     border_ids=set(np.unique(np.concatenate([fl[0],fl[-1],fl[:,0],fl[:,-1]])))-{0}
+    if inset:   # photos with a framed margin: the frame line walls the border off, so also seed the flood from a ring inside the frame
+        border_ids|=set(np.unique(np.concatenate([fl[inset],fl[h-1-inset],fl[:,inset],fl[:,w-1-inset]])))-{0}
     bgmask=np.isin(fl,list(border_ids))
     # bring the 1-2 px edge band that belongs to the background back: grow bg into edge pixels that are
     # not object-dark (keeps antialiased outline, avoids a halo)
@@ -127,7 +129,11 @@ def run_cutouts(zones=None,outdir=None):
     report={};tiles=[]
     for it in items:
         rgb,alpha,m,label,info=cutout(DELIVERY/'originals'/it['source_file'])
-        reasons=gate(m,label,info,rgb);info['pass']=not reasons;info['reasons']=reasons
+        reasons=gate(m,label,info,rgb)
+        if reasons:   # retry once with the flood also seeded inside a framed photo margin
+            r2=cutout(DELIVERY/'originals'/it['source_file'],inset=48);rs2=gate(r2[2],r2[3],r2[4],r2[0])
+            if not rs2: rgb,alpha,m,label,info=r2;reasons=rs2;info['retry']='inset-seed'
+        info['pass']=not reasons;info['reasons']=reasons
         ys,xs=np.where(m>0);pad=int(max(xs.max()-xs.min(),ys.max()-ys.min())*.04)
         x0,x1=max(0,xs.min()-pad),min(rgb.shape[1],xs.max()+pad+1);y0,y1=max(0,ys.min()-pad),min(rgb.shape[0],ys.max()+pad+1)
         rgba=np.dstack([rgb,alpha])[y0:y1,x0:x1].copy()

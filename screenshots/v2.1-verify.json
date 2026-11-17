@@ -211,6 +211,24 @@
       "hotspots": 6
     },
     {
+      "id": "shoes-g",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 6
+    },
+    {
+      "id": "shoes-h",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 6
+    },
+    {
+      "id": "shoes-i",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 6
+    },
+    {
       "id": "hats-a",
       "overlap_pairs": [],
       "has_layout": true,
@@ -283,8 +301,8 @@
       "hotspots": 10
     }
   ],
-  "items_checked": 408,
-  "hotspots_checked": 408,
+  "items_checked": 426,
+  "hotspots_checked": 426,
   "list_only_checked": 0,
   "rest_layers_checked": 390,
   "errors": [],
@@ -292,7 +310,7 @@
   "page_errors": [],
   "failed_requests": [],
   "http_errors": [],
-  "first_load_bytes": 902353,
+  "first_load_bytes": 918838,
   "first_load_files": [
     "app.js",
     "assets/layers/cr-001-layer.webp",

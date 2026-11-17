@@ -80,9 +80,9 @@ Part B final build: card images 24,237,402 bytes; assets total 38,782,508 bytes;
 
 Collection cards close immediately on Esc or ✕, including while a card is still opening: the dialog is closed synchronously and a non-interactive top-layer copy plays the same 650 ms FLIP (or the reduced-motion fade), so the real dialog and its ✕ never move. The open card keeps the compositor-layer state the animated dialog had in V2.3.1, so its pixels match V2.3.1. Footer version V2.3.2.
 
-## V2.4.0 — new shoes (24 of 59 pairs so far)
+## V2.4.0 — new shoes (42 of 59 pairs so far)
 
-The "new shoes" delivery (Bruce, 2026-11-16, 59 pairs) is merged into the existing 鞋履 / Shoes room as zones C (zone-01), D (zone-02), E (zone-03), F (zone-04); ids `shoes-n001…n059` and display numbers 388–446 follow the delivery list order (24 pairs in this build; the rest are reserved, not built). The existing 394 items are unchanged.
+The "new shoes" delivery (Bruce, 2026-11-16, 59 pairs) is merged into the existing 鞋履 / Shoes room as zones C (zone-01), D (zone-02), E (zone-03), F (zone-04), G (zone-05), H (zone-06), I (zone-07); ids `shoes-n001…n059` and display numbers 388–446 follow the delivery list order (42 pairs in this build; the rest are reserved, not built). The existing 394 items are unchanged.
 
 - Names are the catalogue-label text of the original photos (Chinese parentheticals of the delivery list dropped); every story is `故事待补充`; no brand or story is invented. Line 15 keeps the NIKE Fresh Foam X 1080v13 label text as written; the SONGTSAM canvas slip-on (line 37) and the CHANEL rain boots (line 38) are separate items.
 - Second source directory `data/source/newshoes/`: `items.json`, the zone paintings (`zones/`), card cutouts (`cutouts/`, lossless WebP) and prepared silhouettes (`masks/`). `tools/build_v2.py` reads it through three small changes (extra item lookup, cutouts/zones already listed in `generated-v22.json`, optional `number` field); `tools/v23_surfaces.py` accepts `external_masks` for zones that list them, shoes-a is untouched.

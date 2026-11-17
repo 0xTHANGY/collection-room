@@ -4234,5 +4234,179 @@
       },
       "external_mask_core": 15
     }
+  },
+  "shoes-g": {
+    "surface_items": {
+      "surfaces": [
+        {
+          "bbox": [
+            0,
+            372,
+            1536,
+            1024
+          ],
+          "donor_x": [
+            20,
+            90
+          ],
+          "donor_y": [
+            800,
+            900
+          ]
+        }
+      ],
+      "floor": {
+        "fit_top": 201,
+        "blend_top": 372,
+        "edge": [
+          0,
+          372,
+          0.0
+        ],
+        "span": [
+          200,
+          1400
+        ],
+        "exclude": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "grain_donor": [
+          20,
+          420,
+          120,
+          520
+        ]
+      },
+      "generated_plate": "data/source/generated/shoes-zone-g-rug-v240.webp",
+      "generated_collar": 2,
+      "external_masks": {
+        "shoes-n031": "data/source/newshoes/masks/shoes-n031.png",
+        "shoes-n032": "data/source/newshoes/masks/shoes-n032.png",
+        "shoes-n033": "data/source/newshoes/masks/shoes-n033.png",
+        "shoes-n034": "data/source/newshoes/masks/shoes-n034.png",
+        "shoes-n035": "data/source/newshoes/masks/shoes-n035.png",
+        "shoes-n036": "data/source/newshoes/masks/shoes-n036.png"
+      },
+      "external_mask_core": 15
+    }
+  },
+  "shoes-h": {
+    "surface_items": {
+      "surfaces": [
+        {
+          "bbox": [
+            0,
+            372,
+            1536,
+            1024
+          ],
+          "donor_x": [
+            20,
+            90
+          ],
+          "donor_y": [
+            800,
+            900
+          ]
+        }
+      ],
+      "floor": {
+        "fit_top": 250,
+        "blend_top": 372,
+        "edge": [
+          0,
+          372,
+          0.0
+        ],
+        "span": [
+          200,
+          1400
+        ],
+        "exclude": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "grain_donor": [
+          20,
+          420,
+          120,
+          520
+        ]
+      },
+      "generated_plate": "data/source/generated/shoes-zone-h-rug-v240.webp",
+      "generated_collar": 2,
+      "external_masks": {
+        "shoes-n037": "data/source/newshoes/masks/shoes-n037.png",
+        "shoes-n038": "data/source/newshoes/masks/shoes-n038.png",
+        "shoes-n039": "data/source/newshoes/masks/shoes-n039.png",
+        "shoes-n040": "data/source/newshoes/masks/shoes-n040.png",
+        "shoes-n041": "data/source/newshoes/masks/shoes-n041.png",
+        "shoes-n042": "data/source/newshoes/masks/shoes-n042.png"
+      },
+      "external_mask_core": 15
+    }
+  },
+  "shoes-i": {
+    "surface_items": {
+      "surfaces": [
+        {
+          "bbox": [
+            0,
+            372,
+            1536,
+            1024
+          ],
+          "donor_x": [
+            20,
+            90
+          ],
+          "donor_y": [
+            800,
+            900
+          ]
+        }
+      ],
+      "floor": {
+        "fit_top": 250,
+        "blend_top": 372,
+        "edge": [
+          0,
+          372,
+          0.0
+        ],
+        "span": [
+          200,
+          1400
+        ],
+        "exclude": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "grain_donor": [
+          20,
+          420,
+          120,
+          520
+        ]
+      },
+      "generated_plate": "data/source/generated/shoes-zone-i-rug-v240.webp",
+      "generated_collar": 2,
+      "external_masks": {
+        "shoes-n043": "data/source/newshoes/masks/shoes-n043.png",
+        "shoes-n044": "data/source/newshoes/masks/shoes-n044.png",
+        "shoes-n045": "data/source/newshoes/masks/shoes-n045.png",
+        "shoes-n046": "data/source/newshoes/masks/shoes-n046.png",
+        "shoes-n047": "data/source/newshoes/masks/shoes-n047.png",
+        "shoes-n048": "data/source/newshoes/masks/shoes-n048.png"
+      },
+      "external_mask_core": 15
+    }
   }
 }
