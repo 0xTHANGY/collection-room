@@ -167,7 +167,7 @@ function openItem(item, trigger) {
   // navigation can race a following zone switch. On a zone page the card replaces the zone URL with its
   // own (#/item/<id>, shareable); closing restores the zone URL. The hub keeps its URL unchanged.
   cardReturnHash = null;
-  if (item.card_images && !$('zone-view').hidden) {
+  if (item.zone && !$('zone-view').hidden) {
     const z = catalog.zones.find(z => z.id === item.zone);
     cardReturnHash = location.hash && location.hash !== `#/item/${item.id}` ? location.hash : zoneHash(z);
     // The entry is tagged so a later Forward onto it shows the zone only (v2.3.1).
@@ -188,25 +188,33 @@ function openItem(item, trigger) {
   photo.hidden = true;
   photo.alt = item.display_name || item.id;
   status.hidden = false;
-  status.textContent = '照片加载中…';
-  const loader = new Image();
-  loader.onload = () => {
-    if (request !== imageRequest) return;
-    photo.sizes = '(max-width: 650px) 90vw, 430px';
-    photo.srcset = item.card_images ? srcset(item.card_images) : `${item.image} 800w`;
-    photo.src = item.card_images ? item.card_images[1].src : item.image;
-    photo.hidden = false;
-    status.hidden = true;
+  const cards = item.card_images;
+  const source = cards?.[1]?.src || cards?.[0]?.src || item.image;
+  const unavailable = `照片暂时无法显示 · ${item.display_name || item.id}`;
+  status.textContent = unavailable;
+  if (source) {
+    status.textContent = '照片加载中…';
+    const loader = new Image();
+    loader.onload = () => {
+      if (request !== imageRequest) return;
+      photo.sizes = loader.sizes;
+      photo.srcset = loader.srcset;
+      photo.src = source;
+      photo.hidden = false;
+      status.hidden = true;
+      syncGhostPhoto();
+    };
+    loader.onerror = () => {
+      if (request !== imageRequest) return;
+      status.textContent = unavailable;
+      syncGhostPhoto();
+    };
+    loader.sizes = '(max-width: 650px) 90vw, 430px';
+    loader.srcset = cards?.length ? srcset(cards) : `${source} 800w`;
+    loader.src = source;
+  } else {
     syncGhostPhoto();
-  };
-  loader.onerror = () => {
-    if (request !== imageRequest) return;
-    status.textContent = `照片暂时无法显示 · ${item.display_name || item.id}`;
-    syncGhostPhoto();
-  };
-  loader.sizes = '(max-width: 650px) 90vw, 430px';
-  loader.srcset = item.card_images ? srcset(item.card_images) : `${item.image} 800w`;
-  loader.src = item.card_images ? item.card_images[1].src : item.image;
+  }
   flipState = 'opening';
   closeQueued = false;
   dialog.showModal();
@@ -560,24 +568,30 @@ function renderZone(zone) {
   const prev = makeButton('← 上一区', () => { location.hash = zoneHash(siblings[index - 1]); }); prev.disabled = index === 0; tabs.append(prev);
   for (const z of siblings) { const a = document.createElement('a'); a.href = zoneHash(z); a.textContent = z.letter.toUpperCase(); if (z === zone) a.setAttribute('aria-current', 'page'); tabs.append(a); }
   const next = makeButton('下一区 →', () => { location.hash = zoneHash(siblings[index + 1]); }); next.disabled = index === siblings.length - 1; tabs.append(next); view.append(tabs);
-  const room = document.createElement('div'); room.className = 'room zone-room'; room.style.aspectRatio = String(zone.aspect); room.dataset.zoneId = zone.id;
-  const image = document.createElement('img'); image.src = zone.images[1].src; image.srcset = srcset(zone.images); image.sizes = '(max-width: 700px) 100vw, min(1360px, 92vw)'; image.width = zone.natural_size[0]; image.height = zone.natural_size[1]; image.alt = `${categoryLabel(zone.category)} · ${zone.letter.toUpperCase()}`; room.append(image);
-  const layers = document.createElement('div'); layers.className = 'zone-layers'; layers.setAttribute('aria-hidden','true'); room.append(layers);
-  const hotspots = document.createElement('div'); hotspots.className = 'zone-hotspots'; room.append(hotspots); view.append(room);
-  const note = document.createElement('p'); note.className = 'list-note'; note.textContent = zone.has_layout ? '点击物件，或从清单打开收藏卡片。' : '物件位置待补充，请从清单打开收藏卡片。'; view.append(note);
+  view.dataset.zoneId = zone.id;
+  const painting = zone.images?.[1] || zone.images?.[0];
+  const hasLayout = painting && zone.has_layout;
+  let room, layers, hotspots;
+  if (painting) {
+    room = document.createElement('div'); room.className = 'room zone-room'; room.style.aspectRatio = String(zone.aspect);
+    const image = document.createElement('img'); image.src = painting.src; image.srcset = srcset(zone.images); image.sizes = '(max-width: 700px) 100vw, min(1360px, 92vw)'; image.width = zone.natural_size[0]; image.height = zone.natural_size[1]; image.alt = `${categoryLabel(zone.category)} · ${zone.letter.toUpperCase()}`; room.append(image);
+    layers = document.createElement('div'); layers.className = 'zone-layers'; layers.setAttribute('aria-hidden','true'); room.append(layers);
+    hotspots = document.createElement('div'); hotspots.className = 'zone-hotspots'; room.append(hotspots); view.append(room);
+  }
+  const note = document.createElement('p'); note.className = 'list-note'; note.textContent = hasLayout ? '点击物件，或从清单打开收藏卡片。' : '物件位置待补充，请从清单打开收藏卡片。'; view.append(note);
   const list = document.createElement('ul'); list.className = 'zone-item-list'; view.append(list);
   const entries = [];
   for (const id of zone.items) {
     const item = catalog.items.find(i => i.id === id); let hotspot = null;
-    const layer = item.layer ? createLayer(item, layers) : null;
-    if (item.hotspot) {
+    const layer = layers && item.layer ? createLayer(item, layers) : null;
+    if (hotspots && item.hotspot) {
       hotspot = makeButton('', () => openItem(item, hotspot), 'hotspot'); hotspot.dataset.itemId = id; hotspot.setAttribute('aria-label', item.name); hotspot.setAttribute('aria-haspopup','dialog');
       for (const key of ['left','top','width','height']) hotspot.style[key] = `${item.hotspot[key]}%`; hotspots.append(hotspot);
     }
     const li = document.createElement('li'); const b = makeButton(`${item.number}  ${item.name}`, () => openItem(item,b), 'list-item'); b.dataset.itemId = id; b.setAttribute('aria-haspopup','dialog'); li.append(b); list.append(li);
     if (layer && hotspot) entries.push({item,layer,hotspot});
   }
-  setupMotion(entries, room);
+  if (room) setupMotion(entries, room);
 }
 function route(event) {
   if (!catalog) return;
@@ -609,9 +623,14 @@ async function initCatalog() {
     const response = await fetch('data/catalog.json'); if (!response.ok) throw new Error('Catalog unavailable'); catalog = await response.json();
     for (const c of catalog.categories) {
       const z = catalog.zones.find(z => z.id === c.cover_zone); const a = document.createElement('a'); a.className = 'room-tile'; a.href = `#/${c.id}`;
-      const cover = z.cover || z.images[2];
-      const img = document.createElement('img'); img.loading = 'lazy'; img.src = cover.src; img.srcset = `${cover.src} ${cover.width}w`; img.sizes = '(max-width: 650px) 45vw, 300px'; img.width = z.images[2].width; img.height = z.images[2].height; img.alt = '';
-      const label = document.createElement('span'); label.textContent = `${c.label} / ${c.label_en}`; const count = document.createElement('small'); count.textContent = `${c.count} 件`; a.append(img,label,count); $('room-tiles').append(a);
+      const cover = z?.cover || z?.images?.at(-1);
+      if (cover) {
+        const img = document.createElement('img'); img.loading = 'lazy'; img.src = cover.src; img.srcset = `${cover.src} ${cover.width}w`; img.sizes = '(max-width: 650px) 45vw, 300px'; img.width = cover.width; img.height = cover.height; img.alt = '';
+        a.append(img);
+      } else {
+        a.classList.add('room-tile-text');
+      }
+      const label = document.createElement('span'); label.textContent = `${c.label} / ${c.label_en}`; const count = document.createElement('small'); count.textContent = `${c.count} 件`; a.append(label,count); $('room-tiles').append(a);
     }
     route();
   } catch (error) { $('data-status').textContent = '分室清单加载失败，请刷新重试。'; console.error(error); }

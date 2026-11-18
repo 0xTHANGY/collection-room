@@ -16,7 +16,7 @@ from PIL import Image
 from v21_images import reconstruct, review, fix_card, REVIEW
 ROOT = Path(__file__).resolve().parents[1]
 FINAL = ROOT.parent / 'final'
-LABELS = [('jackets','外套','Jackets'),('shirts','衬衫','Shirts'),('tshirts','T恤','T-shirts'),('bottoms','下装','Bottoms'),('dresses','连衣裙','Dresses'),('sweaters','针织衫','Sweaters'),('hoodies','卫衣','Hoodies'),('bags','包袋','Bags'),('accessories','配饰','Accessories'),('shoes','鞋履','Shoes'),('hats','帽子','Hats')]
+LABELS = [('jackets','外套','Jackets'),('shirts','衬衫','Shirts'),('tshirts','T恤','T-shirts'),('bottoms','下装','Bottoms'),('dresses','连衣裙','Dresses'),('sweaters','针织衫','Sweaters'),('hoodies','卫衣','Hoodies'),('bags','包袋','Bags'),('totes','托特包','Totes'),('accessories','配饰','Accessories'),('shoes','鞋履','Shoes'),('hats','帽子','Hats')]
 written=set()
 FROZEN_LIST=ROOT/'data/source/frozen-assets.json'
 FROZEN=json.loads(FROZEN_LIST.read_text())['assets'] if FROZEN_LIST.exists() else {}

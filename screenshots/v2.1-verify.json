@@ -317,18 +317,78 @@
       "overlap_pairs": [],
       "has_layout": true,
       "hotspots": 10
+    },
+    {
+      "id": "shirts-b",
+      "overlap_pairs": [],
+      "has_layout": false,
+      "hotspots": 0
+    },
+    {
+      "id": "hoodies-d",
+      "overlap_pairs": [],
+      "has_layout": false,
+      "hotspots": 0
+    },
+    {
+      "id": "tshirts-e",
+      "overlap_pairs": [],
+      "has_layout": false,
+      "hotspots": 0
+    },
+    {
+      "id": "sweaters-e",
+      "overlap_pairs": [],
+      "has_layout": false,
+      "hotspots": 0
+    },
+    {
+      "id": "jackets-d",
+      "overlap_pairs": [],
+      "has_layout": false,
+      "hotspots": 0
+    },
+    {
+      "id": "bottoms-e",
+      "overlap_pairs": [],
+      "has_layout": false,
+      "hotspots": 0
+    },
+    {
+      "id": "dresses-c",
+      "overlap_pairs": [],
+      "has_layout": false,
+      "hotspots": 0
+    },
+    {
+      "id": "bags-f",
+      "overlap_pairs": [],
+      "has_layout": false,
+      "hotspots": 0
+    },
+    {
+      "id": "totes-a",
+      "overlap_pairs": [],
+      "has_layout": false,
+      "hotspots": 0
+    },
+    {
+      "id": "accessories-e",
+      "overlap_pairs": [],
+      "has_layout": false,
+      "hotspots": 0
     }
   ],
-  "items_checked": 443,
+  "items_checked": 669,
   "hotspots_checked": 443,
-  "list_only_checked": 0,
+  "list_only_checked": 226,
   "rest_layers_checked": 390,
   "errors": [],
   "console_errors": [],
   "page_errors": [],
   "failed_requests": [],
   "http_errors": [],
-  "first_load_bytes": 934802,
+  "first_load_bytes": 1042305,
   "first_load_files": [
     "app.js",
     "assets/layers/cr-001-layer.webp",

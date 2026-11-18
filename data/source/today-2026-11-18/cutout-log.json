@@ -1,0 +1,2694 @@
+{
+ "today-073": {
+  "method": "border-flood",
+  "label_box": [
+   944,
+   1051,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.429,
+  "gate_reasons": []
+ },
+ "today-074": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   934,
+   1104,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4779,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-075": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   928,
+   1028,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.9531,
+  "gate_reasons": [
+   "foreground area outside expected range",
+   "foreground touches frame",
+   "foreground touches label exclusion",
+   "catalogue label rule not detected"
+  ]
+ },
+ "today-076": {
+  "method": "border-flood",
+  "label_box": [
+   953,
+   1031,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3798,
+  "gate_reasons": []
+ },
+ "today-077": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   928,
+   1028,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.9531,
+  "gate_reasons": [
+   "foreground area outside expected range",
+   "foreground touches frame",
+   "foreground touches label exclusion",
+   "catalogue label rule not detected"
+  ]
+ },
+ "today-078": {
+  "method": "border-flood",
+  "label_box": [
+   956,
+   1032,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3922,
+  "gate_reasons": []
+ },
+ "today-079": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   946,
+   1073,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4712,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-080": {
+  "method": "border-flood",
+  "label_box": [
+   917,
+   1063,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.446,
+  "gate_reasons": []
+ },
+ "today-081": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   928,
+   1028,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.9531,
+  "gate_reasons": [
+   "foreground area outside expected range",
+   "foreground touches frame",
+   "foreground touches label exclusion",
+   "catalogue label rule not detected"
+  ]
+ },
+ "today-082": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   949,
+   1046,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3532,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-083": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1016,
+   913,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4101,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-084": {
+  "method": "border-flood",
+  "label_box": [
+   950,
+   1040,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3803,
+  "gate_reasons": []
+ },
+ "today-085": {
+  "method": "border-flood",
+  "label_box": [
+   938,
+   1060,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3638,
+  "gate_reasons": []
+ },
+ "today-086": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   951,
+   1086,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.0656,
+  "gate_reasons": [
+   "foreground lacks a dominant component"
+  ]
+ },
+ "today-087": {
+  "method": "border-flood",
+  "label_box": [
+   922,
+   1032,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.2653,
+  "gate_reasons": []
+ },
+ "today-088": {
+  "method": "border-flood",
+  "label_box": [
+   968,
+   1034,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3985,
+  "gate_reasons": []
+ },
+ "today-089": {
+  "method": "border-flood",
+  "label_box": [
+   964,
+   1047,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.2465,
+  "gate_reasons": []
+ },
+ "today-090": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1087,
+   903,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3875,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-091": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   939,
+   1016,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.0691,
+  "gate_reasons": [
+   "foreground lacks a dominant component"
+  ]
+ },
+ "today-092": {
+  "method": "border-flood",
+  "label_box": [
+   990,
+   1058,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.1434,
+  "gate_reasons": []
+ },
+ "today-093": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1023,
+   1084,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4446,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-094": {
+  "method": "border-flood",
+  "label_box": [
+   966,
+   1059,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4741,
+  "gate_reasons": []
+ },
+ "today-095": {
+  "method": "border-flood",
+  "label_box": [
+   976,
+   1059,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4613,
+  "gate_reasons": []
+ },
+ "today-096": {
+  "method": "border-flood",
+  "label_box": [
+   963,
+   1036,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3927,
+  "gate_reasons": []
+ },
+ "today-097": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   908,
+   1063,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.0423,
+  "gate_reasons": [
+   "foreground lacks a dominant component"
+  ]
+ },
+ "today-098": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   983,
+   1057,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3962,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-099": {
+  "method": "border-flood",
+  "label_box": [
+   868,
+   1078,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.364,
+  "gate_reasons": []
+ },
+ "today-100": {
+  "method": "border-flood",
+  "label_box": [
+   966,
+   1057,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.2575,
+  "gate_reasons": []
+ },
+ "today-101": {
+  "method": "border-flood",
+  "label_box": [
+   1688,
+   1745,
+   2048,
+   2048
+  ],
+  "foreground_fraction": 0.3308,
+  "gate_reasons": []
+ },
+ "today-102": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   933,
+   1067,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.422,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-103": {
+  "method": "border-flood",
+  "label_box": [
+   953,
+   1053,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4188,
+  "gate_reasons": []
+ },
+ "today-104": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   954,
+   1062,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3529,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-105": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1012,
+   1074,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.5163,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-106": {
+  "method": "border-flood",
+  "label_box": [
+   903,
+   1066,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4303,
+  "gate_reasons": []
+ },
+ "today-107": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   932,
+   1050,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4968,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-108": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1023,
+   871,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4053,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-109": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1727,
+   1776,
+   2048,
+   2048
+  ],
+  "foreground_fraction": 0.458,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-110": {
+  "method": "border-flood",
+  "label_box": [
+   1010,
+   1024,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4401,
+  "gate_reasons": []
+ },
+ "today-111": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1724,
+   1776,
+   2048,
+   2048
+  ],
+  "foreground_fraction": 0.4594,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-112": {
+  "method": "border-flood",
+  "label_box": [
+   983,
+   1051,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4525,
+  "gate_reasons": []
+ },
+ "today-113": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   928,
+   1028,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.9531,
+  "gate_reasons": [
+   "foreground area outside expected range",
+   "foreground touches frame",
+   "foreground touches label exclusion",
+   "catalogue label rule not detected"
+  ]
+ },
+ "today-114": {
+  "method": "border-flood",
+  "label_box": [
+   956,
+   1040,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3725,
+  "gate_reasons": []
+ },
+ "today-115": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   809,
+   871,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.8916,
+  "gate_reasons": [
+   "foreground area outside expected range",
+   "foreground touches frame",
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-116": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   959,
+   1254,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3623,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-117": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1732,
+   1780,
+   2048,
+   2048
+  ],
+  "foreground_fraction": 0.3746,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-118": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   931,
+   1057,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4124,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-119": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1010,
+   871,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.395,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-120": {
+  "method": "border-flood",
+  "label_box": [
+   949,
+   1056,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.1126,
+  "gate_reasons": []
+ },
+ "today-121": {
+  "method": "border-flood",
+  "label_box": [
+   992,
+   1073,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.5414,
+  "gate_reasons": []
+ },
+ "today-122": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   980,
+   953,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4457,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-124": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1009,
+   1272,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.4177,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-125": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   905,
+   1057,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.2292,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-126": {
+  "method": "border-flood",
+  "label_box": [
+   868,
+   1169,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.2636,
+  "gate_reasons": []
+ },
+ "today-127": {
+  "method": "border-flood",
+  "label_box": [
+   975,
+   1033,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3855,
+  "gate_reasons": []
+ },
+ "today-128": {
+  "method": "border-flood",
+  "label_box": [
+   904,
+   1030,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.2927,
+  "gate_reasons": []
+ },
+ "today-129": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   957,
+   1064,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.1433,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-130": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   939,
+   1057,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.0675,
+  "gate_reasons": [
+   "foreground lacks a dominant component",
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-131": {
+  "method": "border-flood",
+  "label_box": [
+   930,
+   1000,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3683,
+  "gate_reasons": []
+ },
+ "today-132": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   906,
+   1198,
+   1401,
+   1401
+  ],
+  "foreground_fraction": 0.3398,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-133": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1035,
+   878,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4005,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-134": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   952,
+   1063,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4934,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-135": {
+  "method": "border-flood",
+  "label_box": [
+   906,
+   1033,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3609,
+  "gate_reasons": []
+ },
+ "today-136": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   825,
+   1071,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.0812,
+  "gate_reasons": [
+   "foreground lacks a dominant component",
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-137": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   928,
+   1028,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.9531,
+  "gate_reasons": [
+   "foreground area outside expected range",
+   "foreground touches frame",
+   "foreground touches label exclusion",
+   "catalogue label rule not detected"
+  ]
+ },
+ "today-138": {
+  "method": "border-flood",
+  "label_box": [
+   921,
+   1054,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.1419,
+  "gate_reasons": []
+ },
+ "today-139": {
+  "method": "border-flood",
+  "label_box": [
+   990,
+   1232,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.36,
+  "gate_reasons": []
+ },
+ "today-140": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   711,
+   1020,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.9192,
+  "gate_reasons": [
+   "foreground area outside expected range",
+   "foreground touches frame",
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-141": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   928,
+   1028,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.9531,
+  "gate_reasons": [
+   "foreground area outside expected range",
+   "foreground touches frame",
+   "foreground touches label exclusion",
+   "catalogue label rule not detected"
+  ]
+ },
+ "today-142": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   958,
+   871,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4962,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-143": {
+  "method": "border-flood",
+  "label_box": [
+   965,
+   1054,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3523,
+  "gate_reasons": []
+ },
+ "today-144": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   957,
+   1043,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.138,
+  "gate_reasons": [
+   "foreground lacks a dominant component"
+  ]
+ },
+ "today-145": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   980,
+   1056,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.5142,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-146": {
+  "method": "border-flood",
+  "label_box": [
+   950,
+   1056,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3583,
+  "gate_reasons": []
+ },
+ "today-147": {
+  "method": "border-flood",
+  "label_box": [
+   851,
+   1063,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3935,
+  "gate_reasons": []
+ },
+ "today-148": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   932,
+   1066,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4621,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-149": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   952,
+   1071,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4669,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-150": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   944,
+   1058,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.1143,
+  "gate_reasons": [
+   "foreground lacks a dominant component",
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-151": {
+  "method": "border-flood",
+  "label_box": [
+   967,
+   1219,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.0455,
+  "gate_reasons": []
+ },
+ "today-152": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   961,
+   1065,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.2527,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-189": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   981,
+   1050,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4406,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-225": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   998,
+   902,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3897,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-226": {
+  "method": "border-flood",
+  "label_box": [
+   911,
+   1087,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4037,
+  "gate_reasons": []
+ },
+ "today-227": {
+  "method": "border-flood",
+  "label_box": [
+   962,
+   1256,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.336,
+  "gate_reasons": []
+ },
+ "today-228": {
+  "method": "border-flood",
+  "label_box": [
+   959,
+   1266,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3296,
+  "gate_reasons": []
+ },
+ "today-229": {
+  "method": "border-flood",
+  "label_box": [
+   968,
+   1273,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3455,
+  "gate_reasons": []
+ },
+ "today-230": {
+  "method": "border-flood",
+  "label_box": [
+   891,
+   1273,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3979,
+  "gate_reasons": []
+ },
+ "today-231": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   950,
+   1064,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4626,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-232": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   904,
+   1074,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4727,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-233": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1053,
+   959,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4487,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-234": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   932,
+   1102,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4732,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-235": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1036,
+   871,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4841,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-236": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   951,
+   1245,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3831,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-237": {
+  "method": "border-flood",
+  "label_box": [
+   937,
+   1247,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3859,
+  "gate_reasons": []
+ },
+ "today-238": {
+  "method": "border-flood",
+  "label_box": [
+   993,
+   1252,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3799,
+  "gate_reasons": []
+ },
+ "today-239": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   973,
+   1078,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4584,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-240": {
+  "method": "border-flood",
+  "label_box": [
+   995,
+   1064,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4683,
+  "gate_reasons": []
+ },
+ "today-241": {
+  "method": "border-flood",
+  "label_box": [
+   1016,
+   1079,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3899,
+  "gate_reasons": []
+ },
+ "today-242": {
+  "method": "border-flood",
+  "label_box": [
+   978,
+   1063,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4447,
+  "gate_reasons": []
+ },
+ "today-243": {
+  "method": "border-flood",
+  "label_box": [
+   823,
+   1092,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4273,
+  "gate_reasons": []
+ },
+ "today-244": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   924,
+   1069,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4961,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-245": {
+  "method": "border-flood",
+  "label_box": [
+   951,
+   1071,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4059,
+  "gate_reasons": []
+ },
+ "today-246": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   864,
+   1069,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3249,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-247": {
+  "method": "border-flood",
+  "label_box": [
+   832,
+   1082,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3788,
+  "gate_reasons": []
+ },
+ "today-248": {
+  "method": "border-flood",
+  "label_box": [
+   910,
+   1094,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.401,
+  "gate_reasons": []
+ },
+ "today-249": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   997,
+   1103,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4487,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-250": {
+  "method": "border-flood",
+  "label_box": [
+   984,
+   1248,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3516,
+  "gate_reasons": []
+ },
+ "today-251": {
+  "method": "border-flood",
+  "label_box": [
+   957,
+   1080,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4148,
+  "gate_reasons": []
+ },
+ "today-252": {
+  "method": "border-flood",
+  "label_box": [
+   909,
+   1215,
+   1401,
+   1401
+  ],
+  "foreground_fraction": 0.422,
+  "gate_reasons": []
+ },
+ "today-253": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   946,
+   1073,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4859,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-254": {
+  "method": "border-flood",
+  "label_box": [
+   931,
+   1242,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3325,
+  "gate_reasons": []
+ },
+ "today-255": {
+  "method": "border-flood",
+  "label_box": [
+   804,
+   1245,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3052,
+  "gate_reasons": []
+ },
+ "today-256": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   957,
+   1076,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4005,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-257": {
+  "method": "border-flood",
+  "label_box": [
+   934,
+   1268,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3337,
+  "gate_reasons": []
+ },
+ "today-258": {
+  "method": "border-flood",
+  "label_box": [
+   1030,
+   1253,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3057,
+  "gate_reasons": []
+ },
+ "today-259": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   952,
+   896,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3868,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-260": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   899,
+   1063,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.5036,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-261": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   934,
+   1063,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.452,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-262": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   764,
+   954,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.9065,
+  "gate_reasons": [
+   "foreground area outside expected range",
+   "foreground touches frame",
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-264": {
+  "method": "border-flood",
+  "label_box": [
+   871,
+   1188,
+   1401,
+   1401
+  ],
+  "foreground_fraction": 0.3526,
+  "gate_reasons": []
+ },
+ "today-265": {
+  "method": "border-flood",
+  "label_box": [
+   896,
+   1048,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.45,
+  "gate_reasons": []
+ },
+ "today-266": {
+  "method": "border-flood",
+  "label_box": [
+   944,
+   1054,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.461,
+  "gate_reasons": []
+ },
+ "today-267": {
+  "method": "border-flood",
+  "label_box": [
+   913,
+   1088,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4042,
+  "gate_reasons": []
+ },
+ "today-268": {
+  "method": "border-flood",
+  "label_box": [
+   879,
+   1238,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.35,
+  "gate_reasons": []
+ },
+ "today-269": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   917,
+   1074,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4463,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-270": {
+  "method": "border-flood",
+  "label_box": [
+   1001,
+   1067,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4379,
+  "gate_reasons": []
+ },
+ "today-271": {
+  "method": "border-flood",
+  "label_box": [
+   992,
+   1076,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4339,
+  "gate_reasons": []
+ },
+ "today-272": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1160,
+   947,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4921,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-273": {
+  "method": "border-flood",
+  "label_box": [
+   1020,
+   1072,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.515,
+  "gate_reasons": []
+ },
+ "today-311": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1106,
+   1068,
+   1401,
+   1401
+  ],
+  "foreground_fraction": 0.395,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-312": {
+  "method": "border-flood",
+  "label_box": [
+   970,
+   1073,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3118,
+  "gate_reasons": []
+ },
+ "today-313": {
+  "method": "border-flood",
+  "label_box": [
+   936,
+   1014,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4012,
+  "gate_reasons": []
+ },
+ "today-314": {
+  "method": "border-flood",
+  "label_box": [
+   947,
+   1068,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3515,
+  "gate_reasons": []
+ },
+ "today-315": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   951,
+   1068,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3583,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-316": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   944,
+   1257,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3038,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-317": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   942,
+   1061,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3728,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-318": {
+  "method": "border-flood",
+  "label_box": [
+   957,
+   1054,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3574,
+  "gate_reasons": []
+ },
+ "today-319": {
+  "method": "border-flood",
+  "label_box": [
+   966,
+   1259,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.2916,
+  "gate_reasons": []
+ },
+ "today-320": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   983,
+   1067,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4574,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-321": {
+  "method": "border-flood",
+  "label_box": [
+   875,
+   1039,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.336,
+  "gate_reasons": []
+ },
+ "today-322": {
+  "method": "border-flood",
+  "label_box": [
+   937,
+   1275,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.2827,
+  "gate_reasons": []
+ },
+ "today-323": {
+  "method": "border-flood",
+  "label_box": [
+   942,
+   1273,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3077,
+  "gate_reasons": []
+ },
+ "today-324": {
+  "method": "border-flood",
+  "label_box": [
+   965,
+   1071,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3385,
+  "gate_reasons": []
+ },
+ "today-325": {
+  "method": "border-flood",
+  "label_box": [
+   869,
+   1023,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3242,
+  "gate_reasons": []
+ },
+ "today-326": {
+  "method": "border-flood",
+  "label_box": [
+   821,
+   1087,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.2712,
+  "gate_reasons": []
+ },
+ "today-327": {
+  "method": "border-flood",
+  "label_box": [
+   982,
+   1097,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3514,
+  "gate_reasons": []
+ },
+ "today-328": {
+  "method": "border-flood",
+  "label_box": [
+   1013,
+   1273,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.2437,
+  "gate_reasons": []
+ },
+ "today-329": {
+  "method": "border-flood",
+  "label_box": [
+   949,
+   1053,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.441,
+  "gate_reasons": []
+ },
+ "today-330": {
+  "method": "border-flood",
+  "label_box": [
+   888,
+   1233,
+   1401,
+   1401
+  ],
+  "foreground_fraction": 0.3182,
+  "gate_reasons": []
+ },
+ "today-331": {
+  "method": "border-flood",
+  "label_box": [
+   935,
+   1252,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.2988,
+  "gate_reasons": []
+ },
+ "today-332": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   933,
+   1273,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3139,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-333": {
+  "method": "border-flood",
+  "label_box": [
+   938,
+   1266,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.236,
+  "gate_reasons": []
+ },
+ "today-334": {
+  "method": "border-flood",
+  "label_box": [
+   979,
+   1056,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3835,
+  "gate_reasons": []
+ },
+ "today-335": {
+  "method": "border-flood",
+  "label_box": [
+   927,
+   1248,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3366,
+  "gate_reasons": []
+ },
+ "today-336": {
+  "method": "border-flood",
+  "label_box": [
+   915,
+   1082,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3834,
+  "gate_reasons": []
+ },
+ "today-337": {
+  "method": "border-flood",
+  "label_box": [
+   990,
+   1245,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.2932,
+  "gate_reasons": []
+ },
+ "today-363": {
+  "method": "border-flood",
+  "label_box": [
+   955,
+   1031,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.1902,
+  "gate_reasons": []
+ },
+ "today-364": {
+  "method": "border-flood",
+  "label_box": [
+   1003,
+   1025,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.2721,
+  "gate_reasons": []
+ },
+ "today-365": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   928,
+   1028,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.9531,
+  "gate_reasons": [
+   "foreground area outside expected range",
+   "foreground touches frame",
+   "foreground touches label exclusion",
+   "catalogue label rule not detected"
+  ]
+ },
+ "today-366": {
+  "method": "border-flood",
+  "label_box": [
+   928,
+   1036,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.2653,
+  "gate_reasons": []
+ },
+ "today-367": {
+  "method": "border-flood",
+  "label_box": [
+   959,
+   1028,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.1298,
+  "gate_reasons": []
+ },
+ "today-368": {
+  "method": "border-flood",
+  "label_box": [
+   959,
+   1034,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.176,
+  "gate_reasons": []
+ },
+ "today-369": {
+  "method": "border-flood",
+  "label_box": [
+   982,
+   1051,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.2654,
+  "gate_reasons": []
+ },
+ "today-370": {
+  "method": "border-flood",
+  "label_box": [
+   965,
+   1037,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.1843,
+  "gate_reasons": []
+ },
+ "today-371": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   928,
+   1028,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.9531,
+  "gate_reasons": [
+   "foreground area outside expected range",
+   "foreground touches frame",
+   "foreground touches label exclusion",
+   "catalogue label rule not detected"
+  ]
+ },
+ "today-372": {
+  "method": "border-flood",
+  "label_box": [
+   937,
+   1260,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.2606,
+  "gate_reasons": []
+ },
+ "today-388": {
+  "method": "border-flood",
+  "label_box": [
+   918,
+   1077,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.2721,
+  "gate_reasons": []
+ },
+ "today-389": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1104,
+   871,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4526,
+  "gate_reasons": [
+   "foreground touches frame",
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-390": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1182,
+   1013,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3397,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-391": {
+  "method": "border-flood",
+  "label_box": [
+   881,
+   1085,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3392,
+  "gate_reasons": []
+ },
+ "today-392": {
+  "method": "border-flood",
+  "label_box": [
+   996,
+   1028,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4165,
+  "gate_reasons": []
+ },
+ "today-393": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   964,
+   1081,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.2997,
+  "gate_reasons": [
+   "foreground touches frame"
+  ]
+ },
+ "today-394": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1015,
+   871,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4558,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-395": {
+  "method": "border-flood",
+  "label_box": [
+   952,
+   1061,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4902,
+  "gate_reasons": []
+ },
+ "today-396": {
+  "method": "border-flood",
+  "label_box": [
+   897,
+   1051,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3709,
+  "gate_reasons": []
+ },
+ "today-397": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   951,
+   1108,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.5143,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-398": {
+  "method": "border-flood",
+  "label_box": [
+   890,
+   1039,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3887,
+  "gate_reasons": []
+ },
+ "today-399": {
+  "method": "border-flood",
+  "label_box": [
+   913,
+   1043,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3189,
+  "gate_reasons": []
+ },
+ "today-400": {
+  "method": "border-flood",
+  "label_box": [
+   943,
+   1063,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.386,
+  "gate_reasons": []
+ },
+ "today-401": {
+  "method": "border-flood",
+  "label_box": [
+   952,
+   1075,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.301,
+  "gate_reasons": []
+ },
+ "today-402": {
+  "method": "border-flood",
+  "label_box": [
+   926,
+   1227,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.2292,
+  "gate_reasons": []
+ },
+ "today-403": {
+  "method": "border-flood",
+  "label_box": [
+   1014,
+   1096,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3924,
+  "gate_reasons": []
+ },
+ "today-404": {
+  "method": "border-flood",
+  "label_box": [
+   983,
+   1053,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.302,
+  "gate_reasons": []
+ },
+ "today-405": {
+  "method": "border-flood",
+  "label_box": [
+   1006,
+   1078,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3729,
+  "gate_reasons": []
+ },
+ "today-406": {
+  "method": "border-flood",
+  "label_box": [
+   992,
+   1087,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3888,
+  "gate_reasons": []
+ },
+ "today-407": {
+  "method": "border-flood",
+  "label_box": [
+   964,
+   1050,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.2575,
+  "gate_reasons": []
+ },
+ "today-408": {
+  "method": "border-flood",
+  "label_box": [
+   1018,
+   1057,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4648,
+  "gate_reasons": []
+ },
+ "today-409": {
+  "method": "border-flood",
+  "label_box": [
+   985,
+   1078,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4506,
+  "gate_reasons": []
+ },
+ "today-410": {
+  "method": "border-flood",
+  "label_box": [
+   955,
+   1100,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4152,
+  "gate_reasons": []
+ },
+ "today-411": {
+  "method": "border-flood",
+  "label_box": [
+   976,
+   1097,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3661,
+  "gate_reasons": []
+ },
+ "today-412": {
+  "method": "border-flood",
+  "label_box": [
+   874,
+   1051,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3253,
+  "gate_reasons": []
+ },
+ "today-413": {
+  "method": "border-flood",
+  "label_box": [
+   902,
+   1087,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3942,
+  "gate_reasons": []
+ },
+ "today-414": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1093,
+   933,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3762,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-415": {
+  "method": "border-flood",
+  "label_box": [
+   955,
+   1190,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.149,
+  "gate_reasons": []
+ },
+ "today-416": {
+  "method": "border-flood",
+  "label_box": [
+   957,
+   1049,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.2786,
+  "gate_reasons": []
+ },
+ "today-417": {
+  "method": "border-flood",
+  "label_box": [
+   1007,
+   1109,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3266,
+  "gate_reasons": []
+ },
+ "today-418": {
+  "method": "border-flood",
+  "label_box": [
+   983,
+   1223,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.2024,
+  "gate_reasons": []
+ },
+ "today-419": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   904,
+   976,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3961,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-420": {
+  "method": "border-flood",
+  "label_box": [
+   1023,
+   1097,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.2761,
+  "gate_reasons": []
+ },
+ "today-421": {
+  "method": "border-flood",
+  "label_box": [
+   983,
+   1089,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.357,
+  "gate_reasons": []
+ },
+ "today-422": {
+  "method": "border-flood",
+  "label_box": [
+   962,
+   1121,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4445,
+  "gate_reasons": []
+ },
+ "today-423": {
+  "method": "border-flood",
+  "label_box": [
+   858,
+   1161,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.1974,
+  "gate_reasons": []
+ },
+ "today-424": {
+  "method": "border-flood",
+  "label_box": [
+   1012,
+   1119,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3148,
+  "gate_reasons": []
+ },
+ "today-425": {
+  "method": "border-flood",
+  "label_box": [
+   1013,
+   1114,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3445,
+  "gate_reasons": []
+ },
+ "today-426": {
+  "method": "border-flood",
+  "label_box": [
+   924,
+   1123,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3484,
+  "gate_reasons": []
+ },
+ "today-427": {
+  "method": "border-flood",
+  "label_box": [
+   1021,
+   1111,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4241,
+  "gate_reasons": []
+ },
+ "today-455": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   948,
+   871,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3694,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-456": {
+  "method": "border-flood",
+  "label_box": [
+   1005,
+   1087,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4218,
+  "gate_reasons": []
+ },
+ "today-457": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1056,
+   1160,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.2746,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-458": {
+  "method": "border-flood",
+  "label_box": [
+   964,
+   1193,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.2611,
+  "gate_reasons": []
+ },
+ "today-459": {
+  "method": "border-flood",
+  "label_box": [
+   974,
+   1031,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3511,
+  "gate_reasons": []
+ },
+ "today-460": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1063,
+   1007,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3121,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-461": {
+  "method": "border-flood",
+  "label_box": [
+   908,
+   1055,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4142,
+  "gate_reasons": []
+ },
+ "today-462": {
+  "method": "border-flood",
+  "label_box": [
+   995,
+   1122,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3697,
+  "gate_reasons": []
+ },
+ "today-463": {
+  "method": "border-flood",
+  "label_box": [
+   1001,
+   1096,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4042,
+  "gate_reasons": []
+ },
+ "today-464": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   1000,
+   871,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.3932,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-465": {
+  "method": "border-flood",
+  "label_box": [
+   984,
+   1252,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3764,
+  "gate_reasons": []
+ },
+ "today-466": {
+  "method": "border-flood",
+  "label_box": [
+   948,
+   1230,
+   1449,
+   1449
+  ],
+  "foreground_fraction": 0.3606,
+  "gate_reasons": []
+ },
+ "today-467": {
+  "method": "border-flood",
+  "label_box": [
+   918,
+   1069,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.378,
+  "gate_reasons": []
+ },
+ "today-468": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   986,
+   948,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4149,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-469": {
+  "method": "border-flood",
+  "label_box": [
+   970,
+   1154,
+   1401,
+   1401
+  ],
+  "foreground_fraction": 0.4232,
+  "gate_reasons": []
+ },
+ "today-486": {
+  "method": "full-frame-label-fill",
+  "label_box": [
+   838,
+   935,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.4048,
+  "gate_reasons": [
+   "foreground touches label exclusion"
+  ]
+ },
+ "today-495": {
+  "method": "border-flood",
+  "label_box": [
+   855,
+   1075,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.2908,
+  "gate_reasons": []
+ },
+ "today-496": {
+  "method": "border-flood",
+  "label_box": [
+   808,
+   1039,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.2259,
+  "gate_reasons": []
+ },
+ "today-497": {
+  "method": "border-flood",
+  "label_box": [
+   892,
+   1073,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.301,
+  "gate_reasons": []
+ },
+ "today-498": {
+  "method": "border-flood",
+  "label_box": [
+   870,
+   1075,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.2736,
+  "gate_reasons": []
+ },
+ "today-499": {
+  "method": "border-flood",
+  "label_box": [
+   872,
+   1055,
+   1254,
+   1254
+  ],
+  "foreground_fraction": 0.2951,
+  "gate_reasons": []
+ }
+}

@@ -51,7 +51,12 @@ def main():
                     assert page.locator('#detail-brand').inner_text()==item['brand']
                     page.evaluate('document.getAnimations().forEach(a=>a.finish())')
                     page.wait_for_function('() => flipState === "open"')
-                    page.wait_for_function('() => document.querySelector("#detail-image").naturalWidth > 0 && !document.querySelector("#detail-image").hidden')
+                    if item.get('image') or item.get('card_images'):
+                        page.wait_for_function('() => document.querySelector("#detail-image").naturalWidth > 0 && !document.querySelector("#detail-image").hidden')
+                    else:
+                        assert page.locator('#detail-image').is_hidden()
+                        assert page.locator('#photo-status').is_visible()
+                        assert '照片暂时无法显示' in page.locator('#photo-status').inner_text()
                     if iid==catalog['zones'][0]['items'][0]:(ROOT/'work/verify').mkdir(parents=True,exist_ok=True);page.screenshot(path=str(ROOT/'work/verify/v2.1-card-open.png'))  # card capture varies with idle motion timing; keep it out of git
                     page.locator('#close-dialog').click();page.evaluate('document.getAnimations().forEach(a=>a.finish())');page.wait_for_function('() => !document.querySelector("dialog").open')
                     page.wait_for_function('() => !location.hash.startsWith("#/item/")')
