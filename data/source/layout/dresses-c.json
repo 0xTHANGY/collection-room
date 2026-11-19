@@ -1,0 +1,109 @@
+{
+  "zone": "dresses-c",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-363": {
+      "bbox": [
+        473,
+        45,
+        592,
+        460
+      ],
+      "confidence": "high",
+      "note": "Olive-brown sleeveless maxi dress"
+    },
+    "today-364": {
+      "bbox": [
+        636,
+        45,
+        781,
+        381
+      ],
+      "confidence": "high",
+      "note": "Peach dress with cream lace straps, bodice, and hem"
+    },
+    "today-365": {
+      "bbox": [
+        815,
+        45,
+        1011,
+        392
+      ],
+      "confidence": "high",
+      "note": "Dark navy long-sleeve quarter-zip dress"
+    },
+    "today-366": {
+      "bbox": [
+        1050,
+        45,
+        1195,
+        467
+      ],
+      "confidence": "high",
+      "note": "Olive satin maxi dress with a draped neckline"
+    },
+    "today-367": {
+      "bbox": [
+        1261,
+        45,
+        1367,
+        467
+      ],
+      "confidence": "high",
+      "note": "Black sleeveless maxi dress with a silver waist clasp"
+    },
+    "today-368": {
+      "bbox": [
+        467,
+        483,
+        596,
+        914
+      ],
+      "confidence": "high",
+      "note": "Black scoop-neck maxi dress with a lace-up bodice"
+    },
+    "today-369": {
+      "bbox": [
+        637,
+        483,
+        790,
+        844
+      ],
+      "confidence": "high",
+      "note": "Cream sleeveless knit dress with embroidered vines"
+    },
+    "today-370": {
+      "bbox": [
+        824,
+        483,
+        995,
+        916
+      ],
+      "confidence": "high",
+      "note": "Ivory draped-neck dress with a gathered skirt"
+    },
+    "today-371": {
+      "bbox": [
+        1015,
+        483,
+        1205,
+        836
+      ],
+      "confidence": "high",
+      "note": "Navy T-shirt dress with a white hem label"
+    },
+    "today-372": {
+      "bbox": [
+        1226,
+        483,
+        1415,
+        914
+      ],
+      "confidence": "high",
+      "note": "Charcoal long-sleeve maxi dress with a button placket"
+    }
+  }
+}

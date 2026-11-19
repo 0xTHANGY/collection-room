@@ -117,7 +117,7 @@
     "shoes-n058",
     "shoes-n059"
   ],
-  "first_load_bytes": 1042305,
+  "first_load_bytes": 1416467,
   "first_load_files": [
     "app.js",
     "assets/layers/cr-001-layer.webp",
@@ -141,6 +141,7 @@
     "assets/zones/shirts-a-cover-640.webp",
     "assets/zones/shoes-a-cover-640.webp",
     "assets/zones/sweaters-a-cover-640.webp",
+    "assets/zones/totes-a-cover-640.webp",
     "assets/zones/tshirts-a-cover-640.webp",
     "data/catalog.json",
     "data/items.json",

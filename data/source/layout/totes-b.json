@@ -1,0 +1,79 @@
+{
+  "zone": "totes-b",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-463": {
+      "bbox": [
+        197,
+        56,
+        459,
+        425
+      ],
+      "confidence": "high",
+      "note": "Navy and beige Dior monogram tote with VIVIAN band"
+    },
+    "today-464": {
+      "bbox": [
+        510,
+        56,
+        765,
+        425
+      ],
+      "confidence": "high",
+      "note": "Pink Dior toile VIVIAN tote with plush bunny charm"
+    },
+    "today-465": {
+      "bbox": [
+        821,
+        55,
+        1043,
+        428
+      ],
+      "confidence": "high",
+      "note": "Cream La Grande Épicerie tote with green picnic print"
+    },
+    "today-466": {
+      "bbox": [
+        1104,
+        55,
+        1346,
+        425
+      ],
+      "confidence": "high",
+      "note": "Brown Verlet tote with café storefront print"
+    },
+    "today-467": {
+      "bbox": [
+        303,
+        472,
+        527,
+        831
+      ],
+      "confidence": "high",
+      "note": "Gray plaid tote with long red, white, and navy straps"
+    },
+    "today-468": {
+      "bbox": [
+        642,
+        472,
+        888,
+        832
+      ],
+      "confidence": "high",
+      "note": "Dark plaid tote with navy handles and striped trim"
+    },
+    "today-469": {
+      "bbox": [
+        1001,
+        472,
+        1263,
+        828
+      ],
+      "confidence": "high",
+      "note": "Olive baziszt tote with yellow-roof storefront print"
+    }
+  }
+}

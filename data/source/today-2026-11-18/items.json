@@ -443,7 +443,7 @@
       "zone": "tshirts-e",
       "source_file": "8791ea82a8a26ce95cfd19641430ed70c9a8c0af5adea9ac1909eadcd9cf6163.png",
       "csv_id": "T109",
-      "photo": false
+      "photo": true
     },
     {
       "id": "today-110",
@@ -467,7 +467,7 @@
       "zone": "tshirts-e",
       "source_file": "4678ef6beeae2b77354a2f6a8c693607362c9696a10458e3eacce9c8bdc364e5.png",
       "csv_id": "T111",
-      "photo": false
+      "photo": true
     },
     {
       "id": "today-112",
@@ -539,7 +539,7 @@
       "zone": "hoodies-d",
       "source_file": "6ecebc2b9effd3be161294e858c575dde5689d25767db9afafb476d9d653d253.png",
       "csv_id": "T117",
-      "photo": false
+      "photo": true
     },
     {
       "id": "today-118",
@@ -2084,7 +2084,7 @@
       "brand": "Unknown",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-g",
       "source_file": "6ffedf56d12b537a57344dc492f2e0e79aa1a319ffe67398fe4682441bff9ec7.png",
       "csv_id": "T396",
       "photo": true
@@ -2096,7 +2096,7 @@
       "brand": "CHANEL",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-g",
       "source_file": "6ed70ec0bce5e55694d0970064b8c3e6b12acefe8f9b3cbad8474b130286787b.png",
       "csv_id": "T397",
       "photo": true
@@ -2108,7 +2108,7 @@
       "brand": "Unknown",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-g",
       "source_file": "bcb700c5f315a2a5ddfd843f4916d0ae2c9133197abc45d58a324ed454706993.png",
       "csv_id": "T398",
       "photo": true
@@ -2120,7 +2120,7 @@
       "brand": "Unknown",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-g",
       "source_file": "91092c397d4b69b6fafa7917edf269ec50b76bb2172421a5b56eb91ec97b0afc.png",
       "csv_id": "T399",
       "photo": true
@@ -2132,7 +2132,7 @@
       "brand": "Unknown",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-g",
       "source_file": "672e0d89ad7351927a1e9b918c8ee40111e18a4326dfe46da7d91d3acdd6ffca.png",
       "csv_id": "T400",
       "photo": true
@@ -2144,7 +2144,7 @@
       "brand": "Unknown",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-g",
       "source_file": "a32586eca08ceef273889e1468ac2177cd5202c6b94684b525e0e64c7f4abb65.png",
       "csv_id": "T401",
       "photo": true
@@ -2156,7 +2156,7 @@
       "brand": "Unknown",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-g",
       "source_file": "c8c7a86a9111b0753709cbb8092bce7a371317dd9ded94f8b9f9b448502e1852.jpg",
       "csv_id": "T402",
       "photo": true
@@ -2168,7 +2168,7 @@
       "brand": "CHANEL",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-g",
       "source_file": "344f087e398ecfbaeb5432e1927c75da59c41bb1eeb84fef3509a9d09c578f2f.png",
       "csv_id": "T403",
       "photo": true
@@ -2180,7 +2180,7 @@
       "brand": "CHANEL",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-h",
       "source_file": "4b77f01a6620ec422a6b3a9ff441a600f4d4f32f65e277ef628c7f6d42ca59bc.png",
       "csv_id": "T404",
       "photo": true
@@ -2192,7 +2192,7 @@
       "brand": "CHANEL",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-h",
       "source_file": "4e10dfc96b5c8641b4d2f3f03d0a96c8845376900927096e628e2dd3e841a5a1.png",
       "csv_id": "T405",
       "photo": true
@@ -2204,7 +2204,7 @@
       "brand": "CHANEL",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-h",
       "source_file": "dcad728dd19826c43cad8074efa83bc4f5d5573f4314c8d8d5a4d8e5614884b6.png",
       "csv_id": "T406",
       "photo": true
@@ -2216,7 +2216,7 @@
       "brand": "Unknown",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-h",
       "source_file": "5201150a142f0c5114751d167d0d7c3e0ab6656f6709d9dd49bd9d8abdc61750.png",
       "csv_id": "T407",
       "photo": true
@@ -2228,7 +2228,7 @@
       "brand": "Unknown",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-h",
       "source_file": "276d2438dd943c27217ef2ded57f3d77b9b861fa57c865358d11359802dd1540.png",
       "csv_id": "T408",
       "photo": true
@@ -2240,7 +2240,7 @@
       "brand": "Unknown",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-h",
       "source_file": "3f82094dcd2bc2080872935fd039fc7dbce8d3175da70771dffdc8a9f92e2360.png",
       "csv_id": "T409",
       "photo": true
@@ -2252,7 +2252,7 @@
       "brand": "Jil Sander",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-h",
       "source_file": "a567905b70db1f5835084f3a12a2a011b06d4ff75bbc27b480186edcb2bbfa59.png",
       "csv_id": "T410",
       "photo": true
@@ -2264,7 +2264,7 @@
       "brand": "Unknown",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-h",
       "source_file": "c79f856034a1f33202fcf346438c2e48ad024edbb3db871285e303138076115e.png",
       "csv_id": "T411",
       "photo": true
@@ -2276,7 +2276,7 @@
       "brand": "Unknown",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-i",
       "source_file": "9c7fbc152cc0cf68eaeafc175d596d355a6075a6a3fca9f935f7cfb068a3dcfe.png",
       "csv_id": "T412",
       "photo": true
@@ -2288,7 +2288,7 @@
       "brand": "Unknown",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-i",
       "source_file": "57aec87075705ae0bccdd533c4afdf7ace090ae609a94cd74ed4b75c0e2edc4d.png",
       "csv_id": "T413",
       "photo": true
@@ -2300,7 +2300,7 @@
       "brand": "Unknown",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-i",
       "source_file": "609f0f50bc2f64fa30c9b454aa767738859c2042d6594be1c8d63d573e9d59c4.png",
       "csv_id": "T414",
       "photo": true
@@ -2312,7 +2312,7 @@
       "brand": "Unknown",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-i",
       "source_file": "c9bba65b556b80d728fc3366f2f2a20fa94c8255067248101f40eda5a3547b22.jpg",
       "csv_id": "T415",
       "photo": true
@@ -2324,7 +2324,7 @@
       "brand": "Unknown",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-i",
       "source_file": "8d85496f979833f01f67b0c8521f461d58c01aac58a4e188ff383ffba8eeee5d.png",
       "csv_id": "T416",
       "photo": true
@@ -2336,7 +2336,7 @@
       "brand": "Unknown",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-i",
       "source_file": "1b2899070cd3c67f5db07a3b1808c1592ddf101de24cd33019640d7b328b254f.png",
       "csv_id": "T417",
       "photo": true
@@ -2348,7 +2348,7 @@
       "brand": "Loewe",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-i",
       "source_file": "e27d8524f534106d1bac9480563c6036fc2871d9e4ec445431769637ea3b2422.jpg",
       "csv_id": "T418",
       "photo": true
@@ -2360,7 +2360,7 @@
       "brand": "Unknown",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-i",
       "source_file": "3a13b3dd56d9b8215ec5ba3bb529934b8513f731112efda5d5d1333884d92ccd.png",
       "csv_id": "T419",
       "photo": true
@@ -2372,7 +2372,7 @@
       "brand": "Prada",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-j",
       "source_file": "6ae23499365c402489b7b611366caaec595647e8c1cf90dc419edfd50f5d1fe3.png",
       "csv_id": "T420",
       "photo": true
@@ -2384,7 +2384,7 @@
       "brand": "Unknown",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-j",
       "source_file": "c9ece2e87fc27abc0f1f1e2f612869b57fe564f83103adadb5087f1aeefad2ec.png",
       "csv_id": "T421",
       "photo": true
@@ -2396,7 +2396,7 @@
       "brand": "Story MFG",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-j",
       "source_file": "ff627dbb0353132f48840981574d0b55d0af93969cf8101e61daf5e06c245002.png",
       "csv_id": "T422",
       "photo": true
@@ -2408,7 +2408,7 @@
       "brand": "Unknown",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-j",
       "source_file": "9fbf50402febbe304c9cb0bf87ef5bac733794e9e7575fdfe453085e56115385.jpg",
       "csv_id": "T423",
       "photo": true
@@ -2420,7 +2420,7 @@
       "brand": "miu miu",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-j",
       "source_file": "44b99587888792ba9ffbaded051578cc72874de0cd9168e360b2798b44bdccf9.png",
       "csv_id": "T424",
       "photo": true
@@ -2432,7 +2432,7 @@
       "brand": "miu miu",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-j",
       "source_file": "5ffd8c54780695b931ea733318e955d792422323c56c53eecb71ea393a768141.png",
       "csv_id": "T425",
       "photo": true
@@ -2444,7 +2444,7 @@
       "brand": "miu miu",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-j",
       "source_file": "a911a50c0b1d67972cd3bc2ef6153cdbfb9d54a5737b217ed89d809b17e3caaf.png",
       "csv_id": "T426",
       "photo": true
@@ -2456,7 +2456,7 @@
       "brand": "miu miu",
       "type": "bag",
       "category": "bags",
-      "zone": "bags-f",
+      "zone": "bags-j",
       "source_file": "e9ddd7a912c4f96be9d4c5bce5a0828b1baa8bbf014fc465a050e7ccd58ee4d4.png",
       "csv_id": "T427",
       "photo": true
@@ -2564,7 +2564,7 @@
       "brand": "DIOR",
       "type": "tote",
       "category": "totes",
-      "zone": "totes-a",
+      "zone": "totes-b",
       "source_file": "6802466d4618a51c175e655b60bc94af6b4ca2b880d3c34c2f8370e1e725d13b.png",
       "csv_id": "T463",
       "photo": true
@@ -2576,7 +2576,7 @@
       "brand": "DIOR",
       "type": "tote",
       "category": "totes",
-      "zone": "totes-a",
+      "zone": "totes-b",
       "source_file": "be365e7dd8b5825a22de5b7ba5b05081e5d8635462797ce955a8306ad7989479.png",
       "csv_id": "T464",
       "photo": true
@@ -2588,7 +2588,7 @@
       "brand": "Unknown",
       "type": "tote",
       "category": "totes",
-      "zone": "totes-a",
+      "zone": "totes-b",
       "source_file": "1992743c8b9642ac4695cec3d6f12486f7cc63195fb117baa1552bc093accb3e.jpg",
       "csv_id": "T465",
       "photo": true
@@ -2600,7 +2600,7 @@
       "brand": "Unknown",
       "type": "tote",
       "category": "totes",
-      "zone": "totes-a",
+      "zone": "totes-b",
       "source_file": "766aa03fb4e13f5a44e4c86dec806400fa9f70d61e66cd8fe19ce14ef652c601.jpg",
       "csv_id": "T466",
       "photo": true
@@ -2612,7 +2612,7 @@
       "brand": "THOM BROWNE. NEW YORK",
       "type": "tote",
       "category": "totes",
-      "zone": "totes-a",
+      "zone": "totes-b",
       "source_file": "82edd348cb80621767253363b7f07c4781ee549e22bbf920d05547f7a2d77888.png",
       "csv_id": "T467",
       "photo": true
@@ -2624,7 +2624,7 @@
       "brand": "Unknown",
       "type": "tote",
       "category": "totes",
-      "zone": "totes-a",
+      "zone": "totes-b",
       "source_file": "076d0425c3e6f6023f0bcd0e5974155310c05a9ca51a6387af97a49b05d7f620.png",
       "csv_id": "T468",
       "photo": true
@@ -2636,7 +2636,7 @@
       "brand": "baziszt",
       "type": "tote",
       "category": "totes",
-      "zone": "totes-a",
+      "zone": "totes-b",
       "source_file": "693850750a250cb08bcda07f8608039b1149ef486c1d1afb649dcc0740684edb.jpg",
       "csv_id": "T469",
       "photo": true

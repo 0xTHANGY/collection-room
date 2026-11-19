@@ -1,0 +1,89 @@
+{
+  "zone": "bags-i",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-412": {
+      "bbox": [
+        546,
+        82,
+        715,
+        380
+      ],
+      "confidence": "high",
+      "note": "Monogram trunk bag with brass clasps"
+    },
+    "today-413": {
+      "bbox": [
+        757,
+        82,
+        962,
+        397
+      ],
+      "confidence": "high",
+      "note": "Cream shearling crescent with brown leather trim"
+    },
+    "today-414": {
+      "bbox": [
+        993,
+        82,
+        1223,
+        398
+      ],
+      "confidence": "high",
+      "note": "Brown padded crescent with a wide strap"
+    },
+    "today-415": {
+      "bbox": [
+        1269,
+        82,
+        1462,
+        379
+      ],
+      "confidence": "high",
+      "note": "Olive crescent with a dangling strap end"
+    },
+    "today-416": {
+      "bbox": [
+        563,
+        440,
+        703,
+        773
+      ],
+      "confidence": "high",
+      "note": "Yellow net bag with a daisy charm"
+    },
+    "today-417": {
+      "bbox": [
+        759,
+        441,
+        981,
+        763
+      ],
+      "confidence": "high",
+      "note": "Dark trapezoid tote with a floral side panel"
+    },
+    "today-418": {
+      "bbox": [
+        1006,
+        441,
+        1211,
+        765
+      ],
+      "confidence": "high",
+      "note": "Woven basket tote with a leather patch"
+    },
+    "today-419": {
+      "bbox": [
+        1250,
+        441,
+        1463,
+        773
+      ],
+      "confidence": "high",
+      "note": "Pink shearling drawstring bucket bag"
+    }
+  }
+}

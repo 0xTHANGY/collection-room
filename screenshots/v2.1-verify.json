@@ -19,10 +19,22 @@
       "hotspots": 12
     },
     {
+      "id": "jackets-d",
+      "overlap_pairs": [],
+      "has_layout": false,
+      "hotspots": 0
+    },
+    {
       "id": "shirts-a",
       "overlap_pairs": [],
       "has_layout": true,
       "hotspots": 8
+    },
+    {
+      "id": "shirts-b",
+      "overlap_pairs": [],
+      "has_layout": false,
+      "hotspots": 0
     },
     {
       "id": "tshirts-a",
@@ -49,6 +61,12 @@
       "hotspots": 10
     },
     {
+      "id": "tshirts-e",
+      "overlap_pairs": [],
+      "has_layout": false,
+      "hotspots": 0
+    },
+    {
       "id": "bottoms-a",
       "overlap_pairs": [],
       "has_layout": true,
@@ -73,6 +91,12 @@
       "hotspots": 8
     },
     {
+      "id": "bottoms-e",
+      "overlap_pairs": [],
+      "has_layout": false,
+      "hotspots": 0
+    },
+    {
       "id": "dresses-a",
       "overlap_pairs": [],
       "has_layout": true,
@@ -83,6 +107,12 @@
       "overlap_pairs": [],
       "has_layout": true,
       "hotspots": 17
+    },
+    {
+      "id": "dresses-c",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 10
     },
     {
       "id": "sweaters-a",
@@ -109,6 +139,12 @@
       "hotspots": 9
     },
     {
+      "id": "sweaters-e",
+      "overlap_pairs": [],
+      "has_layout": false,
+      "hotspots": 0
+    },
+    {
       "id": "hoodies-a",
       "overlap_pairs": [],
       "has_layout": true,
@@ -125,6 +161,12 @@
       "overlap_pairs": [],
       "has_layout": true,
       "hotspots": 8
+    },
+    {
+      "id": "hoodies-d",
+      "overlap_pairs": [],
+      "has_layout": false,
+      "hotspots": 0
     },
     {
       "id": "bags-a",
@@ -157,6 +199,48 @@
       "hotspots": 9
     },
     {
+      "id": "bags-f",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "bags-g",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "bags-h",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "bags-i",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "bags-j",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "totes-a",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "totes-b",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 7
+    },
+    {
       "id": "accessories-a",
       "overlap_pairs": [],
       "has_layout": true,
@@ -179,6 +263,12 @@
       "overlap_pairs": [],
       "has_layout": true,
       "hotspots": 5
+    },
+    {
+      "id": "accessories-e",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 6
     },
     {
       "id": "shoes-a",
@@ -317,78 +407,18 @@
       "overlap_pairs": [],
       "has_layout": true,
       "hotspots": 10
-    },
-    {
-      "id": "shirts-b",
-      "overlap_pairs": [],
-      "has_layout": false,
-      "hotspots": 0
-    },
-    {
-      "id": "hoodies-d",
-      "overlap_pairs": [],
-      "has_layout": false,
-      "hotspots": 0
-    },
-    {
-      "id": "tshirts-e",
-      "overlap_pairs": [],
-      "has_layout": false,
-      "hotspots": 0
-    },
-    {
-      "id": "sweaters-e",
-      "overlap_pairs": [],
-      "has_layout": false,
-      "hotspots": 0
-    },
-    {
-      "id": "jackets-d",
-      "overlap_pairs": [],
-      "has_layout": false,
-      "hotspots": 0
-    },
-    {
-      "id": "bottoms-e",
-      "overlap_pairs": [],
-      "has_layout": false,
-      "hotspots": 0
-    },
-    {
-      "id": "dresses-c",
-      "overlap_pairs": [],
-      "has_layout": false,
-      "hotspots": 0
-    },
-    {
-      "id": "bags-f",
-      "overlap_pairs": [],
-      "has_layout": false,
-      "hotspots": 0
-    },
-    {
-      "id": "totes-a",
-      "overlap_pairs": [],
-      "has_layout": false,
-      "hotspots": 0
-    },
-    {
-      "id": "accessories-e",
-      "overlap_pairs": [],
-      "has_layout": false,
-      "hotspots": 0
     }
   ],
   "items_checked": 669,
-  "hotspots_checked": 443,
-  "list_only_checked": 226,
-  "rest_layers_checked": 390,
+  "hotspots_checked": 514,
+  "list_only_checked": 155,
+  "rest_layers_checked": 461,
   "errors": [],
   "console_errors": [],
   "page_errors": [],
   "failed_requests": [],
   "http_errors": [],
-  "first_load_bytes": 1042305,
+  "first_load_bytes": 1416467,
   "first_load_files": [
     "app.js",
     "assets/layers/cr-001-layer.webp",
@@ -412,6 +442,7 @@
     "assets/zones/shirts-a-cover-640.webp",
     "assets/zones/shoes-a-cover-640.webp",
     "assets/zones/sweaters-a-cover-640.webp",
+    "assets/zones/totes-a-cover-640.webp",
     "assets/zones/tshirts-a-cover-640.webp",
     "data/catalog.json",
     "data/items.json",
