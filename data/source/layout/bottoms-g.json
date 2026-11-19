@@ -1,0 +1,99 @@
+{
+  "zone": "bottoms-g",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-329": {
+      "bbox": [
+        231,
+        70,
+        460,
+        355
+      ],
+      "confidence": "high",
+      "note": "Black pleated cargo shorts with a side flap pocket"
+    },
+    "today-330": {
+      "bbox": [
+        492,
+        70,
+        691,
+        440
+      ],
+      "confidence": "high",
+      "note": "Dark barrel-leg trousers with a button waistband"
+    },
+    "today-331": {
+      "bbox": [
+        724,
+        69,
+        921,
+        459
+      ],
+      "confidence": "high",
+      "note": "Black wide-leg trousers with a drawstring waist"
+    },
+    "today-332": {
+      "bbox": [
+        961,
+        70,
+        1149,
+        460
+      ],
+      "confidence": "high",
+      "note": "Black pleated trousers with tapered barrel legs"
+    },
+    "today-333": {
+      "bbox": [
+        1195,
+        69,
+        1383,
+        460
+      ],
+      "confidence": "high",
+      "note": "Dark tailored trousers with straight wide legs and front creases"
+    },
+    "today-334": {
+      "bbox": [
+        248,
+        497,
+        494,
+        865
+      ],
+      "confidence": "high",
+      "note": "Navy flared skirt with a brown knotted rope belt"
+    },
+    "today-335": {
+      "bbox": [
+        525,
+        496,
+        781,
+        863
+      ],
+      "confidence": "high",
+      "note": "Black A-line skirt with a buckle and hanging belt strap"
+    },
+    "today-336": {
+      "bbox": [
+        829,
+        496,
+        1061,
+        807
+      ],
+      "confidence": "high",
+      "note": "Charcoal pleated skirt with red and white hem accents"
+    },
+    "today-337": {
+      "bbox": [
+        1134,
+        496,
+        1358,
+        898
+      ],
+      "confidence": "high",
+      "note": "Olive wide-leg trousers with beige waistband and side panels"
+    }
+  }
+}

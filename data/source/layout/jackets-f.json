@@ -1,0 +1,129 @@
+{
+  "zone": "jackets-f",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-249": {
+      "bbox": [
+        171,
+        111,
+        406,
+        413
+      ],
+      "confidence": "high",
+      "note": "Dark leather bomber with a button front and gathered hem"
+    },
+    "today-250": {
+      "bbox": [
+        410,
+        111,
+        582,
+        390
+      ],
+      "confidence": "high",
+      "note": "Olive padded vest with a wrap collar and button front"
+    },
+    "today-251": {
+      "bbox": [
+        588,
+        111,
+        800,
+        429
+      ],
+      "confidence": "high",
+      "note": "Cognac leather moto jacket with diagonal zips and a dangling belt"
+    },
+    "today-252": {
+      "bbox": [
+        802,
+        111,
+        993,
+        411
+      ],
+      "confidence": "high",
+      "note": "Dark blazer with striped lapels and a tan pocket panel"
+    },
+    "today-253": {
+      "bbox": [
+        993,
+        111,
+        1209,
+        412
+      ],
+      "confidence": "high",
+      "note": "Navy and black Marty Supreme hoodie with three orange stars"
+    },
+    "today-254": {
+      "bbox": [
+        1212,
+        111,
+        1405,
+        414
+      ],
+      "confidence": "high",
+      "note": "Black pleated open-front jacket with broad folded lapels"
+    },
+    "today-255": {
+      "bbox": [
+        190,
+        454,
+        392,
+        777
+      ],
+      "confidence": "high",
+      "note": "Dark brown ribbed zip jacket with a stand collar"
+    },
+    "today-256": {
+      "bbox": [
+        389,
+        454,
+        597,
+        771
+      ],
+      "confidence": "high",
+      "note": "Cropped olive work jacket with a dark collar and two patch pockets"
+    },
+    "today-257": {
+      "bbox": [
+        596,
+        454,
+        801,
+        771
+      ],
+      "confidence": "high",
+      "note": "Charcoal varsity jacket with cream shoulder stripes and trim"
+    },
+    "today-258": {
+      "bbox": [
+        807,
+        455,
+        983,
+        759
+      ],
+      "confidence": "high",
+      "note": "Tan wrap-front vest with one dark button and two curved pockets"
+    },
+    "today-259": {
+      "bbox": [
+        994,
+        455,
+        1182,
+        767
+      ],
+      "confidence": "high",
+      "note": "Multicolor fleece vest with black trim and a black chest pocket"
+    },
+    "today-260": {
+      "bbox": [
+        1183,
+        455,
+        1426,
+        777
+      ],
+      "confidence": "high",
+      "note": "Navy jacket with a brown collar and embroidered animals"
+    }
+  }
+}

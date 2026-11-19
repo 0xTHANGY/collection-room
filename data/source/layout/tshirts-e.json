@@ -1,0 +1,89 @@
+{
+  "zone": "tshirts-e",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-084": {
+      "bbox": [
+        285,
+        45,
+        572,
+        419
+      ],
+      "confidence": "high",
+      "note": "Black Acne Studios tee with Stockholm 1996 print"
+    },
+    "today-085": {
+      "bbox": [
+        602,
+        45,
+        804,
+        354
+      ],
+      "confidence": "high",
+      "note": "Washed purple cropped scoop-neck tank"
+    },
+    "today-086": {
+      "bbox": [
+        873,
+        45,
+        1045,
+        434
+      ],
+      "confidence": "high",
+      "note": "Long ivory scoop-neck tank"
+    },
+    "today-091": {
+      "bbox": [
+        1111,
+        45,
+        1316,
+        389
+      ],
+      "confidence": "high",
+      "note": "White sleeveless crop top with red Yacht Club lettering"
+    },
+    "today-092": {
+      "bbox": [
+        263,
+        456,
+        547,
+        823
+      ],
+      "confidence": "high",
+      "note": "White short-sleeve tee with two low patch pockets"
+    },
+    "today-094": {
+      "bbox": [
+        548,
+        456,
+        821,
+        825
+      ],
+      "confidence": "high",
+      "note": "Navy Bode tee with framed Please Let Me Die in Paris lettering"
+    },
+    "today-095": {
+      "bbox": [
+        824,
+        456,
+        1090,
+        823
+      ],
+      "confidence": "high",
+      "note": "Orange Bode tee with a rectangular portrait print"
+    },
+    "today-096": {
+      "bbox": [
+        1093,
+        456,
+        1372,
+        821
+      ],
+      "confidence": "high",
+      "note": "Textured brown tee with a small logo on the chest pocket"
+    }
+  }
+}

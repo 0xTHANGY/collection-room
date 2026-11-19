@@ -1,0 +1,79 @@
+{
+  "zone": "shirts-f",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-130": {
+      "bbox": [
+        337,
+        36,
+        596,
+        397
+      ],
+      "confidence": "high",
+      "note": "Ivory fitted button-up with a pointed collar and long cuffs"
+    },
+    "today-133": {
+      "bbox": [
+        614,
+        36,
+        873,
+        396
+      ],
+      "confidence": "high",
+      "note": "Pale blue gathered blouse with a wide sailor collar"
+    },
+    "today-134": {
+      "bbox": [
+        887,
+        36,
+        1159,
+        404
+      ],
+      "confidence": "high",
+      "note": "Pink pinstriped button-up with a small green chest motif"
+    },
+    "today-139": {
+      "bbox": [
+        1157,
+        36,
+        1439,
+        392
+      ],
+      "confidence": "high",
+      "note": "Navy zip-front shirt with cream stripes and a Statue of Liberty graphic"
+    },
+    "today-140": {
+      "bbox": [
+        377,
+        437,
+        661,
+        818
+      ],
+      "confidence": "high",
+      "note": "Yellow short-sleeve shirt with palm trees and illustrated figures"
+    },
+    "today-141": {
+      "bbox": [
+        709,
+        437,
+        1008,
+        821
+      ],
+      "confidence": "high",
+      "note": "Cream camp-collar shirt with burgundy embroidery around a striped bib"
+    },
+    "today-144": {
+      "bbox": [
+        1053,
+        437,
+        1354,
+        840
+      ],
+      "confidence": "high",
+      "note": "White band-collar shirt with a pleated bib and curved hem"
+    }
+  }
+}

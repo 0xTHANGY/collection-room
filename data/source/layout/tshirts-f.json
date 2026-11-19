@@ -1,0 +1,89 @@
+{
+  "zone": "tshirts-f",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-101": {
+      "bbox": [
+        330,
+        62,
+        535,
+        357
+      ],
+      "confidence": "high",
+      "note": "Cream sleeveless crop top with a large Goofy graphic"
+    },
+    "today-103": {
+      "bbox": [
+        558,
+        62,
+        829,
+        426
+      ],
+      "confidence": "high",
+      "note": "Pale blue long-sleeve button-up with two chest pockets"
+    },
+    "today-109": {
+      "bbox": [
+        822,
+        62,
+        1108,
+        411
+      ],
+      "confidence": "high",
+      "note": "Black NBA Champions tee with Mickey and a trophy"
+    },
+    "today-110": {
+      "bbox": [
+        1122,
+        62,
+        1370,
+        411
+      ],
+      "confidence": "high",
+      "note": "Plain black fitted crew-neck tee on the upper rail"
+    },
+    "today-111": {
+      "bbox": [
+        286,
+        451,
+        573,
+        813
+      ],
+      "confidence": "high",
+      "note": "White tee with a circle of hula dancers and Hawaii text"
+    },
+    "today-114": {
+      "bbox": [
+        562,
+        451,
+        824,
+        811
+      ],
+      "confidence": "high",
+      "note": "Split floral and tie-dye tee with Paula's lettering"
+    },
+    "today-118": {
+      "bbox": [
+        823,
+        451,
+        1111,
+        815
+      ],
+      "confidence": "high",
+      "note": "Plain black boxy crew-neck tee on the lower rail"
+    },
+    "today-127": {
+      "bbox": [
+        1117,
+        451,
+        1382,
+        812
+      ],
+      "confidence": "high",
+      "note": "Brown ringer tee with cream trim and a small chest monogram"
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "zone": "jackets-e",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-237": {
+      "bbox": [
+        112,
+        85,
+        328,
+        395
+      ],
+      "confidence": "high",
+      "note": "Black hooded zip jacket with a small hem logo"
+    },
+    "today-238": {
+      "bbox": [
+        341,
+        85,
+        559,
+        390
+      ],
+      "confidence": "high",
+      "note": "Brown stand-collar zip jacket with pale diagonal accents"
+    },
+    "today-239": {
+      "bbox": [
+        572,
+        85,
+        790,
+        386
+      ],
+      "confidence": "high",
+      "note": "Cream button jacket with colorful botanical embroidery"
+    },
+    "today-240": {
+      "bbox": [
+        800,
+        85,
+        1022,
+        463
+      ],
+      "confidence": "high",
+      "note": "Black flared coat with frog closures"
+    },
+    "today-241": {
+      "bbox": [
+        1032,
+        85,
+        1250,
+        395
+      ],
+      "confidence": "high",
+      "note": "Dark brown single-button blazer"
+    },
+    "today-242": {
+      "bbox": [
+        1258,
+        85,
+        1496,
+        403
+      ],
+      "confidence": "high",
+      "note": "Black collared jacket with gold zippers and hem drawcords"
+    },
+    "today-243": {
+      "bbox": [
+        102,
+        483,
+        336,
+        777
+      ],
+      "confidence": "high",
+      "note": "Blue denim jacket with frayed chest pocket trim"
+    },
+    "today-244": {
+      "bbox": [
+        343,
+        483,
+        571,
+        781
+      ],
+      "confidence": "high",
+      "note": "Navy zip jacket with white floral embroidery"
+    },
+    "today-245": {
+      "bbox": [
+        584,
+        483,
+        777,
+        763
+      ],
+      "confidence": "high",
+      "note": "Olive zip vest with an angled chest pocket"
+    },
+    "today-246": {
+      "bbox": [
+        789,
+        483,
+        1025,
+        783
+      ],
+      "confidence": "high",
+      "note": "Cream and dark green quarter-zip with a Spartan helmet logo"
+    },
+    "today-247": {
+      "bbox": [
+        1034,
+        483,
+        1247,
+        784
+      ],
+      "confidence": "high",
+      "note": "Charcoal windowpane blazer with flap pockets"
+    },
+    "today-248": {
+      "bbox": [
+        1258,
+        483,
+        1483,
+        787
+      ],
+      "confidence": "high",
+      "note": "Bright pink blazer with pale turned-up cuffs"
+    }
+  }
+}

@@ -244,7 +244,7 @@
       "id": "jackets-d",
       "category": "jackets",
       "letter": "d",
-      "has_layout": false,
+      "has_layout": true,
       "items": [
         "today-225",
         "today-226",
@@ -257,7 +257,69 @@
         "today-233",
         "today-234",
         "today-235",
-        "today-236",
+        "today-236"
+      ],
+      "images": [
+        {
+          "src": "assets/zones/jackets-d-1600.webp",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "src": "assets/zones/jackets-d-1024.webp",
+          "width": 1024,
+          "height": 683
+        },
+        {
+          "src": "assets/zones/jackets-d-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/jackets-d-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5
+    },
+    {
+      "id": "jackets-e",
+      "category": "jackets",
+      "letter": "e",
+      "images": [
+        {
+          "src": "assets/zones/jackets-e-1600.webp",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "src": "assets/zones/jackets-e-1024.webp",
+          "width": 1024,
+          "height": 683
+        },
+        {
+          "src": "assets/zones/jackets-e-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/jackets-e-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5,
+      "has_layout": true,
+      "items": [
         "today-237",
         "today-238",
         "today-239",
@@ -269,7 +331,42 @@
         "today-245",
         "today-246",
         "today-247",
-        "today-248",
+        "today-248"
+      ]
+    },
+    {
+      "id": "jackets-f",
+      "category": "jackets",
+      "letter": "f",
+      "images": [
+        {
+          "src": "assets/zones/jackets-f-1600.webp",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "src": "assets/zones/jackets-f-1024.webp",
+          "width": 1024,
+          "height": 683
+        },
+        {
+          "src": "assets/zones/jackets-f-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/jackets-f-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5,
+      "has_layout": true,
+      "items": [
         "today-249",
         "today-250",
         "today-251",
@@ -281,7 +378,42 @@
         "today-257",
         "today-258",
         "today-259",
-        "today-260",
+        "today-260"
+      ]
+    },
+    {
+      "id": "jackets-g",
+      "category": "jackets",
+      "letter": "g",
+      "images": [
+        {
+          "src": "assets/zones/jackets-g-1600.webp",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "src": "assets/zones/jackets-g-1024.webp",
+          "width": 1024,
+          "height": 683
+        },
+        {
+          "src": "assets/zones/jackets-g-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/jackets-g-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5,
+      "has_layout": true,
+      "items": [
         "today-261",
         "today-262",
         "today-264",
@@ -343,7 +475,7 @@
       "id": "shirts-b",
       "category": "shirts",
       "letter": "b",
-      "has_layout": false,
+      "has_layout": true,
       "items": [
         "today-073",
         "today-074",
@@ -352,7 +484,69 @@
         "today-078",
         "today-080",
         "today-081",
-        "today-082",
+        "today-082"
+      ],
+      "images": [
+        {
+          "src": "assets/zones/shirts-b-1600.webp",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "src": "assets/zones/shirts-b-1024.webp",
+          "width": 1024,
+          "height": 683
+        },
+        {
+          "src": "assets/zones/shirts-b-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/shirts-b-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5
+    },
+    {
+      "id": "shirts-c",
+      "category": "shirts",
+      "letter": "c",
+      "images": [
+        {
+          "src": "assets/zones/shirts-c-1600.webp",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "src": "assets/zones/shirts-c-1024.webp",
+          "width": 1024,
+          "height": 683
+        },
+        {
+          "src": "assets/zones/shirts-c-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/shirts-c-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5,
+      "has_layout": true,
+      "items": [
         "today-083",
         "today-088",
         "today-089",
@@ -360,7 +554,42 @@
         "today-097",
         "today-098",
         "today-099",
-        "today-100",
+        "today-100"
+      ]
+    },
+    {
+      "id": "shirts-d",
+      "category": "shirts",
+      "letter": "d",
+      "images": [
+        {
+          "src": "assets/zones/shirts-d-1600.webp",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "src": "assets/zones/shirts-d-1024.webp",
+          "width": 1024,
+          "height": 683
+        },
+        {
+          "src": "assets/zones/shirts-d-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/shirts-d-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5,
+      "has_layout": true,
+      "items": [
         "today-104",
         "today-105",
         "today-107",
@@ -368,7 +597,42 @@
         "today-112",
         "today-113",
         "today-115",
-        "today-116",
+        "today-116"
+      ]
+    },
+    {
+      "id": "shirts-e",
+      "category": "shirts",
+      "letter": "e",
+      "images": [
+        {
+          "src": "assets/zones/shirts-e-1600.webp",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "src": "assets/zones/shirts-e-1024.webp",
+          "width": 1024,
+          "height": 683
+        },
+        {
+          "src": "assets/zones/shirts-e-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/shirts-e-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5,
+      "has_layout": true,
+      "items": [
         "today-119",
         "today-120",
         "today-121",
@@ -376,14 +640,84 @@
         "today-124",
         "today-125",
         "today-126",
-        "today-129",
+        "today-129"
+      ]
+    },
+    {
+      "id": "shirts-f",
+      "category": "shirts",
+      "letter": "f",
+      "images": [
+        {
+          "src": "assets/zones/shirts-f-1600.webp",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "src": "assets/zones/shirts-f-1024.webp",
+          "width": 1024,
+          "height": 683
+        },
+        {
+          "src": "assets/zones/shirts-f-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/shirts-f-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5,
+      "has_layout": true,
+      "items": [
         "today-130",
         "today-133",
         "today-134",
         "today-139",
         "today-140",
         "today-141",
-        "today-144",
+        "today-144"
+      ]
+    },
+    {
+      "id": "shirts-g",
+      "category": "shirts",
+      "letter": "g",
+      "images": [
+        {
+          "src": "assets/zones/shirts-g-1600.webp",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "src": "assets/zones/shirts-g-1024.webp",
+          "width": 1024,
+          "height": 683
+        },
+        {
+          "src": "assets/zones/shirts-g-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/shirts-g-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5,
+      "has_layout": true,
+      "items": [
         "today-145",
         "today-147",
         "today-148",
@@ -577,7 +911,7 @@
       "id": "tshirts-e",
       "category": "tshirts",
       "letter": "e",
-      "has_layout": false,
+      "has_layout": true,
       "items": [
         "today-084",
         "today-085",
@@ -586,7 +920,69 @@
         "today-092",
         "today-094",
         "today-095",
-        "today-096",
+        "today-096"
+      ],
+      "images": [
+        {
+          "src": "assets/zones/tshirts-e-1600.webp",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "src": "assets/zones/tshirts-e-1024.webp",
+          "width": 1024,
+          "height": 683
+        },
+        {
+          "src": "assets/zones/tshirts-e-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/tshirts-e-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5
+    },
+    {
+      "id": "tshirts-f",
+      "category": "tshirts",
+      "letter": "f",
+      "images": [
+        {
+          "src": "assets/zones/tshirts-f-1600.webp",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "src": "assets/zones/tshirts-f-1024.webp",
+          "width": 1024,
+          "height": 683
+        },
+        {
+          "src": "assets/zones/tshirts-f-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/tshirts-f-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5,
+      "has_layout": true,
+      "items": [
         "today-101",
         "today-103",
         "today-109",
@@ -594,7 +990,42 @@
         "today-111",
         "today-114",
         "today-118",
-        "today-127",
+        "today-127"
+      ]
+    },
+    {
+      "id": "tshirts-g",
+      "category": "tshirts",
+      "letter": "g",
+      "images": [
+        {
+          "src": "assets/zones/tshirts-g-1600.webp",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "src": "assets/zones/tshirts-g-1024.webp",
+          "width": 1024,
+          "height": 683
+        },
+        {
+          "src": "assets/zones/tshirts-g-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/tshirts-g-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5,
+      "has_layout": true,
+      "items": [
         "today-128",
         "today-131",
         "today-135",
@@ -780,7 +1211,7 @@
       "id": "bottoms-e",
       "category": "bottoms",
       "letter": "e",
-      "has_layout": false,
+      "has_layout": true,
       "items": [
         "today-311",
         "today-312",
@@ -790,7 +1221,69 @@
         "today-316",
         "today-317",
         "today-318",
-        "today-319",
+        "today-319"
+      ],
+      "images": [
+        {
+          "src": "assets/zones/bottoms-e-1600.webp",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "src": "assets/zones/bottoms-e-1024.webp",
+          "width": 1024,
+          "height": 683
+        },
+        {
+          "src": "assets/zones/bottoms-e-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/bottoms-e-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5
+    },
+    {
+      "id": "bottoms-f",
+      "category": "bottoms",
+      "letter": "f",
+      "images": [
+        {
+          "src": "assets/zones/bottoms-f-1600.webp",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "src": "assets/zones/bottoms-f-1024.webp",
+          "width": 1024,
+          "height": 683
+        },
+        {
+          "src": "assets/zones/bottoms-f-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/bottoms-f-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5,
+      "has_layout": true,
+      "items": [
         "today-320",
         "today-321",
         "today-322",
@@ -799,7 +1292,42 @@
         "today-325",
         "today-326",
         "today-327",
-        "today-328",
+        "today-328"
+      ]
+    },
+    {
+      "id": "bottoms-g",
+      "category": "bottoms",
+      "letter": "g",
+      "images": [
+        {
+          "src": "assets/zones/bottoms-g-1600.webp",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "src": "assets/zones/bottoms-g-1024.webp",
+          "width": 1024,
+          "height": 683
+        },
+        {
+          "src": "assets/zones/bottoms-g-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/bottoms-g-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5,
+      "has_layout": true,
+      "items": [
         "today-329",
         "today-330",
         "today-331",
@@ -1142,11 +1670,38 @@
       "id": "sweaters-e",
       "category": "sweaters",
       "letter": "e",
-      "has_layout": false,
+      "has_layout": true,
       "items": [
         "today-087",
         "today-189"
-      ]
+      ],
+      "images": [
+        {
+          "src": "assets/zones/sweaters-e-1600.webp",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "src": "assets/zones/sweaters-e-1024.webp",
+          "width": 1024,
+          "height": 683
+        },
+        {
+          "src": "assets/zones/sweaters-e-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/sweaters-e-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5
     },
     {
       "id": "hoodies-a",
@@ -1283,7 +1838,7 @@
       "id": "hoodies-d",
       "category": "hoodies",
       "letter": "d",
-      "has_layout": false,
+      "has_layout": true,
       "items": [
         "today-077",
         "today-079",
@@ -1294,7 +1849,34 @@
         "today-132",
         "today-137",
         "today-142"
-      ]
+      ],
+      "images": [
+        {
+          "src": "assets/zones/hoodies-d-1600.webp",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "src": "assets/zones/hoodies-d-1024.webp",
+          "width": 1024,
+          "height": 683
+        },
+        {
+          "src": "assets/zones/hoodies-d-640.webp",
+          "width": 640,
+          "height": 427
+        }
+      ],
+      "cover": {
+        "src": "assets/zones/hoodies-d-cover-640.webp",
+        "width": 640,
+        "height": 427
+      },
+      "natural_size": [
+        1536,
+        1024
+      ],
+      "aspect": 1.5
     },
     {
       "id": "bags-a",
@@ -25805,8 +26387,34 @@
       "type": "shirt",
       "display_name": "& Other Stories | Spring/Summer | Button-Down Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 20.188802083333336,
+        "top": 5.966796875,
+        "width": 15.09114583333333,
+        "height": 33.76953124999999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-073.webp",
+        "left": 19.791666666666664,
+        "top": 8.59375,
+        "width": 15.885416666666666,
+        "height": 32.03125,
+        "rect": {
+          "left": 19.791666666666664,
+          "top": 8.59375,
+          "width": 15.885416666666666,
+          "height": 32.03125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 1
+      },
       "image": "assets/items/v2/today-073-600.webp",
       "card_images": [
         {
@@ -25831,8 +26439,34 @@
       "type": "shirt",
       "display_name": "& Other Stories | WesternEmbroideredShirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 36.787109375,
+        "top": 5.87646484375,
+        "width": 14.967447916666673,
+        "height": 34.0478515625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-074.webp",
+        "left": 36.39322916666667,
+        "top": 7.6171875,
+        "width": 15.755208333333334,
+        "height": 33.203125,
+        "rect": {
+          "left": 36.39322916666667,
+          "top": 7.6171875,
+          "width": 15.755208333333334,
+          "height": 33.203125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 2
+      },
       "image": "assets/items/v2/today-074-600.webp",
       "card_images": [
         {
@@ -25857,8 +26491,34 @@
       "type": "shirt",
       "display_name": "A.P.C. | All Season | Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 53.5791015625,
+        "top": 5.869140625,
+        "width": 14.78190104166667,
+        "height": 33.76953124999999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-075.webp",
+        "left": 53.190104166666664,
+        "top": 8.7890625,
+        "width": 15.625,
+        "height": 31.73828125,
+        "rect": {
+          "left": 53.190104166666664,
+          "top": 8.7890625,
+          "width": 15.625,
+          "height": 31.73828125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 3
+      },
       "image": "assets/items/v2/today-075-600.webp",
       "card_images": [
         {
@@ -25883,8 +26543,34 @@
       "type": "top",
       "display_name": "ADIDAS | Spring/Summer | Top",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 69.51009114583333,
+        "top": 5.712890625,
+        "width": 16.513671875000004,
+        "height": 27.83203125
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-076.webp",
+        "left": 69.07552083333334,
+        "top": 4.8828125,
+        "width": 17.3828125,
+        "height": 29.39453125,
+        "rect": {
+          "left": 69.07552083333334,
+          "top": 4.8828125,
+          "width": 17.3828125,
+          "height": 29.39453125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 4
+      },
       "image": "assets/items/v2/today-076-600.webp",
       "card_images": [
         {
@@ -25909,8 +26595,34 @@
       "type": "sweatshirt",
       "display_name": "AIME LEON DORE | All Season | Sweatshirt/Pullover",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 12.932942708333334,
+        "top": 6.7578125,
+        "width": 13.977864583333336,
+        "height": 30.429687500000004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-077.webp",
+        "left": 12.5,
+        "top": 8.59375,
+        "width": 14.84375,
+        "height": 29.4921875,
+        "rect": {
+          "left": 12.5,
+          "top": 8.59375,
+          "width": 14.84375,
+          "height": 29.4921875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 1
+      },
       "image": "assets/items/v2/today-077-600.webp",
       "card_images": [
         {
@@ -25935,8 +26647,34 @@
       "type": "shirt",
       "display_name": "AP STUDIO | Spring/Summer | Stripe Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 19.2333984375,
+        "top": 44.20654296875,
+        "width": 15.895182291666668,
+        "height": 35.9033203125
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-078.webp",
+        "left": 18.815104166666664,
+        "top": 46.875,
+        "width": 16.731770833333336,
+        "height": 34.1796875,
+        "rect": {
+          "left": 18.815104166666664,
+          "top": 46.875,
+          "width": 16.731770833333336,
+          "height": 34.1796875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 5
+      },
       "image": "assets/items/v2/today-078-600.webp",
       "card_images": [
         {
@@ -25961,8 +26699,34 @@
       "type": "sweatshirt",
       "display_name": "ATSURO TAYAKA | AutumnWinter | Sweat Top",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 28.107096354166668,
+        "top": 6.86767578125,
+        "width": 14.16341145833333,
+        "height": 30.893554687500004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-079.webp",
+        "left": 27.669270833333332,
+        "top": 6.0546875,
+        "width": 15.0390625,
+        "height": 32.6171875,
+        "rect": {
+          "left": 27.669270833333332,
+          "top": 6.0546875,
+          "width": 15.0390625,
+          "height": 32.6171875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 2
+      },
       "image": "assets/items/v2/today-079-600.webp",
       "card_images": [
         {
@@ -25987,8 +26751,34 @@
       "type": "top",
       "display_name": "ATSURO TAYAKA | Spring/Summer | Layered Asymmetry Top",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 36.339518229166664,
+        "top": 44.18701171875,
+        "width": 15.27669270833334,
+        "height": 35.16113281249999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-080.webp",
+        "left": 35.9375,
+        "top": 46.875,
+        "width": 16.015625,
+        "height": 33.3984375,
+        "rect": {
+          "left": 35.9375,
+          "top": 46.875,
+          "width": 16.015625,
+          "height": 33.3984375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 6
+      },
       "image": "assets/items/v2/today-080-600.webp",
       "card_images": [
         {
@@ -26013,8 +26803,34 @@
       "type": "shirt",
       "display_name": "AURALEE | Spring/Summer | Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 52.82877604166667,
+        "top": 44.15283203125,
+        "width": 15.957031249999995,
+        "height": 33.8623046875
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-081.webp",
+        "left": 52.408854166666664,
+        "top": 46.875,
+        "width": 16.796875,
+        "height": 31.93359375,
+        "rect": {
+          "left": 52.408854166666664,
+          "top": 46.875,
+          "width": 16.796875,
+          "height": 31.93359375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 7
+      },
       "image": "assets/items/v2/today-081-600.webp",
       "card_images": [
         {
@@ -26039,8 +26855,34 @@
       "type": "shirt",
       "display_name": "Acne Studios | Spring/Summer | Cropped Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 70.08951822916667,
+        "top": 44.13818359375,
+        "width": 16.26627604166666,
+        "height": 33.30566406249999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-082.webp",
+        "left": 69.66145833333334,
+        "top": 46.875,
+        "width": 17.1875,
+        "height": 31.4453125,
+        "rect": {
+          "left": 69.66145833333334,
+          "top": 46.875,
+          "width": 17.1875,
+          "height": 31.4453125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 8
+      },
       "image": "assets/items/v2/today-082-600.webp",
       "card_images": [
         {
@@ -26058,15 +26900,41 @@
     {
       "id": "today-083",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-c",
       "number": "457",
       "name": "Acne Studios | Spring/Summer | Floral Jacquard Satin Shirt",
       "brand": "Acne Studios",
       "type": "shirt",
       "display_name": "Acne Studios | Spring/Summer | Floral Jacquard Satin Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 15.699869791666668,
+        "top": 6.42822265625,
+        "width": 15.214843750000002,
+        "height": 32.7490234375
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-083.webp",
+        "left": 15.234375,
+        "top": 8.88671875,
+        "width": 16.080729166666664,
+        "height": 31.15234375,
+        "rect": {
+          "left": 15.234375,
+          "top": 8.88671875,
+          "width": 16.080729166666664,
+          "height": 31.15234375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 1
+      },
       "image": "assets/items/v2/today-083-600.webp",
       "card_images": [
         {
@@ -26091,8 +26959,34 @@
       "type": "top",
       "display_name": "Acne Studios | Spring/Summer | Top",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 19.021809895833332,
+        "top": 5.3076171875,
+        "width": 17.750651041666668,
+        "height": 34.69726562499999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-084.webp",
+        "left": 18.489583333333336,
+        "top": 8.30078125,
+        "width": 18.815104166666664,
+        "height": 32.6171875,
+        "rect": {
+          "left": 18.489583333333336,
+          "top": 8.30078125,
+          "width": 18.815104166666664,
+          "height": 32.6171875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 1
+      },
       "image": "assets/items/v2/today-084-600.webp",
       "card_images": [
         {
@@ -26117,8 +27011,34 @@
       "type": "tank",
       "display_name": "American Vintage | Spring/Summer | Tank Top",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 39.521484375,
+        "top": 5.14892578125,
+        "width": 12.49348958333334,
+        "height": 28.666992187499996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-085.webp",
+        "left": 39.19270833333333,
+        "top": 6.4453125,
+        "width": 13.216145833333334,
+        "height": 28.22265625,
+        "rect": {
+          "left": 39.19270833333333,
+          "top": 6.4453125,
+          "width": 13.216145833333334,
+          "height": 28.22265625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 2
+      },
       "image": "assets/items/v2/today-085-600.webp",
       "card_images": [
         {
@@ -26143,8 +27063,34 @@
       "type": "tank",
       "display_name": "American Vintage | Spring/Summer | Tank Top",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 57.115885416666664,
+        "top": 5.34423828125,
+        "width": 10.63802083333334,
+        "height": 36.08886718749999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-086.webp",
+        "left": 56.770833333333336,
+        "top": 6.8359375,
+        "width": 11.197916666666668,
+        "height": 35.3515625,
+        "rect": {
+          "left": 56.770833333333336,
+          "top": 6.8359375,
+          "width": 11.197916666666668,
+          "height": 35.3515625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 3
+      },
       "image": "assets/items/v2/today-086-600.webp",
       "card_images": [
         {
@@ -26169,8 +27115,34 @@
       "type": "sweater",
       "display_name": "American Vintage | Spring/Summer | Top",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 36.27115885416667,
+        "top": 8.38134765625,
+        "width": 20.100911458333336,
+        "height": 43.8818359375
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-087.webp",
+        "left": 35.80729166666667,
+        "top": 11.9140625,
+        "width": 21.09375,
+        "height": 41.30859375,
+        "rect": {
+          "left": 35.80729166666667,
+          "top": 11.9140625,
+          "width": 21.09375,
+          "height": 41.30859375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 1
+      },
       "image": "assets/items/v2/today-087-600.webp",
       "card_images": [
         {
@@ -26188,15 +27160,41 @@
     {
       "id": "today-088",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-c",
       "number": "462",
       "name": "BALENCIAGA | All Season | Top (Shirt)",
       "brand": "BALENCIAGA",
       "type": "shirt",
       "display_name": "BALENCIAGA | All Season | Top (Shirt)",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 34.013671875,
+        "top": 6.42578125,
+        "width": 15.957031249999995,
+        "height": 32.65625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-088.webp",
+        "left": 33.52864583333333,
+        "top": 8.88671875,
+        "width": 16.796875,
+        "height": 31.0546875,
+        "rect": {
+          "left": 33.52864583333333,
+          "top": 8.88671875,
+          "width": 16.796875,
+          "height": 31.0546875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 2
+      },
       "image": "assets/items/v2/today-088-600.webp",
       "card_images": [
         {
@@ -26214,15 +27212,41 @@
     {
       "id": "today-089",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-c",
       "number": "463",
       "name": "BEAMSBOY | Spring/Summer | Button-Down Shirt",
       "brand": "Unknown",
       "type": "shirt",
       "display_name": "BEAMSBOY | Spring/Summer | Button-Down Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 52.379557291666664,
+        "top": 6.416015625,
+        "width": 16.20442708333334,
+        "height": 32.28515625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-089.webp",
+        "left": 51.953125,
+        "top": 8.88671875,
+        "width": 17.057291666666664,
+        "height": 30.6640625,
+        "rect": {
+          "left": 51.953125,
+          "top": 8.88671875,
+          "width": 17.057291666666664,
+          "height": 30.6640625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 3
+      },
       "image": "assets/items/v2/today-089-600.webp",
       "card_images": [
         {
@@ -26240,15 +27264,41 @@
     {
       "id": "today-090",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-c",
       "number": "464",
       "name": "BODE | Spring/Summer | Top (Shirt)",
       "brand": "BODE",
       "type": "shirt",
       "display_name": "BODE | Spring/Summer | Top (Shirt)",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 71.2109375,
+        "top": 6.35498046875,
+        "width": 16.822916666666675,
+        "height": 29.965820312500004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-090.webp",
+        "left": 70.76822916666666,
+        "top": 8.69140625,
+        "width": 17.643229166666664,
+        "height": 28.22265625,
+        "rect": {
+          "left": 70.76822916666666,
+          "top": 8.69140625,
+          "width": 17.643229166666664,
+          "height": 28.22265625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 4
+      },
       "image": "assets/items/v2/today-090-600.webp",
       "card_images": [
         {
@@ -26273,8 +27323,34 @@
       "type": "top",
       "display_name": "BOREDAPE | YACHT CLUB | All Season | Top",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 72.66438802083334,
+        "top": 5.234375,
+        "width": 12.679036458333334,
+        "height": 31.914062499999996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-091.webp",
+        "left": 72.265625,
+        "top": 4.8828125,
+        "width": 13.346354166666666,
+        "height": 33.10546875,
+        "rect": {
+          "left": 72.265625,
+          "top": 4.8828125,
+          "width": 13.346354166666666,
+          "height": 33.10546875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 4
+      },
       "image": "assets/items/v2/today-091-600.webp",
       "card_images": [
         {
@@ -26299,8 +27375,34 @@
       "type": "tee",
       "display_name": "Beams | Spring/Summer | Pocket T-Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 17.584635416666668,
+        "top": 45.42724609375,
+        "width": 17.565104166666664,
+        "height": 34.0478515625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-092.webp",
+        "left": 17.122395833333336,
+        "top": 48.33984375,
+        "width": 18.489583333333336,
+        "height": 31.8359375,
+        "rect": {
+          "left": 17.122395833333336,
+          "top": 48.33984375,
+          "width": 18.489583333333336,
+          "height": 31.8359375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 5
+      },
       "image": "assets/items/v2/today-092-600.webp",
       "card_images": [
         {
@@ -26325,8 +27427,34 @@
       "type": "sweatshirt",
       "display_name": "Bode | Fall/Winter | Sweatshirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 43.361002604166664,
+        "top": 6.765136718750001,
+        "width": 14.905598958333336,
+        "height": 30.708007812500004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-093.webp",
+        "left": 42.96875,
+        "top": 9.375,
+        "width": 15.690104166666666,
+        "height": 29.00390625,
+        "rect": {
+          "left": 42.96875,
+          "top": 9.375,
+          "width": 15.690104166666666,
+          "height": 29.00390625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 3
+      },
       "image": "assets/items/v2/today-093-600.webp",
       "card_images": [
         {
@@ -26351,8 +27479,34 @@
       "type": "tee",
       "display_name": "Bode | Spring/Summer | EmbroideredT-Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 36.121419270833336,
+        "top": 45.43212890625,
+        "width": 16.884765624999996,
+        "height": 34.23339843749999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-094.webp",
+        "left": 35.61197916666667,
+        "top": 48.4375,
+        "width": 17.903645833333336,
+        "height": 32.12890625,
+        "rect": {
+          "left": 35.61197916666667,
+          "top": 48.4375,
+          "width": 17.903645833333336,
+          "height": 32.12890625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 6
+      },
       "image": "assets/items/v2/today-094-600.webp",
       "card_images": [
         {
@@ -26377,8 +27531,34 @@
       "type": "tee",
       "display_name": "Bode | Spring/Summer | Graphic T-Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 54.078776041666664,
+        "top": 45.42724609375,
+        "width": 16.45182291666666,
+        "height": 34.0478515625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-095.webp",
+        "left": 53.580729166666664,
+        "top": 45.41015625,
+        "width": 17.447916666666664,
+        "height": 34.9609375,
+        "rect": {
+          "left": 53.580729166666664,
+          "top": 45.41015625,
+          "width": 17.447916666666664,
+          "height": 34.9609375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 7
+      },
       "image": "assets/items/v2/today-095-600.webp",
       "card_images": [
         {
@@ -26403,8 +27583,34 @@
       "type": "top",
       "display_name": "Brain Dead | Spring/Summer | Top",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 71.61295572916666,
+        "top": 45.42236328125,
+        "width": 17.255859375000014,
+        "height": 33.8623046875
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-096.webp",
+        "left": 71.09375,
+        "top": 44.53125,
+        "width": 18.294270833333336,
+        "height": 35.64453125,
+        "rect": {
+          "left": 71.09375,
+          "top": 44.53125,
+          "width": 18.294270833333336,
+          "height": 35.64453125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 8
+      },
       "image": "assets/items/v2/today-096-600.webp",
       "card_images": [
         {
@@ -26422,15 +27628,41 @@
     {
       "id": "today-097",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-c",
       "number": "471",
       "name": "Comme des Garcons Girl | Spring/Summer | Button-Down Shirt",
       "brand": "Comme des Garcons Girl",
       "type": "shirt",
       "display_name": "Comme des Garcons Girl | Spring/Summer | Button-Down Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 15.764973958333334,
+        "top": 43.3154296875,
+        "width": 15.214843750000002,
+        "height": 31.728515625000004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-097.webp",
+        "left": 15.364583333333334,
+        "top": 45.80078125,
+        "width": 16.015625,
+        "height": 30.078125,
+        "rect": {
+          "left": 15.364583333333334,
+          "top": 45.80078125,
+          "width": 16.015625,
+          "height": 30.078125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 5
+      },
       "image": "assets/items/v2/today-097-600.webp",
       "card_images": [
         {
@@ -26448,15 +27680,41 @@
     {
       "id": "today-098",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-c",
       "number": "472",
       "name": "Cordera | Spring/Summer | Checked Shirt",
       "brand": "Unknown",
       "type": "shirt",
       "display_name": "Cordera | Spring/Summer | Checked Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 34.015299479166664,
+        "top": 43.26904296875,
+        "width": 16.01888020833333,
+        "height": 29.965820312499996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-098.webp",
+        "left": 33.59375,
+        "top": 45.99609375,
+        "width": 16.796875,
+        "height": 28.02734375,
+        "rect": {
+          "left": 33.59375,
+          "top": 45.99609375,
+          "width": 16.796875,
+          "height": 28.02734375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 6
+      },
       "image": "assets/items/v2/today-098-600.webp",
       "card_images": [
         {
@@ -26474,15 +27732,41 @@
     {
       "id": "today-099",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-c",
       "number": "473",
       "name": "DRIES VAN NOTEN | Silk Blouse",
       "brand": "Unknown",
       "type": "blouse",
       "display_name": "DRIES VAN NOTEN | Silk Blouse",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 52.81412760416667,
+        "top": 43.2861328125,
+        "width": 15.400390625000004,
+        "height": 30.615234375
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-099.webp",
+        "left": 52.408854166666664,
+        "top": 45.80078125,
+        "width": 16.2109375,
+        "height": 29.00390625,
+        "rect": {
+          "left": 52.408854166666664,
+          "top": 45.80078125,
+          "width": 16.2109375,
+          "height": 29.00390625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 7
+      },
       "image": "assets/items/v2/today-099-600.webp",
       "card_images": [
         {
@@ -26500,15 +27784,41 @@
     {
       "id": "today-100",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-c",
       "number": "474",
       "name": "Depound | Spring/Summer | Button-Down Shirt",
       "brand": "Depound",
       "type": "shirt",
       "display_name": "Depound | Spring/Summer | Button-Down Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 71.52018229166667,
+        "top": 43.32763671875,
+        "width": 16.20442708333334,
+        "height": 32.1923828125
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-100.webp",
+        "left": 71.09375,
+        "top": 45.80078125,
+        "width": 17.057291666666664,
+        "height": 30.56640625,
+        "rect": {
+          "left": 71.09375,
+          "top": 45.80078125,
+          "width": 17.057291666666664,
+          "height": 30.56640625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 8
+      },
       "image": "assets/items/v2/today-100-600.webp",
       "card_images": [
         {
@@ -26526,15 +27836,41 @@
     {
       "id": "today-101",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-f",
       "number": "475",
       "name": "Disney | Spring Summer | crop top",
       "brand": "Unknown",
       "type": "crop-top",
       "display_name": "Disney | Spring Summer | crop top",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 21.818033854166664,
+        "top": 6.77490234375,
+        "width": 12.679036458333334,
+        "height": 27.3681640625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-101.webp",
+        "left": 21.484375,
+        "top": 8.69140625,
+        "width": 13.346354166666666,
+        "height": 26.26953125,
+        "rect": {
+          "left": 21.484375,
+          "top": 8.69140625,
+          "width": 13.346354166666666,
+          "height": 26.26953125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 1
+      },
       "image": "assets/items/v2/today-101-600.webp",
       "card_images": [
         {
@@ -26559,8 +27895,34 @@
       "type": "hoodie",
       "display_name": "Dries Van Noten | Autumn/Winter | Drawstring Zip Hoodie",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 59.365234375,
+        "top": 6.772460937499999,
+        "width": 14.472656250000004,
+        "height": 30.986328124999996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-102.webp",
+        "left": 58.984375,
+        "top": 9.5703125,
+        "width": 15.234375,
+        "height": 29.00390625,
+        "rect": {
+          "left": 58.984375,
+          "top": 9.5703125,
+          "width": 15.234375,
+          "height": 29.00390625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 4
+      },
       "image": "assets/items/v2/today-102-600.webp",
       "card_images": [
         {
@@ -26578,15 +27940,41 @@
     {
       "id": "today-103",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-f",
       "number": "477",
       "name": "Everlane | Spring/Summer | Relaxed Pocket Shirt",
       "brand": "Everlane",
       "type": "tee",
       "display_name": "Everlane | Spring/Summer | Relaxed Pocket Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 36.769205729166664,
+        "top": 6.943359374999999,
+        "width": 16.761067708333336,
+        "height": 33.76953124999999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-103.webp",
+        "left": 36.26302083333333,
+        "top": 11.1328125,
+        "width": 17.643229166666664,
+        "height": 30.46875,
+        "rect": {
+          "left": 36.26302083333333,
+          "top": 11.1328125,
+          "width": 17.643229166666664,
+          "height": 30.46875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 2
+      },
       "image": "assets/items/v2/today-103-600.webp",
       "card_images": [
         {
@@ -26604,15 +27992,41 @@
     {
       "id": "today-104",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-d",
       "number": "478",
       "name": "FRAME | Spring/Summer | Button-Down Shirt",
       "brand": "FRAME",
       "type": "shirt",
       "display_name": "FRAME | Spring/Summer | Button-Down Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 15.472005208333334,
+        "top": 7.21923828125,
+        "width": 16.451822916666668,
+        "height": 33.1201171875
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-104.webp",
+        "left": 15.0390625,
+        "top": 9.9609375,
+        "width": 17.317708333333336,
+        "height": 31.15234375,
+        "rect": {
+          "left": 15.0390625,
+          "top": 9.9609375,
+          "width": 17.317708333333336,
+          "height": 31.15234375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 1
+      },
       "image": "assets/items/v2/today-104-600.webp",
       "card_images": [
         {
@@ -26630,15 +28044,41 @@
     {
       "id": "today-105",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-d",
       "number": "479",
       "name": "FRAPBOIS | Spring/Summer | Design ButtonShirt",
       "brand": "FRAPBOIS",
       "type": "shirt",
       "display_name": "FRAPBOIS | Spring/Summer | Design ButtonShirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 34.1796875,
+        "top": 7.253417968750001,
+        "width": 17.317708333333336,
+        "height": 34.41894531250001
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-105.webp",
+        "left": 33.72395833333333,
+        "top": 9.9609375,
+        "width": 18.1640625,
+        "height": 32.71484375,
+        "rect": {
+          "left": 33.72395833333333,
+          "top": 9.9609375,
+          "width": 18.1640625,
+          "height": 32.71484375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 2
+      },
       "image": "assets/items/v2/today-105-600.webp",
       "card_images": [
         {
@@ -26663,8 +28103,34 @@
       "type": "pullover",
       "display_name": "Fritur and handcrafts | All Season | Sailor Pullover Top",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 75.33203125,
+        "top": 6.857910156249999,
+        "width": 15.091145833333345,
+        "height": 30.522460937499996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-106.webp",
+        "left": 74.93489583333334,
+        "top": 9.375,
+        "width": 15.885416666666666,
+        "height": 28.80859375,
+        "rect": {
+          "left": 74.93489583333334,
+          "top": 9.375,
+          "width": 15.885416666666666,
+          "height": 28.80859375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 5
+      },
       "image": "assets/items/v2/today-106-600.webp",
       "card_images": [
         {
@@ -26682,15 +28148,41 @@
     {
       "id": "today-107",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-d",
       "number": "481",
       "name": "GANNI | Spring/Summer | Pleated Georgette Blouse",
       "brand": "Unknown",
       "type": "blouse",
       "display_name": "GANNI | Spring/Summer | Pleated Georgette Blouse",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 53.88671875000001,
+        "top": 7.229003906250001,
+        "width": 16.575520833333325,
+        "height": 33.49121093750001
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-107.webp",
+        "left": 53.450520833333336,
+        "top": 8.59375,
+        "width": 17.447916666666664,
+        "height": 32.91015625,
+        "rect": {
+          "left": 53.450520833333336,
+          "top": 8.59375,
+          "width": 17.447916666666664,
+          "height": 32.91015625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 3
+      },
       "image": "assets/items/v2/today-107-600.webp",
       "card_images": [
         {
@@ -26708,15 +28200,41 @@
     {
       "id": "today-108",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-d",
       "number": "482",
       "name": "ISABELMARANT | Etoile | Corduroy Shirt",
       "brand": "Unknown",
       "type": "shirt",
       "display_name": "ISABELMARANT | Etoile | Corduroy Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 72.57975260416667,
+        "top": 7.241210937500001,
+        "width": 16.884765624999996,
+        "height": 33.95507812500001
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-108.webp",
+        "left": 72.0703125,
+        "top": 10.15625,
+        "width": 17.838541666666664,
+        "height": 32.03125,
+        "rect": {
+          "left": 72.0703125,
+          "top": 10.15625,
+          "width": 17.838541666666664,
+          "height": 32.03125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 4
+      },
       "image": "assets/items/v2/today-108-600.webp",
       "card_images": [
         {
@@ -26734,15 +28252,41 @@
     {
       "id": "today-109",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-f",
       "number": "483",
       "name": "Disney x Junk Food Los Angeles Lakers Junk Food Black 2020 NBA Finals Champions Mickey Trophy",
       "brand": "Disney x Junk Food",
       "type": "tee",
       "display_name": "Disney x Junk Food Los Angeles Lakers Junk Food Black 2020 NBA Finals Champions Mickey Trophy",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 53.981119791666664,
+        "top": 6.906738281249999,
+        "width": 17.68880208333333,
+        "height": 32.37792968749999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-109.webp",
+        "left": 53.450520833333336,
+        "top": 8.7890625,
+        "width": 18.75,
+        "height": 31.34765625,
+        "rect": {
+          "left": 53.450520833333336,
+          "top": 8.7890625,
+          "width": 18.75,
+          "height": 31.34765625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 3
+      },
       "image": "assets/items/v2/today-109-600.webp",
       "card_images": [
         {
@@ -26760,15 +28304,41 @@
     {
       "id": "today-110",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-f",
       "number": "484",
       "name": "KHAITE | The Lily Tee | Black | All Season",
       "brand": "KHAITE The Lily Tee Black",
       "type": "tee",
       "display_name": "KHAITE | The Lily Tee | Black | All Season",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 73.45052083333333,
+        "top": 6.906738281249999,
+        "width": 15.33854166666666,
+        "height": 32.37792968749999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-110.webp",
+        "left": 72.98177083333334,
+        "top": 7.6171875,
+        "width": 16.276041666666664,
+        "height": 32.51953125,
+        "rect": {
+          "left": 72.98177083333334,
+          "top": 7.6171875,
+          "width": 16.276041666666664,
+          "height": 32.51953125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 4
+      },
       "image": "assets/items/v2/today-110-600.webp",
       "card_images": [
         {
@@ -26786,15 +28356,41 @@
     {
       "id": "today-111",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-f",
       "number": "485",
       "name": "kijun Hula Girls Tee",
       "brand": "kijun",
       "type": "tee",
       "display_name": "kijun Hula Girls Tee",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 19.0869140625,
+        "top": 44.9267578125,
+        "width": 17.750651041666668,
+        "height": 33.583984375
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-111.webp",
+        "left": 18.684895833333336,
+        "top": 47.75390625,
+        "width": 18.424479166666664,
+        "height": 31.54296875,
+        "rect": {
+          "left": 18.684895833333336,
+          "top": 47.75390625,
+          "width": 18.424479166666664,
+          "height": 31.54296875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 5
+      },
       "image": "assets/items/v2/today-111-600.webp",
       "card_images": [
         {
@@ -26812,15 +28408,41 @@
     {
       "id": "today-112",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-d",
       "number": "486",
       "name": "Kapital | Spring/Summer | Polo Shirt",
       "brand": "Unknown",
       "type": "polo",
       "display_name": "Kapital | Spring/Summer | Polo Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 14.930013020833332,
+        "top": 46.58935546875,
+        "width": 18.121744791666668,
+        "height": 33.6767578125
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-112.webp",
+        "left": 14.453125,
+        "top": 49.21875,
+        "width": 19.075520833333336,
+        "height": 31.93359375,
+        "rect": {
+          "left": 14.453125,
+          "top": 49.21875,
+          "width": 19.075520833333336,
+          "height": 31.93359375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 5
+      },
       "image": "assets/items/v2/today-112-600.webp",
       "card_images": [
         {
@@ -26838,15 +28460,41 @@
     {
       "id": "today-113",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-d",
       "number": "487",
       "name": "Kith | All Season | Shirt",
       "brand": "Kith",
       "type": "shirt",
       "display_name": "Kith | All Season | Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 34.5556640625,
+        "top": 46.62841796875,
+        "width": 16.761067708333336,
+        "height": 35.16113281249999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-113.webp",
+        "left": 34.11458333333333,
+        "top": 49.31640625,
+        "width": 17.578125,
+        "height": 33.3984375,
+        "rect": {
+          "left": 34.11458333333333,
+          "top": 49.31640625,
+          "width": 17.578125,
+          "height": 33.3984375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 6
+      },
       "image": "assets/items/v2/today-113-600.webp",
       "card_images": [
         {
@@ -26864,15 +28512,41 @@
     {
       "id": "today-114",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-f",
       "number": "488",
       "name": "LOEWE | Spring/Summer | Top",
       "brand": "LOEWE",
       "type": "top",
       "display_name": "LOEWE | Spring/Summer | Top",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 37.01497395833333,
+        "top": 44.921875,
+        "width": 16.20442708333334,
+        "height": 33.3984375
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-114.webp",
+        "left": 36.5234375,
+        "top": 46.77734375,
+        "width": 17.1875,
+        "height": 32.51953125,
+        "rect": {
+          "left": 36.5234375,
+          "top": 46.77734375,
+          "width": 17.1875,
+          "height": 32.51953125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 6
+      },
       "image": "assets/items/v2/today-114-600.webp",
       "card_images": [
         {
@@ -26890,15 +28564,41 @@
     {
       "id": "today-115",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-d",
       "number": "489",
       "name": "LOW CLASSIC | Spring/Summer | Shirt",
       "brand": "LOW CLASSIC",
       "type": "shirt",
       "display_name": "LOW CLASSIC | Spring/Summer | Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 53.8818359375,
+        "top": 46.611328125,
+        "width": 16.389973958333336,
+        "height": 34.51171875
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-115.webp",
+        "left": 53.450520833333336,
+        "top": 45.60546875,
+        "width": 17.252604166666664,
+        "height": 36.42578125,
+        "rect": {
+          "left": 53.450520833333336,
+          "top": 45.60546875,
+          "width": 17.252604166666664,
+          "height": 36.42578125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 7
+      },
       "image": "assets/items/v2/today-115-600.webp",
       "card_images": [
         {
@@ -26916,15 +28616,41 @@
     {
       "id": "today-116",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-d",
       "number": "490",
       "name": "LOWCLASSIC | DeerPrint SilkShirt | Beige",
       "brand": "LOWCLASSIC DeerPrint SilkShirt",
       "type": "shirt",
       "display_name": "LOWCLASSIC | DeerPrint SilkShirt | Beige",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 72.33561197916667,
+        "top": 46.61865234375,
+        "width": 17.503255208333325,
+        "height": 34.7900390625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-116.webp",
+        "left": 71.80989583333334,
+        "top": 45.60546875,
+        "width": 18.489583333333336,
+        "height": 36.62109375,
+        "rect": {
+          "left": 71.80989583333334,
+          "top": 45.60546875,
+          "width": 18.489583333333336,
+          "height": 36.62109375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 8
+      },
       "image": "assets/items/v2/today-116-600.webp",
       "card_images": [
         {
@@ -26949,8 +28675,34 @@
       "type": "sweatshirt",
       "display_name": "Loewe x Disney Dumbo",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 14.165039062499998,
+        "top": 43.8037109375,
+        "width": 16.266276041666668,
+        "height": 31.728515625000004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-117.webp",
+        "left": 13.736979166666666,
+        "top": 42.96875,
+        "width": 17.122395833333336,
+        "height": 33.3984375,
+        "rect": {
+          "left": 13.736979166666666,
+          "top": 42.96875,
+          "width": 17.122395833333336,
+          "height": 33.3984375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 6
+      },
       "image": "assets/items/v2/today-117-600.webp",
       "card_images": [
         {
@@ -26968,15 +28720,41 @@
     {
       "id": "today-118",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-f",
       "number": "492",
       "name": "MAISONMARGIELA | All Season | Top",
       "brand": "Unknown",
       "type": "top",
       "display_name": "MAISONMARGIELA | All Season | Top",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 54.04947916666667,
+        "top": 44.931640625,
+        "width": 17.812499999999996,
+        "height": 33.76953124999999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-118.webp",
+        "left": 53.580729166666664,
+        "top": 47.75390625,
+        "width": 18.815104166666664,
+        "height": 31.93359375,
+        "rect": {
+          "left": 53.580729166666664,
+          "top": 47.75390625,
+          "width": 18.815104166666664,
+          "height": 31.93359375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 7
+      },
       "image": "assets/items/v2/today-118-600.webp",
       "card_images": [
         {
@@ -26994,15 +28772,41 @@
     {
       "id": "today-119",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-e",
       "number": "493",
       "name": "MIU MIU | Spring/Summer | Striped Shirt",
       "brand": "MIU MIU",
       "type": "shirt",
       "display_name": "MIU MIU | Spring/Summer | Striped Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 14.479166666666668,
+        "top": 5.05859375,
+        "width": 15.833333333333336,
+        "height": 32.65625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-119.webp",
+        "left": 14.0625,
+        "top": 6.34765625,
+        "width": 16.6015625,
+        "height": 32.2265625,
+        "rect": {
+          "left": 14.0625,
+          "top": 6.34765625,
+          "width": 16.6015625,
+          "height": 32.2265625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 1
+      },
       "image": "assets/items/v2/today-119-600.webp",
       "card_images": [
         {
@@ -27020,15 +28824,41 @@
     {
       "id": "today-120",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-e",
       "number": "494",
       "name": "Madewell | Spring/Summer | Button-Down Shirt",
       "brand": "Madewell",
       "type": "shirt",
       "display_name": "Madewell | Spring/Summer | Button-Down Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 32.913411458333336,
+        "top": 5.10009765625,
+        "width": 16.204427083333336,
+        "height": 34.23339843749999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-120.webp",
+        "left": 32.55208333333333,
+        "top": 7.91015625,
+        "width": 16.9921875,
+        "height": 32.2265625,
+        "rect": {
+          "left": 32.55208333333333,
+          "top": 7.91015625,
+          "width": 16.9921875,
+          "height": 32.2265625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 2
+      },
       "image": "assets/items/v2/today-120-600.webp",
       "card_images": [
         {
@@ -27046,15 +28876,41 @@
     {
       "id": "today-121",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-e",
       "number": "495",
       "name": "Martine rose | Spring/Summer | Kabuki Aloha Shirt",
       "brand": "Martine rose",
       "type": "shirt",
       "display_name": "Martine rose | Spring/Summer | Kabuki Aloha Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 51.24837239583333,
+        "top": 5.05615234375,
+        "width": 17.750651041666675,
+        "height": 32.56347656250001
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-121.webp",
+        "left": 50.78125,
+        "top": 7.8125,
+        "width": 18.619791666666664,
+        "height": 30.6640625,
+        "rect": {
+          "left": 50.78125,
+          "top": 7.8125,
+          "width": 18.619791666666664,
+          "height": 30.6640625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 3
+      },
       "image": "assets/items/v2/today-121-600.webp",
       "card_images": [
         {
@@ -27072,15 +28928,41 @@
     {
       "id": "today-122",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-e",
       "number": "496",
       "name": "Martine rose | Spring/Summer | Portrait Jacquard Shirt",
       "brand": "Martine rose",
       "type": "shirt",
       "display_name": "Martine rose | Spring/Summer | Portrait Jacquard Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 71.62923177083333,
+        "top": 5.10009765625,
+        "width": 15.400390625000012,
+        "height": 34.23339843749999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-122.webp",
+        "left": 71.22395833333334,
+        "top": 7.91015625,
+        "width": 16.2109375,
+        "height": 32.32421875,
+        "rect": {
+          "left": 71.22395833333334,
+          "top": 7.91015625,
+          "width": 16.2109375,
+          "height": 32.32421875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 4
+      },
       "image": "assets/items/v2/today-122-600.webp",
       "card_images": [
         {
@@ -27098,15 +28980,41 @@
     {
       "id": "today-124",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-e",
       "number": "497",
       "name": "OURLEGACY | Box Shirt | BlackFloralViscose",
       "brand": "OURLEGACY Box Shirt",
       "type": "shirt",
       "display_name": "OURLEGACY | Box Shirt | BlackFloralViscose",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 14.226888020833334,
+        "top": 43.3154296875,
+        "width": 16.142578125,
+        "height": 35.439453125
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-124.webp",
+        "left": 13.802083333333334,
+        "top": 45.99609375,
+        "width": 16.9921875,
+        "height": 33.59375,
+        "rect": {
+          "left": 13.802083333333334,
+          "top": 45.99609375,
+          "width": 16.9921875,
+          "height": 33.59375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 5
+      },
       "image": "assets/items/v2/today-124-600.webp",
       "card_images": [
         {
@@ -27124,15 +29032,41 @@
     {
       "id": "today-125",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-e",
       "number": "498",
       "name": "Opening Ceremony | Spring/Summer | Button-Down Shirt",
       "brand": "Unknown",
       "type": "shirt",
       "display_name": "Opening Ceremony | Spring/Summer | Button-Down Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 32.3046875,
+        "top": 43.24951171875,
+        "width": 17.812499999999996,
+        "height": 32.9345703125
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-125.webp",
+        "left": 31.901041666666668,
+        "top": 46.09375,
+        "width": 18.684895833333336,
+        "height": 30.859375,
+        "rect": {
+          "left": 31.901041666666668,
+          "top": 46.09375,
+          "width": 18.684895833333336,
+          "height": 30.859375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 6
+      },
       "image": "assets/items/v2/today-125-600.webp",
       "card_images": [
         {
@@ -27150,15 +29084,41 @@
     {
       "id": "today-126",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-e",
       "number": "499",
       "name": "PLEATSPLEASE | ISSEYMIYAKE | Monthly Colors : July Top | Black (no. 15)",
       "brand": "Unknown",
       "type": "top",
       "display_name": "PLEATSPLEASE | ISSEYMIYAKE | Monthly Colors : July Top | Black (no. 15)",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 52.443033854166664,
+        "top": 43.23974609375,
+        "width": 16.142578124999996,
+        "height": 32.56347656250001
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-126.webp",
+        "left": 52.018229166666664,
+        "top": 46.09375,
+        "width": 16.9921875,
+        "height": 30.56640625,
+        "rect": {
+          "left": 52.018229166666664,
+          "top": 46.09375,
+          "width": 16.9921875,
+          "height": 30.56640625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 7
+      },
       "image": "assets/items/v2/today-126-600.webp",
       "card_images": [
         {
@@ -27176,15 +29136,41 @@
     {
       "id": "today-127",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-f",
       "number": "500",
       "name": "REFORMATION | Ringer Tee | Espresso/Natural | All Season",
       "brand": "Unknown",
       "type": "tee",
       "display_name": "REFORMATION | Ringer Tee | Espresso/Natural | All Season",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 73.15266927083334,
+        "top": 44.92431640625,
+        "width": 16.389973958333336,
+        "height": 33.49121093750001
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-127.webp",
+        "left": 72.65625,
+        "top": 47.55859375,
+        "width": 17.252604166666664,
+        "height": 31.73828125,
+        "rect": {
+          "left": 72.65625,
+          "top": 47.55859375,
+          "width": 17.252604166666664,
+          "height": 31.73828125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 8
+      },
       "image": "assets/items/v2/today-127-600.webp",
       "card_images": [
         {
@@ -27202,15 +29188,41 @@
     {
       "id": "today-128",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-g",
       "number": "501",
       "name": "REFORMATION | Spring/Summer | Top",
       "brand": "REFORMATION",
       "type": "top",
       "display_name": "REFORMATION | Spring/Summer | Top",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 12.981770833333334,
+        "top": 6.201171875,
+        "width": 15.833333333333336,
+        "height": 35.25390625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-128.webp",
+        "left": 12.5,
+        "top": 9.47265625,
+        "width": 16.796875,
+        "height": 32.91015625,
+        "rect": {
+          "left": 12.5,
+          "top": 9.47265625,
+          "width": 16.796875,
+          "height": 32.91015625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 1
+      },
       "image": "assets/items/v2/today-128-600.webp",
       "card_images": [
         {
@@ -27228,15 +29240,41 @@
     {
       "id": "today-129",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-e",
       "number": "502",
       "name": "Ray BEAMS | Spring/Summer | Button-Down Shirt",
       "brand": "Ray BEAMS",
       "type": "shirt",
       "display_name": "Ray BEAMS | Spring/Summer | Button-Down Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 70.82845052083333,
+        "top": 43.29345703125,
+        "width": 17.13216145833334,
+        "height": 34.6044921875
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-129.webp",
+        "left": 70.37760416666666,
+        "top": 45.99609375,
+        "width": 18.033854166666664,
+        "height": 32.8125,
+        "rect": {
+          "left": 70.37760416666666,
+          "top": 45.99609375,
+          "width": 18.033854166666664,
+          "height": 32.8125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 8
+      },
       "image": "assets/items/v2/today-129-600.webp",
       "card_images": [
         {
@@ -27254,15 +29292,41 @@
     {
       "id": "today-130",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-f",
       "number": "503",
       "name": "Reformation | Spring/Summer | Button-Down Shirt",
       "brand": "Reformation",
       "type": "shirt",
       "display_name": "Reformation | Spring/Summer | Button-Down Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 22.361653645833336,
+        "top": 4.39697265625,
+        "width": 16.01888020833333,
+        "height": 33.49121093750001
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-130.webp",
+        "left": 21.940104166666664,
+        "top": 7.32421875,
+        "width": 16.861979166666664,
+        "height": 31.34765625,
+        "rect": {
+          "left": 21.940104166666664,
+          "top": 7.32421875,
+          "width": 16.861979166666664,
+          "height": 31.34765625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 1
+      },
       "image": "assets/items/v2/today-130-600.webp",
       "card_images": [
         {
@@ -27280,15 +29344,41 @@
     {
       "id": "today-131",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-g",
       "number": "504",
       "name": "SATURDAYS | NEW YORK CITY | Spring/Summer | Top",
       "brand": "Unknown",
       "type": "top",
       "display_name": "SATURDAYS | NEW YORK CITY | Spring/Summer | Top",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 30.615234375,
+        "top": 6.1669921875,
+        "width": 17.936197916666664,
+        "height": 33.95507812500001
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-131.webp",
+        "left": 30.078125,
+        "top": 9.27734375,
+        "width": 19.010416666666664,
+        "height": 31.73828125,
+        "rect": {
+          "left": 30.078125,
+          "top": 9.27734375,
+          "width": 19.010416666666664,
+          "height": 31.73828125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 2
+      },
       "image": "assets/items/v2/today-131-600.webp",
       "card_images": [
         {
@@ -27313,8 +29403,34 @@
       "type": "sweatshirt",
       "display_name": "STUDIO NICHOLSON | CottonJerseySweatshirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 32.659505208333336,
+        "top": 43.84033203125,
+        "width": 16.45182291666667,
+        "height": 33.1201171875
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-132.webp",
+        "left": 32.2265625,
+        "top": 46.19140625,
+        "width": 17.317708333333336,
+        "height": 31.73828125,
+        "rect": {
+          "left": 32.2265625,
+          "top": 46.19140625,
+          "width": 17.317708333333336,
+          "height": 31.73828125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 7
+      },
       "image": "assets/items/v2/today-132-600.webp",
       "card_images": [
         {
@@ -27332,15 +29448,41 @@
     {
       "id": "today-133",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-f",
       "number": "506",
       "name": "Sea | Sea NY | Spring/Summer | Blouse",
       "brand": "Sea Sea NY",
       "type": "blouse",
       "display_name": "Sea | Sea NY | Spring/Summer | Blouse",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 40.3955078125,
+        "top": 4.39453125,
+        "width": 16.01888020833333,
+        "height": 33.3984375
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-133.webp",
+        "left": 39.97395833333333,
+        "top": 5.859375,
+        "width": 16.796875,
+        "height": 32.8125,
+        "rect": {
+          "left": 39.97395833333333,
+          "top": 5.859375,
+          "width": 16.796875,
+          "height": 32.8125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 2
+      },
       "image": "assets/items/v2/today-133-600.webp",
       "card_images": [
         {
@@ -27358,15 +29500,41 @@
     {
       "id": "today-134",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-f",
       "number": "507",
       "name": "Stussy | Spring/Summer | Striped Shirt",
       "brand": "Unknown",
       "type": "shirt",
       "display_name": "Stussy | Spring/Summer | Striped Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 58.190104166666664,
+        "top": 4.4140625,
+        "width": 16.822916666666675,
+        "height": 34.140625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-134.webp",
+        "left": 57.8125,
+        "top": 7.12890625,
+        "width": 17.643229166666664,
+        "height": 32.2265625,
+        "rect": {
+          "left": 57.8125,
+          "top": 7.12890625,
+          "width": 17.643229166666664,
+          "height": 32.2265625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 3
+      },
       "image": "assets/items/v2/today-134-600.webp",
       "card_images": [
         {
@@ -27384,15 +29552,41 @@
     {
       "id": "today-135",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-g",
       "number": "508",
       "name": "THE NEW SCHOOL | All Season | Top",
       "brand": "THE NEW SCHOOL",
       "type": "top",
       "display_name": "THE NEW SCHOOL | All Season | Top",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 50.349934895833336,
+        "top": 6.15966796875,
+        "width": 18.245442708333336,
+        "height": 33.6767578125
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-135.webp",
+        "left": 49.86979166666667,
+        "top": 9.27734375,
+        "width": 19.205729166666664,
+        "height": 31.4453125,
+        "rect": {
+          "left": 49.86979166666667,
+          "top": 9.27734375,
+          "width": 19.205729166666664,
+          "height": 31.4453125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 3
+      },
       "image": "assets/items/v2/today-135-600.webp",
       "card_images": [
         {
@@ -27410,15 +29604,41 @@
     {
       "id": "today-136",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-g",
       "number": "509",
       "name": "The North Face Purple Label | Spring/Summer | 7oz H/S Pocket Tee",
       "brand": "Unknown",
       "type": "tee",
       "display_name": "The North Face Purple Label | Spring/Summer | 7oz H/S Pocket Tee",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 70.34016927083333,
+        "top": 6.1865234375,
+        "width": 18.369140625000004,
+        "height": 34.69726562499999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-136.webp",
+        "left": 69.79166666666666,
+        "top": 9.27734375,
+        "width": 19.401041666666664,
+        "height": 32.6171875,
+        "rect": {
+          "left": 69.79166666666666,
+          "top": 9.27734375,
+          "width": 19.401041666666664,
+          "height": 32.6171875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 4
+      },
       "image": "assets/items/v2/today-136-600.webp",
       "card_images": [
         {
@@ -27443,8 +29663,34 @@
       "type": "sweatshirt",
       "display_name": "The North Face | All Season | Top / Sweatshirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 51.25000000000001,
+        "top": 43.79638671875,
+        "width": 15.33854166666666,
+        "height": 31.450195312499996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-137.webp",
+        "left": 50.846354166666664,
+        "top": 46.2890625,
+        "width": 16.080729166666664,
+        "height": 29.8828125,
+        "rect": {
+          "left": 50.846354166666664,
+          "top": 46.2890625,
+          "width": 16.080729166666664,
+          "height": 29.8828125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 8
+      },
       "image": "assets/items/v2/today-137-600.webp",
       "card_images": [
         {
@@ -27462,15 +29708,41 @@
     {
       "id": "today-138",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-g",
       "number": "511",
       "name": "Thom Browne. | Spring/Summer | 4-Bar Side Button Tee",
       "brand": "Thom Browne.",
       "type": "tee",
       "display_name": "Thom Browne. | Spring/Summer | 4-Bar Side Button Tee",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 16.393229166666668,
+        "top": 46.0595703125,
+        "width": 21.770833333333336,
+        "height": 32.09960937500001
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-138.webp",
+        "left": 15.755208333333334,
+        "top": 49.21875,
+        "width": 22.916666666666664,
+        "height": 29.78515625,
+        "rect": {
+          "left": 15.755208333333334,
+          "top": 49.21875,
+          "width": 22.916666666666664,
+          "height": 29.78515625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 5
+      },
       "image": "assets/items/v2/today-138-600.webp",
       "card_images": [
         {
@@ -27488,15 +29760,41 @@
     {
       "id": "today-139",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-f",
       "number": "512",
       "name": "Tombolo | All Season | FIFA USA Shirt",
       "brand": "Tombolo",
       "type": "shirt",
       "display_name": "Tombolo | All Season | FIFA USA Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 75.78450520833333,
+        "top": 4.384765625,
+        "width": 17.441406250000004,
+        "height": 33.02734375000001
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-139.webp",
+        "left": 75.32552083333334,
+        "top": 7.32421875,
+        "width": 18.359375,
+        "height": 30.95703125,
+        "rect": {
+          "left": 75.32552083333334,
+          "top": 7.32421875,
+          "width": 18.359375,
+          "height": 30.95703125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 4
+      },
       "image": "assets/items/v2/today-139-600.webp",
       "card_images": [
         {
@@ -27514,15 +29812,41 @@
     {
       "id": "today-140",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-f",
       "number": "513",
       "name": "Tombolo | Spring/Summer | Shirt",
       "brand": "Unknown",
       "type": "shirt",
       "display_name": "Tombolo | Spring/Summer | Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 25.006510416666668,
+        "top": 43.60595703125,
+        "width": 17.565104166666664,
+        "height": 35.34667968750001
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-140.webp",
+        "left": 24.479166666666664,
+        "top": 46.2890625,
+        "width": 18.5546875,
+        "height": 33.69140625,
+        "rect": {
+          "left": 24.479166666666664,
+          "top": 46.2890625,
+          "width": 18.5546875,
+          "height": 33.69140625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 5
+      },
       "image": "assets/items/v2/today-140-600.webp",
       "card_images": [
         {
@@ -27540,15 +29864,41 @@
     {
       "id": "today-141",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-f",
       "number": "514",
       "name": "Tombolo | Spring/Summer | Shirt",
       "brand": "Tombolo",
       "type": "shirt",
       "display_name": "Tombolo | Spring/Summer | Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 46.6455078125,
+        "top": 43.61328125,
+        "width": 18.492838541666664,
+        "height": 35.62499999999999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-141.webp",
+        "left": 46.22395833333333,
+        "top": 45.01953125,
+        "width": 19.3359375,
+        "height": 35.05859375,
+        "rect": {
+          "left": 46.22395833333333,
+          "top": 45.01953125,
+          "width": 19.3359375,
+          "height": 35.05859375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 6
+      },
       "image": "assets/items/v2/today-141-600.webp",
       "card_images": [
         {
@@ -27573,8 +29923,34 @@
       "type": "pullover",
       "display_name": "UNIQLO x White Mountaineering | FallWinter | Boa Fleece Pullover",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 68.232421875,
+        "top": 43.75732421875,
+        "width": 17.441406250000004,
+        "height": 29.965820312499996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-142.webp",
+        "left": 67.7734375,
+        "top": 46.2890625,
+        "width": 18.359375,
+        "height": 28.22265625,
+        "rect": {
+          "left": 67.7734375,
+          "top": 46.2890625,
+          "width": 18.359375,
+          "height": 28.22265625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 9
+      },
       "image": "assets/items/v2/today-142-600.webp",
       "card_images": [
         {
@@ -27592,15 +29968,41 @@
     {
       "id": "today-143",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-g",
       "number": "516",
       "name": "UNKNOWN | T-shirt",
       "brand": "Unknown",
       "type": "tee",
       "display_name": "UNKNOWN | T-shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 40.24251302083333,
+        "top": 46.03271484375,
+        "width": 20.100911458333336,
+        "height": 31.0791015625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-143.webp",
+        "left": 39.77864583333333,
+        "top": 48.4375,
+        "width": 21.09375,
+        "height": 29.4921875,
+        "rect": {
+          "left": 39.77864583333333,
+          "top": 48.4375,
+          "width": 21.09375,
+          "height": 29.4921875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 6
+      },
       "image": "assets/items/v2/today-143-600.webp",
       "card_images": [
         {
@@ -27618,15 +30020,41 @@
     {
       "id": "today-144",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-f",
       "number": "517",
       "name": "Uniqlo J+ | Spring/Summer | Button-Down Shirt",
       "brand": "Unknown",
       "type": "shirt",
       "display_name": "Uniqlo J+ | Spring/Summer | Button-Down Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 69.04459635416667,
+        "top": 43.65966796875,
+        "width": 18.61653645833332,
+        "height": 37.3876953125
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-144.webp",
+        "left": 68.5546875,
+        "top": 46.2890625,
+        "width": 19.596354166666664,
+        "height": 35.7421875,
+        "rect": {
+          "left": 68.5546875,
+          "top": 46.2890625,
+          "width": 19.596354166666664,
+          "height": 35.7421875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 7
+      },
       "image": "assets/items/v2/today-144-600.webp",
       "card_images": [
         {
@@ -27644,15 +30072,41 @@
     {
       "id": "today-145",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-g",
       "number": "518",
       "name": "YMC | Spring/Summer | EmbroideredCollarShirt",
       "brand": "YMC",
       "type": "shirt",
       "display_name": "YMC | Spring/Summer | EmbroideredCollarShirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 16.061197916666668,
+        "top": 4.716796875,
+        "width": 16.575520833333336,
+        "height": 34.51171875
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-145.webp",
+        "left": 15.625,
+        "top": 7.91015625,
+        "width": 17.513020833333336,
+        "height": 32.2265625,
+        "rect": {
+          "left": 15.625,
+          "top": 7.91015625,
+          "width": 17.513020833333336,
+          "height": 32.2265625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 1
+      },
       "image": "assets/items/v2/today-145-600.webp",
       "card_images": [
         {
@@ -27670,15 +30124,41 @@
     {
       "id": "today-146",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-g",
       "number": "519",
       "name": "adidasEQUIPMENT | All Season | Top (Sleeveless)",
       "brand": "adidasEQUIPMENT",
       "type": "sleeveless-top",
       "display_name": "adidasEQUIPMENT | All Season | Top (Sleeveless)",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 65.61848958333333,
+        "top": 46.11572265625,
+        "width": 14.59635416666666,
+        "height": 34.23339843749999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-146.webp",
+        "left": 65.234375,
+        "top": 49.21875,
+        "width": 15.364583333333334,
+        "height": 32.03125,
+        "rect": {
+          "left": 65.234375,
+          "top": 49.21875,
+          "width": 15.364583333333334,
+          "height": 32.03125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 7
+      },
       "image": "assets/items/v2/today-146-600.webp",
       "card_images": [
         {
@@ -27696,15 +30176,41 @@
     {
       "id": "today-147",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-g",
       "number": "520",
       "name": "at dawn | Spring/Summer | LinenDoubleBreastedBlouse",
       "brand": "at dawn",
       "type": "blouse",
       "display_name": "at dawn | Spring/Summer | LinenDoubleBreastedBlouse",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 34.35546875,
+        "top": 4.6533203125,
+        "width": 16.575520833333325,
+        "height": 32.09960937500001
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-147.webp",
+        "left": 33.85416666666667,
+        "top": 7.91015625,
+        "width": 17.513020833333336,
+        "height": 29.6875,
+        "rect": {
+          "left": 33.85416666666667,
+          "top": 7.91015625,
+          "width": 17.513020833333336,
+          "height": 29.6875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 2
+      },
       "image": "assets/items/v2/today-147-600.webp",
       "card_images": [
         {
@@ -27722,15 +30228,41 @@
     {
       "id": "today-148",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-g",
       "number": "521",
       "name": "baziszt | Spring/Summer | Embroidered Shirt",
       "brand": "baziszt",
       "type": "shirt",
       "display_name": "baziszt | Spring/Summer | Embroidered Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 52.376302083333336,
+        "top": 4.69970703125,
+        "width": 16.080729166666664,
+        "height": 33.8623046875
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-148.webp",
+        "left": 51.953125,
+        "top": 9.66796875,
+        "width": 16.927083333333336,
+        "height": 29.78515625,
+        "rect": {
+          "left": 51.953125,
+          "top": 9.66796875,
+          "width": 16.927083333333336,
+          "height": 29.78515625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 3
+      },
       "image": "assets/items/v2/today-148-600.webp",
       "card_images": [
         {
@@ -27748,15 +30280,41 @@
     {
       "id": "today-149",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-g",
       "number": "522",
       "name": "baziszt | Spring/Summer | EmbroideredShirt",
       "brand": "baziszt",
       "type": "shirt",
       "display_name": "baziszt | Spring/Summer | EmbroideredShirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 70.05208333333334,
+        "top": 4.7265625,
+        "width": 17.317708333333336,
+        "height": 34.88281250000001
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-149.webp",
+        "left": 69.59635416666666,
+        "top": 7.91015625,
+        "width": 18.229166666666664,
+        "height": 32.6171875,
+        "rect": {
+          "left": 69.59635416666666,
+          "top": 7.91015625,
+          "width": 18.229166666666664,
+          "height": 32.6171875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 4
+      },
       "image": "assets/items/v2/today-149-600.webp",
       "card_images": [
         {
@@ -27774,15 +30332,41 @@
     {
       "id": "today-150",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-g",
       "number": "523",
       "name": "cos | Spring/Summer | Button-Down Shirt",
       "brand": "Unknown",
       "type": "shirt",
       "display_name": "cos | Spring/Summer | Button-Down Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 21.62109375,
+        "top": 44.150390625,
+        "width": 17.565104166666664,
+        "height": 33.76953124999999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-150.webp",
+        "left": 21.09375,
+        "top": 46.875,
+        "width": 18.489583333333336,
+        "height": 31.93359375,
+        "rect": {
+          "left": 21.09375,
+          "top": 46.875,
+          "width": 18.489583333333336,
+          "height": 31.93359375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 5
+      },
       "image": "assets/items/v2/today-150-600.webp",
       "card_images": [
         {
@@ -27800,15 +30384,41 @@
     {
       "id": "today-151",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-g",
       "number": "524",
       "name": "cos | Spring/Summer | Button-Down Shirt",
       "brand": "cos",
       "type": "shirt",
       "display_name": "cos | Spring/Summer | Button-Down Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 41.904296875,
+        "top": 44.150390625,
+        "width": 16.45182291666667,
+        "height": 33.76953124999999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-151.webp",
+        "left": 41.47135416666667,
+        "top": 43.359375,
+        "width": 17.252604166666664,
+        "height": 35.44921875,
+        "rect": {
+          "left": 41.47135416666667,
+          "top": 43.359375,
+          "width": 17.252604166666664,
+          "height": 35.44921875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 6
+      },
       "image": "assets/items/v2/today-151-600.webp",
       "card_images": [
         {
@@ -27826,15 +30436,41 @@
     {
       "id": "today-152",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-g",
       "number": "525",
       "name": "soeur | Spring/Summer | Button-Down Shirt",
       "brand": "soeur",
       "type": "shirt",
       "display_name": "soeur | Spring/Summer | Button-Down Shirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 61.66503906249999,
+        "top": 44.150390625,
+        "width": 17.750651041666675,
+        "height": 33.76953124999999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-152.webp",
+        "left": 61.1328125,
+        "top": 43.359375,
+        "width": 18.815104166666664,
+        "height": 35.44921875,
+        "rect": {
+          "left": 61.1328125,
+          "top": 43.359375,
+          "width": 18.815104166666664,
+          "height": 35.44921875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 7
+      },
       "image": "assets/items/v2/today-152-600.webp",
       "card_images": [
         {
@@ -27859,8 +30495,34 @@
       "type": "cardigan",
       "display_name": "Stussy | Fall/Winter | Cardigan",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 63.21289062500001,
+        "top": 34.04296875,
+        "width": 22.141927083333325,
+        "height": 43.04687499999999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-189.webp",
+        "left": 62.630208333333336,
+        "top": 37.59765625,
+        "width": 23.307291666666664,
+        "height": 40.72265625,
+        "rect": {
+          "left": 62.630208333333336,
+          "top": 37.59765625,
+          "width": 23.307291666666664,
+          "height": 40.72265625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 2
+      },
       "image": "assets/items/v2/today-189-600.webp",
       "card_images": [
         {
@@ -27885,8 +30547,34 @@
       "type": "blazer",
       "display_name": "ACNE STUDIOS | Blazer",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 5.3857421875,
+        "top": 7.187499999999999,
+        "width": 14.163411458333334,
+        "height": 31.914062499999996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-225.webp",
+        "left": 4.947916666666666,
+        "top": 6.25,
+        "width": 14.973958333333334,
+        "height": 33.7890625,
+        "rect": {
+          "left": 4.947916666666666,
+          "top": 6.25,
+          "width": 14.973958333333334,
+          "height": 33.7890625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 1
+      },
       "image": "assets/items/v2/today-225-600.webp",
       "card_images": [
         {
@@ -27911,8 +30599,34 @@
       "type": "blazer",
       "display_name": "ACNE STUDIOS | Double-Breasted Blazer",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 20.8740234375,
+        "top": 7.1826171875,
+        "width": 13.916015625,
+        "height": 31.728515624999996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-226.webp",
+        "left": 20.442708333333336,
+        "top": 9.9609375,
+        "width": 14.713541666666666,
+        "height": 29.8828125,
+        "rect": {
+          "left": 20.442708333333336,
+          "top": 9.9609375,
+          "width": 14.713541666666666,
+          "height": 29.8828125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 2
+      },
       "image": "assets/items/v2/today-226-600.webp",
       "card_images": [
         {
@@ -27937,8 +30651,34 @@
       "type": "blazer",
       "display_name": "ACNE STUDIOS | Velvet Blazer",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 35.9716796875,
+        "top": 7.180175781250001,
+        "width": 13.66861979166667,
+        "height": 31.635742187500004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-227.webp",
+        "left": 35.546875,
+        "top": 11.42578125,
+        "width": 14.453125,
+        "height": 28.3203125,
+        "rect": {
+          "left": 35.546875,
+          "top": 11.42578125,
+          "width": 14.453125,
+          "height": 28.3203125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 3
+      },
       "image": "assets/items/v2/today-227-600.webp",
       "card_images": [
         {
@@ -27963,8 +30703,34 @@
       "type": "blazer",
       "display_name": "ACNESTUDIOS | Blazer",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 50.87402343749999,
+        "top": 7.175292968749999,
+        "width": 13.42122395833334,
+        "height": 31.450195312499996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-228.webp",
+        "left": 50.455729166666664,
+        "top": 6.25,
+        "width": 14.2578125,
+        "height": 33.203125,
+        "rect": {
+          "left": 50.455729166666664,
+          "top": 6.25,
+          "width": 14.2578125,
+          "height": 33.203125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 4
+      },
       "image": "assets/items/v2/today-228-600.webp",
       "card_images": [
         {
@@ -27989,8 +30755,34 @@
       "type": "blazer",
       "display_name": "ADERERROR | Tag blazer",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 65.66731770833333,
+        "top": 7.17041015625,
+        "width": 13.97786458333333,
+        "height": 31.264648437499996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-229.webp",
+        "left": 65.29947916666666,
+        "top": 10.25390625,
+        "width": 14.713541666666666,
+        "height": 29.1015625,
+        "rect": {
+          "left": 65.29947916666666,
+          "top": 10.25390625,
+          "width": 14.713541666666666,
+          "height": 29.1015625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 5
+      },
       "image": "assets/items/v2/today-229-600.webp",
       "card_images": [
         {
@@ -28015,8 +30807,34 @@
       "type": "jacket",
       "display_name": "AIMELEONDORE | EmbroideredWoolShirtJacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 80.79915364583333,
+        "top": 7.1728515625,
+        "width": 15.029296874999995,
+        "height": 31.357421875000004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-230.webp",
+        "left": 80.40364583333334,
+        "top": 9.9609375,
+        "width": 15.8203125,
+        "height": 29.39453125,
+        "rect": {
+          "left": 80.40364583333334,
+          "top": 9.9609375,
+          "width": 15.8203125,
+          "height": 29.39453125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 6
+      },
       "image": "assets/items/v2/today-230-600.webp",
       "card_images": [
         {
@@ -28041,8 +30859,34 @@
       "type": "jacket",
       "display_name": "AP STUDIO | AutumnWinter | Collared Jacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 4.6337890625,
+        "top": 45.9375,
+        "width": 15.27669270833333,
+        "height": 31.171875000000004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-231.webp",
+        "left": 4.166666666666666,
+        "top": 45.01953125,
+        "width": 16.2109375,
+        "height": 32.91015625,
+        "rect": {
+          "left": 4.166666666666666,
+          "top": 45.01953125,
+          "width": 16.2109375,
+          "height": 32.91015625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 7
+      },
       "image": "assets/items/v2/today-231-600.webp",
       "card_images": [
         {
@@ -28067,8 +30911,34 @@
       "type": "jacket",
       "display_name": "ATSURO TAYAKA | Spring/Summer | Technical Hooded Zip Jacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 20.9326171875,
+        "top": 45.947265625,
+        "width": 13.66861979166667,
+        "height": 31.54296875
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-232.webp",
+        "left": 20.572916666666664,
+        "top": 48.828125,
+        "width": 14.453125,
+        "height": 29.4921875,
+        "rect": {
+          "left": 20.572916666666664,
+          "top": 48.828125,
+          "width": 14.453125,
+          "height": 29.4921875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 8
+      },
       "image": "assets/items/v2/today-232-600.webp",
       "card_images": [
         {
@@ -28093,8 +30963,34 @@
       "type": "jacket",
       "display_name": "AURALEE | Denim Jacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 35.72102864583333,
+        "top": 45.9326171875,
+        "width": 14.039713541666673,
+        "height": 30.986328124999996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-233.webp",
+        "left": 35.28645833333333,
+        "top": 48.92578125,
+        "width": 14.908854166666666,
+        "height": 28.90625,
+        "rect": {
+          "left": 35.28645833333333,
+          "top": 48.92578125,
+          "width": 14.908854166666666,
+          "height": 28.90625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 9
+      },
       "image": "assets/items/v2/today-233-600.webp",
       "card_images": [
         {
@@ -28119,8 +31015,34 @@
       "type": "blazer",
       "display_name": "Acne Studios | AutumnWinter | Double-Breasted Blazer",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 50.7568359375,
+        "top": 45.947265625,
+        "width": 13.916015625,
+        "height": 31.54296875
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-234.webp",
+        "left": 50.325520833333336,
+        "top": 48.92578125,
+        "width": 14.778645833333334,
+        "height": 29.39453125,
+        "rect": {
+          "left": 50.325520833333336,
+          "top": 48.92578125,
+          "width": 14.778645833333334,
+          "height": 29.39453125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 10
+      },
       "image": "assets/items/v2/today-234-600.webp",
       "card_images": [
         {
@@ -28145,8 +31067,34 @@
       "type": "vest",
       "display_name": "American Vintage | Autumn/Winter | Fleece Vest",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 66.16536458333333,
+        "top": 45.92529296875,
+        "width": 13.111979166666673,
+        "height": 30.708007812500004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-235.webp",
+        "left": 65.8203125,
+        "top": 48.828125,
+        "width": 13.802083333333334,
+        "height": 28.61328125,
+        "rect": {
+          "left": 65.8203125,
+          "top": 48.828125,
+          "width": 13.802083333333334,
+          "height": 28.61328125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 11
+      },
       "image": "assets/items/v2/today-235-600.webp",
       "card_images": [
         {
@@ -28171,8 +31119,34 @@
       "type": "jacket",
       "display_name": "Arc'teryx | Spring/Summer | Alpha Lightweight Jacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 81.10026041666667,
+        "top": 45.93505859375,
+        "width": 14.101562499999995,
+        "height": 31.0791015625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-236.webp",
+        "left": 80.6640625,
+        "top": 45.01953125,
+        "width": 14.908854166666666,
+        "height": 32.91015625,
+        "rect": {
+          "left": 80.6640625,
+          "top": 45.01953125,
+          "width": 14.908854166666666,
+          "height": 32.91015625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 12
+      },
       "image": "assets/items/v2/today-236-600.webp",
       "card_images": [
         {
@@ -28190,15 +31164,41 @@
     {
       "id": "today-237",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "number": "539",
       "name": "Arc'teryx | Spring/Summer | Kyanite Lightweight Hoody",
       "brand": "Arc'teryx",
       "type": "hoodie",
       "display_name": "Arc'teryx | Spring/Summer | Kyanite Lightweight Hoody",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 7.643229166666667,
+        "top": 9.0576171875,
+        "width": 13.359375000000002,
+        "height": 28.759765625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-237.webp",
+        "left": 7.2265625,
+        "top": 8.203125,
+        "width": 14.192708333333334,
+        "height": 30.46875,
+        "rect": {
+          "left": 7.2265625,
+          "top": 8.203125,
+          "width": 14.192708333333334,
+          "height": 30.46875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 1
+      },
       "image": "assets/items/v2/today-237-600.webp",
       "card_images": [
         {
@@ -28216,15 +31216,41 @@
     {
       "id": "today-238",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "number": "540",
       "name": "Arc'teryx | Spring/Summer | NodinJacket",
       "brand": "Arc'teryx",
       "type": "jacket",
       "display_name": "Arc'teryx | Spring/Summer | NodinJacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 22.555338541666668,
+        "top": 9.04541015625,
+        "width": 13.483072916666664,
+        "height": 28.2958984375
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-238.webp",
+        "left": 22.200520833333336,
+        "top": 11.23046875,
+        "width": 14.192708333333334,
+        "height": 26.953125,
+        "rect": {
+          "left": 22.200520833333336,
+          "top": 11.23046875,
+          "width": 14.192708333333334,
+          "height": 26.953125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 2
+      },
       "image": "assets/items/v2/today-238-600.webp",
       "card_images": [
         {
@@ -28242,15 +31268,41 @@
     {
       "id": "today-239",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "number": "541",
       "name": "BODE | BotanicalEmbroidered | Shirt-Jacket",
       "brand": "BODE BotanicalEmbroidered",
       "type": "jacket",
       "display_name": "BODE | BotanicalEmbroidered | Shirt-Jacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 37.59440104166667,
+        "top": 9.03564453125,
+        "width": 13.48307291666666,
+        "height": 27.924804687500004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-239.webp",
+        "left": 37.23958333333333,
+        "top": 11.328125,
+        "width": 14.192708333333334,
+        "height": 26.3671875,
+        "rect": {
+          "left": 37.23958333333333,
+          "top": 11.328125,
+          "width": 14.192708333333334,
+          "height": 26.3671875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 3
+      },
       "image": "assets/items/v2/today-239-600.webp",
       "card_images": [
         {
@@ -28268,15 +31320,41 @@
     {
       "id": "today-240",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "number": "542",
       "name": "Beams not | Fall/Winter | ChinaButtonCoat",
       "brand": "Unknown",
       "type": "coat",
       "display_name": "Beams not | Fall/Winter | ChinaButtonCoat",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 52.44466145833333,
+        "top": 9.2236328125,
+        "width": 13.730468750000005,
+        "height": 35.068359375
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-240.webp",
+        "left": 52.083333333333336,
+        "top": 12.40234375,
+        "width": 14.453125,
+        "height": 32.91015625,
+        "rect": {
+          "left": 52.083333333333336,
+          "top": 12.40234375,
+          "width": 14.453125,
+          "height": 32.91015625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 4
+      },
       "image": "assets/items/v2/today-240-600.webp",
       "card_images": [
         {
@@ -28294,15 +31372,41 @@
     {
       "id": "today-241",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "number": "543",
       "name": "Blazer",
       "brand": "Unknown",
       "type": "blazer",
       "display_name": "Blazer",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 67.54231770833333,
+        "top": 9.0576171875,
+        "width": 13.48307291666666,
+        "height": 28.759765625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-241.webp",
+        "left": 67.1875,
+        "top": 9.765625,
+        "width": 14.192708333333334,
+        "height": 28.90625,
+        "rect": {
+          "left": 67.1875,
+          "top": 9.765625,
+          "width": 14.192708333333334,
+          "height": 28.90625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 5
+      },
       "image": "assets/items/v2/today-241-600.webp",
       "card_images": [
         {
@@ -28320,15 +31424,41 @@
     {
       "id": "today-242",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "number": "544",
       "name": "CHANEL | Jacket",
       "brand": "CHANEL",
       "type": "jacket",
       "display_name": "CHANEL | Jacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 82.28841145833333,
+        "top": 9.0771484375,
+        "width": 14.720052083333327,
+        "height": 29.501953125000004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-242.webp",
+        "left": 81.8359375,
+        "top": 8.3984375,
+        "width": 15.559895833333334,
+        "height": 30.95703125,
+        "rect": {
+          "left": 81.8359375,
+          "top": 8.3984375,
+          "width": 15.559895833333334,
+          "height": 30.95703125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 6
+      },
       "image": "assets/items/v2/today-242-600.webp",
       "card_images": [
         {
@@ -28346,15 +31476,41 @@
     {
       "id": "today-243",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "number": "545",
       "name": "CONCERTPERFORMANCE | DenimJacket",
       "brand": "Unknown",
       "type": "jacket",
       "display_name": "CONCERTPERFORMANCE | DenimJacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 7.021484374999999,
+        "top": 47.8857421875,
+        "width": 14.472656249999998,
+        "height": 27.275390624999996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-243.webp",
+        "left": 6.575520833333333,
+        "top": 47.0703125,
+        "width": 15.364583333333334,
+        "height": 28.80859375,
+        "rect": {
+          "left": 6.575520833333333,
+          "top": 47.0703125,
+          "width": 15.364583333333334,
+          "height": 28.80859375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 7
+      },
       "image": "assets/items/v2/today-243-600.webp",
       "card_images": [
         {
@@ -28372,15 +31528,41 @@
     {
       "id": "today-244",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "number": "546",
       "name": "Fritur and handcrafts | Autumn/Winter | EmbroideredJacket",
       "brand": "Unknown",
       "type": "jacket",
       "display_name": "Fritur and handcrafts | Autumn/Winter | EmbroideredJacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 22.701822916666668,
+        "top": 47.8955078125,
+        "width": 14.101562499999998,
+        "height": 27.646484374999996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-244.webp",
+        "left": 22.265625,
+        "top": 47.16796875,
+        "width": 14.973958333333334,
+        "height": 29.1015625,
+        "rect": {
+          "left": 22.265625,
+          "top": 47.16796875,
+          "width": 14.973958333333334,
+          "height": 29.1015625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 8
+      },
       "image": "assets/items/v2/today-244-600.webp",
       "card_images": [
         {
@@ -28398,15 +31580,41 @@
     {
       "id": "today-245",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "number": "547",
       "name": "GANNI | Padded Vest",
       "brand": "GANNI",
       "type": "vest",
       "display_name": "GANNI | Padded Vest",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 38.3349609375,
+        "top": 47.8515625,
+        "width": 11.936848958333329,
+        "height": 25.9765625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-245.webp",
+        "left": 37.95572916666667,
+        "top": 50.29296875,
+        "width": 12.6953125,
+        "height": 24.21875,
+        "rect": {
+          "left": 37.95572916666667,
+          "top": 50.29296875,
+          "width": 12.6953125,
+          "height": 24.21875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 9
+      },
       "image": "assets/items/v2/today-245-600.webp",
       "card_images": [
         {
@@ -28424,15 +31632,41 @@
     {
       "id": "today-246",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "number": "548",
       "name": "Hype and Vice | Spring/Summer | Spartan Half-Zip Windbreaker",
       "brand": "Hype and Vice",
       "type": "windbreaker",
       "display_name": "Hype and Vice | Spring/Summer | Spartan Half-Zip Windbreaker",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 51.75130208333333,
+        "top": 47.900390625,
+        "width": 14.59635416666667,
+        "height": 27.83203125
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-246.webp",
+        "left": 51.302083333333336,
+        "top": 47.16796875,
+        "width": 15.494791666666666,
+        "height": 29.296875,
+        "rect": {
+          "left": 51.302083333333336,
+          "top": 47.16796875,
+          "width": 15.494791666666666,
+          "height": 29.296875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 10
+      },
       "image": "assets/items/v2/today-246-600.webp",
       "card_images": [
         {
@@ -28450,15 +31684,41 @@
     {
       "id": "today-247",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "number": "549",
       "name": "ISABEL ETOILE MARANT | Blazer",
       "brand": "Unknown",
       "type": "blazer",
       "display_name": "ISABEL ETOILE MARANT | Blazer",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 67.66438802083333,
+        "top": 47.90283203125,
+        "width": 13.173828124999995,
+        "height": 27.924804687500004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-247.webp",
+        "left": 67.31770833333334,
+        "top": 47.16796875,
+        "width": 13.932291666666666,
+        "height": 29.39453125,
+        "rect": {
+          "left": 67.31770833333334,
+          "top": 47.16796875,
+          "width": 13.932291666666666,
+          "height": 29.39453125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 11
+      },
       "image": "assets/items/v2/today-247-600.webp",
       "card_images": [
         {
@@ -28476,15 +31736,41 @@
     {
       "id": "today-248",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "number": "550",
       "name": "JACQUEMUS | Le Coup de Soleil Blazer",
       "brand": "JACQUEMUS",
       "type": "blazer",
       "display_name": "JACQUEMUS | Le Coup de Soleil Blazer",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 82.26725260416666,
+        "top": 47.91015625,
+        "width": 13.916015625,
+        "height": 28.203124999999996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-248.webp",
+        "left": 81.90104166666666,
+        "top": 50.29296875,
+        "width": 14.583333333333334,
+        "height": 26.5625,
+        "rect": {
+          "left": 81.90104166666666,
+          "top": 50.29296875,
+          "width": 14.583333333333334,
+          "height": 26.5625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 12
+      },
       "image": "assets/items/v2/today-248-600.webp",
       "card_images": [
         {
@@ -28502,15 +31788,41 @@
     {
       "id": "today-249",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "number": "551",
       "name": "LEMAIRE | LeatherJacket",
       "brand": "LEMAIRE",
       "type": "jacket",
       "display_name": "LEMAIRE | LeatherJacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 11.515299479166668,
+        "top": 11.5771484375,
+        "width": 14.534505208333334,
+        "height": 28.017578124999996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-249.webp",
+        "left": 11.067708333333332,
+        "top": 10.83984375,
+        "width": 15.4296875,
+        "height": 29.58984375,
+        "rect": {
+          "left": 11.067708333333332,
+          "top": 10.83984375,
+          "width": 15.4296875,
+          "height": 29.58984375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 1
+      },
       "image": "assets/items/v2/today-249-600.webp",
       "card_images": [
         {
@@ -28528,15 +31840,41 @@
     {
       "id": "today-250",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "number": "552",
       "name": "LEMAIRE | PADDEDVEST",
       "brand": "LEMAIRE",
       "type": "vest",
       "display_name": "LEMAIRE | PADDEDVEST",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 26.97265625,
+        "top": 11.52099609375,
+        "width": 10.638020833333336,
+        "height": 25.883789062499996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-250.webp",
+        "left": 26.627604166666668,
+        "top": 14.16015625,
+        "width": 11.263020833333332,
+        "height": 24.0234375,
+        "rect": {
+          "left": 26.627604166666668,
+          "top": 14.16015625,
+          "width": 11.263020833333332,
+          "height": 24.0234375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 2
+      },
       "image": "assets/items/v2/today-250-600.webp",
       "card_images": [
         {
@@ -28554,15 +31892,41 @@
     {
       "id": "today-251",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "number": "553",
       "name": "LOEWE | LeatherJacket",
       "brand": "LOEWE",
       "type": "jacket",
       "display_name": "LOEWE | LeatherJacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 38.62630208333333,
+        "top": 11.6162109375,
+        "width": 13.111979166666673,
+        "height": 29.501953125000004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-251.webp",
+        "left": 38.21614583333333,
+        "top": 11.03515625,
+        "width": 13.8671875,
+        "height": 30.95703125,
+        "rect": {
+          "left": 38.21614583333333,
+          "top": 11.03515625,
+          "width": 13.8671875,
+          "height": 30.95703125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 3
+      },
       "image": "assets/items/v2/today-251-600.webp",
       "card_images": [
         {
@@ -28580,15 +31944,41 @@
     {
       "id": "today-252",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "number": "554",
       "name": "Maison Margiela | Patchwork Blazer",
       "brand": "Unknown",
       "type": "blazer",
       "display_name": "Maison Margiela | Patchwork Blazer",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 52.5244140625,
+        "top": 11.572265625,
+        "width": 11.81315104166667,
+        "height": 27.83203125
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-252.webp",
+        "left": 52.1484375,
+        "top": 14.16015625,
+        "width": 12.565104166666666,
+        "height": 25.9765625,
+        "rect": {
+          "left": 52.1484375,
+          "top": 14.16015625,
+          "width": 12.565104166666666,
+          "height": 25.9765625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 4
+      },
       "image": "assets/items/v2/today-252-600.webp",
       "card_images": [
         {
@@ -28606,15 +31996,41 @@
     {
       "id": "today-253",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "number": "555",
       "name": "Nahmias | Autumn/Winter | Windbreaker",
       "brand": "Unknown",
       "type": "windbreaker",
       "display_name": "Nahmias | Autumn/Winter | Windbreaker",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 65.0,
+        "top": 11.57470703125,
+        "width": 13.359374999999996,
+        "height": 27.924804687500004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-253.webp",
+        "left": 64.6484375,
+        "top": 14.0625,
+        "width": 14.0625,
+        "height": 26.26953125,
+        "rect": {
+          "left": 64.6484375,
+          "top": 14.0625,
+          "width": 14.0625,
+          "height": 26.26953125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 5
+      },
       "image": "assets/items/v2/today-253-600.webp",
       "card_images": [
         {
@@ -28632,15 +32048,41 @@
     {
       "id": "today-254",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "number": "556",
       "name": "PLEATSPLEASE | ISSEYMIYAKE | PleatedJacket",
       "brand": "Unknown",
       "type": "jacket",
       "display_name": "PLEATSPLEASE | ISSEYMIYAKE | PleatedJacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 79.22037760416667,
+        "top": 11.57958984375,
+        "width": 11.936848958333329,
+        "height": 28.110351562500004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-254.webp",
+        "left": 78.90625,
+        "top": 14.16015625,
+        "width": 12.565104166666666,
+        "height": 26.26953125,
+        "rect": {
+          "left": 78.90625,
+          "top": 14.16015625,
+          "width": 12.565104166666666,
+          "height": 26.26953125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 6
+      },
       "image": "assets/items/v2/today-254-600.webp",
       "card_images": [
         {
@@ -28658,15 +32100,41 @@
     {
       "id": "today-255",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "number": "557",
       "name": "PLEATSPLEASEISSEYMIYAKE | Pleated Zip Jacket",
       "brand": "Unknown",
       "type": "jacket",
       "display_name": "PLEATSPLEASEISSEYMIYAKE | Pleated Zip Jacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 12.698567708333334,
+        "top": 45.12451171875,
+        "width": 12.493489583333332,
+        "height": 29.965820312499996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-255.webp",
+        "left": 12.3046875,
+        "top": 44.3359375,
+        "width": 13.28125,
+        "height": 31.640625,
+        "rect": {
+          "left": 12.3046875,
+          "top": 44.3359375,
+          "width": 13.28125,
+          "height": 31.640625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 7
+      },
       "image": "assets/items/v2/today-255-600.webp",
       "card_images": [
         {
@@ -28684,15 +32152,41 @@
     {
       "id": "today-256",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "number": "558",
       "name": "PRADA | Cropped Jacket",
       "brand": "Unknown",
       "type": "jacket",
       "display_name": "PRADA | Cropped Jacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 25.6640625,
+        "top": 45.10986328125,
+        "width": 12.864583333333332,
+        "height": 29.409179687500004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-256.webp",
+        "left": 25.260416666666668,
+        "top": 47.65625,
+        "width": 13.606770833333334,
+        "height": 27.63671875,
+        "rect": {
+          "left": 25.260416666666668,
+          "top": 47.65625,
+          "width": 13.606770833333334,
+          "height": 27.63671875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 8
+      },
       "image": "assets/items/v2/today-256-600.webp",
       "card_images": [
         {
@@ -28710,15 +32204,41 @@
     {
       "id": "today-257",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "number": "559",
       "name": "SAINTLAURENT | TeddyJacket",
       "brand": "Unknown",
       "type": "jacket",
       "display_name": "SAINTLAURENT | TeddyJacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 39.1357421875,
+        "top": 45.10986328125,
+        "width": 12.679036458333334,
+        "height": 29.409179687500004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-257.webp",
+        "left": 38.73697916666667,
+        "top": 46.2890625,
+        "width": 13.411458333333334,
+        "height": 29.1015625,
+        "rect": {
+          "left": 38.73697916666667,
+          "top": 46.2890625,
+          "width": 13.411458333333334,
+          "height": 29.1015625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 9
+      },
       "image": "assets/items/v2/today-257-600.webp",
       "card_images": [
         {
@@ -28736,15 +32256,41 @@
     {
       "id": "today-258",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "number": "560",
       "name": "SOEUR | Vest",
       "brand": "SOEUR",
       "type": "vest",
       "display_name": "SOEUR | Vest",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 52.82552083333333,
+        "top": 45.17578125,
+        "width": 10.88541666666667,
+        "height": 28.203124999999996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-258.webp",
+        "left": 52.473958333333336,
+        "top": 44.3359375,
+        "width": 11.588541666666668,
+        "height": 29.8828125,
+        "rect": {
+          "left": 52.473958333333336,
+          "top": 44.3359375,
+          "width": 11.588541666666668,
+          "height": 29.8828125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 10
+      },
       "image": "assets/items/v2/today-258-600.webp",
       "card_images": [
         {
@@ -28762,15 +32308,41 @@
     {
       "id": "today-259",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "number": "561",
       "name": "STUSSY | Sherpa Reversible Vest",
       "brand": "Unknown",
       "type": "vest",
       "display_name": "STUSSY | Sherpa Reversible Vest",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 65.01953125,
+        "top": 45.1953125,
+        "width": 11.62760416666666,
+        "height": 28.945312500000004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-259.webp",
+        "left": 64.71354166666666,
+        "top": 48.53515625,
+        "width": 12.3046875,
+        "height": 26.46484375,
+        "rect": {
+          "left": 64.71354166666666,
+          "top": 48.53515625,
+          "width": 12.3046875,
+          "height": 26.46484375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 11
+      },
       "image": "assets/items/v2/today-259-600.webp",
       "card_images": [
         {
@@ -28788,15 +32360,41 @@
     {
       "id": "today-260",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "number": "562",
       "name": "Sea NY | Autumn/Winter | EmbroideredCottonTwillJacket",
       "brand": "Sea NY",
       "type": "jacket",
       "display_name": "Sea NY | Autumn/Winter | EmbroideredCottonTwillJacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 77.41373697916667,
+        "top": 45.2197265625,
+        "width": 15.029296874999995,
+        "height": 29.873046875000004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-260.webp",
+        "left": 76.953125,
+        "top": 44.3359375,
+        "width": 15.885416666666666,
+        "height": 31.640625,
+        "rect": {
+          "left": 76.953125,
+          "top": 44.3359375,
+          "width": 15.885416666666666,
+          "height": 31.640625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 12
+      },
       "image": "assets/items/v2/today-260-600.webp",
       "card_images": [
         {
@@ -28814,15 +32412,41 @@
     {
       "id": "today-261",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "number": "563",
       "name": "Seo. | Sea NY | Autumn/Winter | CottonButtonedJacket",
       "brand": "Seo. Sea NY",
       "type": "jacket",
       "display_name": "Seo. | Sea NY | Autumn/Winter | CottonButtonedJacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 6.769205729166666,
+        "top": 11.56494140625,
+        "width": 14.781901041666664,
+        "height": 27.553710937499996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-261.webp",
+        "left": 6.315104166666667,
+        "top": 12.40234375,
+        "width": 15.690104166666666,
+        "height": 27.44140625,
+        "rect": {
+          "left": 6.315104166666667,
+          "top": 12.40234375,
+          "width": 15.690104166666666,
+          "height": 27.44140625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 1
+      },
       "image": "assets/items/v2/today-261-600.webp",
       "card_images": [
         {
@@ -28840,15 +32464,41 @@
     {
       "id": "today-262",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "number": "564",
       "name": "Stissy | Fall/Winter | Vest/Fleece Vest",
       "brand": "Unknown",
       "type": "vest",
       "display_name": "Stissy | Fall/Winter | Vest/Fleece Vest",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 23.074544270833332,
+        "top": 11.56005859375,
+        "width": 10.947265625000002,
+        "height": 27.3681640625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-262.webp",
+        "left": 22.786458333333336,
+        "top": 14.0625,
+        "width": 11.458333333333332,
+        "height": 25.68359375,
+        "rect": {
+          "left": 22.786458333333336,
+          "top": 14.0625,
+          "width": 11.458333333333332,
+          "height": 25.68359375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 2
+      },
       "image": "assets/items/v2/today-262-600.webp",
       "card_images": [
         {
@@ -28866,15 +32516,41 @@
     {
       "id": "today-264",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "number": "565",
       "name": "THE NORTH FACE | Denim Jacket",
       "brand": "Unknown",
       "type": "jacket",
       "display_name": "THE NORTH FACE | Denim Jacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 35.96516927083333,
+        "top": 11.56494140625,
+        "width": 13.42122395833334,
+        "height": 27.553710937499996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-264.webp",
+        "left": 35.61197916666667,
+        "top": 14.16015625,
+        "width": 14.127604166666666,
+        "height": 25.68359375,
+        "rect": {
+          "left": 35.61197916666667,
+          "top": 14.16015625,
+          "width": 14.127604166666666,
+          "height": 25.68359375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 3
+      },
       "image": "assets/items/v2/today-264-600.webp",
       "card_images": [
         {
@@ -28892,15 +32568,41 @@
     {
       "id": "today-265",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "number": "566",
       "name": "THE NORTH FACE | PURPLE LABEL | QuiltedJacket",
       "brand": "THE NORTH FACE PURPLE LABEL",
       "type": "jacket",
       "display_name": "THE NORTH FACE | PURPLE LABEL | QuiltedJacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 50.877278645833336,
+        "top": 11.55029296875,
+        "width": 13.544921874999996,
+        "height": 26.997070312500004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-265.webp",
+        "left": 50.520833333333336,
+        "top": 14.0625,
+        "width": 14.2578125,
+        "height": 25.1953125,
+        "rect": {
+          "left": 50.520833333333336,
+          "top": 14.0625,
+          "width": 14.2578125,
+          "height": 25.1953125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 4
+      },
       "image": "assets/items/v2/today-265-600.webp",
       "card_images": [
         {
@@ -28918,15 +32620,41 @@
     {
       "id": "today-266",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "number": "567",
       "name": "The North Face X CDG | All Season | Top (Jacket)",
       "brand": "Unknown",
       "type": "jacket",
       "display_name": "The North Face X CDG | All Season | Top (Jacket)",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 65.72428385416667,
+        "top": 11.55517578125,
+        "width": 13.66861979166666,
+        "height": 27.182617187500004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-266.webp",
+        "left": 65.36458333333334,
+        "top": 12.6953125,
+        "width": 14.453125,
+        "height": 26.7578125,
+        "rect": {
+          "left": 65.36458333333334,
+          "top": 12.6953125,
+          "width": 14.453125,
+          "height": 26.7578125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 5
+      },
       "image": "assets/items/v2/today-266-600.webp",
       "card_images": [
         {
@@ -28944,15 +32672,41 @@
     {
       "id": "today-267",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "number": "568",
       "name": "UNITED ARROWS | Blazer",
       "brand": "Unknown",
       "type": "blazer",
       "display_name": "UNITED ARROWS | Blazer",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 80.8837890625,
+        "top": 11.5869140625,
+        "width": 13.297526041666666,
+        "height": 28.388671875000004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-267.webp",
+        "left": 80.46875,
+        "top": 10.83984375,
+        "width": 14.0625,
+        "height": 29.8828125,
+        "rect": {
+          "left": 80.46875,
+          "top": 10.83984375,
+          "width": 14.0625,
+          "height": 29.8828125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 6
+      },
       "image": "assets/items/v2/today-267-600.webp",
       "card_images": [
         {
@@ -28970,15 +32724,41 @@
     {
       "id": "today-268",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "number": "569",
       "name": "WALKER SLATER | Edinburgh Jacket | Glen Check-British Wool",
       "brand": "Unknown",
       "type": "jacket",
       "display_name": "WALKER SLATER | Edinburgh Jacket | Glen Check-British Wool",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 7.244466145833334,
+        "top": 45.6689453125,
+        "width": 13.050130208333336,
+        "height": 28.388671875000004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-268.webp",
+        "left": 6.901041666666667,
+        "top": 47.8515625,
+        "width": 13.736979166666666,
+        "height": 27.05078125,
+        "rect": {
+          "left": 6.901041666666667,
+          "top": 47.8515625,
+          "width": 13.736979166666666,
+          "height": 27.05078125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 7
+      },
       "image": "assets/items/v2/today-268-600.webp",
       "card_images": [
         {
@@ -28996,15 +32776,41 @@
     {
       "id": "today-269",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "number": "570",
       "name": "baziszt | Autumn/Winter | Horse Applique Jacket",
       "brand": "baziszt",
       "type": "jacket",
       "display_name": "baziszt | Autumn/Winter | Horse Applique Jacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 21.510416666666664,
+        "top": 45.65185546875,
+        "width": 13.359375000000004,
+        "height": 27.739257812499996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-269.webp",
+        "left": 21.09375,
+        "top": 48.046875,
+        "width": 14.127604166666666,
+        "height": 26.07421875,
+        "rect": {
+          "left": 21.09375,
+          "top": 48.046875,
+          "width": 14.127604166666666,
+          "height": 26.07421875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 8
+      },
       "image": "assets/items/v2/today-269-600.webp",
       "card_images": [
         {
@@ -29022,15 +32828,41 @@
     {
       "id": "today-270",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "number": "571",
       "name": "heliopole | Jacket",
       "brand": "Unknown",
       "type": "jacket",
       "display_name": "heliopole | Jacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 36.097005208333336,
+        "top": 45.654296875,
+        "width": 13.48307291666666,
+        "height": 27.83203125
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-270.webp",
+        "left": 35.7421875,
+        "top": 49.31640625,
+        "width": 14.127604166666666,
+        "height": 24.90234375,
+        "rect": {
+          "left": 35.7421875,
+          "top": 49.31640625,
+          "width": 14.127604166666666,
+          "height": 24.90234375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 9
+      },
       "image": "assets/items/v2/today-270-600.webp",
       "card_images": [
         {
@@ -29048,15 +32880,41 @@
     {
       "id": "today-271",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "number": "572",
       "name": "nue notes | Jacket",
       "brand": "nue notes",
       "type": "jacket",
       "display_name": "nue notes | Jacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 50.950520833333336,
+        "top": 45.654296875,
+        "width": 13.854166666666664,
+        "height": 27.83203125
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-271.webp",
+        "left": 50.5859375,
+        "top": 48.046875,
+        "width": 14.583333333333334,
+        "height": 26.171875,
+        "rect": {
+          "left": 50.5859375,
+          "top": 48.046875,
+          "width": 14.583333333333334,
+          "height": 26.171875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 10
+      },
       "image": "assets/items/v2/today-271-600.webp",
       "card_images": [
         {
@@ -29074,15 +32932,41 @@
     {
       "id": "today-272",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "number": "573",
       "name": "soeur | Denim Jacket",
       "brand": "soeur",
       "type": "jacket",
       "display_name": "soeur | Denim Jacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 66.04817708333334,
+        "top": 45.64453125,
+        "width": 13.606770833333334,
+        "height": 27.460937500000004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-272.webp",
+        "left": 65.69010416666666,
+        "top": 48.046875,
+        "width": 14.322916666666666,
+        "height": 25.78125,
+        "rect": {
+          "left": 65.69010416666666,
+          "top": 48.046875,
+          "width": 14.322916666666666,
+          "height": 25.78125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 11
+      },
       "image": "assets/items/v2/today-272-600.webp",
       "card_images": [
         {
@@ -29100,15 +32984,41 @@
     {
       "id": "today-273",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "number": "574",
       "name": "soeur | Jacket",
       "brand": "soeur",
       "type": "jacket",
       "display_name": "soeur | Jacket",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 80.7177734375,
+        "top": 45.634765625,
+        "width": 14.41080729166666,
+        "height": 27.089843750000004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-273.webp",
+        "left": 80.2734375,
+        "top": 48.046875,
+        "width": 15.299479166666666,
+        "height": 25.390625,
+        "rect": {
+          "left": 80.2734375,
+          "top": 48.046875,
+          "width": 15.299479166666666,
+          "height": 25.390625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 12
+      },
       "image": "assets/items/v2/today-273-600.webp",
       "card_images": [
         {
@@ -29133,8 +33043,34 @@
       "type": "skirt",
       "display_name": "(AD) | TheNorthFacexBrainDead | 76MountainChoreSkirt | Multi/SS24",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 17.4755859375,
+        "top": 4.74609375,
+        "width": 13.42122395833333,
+        "height": 31.914062499999996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-311.webp",
+        "left": 17.122395833333336,
+        "top": 9.08203125,
+        "width": 13.997395833333334,
+        "height": 26.26953125,
+        "rect": {
+          "left": 17.122395833333336,
+          "top": 9.08203125,
+          "width": 13.997395833333334,
+          "height": 26.26953125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 1
+      },
       "image": "assets/items/v2/today-311-600.webp",
       "card_images": [
         {
@@ -29159,8 +33095,34 @@
       "type": "shorts",
       "display_name": "AIME LEUN | AIMELEONDORE | Spring/Summer | Shorts",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 32.501627604166664,
+        "top": 4.4970703125,
+        "width": 12.926432291666664,
+        "height": 22.451171874999996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-312.webp",
+        "left": 32.16145833333333,
+        "top": 10.64453125,
+        "width": 13.606770833333334,
+        "height": 16.89453125,
+        "rect": {
+          "left": 32.16145833333333,
+          "top": 10.64453125,
+          "width": 13.606770833333334,
+          "height": 16.89453125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 2
+      },
       "image": "assets/items/v2/today-312-600.webp",
       "card_images": [
         {
@@ -29185,8 +33147,34 @@
       "type": "shorts",
       "display_name": "ALO | Accolade Sweat Short | Black | All Season",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 47.093098958333336,
+        "top": 4.5458984375,
+        "width": 13.23567708333333,
+        "height": 24.306640624999996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-313.webp",
+        "left": 46.74479166666667,
+        "top": 10.25390625,
+        "width": 13.8671875,
+        "height": 19.140625,
+        "rect": {
+          "left": 46.74479166666667,
+          "top": 10.25390625,
+          "width": 13.8671875,
+          "height": 19.140625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 3
+      },
       "image": "assets/items/v2/today-313-600.webp",
       "card_images": [
         {
@@ -29211,8 +33199,34 @@
       "type": "skirt",
       "display_name": "ATSURO TAYAKA | AutumnWinter | Skirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 61.731770833333336,
+        "top": 4.75830078125,
+        "width": 12.864583333333327,
+        "height": 32.37792968749999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-314.webp",
+        "left": 61.393229166666664,
+        "top": 10.15625,
+        "width": 13.541666666666666,
+        "height": 27.9296875,
+        "rect": {
+          "left": 61.393229166666664,
+          "top": 10.15625,
+          "width": 13.541666666666666,
+          "height": 27.9296875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 4
+      },
       "image": "assets/items/v2/today-314-600.webp",
       "card_images": [
         {
@@ -29237,8 +33251,34 @@
       "type": "skirt",
       "display_name": "ATSURO TAYAKA | Spring/Summer | Cargo Pocket Long Skirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 76.8896484375,
+        "top": 4.78271484375,
+        "width": 12.43164062499999,
+        "height": 33.30566406249999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-315.webp",
+        "left": 76.5625,
+        "top": 9.1796875,
+        "width": 13.0859375,
+        "height": 29.78515625,
+        "rect": {
+          "left": 76.5625,
+          "top": 9.1796875,
+          "width": 13.0859375,
+          "height": 29.78515625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 5
+      },
       "image": "assets/items/v2/today-315-600.webp",
       "card_images": [
         {
@@ -29263,8 +33303,34 @@
       "type": "jeans",
       "display_name": "AcneStudios | AllSeason | 2021FVintageBlueJeans",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 20.017903645833336,
+        "top": 42.470703125,
+        "width": 13.544921874999996,
+        "height": 40.44921875000001
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-316.webp",
+        "left": 19.596354166666664,
+        "top": 46.77734375,
+        "width": 14.322916666666666,
+        "height": 37.3046875,
+        "rect": {
+          "left": 19.596354166666664,
+          "top": 46.77734375,
+          "width": 14.322916666666666,
+          "height": 37.3046875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 6
+      },
       "image": "assets/items/v2/today-316-600.webp",
       "card_images": [
         {
@@ -29289,8 +33355,34 @@
       "type": "pants",
       "display_name": "American Vintage | All Season | Tapered Denim Pants",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 36.865234375,
+        "top": 42.46337890625,
+        "width": 12.98828125,
+        "height": 40.1708984375
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-317.webp",
+        "left": 36.5234375,
+        "top": 46.6796875,
+        "width": 13.606770833333334,
+        "height": 37.01171875,
+        "rect": {
+          "left": 36.5234375,
+          "top": 46.6796875,
+          "width": 13.606770833333334,
+          "height": 37.01171875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 7
+      },
       "image": "assets/items/v2/today-317-600.webp",
       "card_images": [
         {
@@ -29315,8 +33407,34 @@
       "type": "jeans",
       "display_name": "American Vintage | All Season | TineborowJeans",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 53.61002604166667,
+        "top": 42.4658203125,
+        "width": 13.48307291666666,
+        "height": 40.26367187499999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-318.webp",
+        "left": 53.255208333333336,
+        "top": 47.75390625,
+        "width": 14.127604166666666,
+        "height": 36.03515625,
+        "rect": {
+          "left": 53.255208333333336,
+          "top": 47.75390625,
+          "width": 14.127604166666666,
+          "height": 36.03515625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 8
+      },
       "image": "assets/items/v2/today-318-600.webp",
       "card_images": [
         {
@@ -29341,8 +33459,34 @@
       "type": "pants",
       "display_name": "American Vintage | Spring/Summer | IzubirdyPants",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 70.9619140625,
+        "top": 42.47314453125,
+        "width": 14.781901041666679,
+        "height": 40.5419921875
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-319.webp",
+        "left": 70.57291666666666,
+        "top": 46.6796875,
+        "width": 15.559895833333334,
+        "height": 37.40234375,
+        "rect": {
+          "left": 70.57291666666666,
+          "top": 46.6796875,
+          "width": 15.559895833333334,
+          "height": 37.40234375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 9
+      },
       "image": "assets/items/v2/today-319-600.webp",
       "card_images": [
         {
@@ -29360,15 +33504,41 @@
     {
       "id": "today-320",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-f",
       "number": "584",
       "name": "Beams | Spring/Summer | Embroidered Skirt",
       "brand": "Unknown",
       "type": "skirt",
       "display_name": "Beams | Spring/Summer | Embroidered Skirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 10.828450520833332,
+        "top": 4.2724609375,
+        "width": 15.647786458333336,
+        "height": 36.181640625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-320.webp",
+        "left": 10.416666666666668,
+        "top": 6.4453125,
+        "width": 16.471354166666664,
+        "height": 35.05859375,
+        "rect": {
+          "left": 10.416666666666668,
+          "top": 6.4453125,
+          "width": 16.471354166666664,
+          "height": 35.05859375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 1
+      },
       "image": "assets/items/v2/today-320-600.webp",
       "card_images": [
         {
@@ -29386,15 +33556,41 @@
     {
       "id": "today-321",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-f",
       "number": "585",
       "name": "Bode | Spring/Summer | Embroidered Animal Short",
       "brand": "Unknown",
       "type": "shorts",
       "display_name": "Bode | Spring/Summer | Embroidered Animal Short",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 28.896484375000004,
+        "top": 4.01123046875,
+        "width": 14.472656249999996,
+        "height": 26.254882812500004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-321.webp",
+        "left": 28.450520833333332,
+        "top": 3.41796875,
+        "width": 15.234375,
+        "height": 27.44140625,
+        "rect": {
+          "left": 28.450520833333332,
+          "top": 3.41796875,
+          "width": 15.234375,
+          "height": 27.44140625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 2
+      },
       "image": "assets/items/v2/today-321-600.webp",
       "card_images": [
         {
@@ -29412,15 +33608,41 @@
     {
       "id": "today-322",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-f",
       "number": "586",
       "name": "DRIESVANNOTEN | Skirt",
       "brand": "Unknown",
       "type": "skirt",
       "display_name": "DRIESVANNOTEN | Skirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 47.6318359375,
+        "top": 4.26025390625,
+        "width": 8.968098958333332,
+        "height": 35.7177734375
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-322.webp",
+        "left": 47.39583333333333,
+        "top": 6.54296875,
+        "width": 9.375,
+        "height": 34.375,
+        "rect": {
+          "left": 47.39583333333333,
+          "top": 6.54296875,
+          "width": 9.375,
+          "height": 34.375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 3
+      },
       "image": "assets/items/v2/today-322-600.webp",
       "card_images": [
         {
@@ -29438,15 +33660,41 @@
     {
       "id": "today-323",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-f",
       "number": "587",
       "name": "DriesVanNoten | CottonWideSkirtPants | Taupe / Ss24",
       "brand": "Unknown",
       "type": "skirt",
       "display_name": "DriesVanNoten | CottonWideSkirtPants | Taupe / Ss24",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 60.426432291666664,
+        "top": 4.30908203125,
+        "width": 15.214843749999996,
+        "height": 37.5732421875
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-323.webp",
+        "left": 60.026041666666664,
+        "top": 9.765625,
+        "width": 16.015625,
+        "height": 33.0078125,
+        "rect": {
+          "left": 60.026041666666664,
+          "top": 9.765625,
+          "width": 16.015625,
+          "height": 33.0078125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 4
+      },
       "image": "assets/items/v2/today-323-600.webp",
       "card_images": [
         {
@@ -29464,15 +33712,41 @@
     {
       "id": "today-324",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-f",
       "number": "588",
       "name": "EENK | Fall/Winter | Velvet Maxi Skirt",
       "brand": "Unknown",
       "type": "skirt",
       "display_name": "EENK | Fall/Winter | Velvet Maxi Skirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 77.6904296875,
+        "top": 4.33349609375,
+        "width": 13.173828124999995,
+        "height": 38.5009765625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-324.webp",
+        "left": 77.27864583333334,
+        "top": 6.54296875,
+        "width": 13.932291666666666,
+        "height": 37.3046875,
+        "rect": {
+          "left": 77.27864583333334,
+          "top": 6.54296875,
+          "width": 13.932291666666666,
+          "height": 37.3046875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 5
+      },
       "image": "assets/items/v2/today-324-600.webp",
       "card_images": [
         {
@@ -29490,15 +33764,41 @@
     {
       "id": "today-325",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-f",
       "number": "589",
       "name": "Grlfrnd | Spring/Summer | Embroidered Denim Shorts",
       "brand": "Grlfrnd",
       "type": "shorts",
       "display_name": "Grlfrnd | Spring/Summer | Embroidered Denim Shorts",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 14.401041666666666,
+        "top": 46.1865234375,
+        "width": 15.33854166666667,
+        "height": 29.501953124999996
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-325.webp",
+        "left": 13.997395833333334,
+        "top": 45.3125,
+        "width": 16.080729166666664,
+        "height": 27.5390625,
+        "rect": {
+          "left": 13.997395833333334,
+          "top": 45.3125,
+          "width": 16.080729166666664,
+          "height": 27.5390625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 6
+      },
       "image": "assets/items/v2/today-325-600.webp",
       "card_images": [
         {
@@ -29516,15 +33816,41 @@
     {
       "id": "today-326",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-f",
       "number": "590",
       "name": "ISABEL ETOILE MARANT | Pants",
       "brand": "Unknown",
       "type": "pants",
       "display_name": "ISABEL ETOILE MARANT | Pants",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 34.283854166666664,
+        "top": 46.455078125,
+        "width": 11.38020833333333,
+        "height": 39.70703125
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-326.webp",
+        "left": 33.984375,
+        "top": 46.97265625,
+        "width": 11.979166666666668,
+        "height": 40.13671875,
+        "rect": {
+          "left": 33.984375,
+          "top": 46.97265625,
+          "width": 11.979166666666668,
+          "height": 40.13671875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 7
+      },
       "image": "assets/items/v2/today-326-600.webp",
       "card_images": [
         {
@@ -29542,15 +33868,41 @@
     {
       "id": "today-327",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-f",
       "number": "591",
       "name": "KIJUN | Stripe Wide Pants",
       "brand": "Unknown",
       "type": "pants",
       "display_name": "KIJUN | Stripe Wide Pants",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 52.425130208333336,
+        "top": 46.4599609375,
+        "width": 12.98828125,
+        "height": 39.892578125
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-327.webp",
+        "left": 52.018229166666664,
+        "top": 45.3125,
+        "width": 13.802083333333334,
+        "height": 41.9921875,
+        "rect": {
+          "left": 52.018229166666664,
+          "top": 45.3125,
+          "width": 13.802083333333334,
+          "height": 41.9921875
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 8
+      },
       "image": "assets/items/v2/today-327-600.webp",
       "card_images": [
         {
@@ -29568,15 +33920,41 @@
     {
       "id": "today-328",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-f",
       "number": "592",
       "name": "ON | SweatPants",
       "brand": "Unknown",
       "type": "pants",
       "display_name": "ON | SweatPants",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 71.8505859375,
+        "top": 46.4453125,
+        "width": 11.442057291666668,
+        "height": 39.33593749999999
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-328.webp",
+        "left": 71.61458333333334,
+        "top": 48.6328125,
+        "width": 11.9140625,
+        "height": 38.0859375,
+        "rect": {
+          "left": 71.61458333333334,
+          "top": 48.6328125,
+          "width": 11.9140625,
+          "height": 38.0859375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 9
+      },
       "image": "assets/items/v2/today-328-600.webp",
       "card_images": [
         {
@@ -29594,15 +33972,41 @@
     {
       "id": "today-329",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-g",
       "number": "593",
       "name": "Oakley | Spring/Summer | Tech Cargo Shorts",
       "brand": "Unknown",
       "type": "shorts",
       "display_name": "Oakley | Spring/Summer | Tech Cargo Shorts",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 15.411783854166666,
+        "top": 7.53173828125,
+        "width": 14.163411458333334,
+        "height": 26.4404296875
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-329.webp",
+        "left": 14.973958333333334,
+        "top": 10.25390625,
+        "width": 14.973958333333334,
+        "height": 24.4140625,
+        "rect": {
+          "left": 14.973958333333334,
+          "top": 10.25390625,
+          "width": 14.973958333333334,
+          "height": 24.4140625
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 1
+      },
       "image": "assets/items/v2/today-329-600.webp",
       "card_images": [
         {
@@ -29620,15 +34024,41 @@
     {
       "id": "today-330",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-g",
       "number": "594",
       "name": "STUDIO NICHOLSON | VolumePant",
       "brand": "Unknown",
       "type": "pants",
       "display_name": "STUDIO NICHOLSON | VolumePant",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 32.355143229166664,
+        "top": 7.7392578125,
+        "width": 12.30794270833333,
+        "height": 34.326171875
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-330.webp",
+        "left": 32.03125,
+        "top": 11.71875,
+        "width": 12.955729166666666,
+        "height": 31.25,
+        "rect": {
+          "left": 32.03125,
+          "top": 11.71875,
+          "width": 12.955729166666666,
+          "height": 31.25
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 2
+      },
       "image": "assets/items/v2/today-330-600.webp",
       "card_images": [
         {
@@ -29646,15 +34076,41 @@
     {
       "id": "today-331",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-g",
       "number": "595",
       "name": "STUDIONICHOLSON | Spring/Summer | VolumePant",
       "brand": "Unknown",
       "type": "pants",
       "display_name": "STUDIONICHOLSON | Spring/Summer | VolumePant",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 47.4560546875,
+        "top": 7.6904296875,
+        "width": 12.184244791666671,
+        "height": 36.181640625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-331.webp",
+        "left": 47.13541666666667,
+        "top": 10.25390625,
+        "width": 12.825520833333334,
+        "height": 34.5703125,
+        "rect": {
+          "left": 47.13541666666667,
+          "top": 10.25390625,
+          "width": 12.825520833333334,
+          "height": 34.5703125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 3
+      },
       "image": "assets/items/v2/today-331-600.webp",
       "card_images": [
         {
@@ -29672,15 +34128,41 @@
     {
       "id": "today-332",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-g",
       "number": "596",
       "name": "STUDIONICHOLSON | Spring/Summer | VolumePant",
       "brand": "Unknown",
       "type": "pants",
       "display_name": "STUDIONICHOLSON | Spring/Summer | VolumePant",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 62.87109375000001,
+        "top": 7.7880859375,
+        "width": 11.62760416666666,
+        "height": 36.181640625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-332.webp",
+        "left": 62.5,
+        "top": 12.20703125,
+        "width": 12.3046875,
+        "height": 32.71484375,
+        "rect": {
+          "left": 62.5,
+          "top": 12.20703125,
+          "width": 12.3046875,
+          "height": 32.71484375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 4
+      },
       "image": "assets/items/v2/today-332-600.webp",
       "card_images": [
         {
@@ -29698,15 +34180,41 @@
     {
       "id": "today-333",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-g",
       "number": "597",
       "name": "STUDIONICHOLSON | Trousers",
       "brand": "Unknown",
       "type": "pants",
       "display_name": "STUDIONICHOLSON | Trousers",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 78.10546875,
+        "top": 7.692871093750001,
+        "width": 11.62760416666666,
+        "height": 36.27441406250001
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-333.webp",
+        "left": 77.734375,
+        "top": 11.71875,
+        "width": 12.3046875,
+        "height": 33.203125,
+        "rect": {
+          "left": 77.734375,
+          "top": 11.71875,
+          "width": 12.3046875,
+          "height": 33.203125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 5
+      },
       "image": "assets/items/v2/today-333-600.webp",
       "card_images": [
         {
@@ -29724,15 +34232,41 @@
     {
       "id": "today-334",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-g",
       "number": "598",
       "name": "Sea NY | Spring/Summer | Cord Belt Skirt",
       "brand": "Unknown",
       "type": "skirt",
       "display_name": "Sea NY | Spring/Summer | Cord Belt Skirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 16.546223958333332,
+        "top": 49.43359375,
+        "width": 15.214843750000002,
+        "height": 34.140625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-334.webp",
+        "left": 16.145833333333336,
+        "top": 49.70703125,
+        "width": 16.080729166666664,
+        "height": 34.86328125,
+        "rect": {
+          "left": 16.145833333333336,
+          "top": 49.70703125,
+          "width": 16.080729166666664,
+          "height": 34.86328125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 6
+      },
       "image": "assets/items/v2/today-334-600.webp",
       "card_images": [
         {
@@ -29750,15 +34284,41 @@
     {
       "id": "today-335",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-g",
       "number": "599",
       "name": "THENORTHFACE | Spring/Summer | Field Utility Skirt",
       "brand": "Unknown",
       "type": "skirt",
       "display_name": "THENORTHFACE | Spring/Summer | Field Utility Skirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 34.596354166666664,
+        "top": 49.33349609375,
+        "width": 15.833333333333336,
+        "height": 34.0478515625
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-335.webp",
+        "left": 34.11458333333333,
+        "top": 50.09765625,
+        "width": 16.796875,
+        "height": 34.27734375,
+        "rect": {
+          "left": 34.11458333333333,
+          "top": 50.09765625,
+          "width": 16.796875,
+          "height": 34.27734375
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 7
+      },
       "image": "assets/items/v2/today-335-600.webp",
       "card_images": [
         {
@@ -29776,15 +34336,41 @@
     {
       "id": "today-336",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-g",
       "number": "600",
       "name": "THOM BROWNE | Skirt",
       "brand": "Unknown",
       "type": "skirt",
       "display_name": "THOM BROWNE | Skirt",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 54.34895833333333,
+        "top": 49.19677734375,
+        "width": 14.34895833333334,
+        "height": 28.852539062500004
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-336.webp",
+        "left": 53.90625,
+        "top": 51.85546875,
+        "width": 15.169270833333334,
+        "height": 27.05078125,
+        "rect": {
+          "left": 53.90625,
+          "top": 51.85546875,
+          "width": 15.169270833333334,
+          "height": 27.05078125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 8
+      },
       "image": "assets/items/v2/today-336-600.webp",
       "card_images": [
         {
@@ -29802,15 +34388,41 @@
     {
       "id": "today-337",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-g",
       "number": "601",
       "name": "TUCKSHOP | Spring/Summer | PanelEasyPants",
       "brand": "Unknown",
       "type": "pants",
       "display_name": "TUCKSHOP | Spring/Summer | PanelEasyPants",
       "story": "故事待补充",
-      "hotspot": null,
-      "layer": null,
+      "hotspot": {
+        "left": 74.19270833333333,
+        "top": 49.4189453125,
+        "width": 13.854166666666679,
+        "height": 37.294921875
+      },
+      "layer": {
+        "image": "assets/zones/layers/today-337.webp",
+        "left": 73.76302083333334,
+        "top": 50.09765625,
+        "width": 14.713541666666666,
+        "height": 37.6953125,
+        "rect": {
+          "left": 73.76302083333334,
+          "top": 50.09765625,
+          "width": 14.713541666666666,
+          "height": 37.6953125
+        },
+        "pivot": {
+          "x": 50,
+          "y": 0
+        },
+        "pivotX": 50,
+        "pivotY": 0,
+        "motion": "hang",
+        "fallback": false,
+        "zIndex": 9
+      },
       "image": "assets/items/v2/today-337-600.webp",
       "card_images": [
         {
@@ -32124,10 +36736,10 @@
       "display_name": "Story MFG",
       "story": "故事待补充",
       "hotspot": {
-        "left": 55.03417968750001,
-        "top": 8.75,
-        "width": 15.647786458333327,
-        "height": 31.914062499999996
+        "left": 54.3,
+        "top": 8.4,
+        "width": 17.60000000000001,
+        "height": 34.2
       },
       "layer": {
         "image": "assets/zones/layers/today-422.webp",
@@ -32436,10 +37048,10 @@
       "display_name": "Another Aspect | Bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 16.50390625,
-        "top": 7.8662109375,
-        "width": 13.606770833333334,
-        "height": 31.728515624999996
+        "left": 15.6,
+        "top": 7.0,
+        "width": 15.799999999999999,
+        "height": 34.0
       },
       "layer": {
         "image": "assets/zones/layers/today-455.webp",
@@ -32800,10 +37412,10 @@
       "display_name": "Chanel",
       "story": "故事待补充",
       "hotspot": {
-        "left": 72.03287760416667,
-        "top": 47.3974609375,
-        "width": 13.42122395833334,
-        "height": 30.986328124999996
+        "left": 70.8,
+        "top": 47.0,
+        "width": 15.600000000000009,
+        "height": 32.2
       },
       "layer": {
         "image": "assets/zones/layers/today-462.webp",

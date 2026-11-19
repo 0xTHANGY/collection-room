@@ -21,8 +21,26 @@
     {
       "id": "jackets-d",
       "overlap_pairs": [],
-      "has_layout": false,
-      "hotspots": 0
+      "has_layout": true,
+      "hotspots": 12
+    },
+    {
+      "id": "jackets-e",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 12
+    },
+    {
+      "id": "jackets-f",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 12
+    },
+    {
+      "id": "jackets-g",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 12
     },
     {
       "id": "shirts-a",
@@ -33,8 +51,38 @@
     {
       "id": "shirts-b",
       "overlap_pairs": [],
-      "has_layout": false,
-      "hotspots": 0
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "shirts-c",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "shirts-d",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "shirts-e",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "shirts-f",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 7
+    },
+    {
+      "id": "shirts-g",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 7
     },
     {
       "id": "tshirts-a",
@@ -63,8 +111,20 @@
     {
       "id": "tshirts-e",
       "overlap_pairs": [],
-      "has_layout": false,
-      "hotspots": 0
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "tshirts-f",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 8
+    },
+    {
+      "id": "tshirts-g",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 7
     },
     {
       "id": "bottoms-a",
@@ -93,8 +153,20 @@
     {
       "id": "bottoms-e",
       "overlap_pairs": [],
-      "has_layout": false,
-      "hotspots": 0
+      "has_layout": true,
+      "hotspots": 9
+    },
+    {
+      "id": "bottoms-f",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 9
+    },
+    {
+      "id": "bottoms-g",
+      "overlap_pairs": [],
+      "has_layout": true,
+      "hotspots": 9
     },
     {
       "id": "dresses-a",
@@ -141,8 +213,8 @@
     {
       "id": "sweaters-e",
       "overlap_pairs": [],
-      "has_layout": false,
-      "hotspots": 0
+      "has_layout": true,
+      "hotspots": 2
     },
     {
       "id": "hoodies-a",
@@ -165,8 +237,8 @@
     {
       "id": "hoodies-d",
       "overlap_pairs": [],
-      "has_layout": false,
-      "hotspots": 0
+      "has_layout": true,
+      "hotspots": 9
     },
     {
       "id": "bags-a",
@@ -410,15 +482,15 @@
     }
   ],
   "items_checked": 669,
-  "hotspots_checked": 514,
-  "list_only_checked": 155,
-  "rest_layers_checked": 461,
+  "hotspots_checked": 669,
+  "list_only_checked": 0,
+  "rest_layers_checked": 616,
   "errors": [],
   "console_errors": [],
   "page_errors": [],
   "failed_requests": [],
   "http_errors": [],
-  "first_load_bytes": 1416467,
+  "first_load_bytes": 1531699,
   "first_load_files": [
     "app.js",
     "assets/layers/cr-001-layer.webp",

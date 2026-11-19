@@ -1,0 +1,79 @@
+{
+  "zone": "shirts-g",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-145": {
+      "bbox": [
+        240,
+        39,
+        508,
+        411
+      ],
+      "confidence": "high",
+      "note": "Dark indigo shirt with a multicolored floral collar and green cuffs"
+    },
+    "today-147": {
+      "bbox": [
+        521,
+        39,
+        789,
+        385
+      ],
+      "confidence": "high",
+      "note": "Cream cropped wrap shirt with four tan buttons and knotted cuffs"
+    },
+    "today-148": {
+      "bbox": [
+        798,
+        39,
+        1058,
+        404
+      ],
+      "confidence": "high",
+      "note": "Pale blue camp-collar shirt with two green embroidered sprays"
+    },
+    "today-149": {
+      "bbox": [
+        1069,
+        39,
+        1349,
+        415
+      ],
+      "confidence": "high",
+      "note": "Tan camp-collar shirt with multicolored floral embroidery"
+    },
+    "today-150": {
+      "bbox": [
+        325,
+        443,
+        609,
+        807
+      ],
+      "confidence": "high",
+      "note": "White blouse with a ruffled collar and vertical pintucks"
+    },
+    "today-151": {
+      "bbox": [
+        637,
+        443,
+        903,
+        807
+      ],
+      "confidence": "high",
+      "note": "Cropped white button-up with a pointed collar and chest pocket"
+    },
+    "today-152": {
+      "bbox": [
+        940,
+        443,
+        1227,
+        807
+      ],
+      "confidence": "high",
+      "note": "Ivory blouse with an asymmetric front and scalloped edging"
+    }
+  }
+}

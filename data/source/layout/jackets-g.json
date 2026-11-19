@@ -1,0 +1,129 @@
+{
+  "zone": "jackets-g",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-261": {
+      "bbox": [
+        98,
+        111,
+        337,
+        408
+      ],
+      "confidence": "high",
+      "note": "Navy collared jacket with tab buttons"
+    },
+    "today-262": {
+      "bbox": [
+        350,
+        111,
+        527,
+        406
+      ],
+      "confidence": "high",
+      "note": "Tan patchwork fleece vest with zip chest pocket"
+    },
+    "today-264": {
+      "bbox": [
+        547,
+        111,
+        764,
+        408
+      ],
+      "confidence": "high",
+      "note": "Blue denim jacket with mustard shoulder panels"
+    },
+    "today-265": {
+      "bbox": [
+        776,
+        111,
+        995,
+        402
+      ],
+      "confidence": "high",
+      "note": "Olive diamond-quilted zip jacket"
+    },
+    "today-266": {
+      "bbox": [
+        1004,
+        111,
+        1225,
+        404
+      ],
+      "confidence": "high",
+      "note": "Black stand-collar windbreaker with white cuff motif"
+    },
+    "today-267": {
+      "bbox": [
+        1237,
+        111,
+        1452,
+        417
+      ],
+      "confidence": "high",
+      "note": "Long taupe blazer with notch lapels"
+    },
+    "today-268": {
+      "bbox": [
+        106,
+        460,
+        317,
+        766
+      ],
+      "confidence": "high",
+      "note": "Brown plaid double-breasted blazer"
+    },
+    "today-269": {
+      "bbox": [
+        325,
+        460,
+        541,
+        759
+      ],
+      "confidence": "high",
+      "note": "Tobacco brown jacket with horse motifs"
+    },
+    "today-270": {
+      "bbox": [
+        549,
+        460,
+        767,
+        760
+      ],
+      "confidence": "high",
+      "note": "Dark collared zip jacket with elastic hem"
+    },
+    "today-271": {
+      "bbox": [
+        777,
+        460,
+        1001,
+        760
+      ],
+      "confidence": "high",
+      "note": "Dark crochet jacket with colorful floral squares"
+    },
+    "today-272": {
+      "bbox": [
+        1009,
+        460,
+        1229,
+        756
+      ],
+      "confidence": "high",
+      "note": "Blue denim jacket with two toggles and patch pockets"
+    },
+    "today-273": {
+      "bbox": [
+        1234,
+        460,
+        1467,
+        752
+      ],
+      "confidence": "high",
+      "note": "Ochre collarless jacket with snap front"
+    }
+  }
+}

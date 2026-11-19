@@ -128,7 +128,7 @@
       "brand": "Acne Studios",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-c",
       "source_file": "8a6a9898fa38e113bf9a9bd0ebaf8b26db828c997badb529bd0b47eed1c82df8.png",
       "csv_id": "T083",
       "photo": true
@@ -188,7 +188,7 @@
       "brand": "BALENCIAGA",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-c",
       "source_file": "11fc53000ce5f6903e7dea2eeabd503283922fbacbc48e3bad731bef877fab3b.png",
       "csv_id": "T088",
       "photo": true
@@ -200,7 +200,7 @@
       "brand": "Unknown",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-c",
       "source_file": "629a63744876c6dbe672723cd3d5484073e2efea1196a36a91dd2d3d7dd0371f.png",
       "csv_id": "T089",
       "photo": true
@@ -212,7 +212,7 @@
       "brand": "BODE",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-c",
       "source_file": "c80026f02966249242e370fc35fc77acd4c5a56d0074776bae7815db9e6b06de.png",
       "csv_id": "T090",
       "photo": true
@@ -296,7 +296,7 @@
       "brand": "Comme des Garcons Girl",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-c",
       "source_file": "36c86bb332f771447734410d3204917fc9158f174918e7432230c2ca01969511.png",
       "csv_id": "T097",
       "photo": true
@@ -308,7 +308,7 @@
       "brand": "Unknown",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-c",
       "source_file": "02d9c14cd3951d847d689e700e3697b47dc146c3d50d22b5611a0fcaee9bf5fb.png",
       "csv_id": "T098",
       "photo": true
@@ -320,7 +320,7 @@
       "brand": "Unknown",
       "type": "blouse",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-c",
       "source_file": "1366d2d5811c4e45efbf6230e1c804ffff218c39e9c42fcd1d9188a4bade7408.png",
       "csv_id": "T099",
       "photo": true
@@ -332,7 +332,7 @@
       "brand": "Depound",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-c",
       "source_file": "f4fa2003427ab9a448c632fb77dcfca8e38883a9ac28ebc3d10c14647564d31d.png",
       "csv_id": "T100",
       "photo": true
@@ -344,7 +344,7 @@
       "brand": "Unknown",
       "type": "crop-top",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-f",
       "source_file": "4128976575e14f9ed2f301542c8efa83c2a770edf0094c676918ab6e4f804a84.jpg",
       "csv_id": "T101",
       "photo": true
@@ -368,7 +368,7 @@
       "brand": "Everlane",
       "type": "tee",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-f",
       "source_file": "2b583fd8f1213c24eafb5a7e47c214b262459e56bf3173c92fda26c2470f2884.png",
       "csv_id": "T103",
       "photo": true
@@ -380,7 +380,7 @@
       "brand": "FRAME",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-d",
       "source_file": "33f7afe2216c7ec4548a0895b9d2e88f5b0a49aa607c3cf57f9c2120efd413e8.png",
       "csv_id": "T104",
       "photo": true
@@ -392,7 +392,7 @@
       "brand": "FRAPBOIS",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-d",
       "source_file": "9753f0dfe01ac5105b7db7be74422e8b62407105f0698361c79a86f11ac99d21.png",
       "csv_id": "T105",
       "photo": true
@@ -416,7 +416,7 @@
       "brand": "Unknown",
       "type": "blouse",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-d",
       "source_file": "ec3414cae6e389582f478cc7be16413563f0782d9f9709d2470398fe36351372.png",
       "csv_id": "T107",
       "photo": true
@@ -428,7 +428,7 @@
       "brand": "Unknown",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-d",
       "source_file": "4eaf28fbad60b454c2d276579ab4afba4c5901a178d383b2a00497901c7b0eef.png",
       "csv_id": "T108",
       "photo": true
@@ -440,7 +440,7 @@
       "brand": "Disney x Junk Food",
       "type": "tee",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-f",
       "source_file": "8791ea82a8a26ce95cfd19641430ed70c9a8c0af5adea9ac1909eadcd9cf6163.png",
       "csv_id": "T109",
       "photo": true
@@ -452,7 +452,7 @@
       "brand": "KHAITE The Lily Tee Black",
       "type": "tee",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-f",
       "source_file": "eac9aceb8c77cdb5e59efd4468b3e8d481967848c5804a35550ba7886f383991.png",
       "csv_id": "T110",
       "photo": true
@@ -464,7 +464,7 @@
       "brand": "kijun",
       "type": "tee",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-f",
       "source_file": "4678ef6beeae2b77354a2f6a8c693607362c9696a10458e3eacce9c8bdc364e5.png",
       "csv_id": "T111",
       "photo": true
@@ -476,7 +476,7 @@
       "brand": "Unknown",
       "type": "polo",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-d",
       "source_file": "18ab27cfa2f7c20e37952af090d155c64791bbac3593a79aa3e7d95a163839f0.png",
       "csv_id": "T112",
       "photo": true
@@ -488,7 +488,7 @@
       "brand": "Kith",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-d",
       "source_file": "8bdf5e83430386f94d8af11776badce33452431c4e048f4fd5c5b1e253480326.png",
       "csv_id": "T113",
       "photo": true
@@ -500,7 +500,7 @@
       "brand": "LOEWE",
       "type": "top",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-f",
       "source_file": "d959fcbb6ee3cdcb5a280464ddab94e459c755486687ee21d6e888e4e4feea0d.png",
       "csv_id": "T114",
       "photo": true
@@ -512,7 +512,7 @@
       "brand": "LOW CLASSIC",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-d",
       "source_file": "4b8db0b6306f71ff8b75cc75a1f2a56014cbcb90443b4b40c8b3a959d4dbc86d.png",
       "csv_id": "T115",
       "photo": true
@@ -524,7 +524,7 @@
       "brand": "LOWCLASSIC DeerPrint SilkShirt",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-d",
       "source_file": "4007a8c9518df62026d8b560ef5f2038e88de73f4ccb4ff76826dae6e05c1e7b.jpg",
       "csv_id": "T116",
       "photo": true
@@ -548,7 +548,7 @@
       "brand": "Unknown",
       "type": "top",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-f",
       "source_file": "45160d6b262435c951bf71642f361f4774d62836bb606cfed947e710902cadb2.png",
       "csv_id": "T118",
       "photo": true
@@ -560,7 +560,7 @@
       "brand": "MIU MIU",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-e",
       "source_file": "e401bc2e9fcb4d47288214c7237db13d76acd9d134b4b13c0adac0f4f378db88.png",
       "csv_id": "T119",
       "photo": true
@@ -572,7 +572,7 @@
       "brand": "Madewell",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-e",
       "source_file": "12c415b500fb2e07eda825d134439018ea8a025773bec5d950196826d5504ef8.png",
       "csv_id": "T120",
       "photo": true
@@ -584,7 +584,7 @@
       "brand": "Martine rose",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-e",
       "source_file": "857572963012db1e90c82bf18f0d1eeb131906df3453a007e0f172d6a05c4bc4.png",
       "csv_id": "T121",
       "photo": true
@@ -596,7 +596,7 @@
       "brand": "Martine rose",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-e",
       "source_file": "5b5862ca64ed685dc77b4085508e4d3f9b485e43ee6b4f2bc62ef36c499a3293.png",
       "csv_id": "T122",
       "photo": true
@@ -608,7 +608,7 @@
       "brand": "OURLEGACY Box Shirt",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-e",
       "source_file": "dd2dd0ef9fdb0d915db244461f642fb33ae7b0c97ebdea25d6b32ba8511e580c.jpg",
       "csv_id": "T124",
       "photo": true
@@ -620,7 +620,7 @@
       "brand": "Unknown",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-e",
       "source_file": "cd774f802b9ee92f3fa6a43d4940a455d4fb2966d8a07729f02c752c812d08b8.png",
       "csv_id": "T125",
       "photo": true
@@ -632,7 +632,7 @@
       "brand": "Unknown",
       "type": "top",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-e",
       "source_file": "89227724a040d3bb5f871cb183106de2a731095b84981dc36c51f29472a9ca29.jpg",
       "csv_id": "T126",
       "photo": true
@@ -644,7 +644,7 @@
       "brand": "Unknown",
       "type": "tee",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-f",
       "source_file": "5a2c53393e386a6a67c84d75d38e8601a60e80cc19cee538b7faf125965df1d6.png",
       "csv_id": "T127",
       "photo": true
@@ -656,7 +656,7 @@
       "brand": "REFORMATION",
       "type": "top",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-g",
       "source_file": "0c8cb48766ae059bb2cb3d082423adc3ffa4e316efa2cc07e7d6b31fe4cb0743.png",
       "csv_id": "T128",
       "photo": true
@@ -668,7 +668,7 @@
       "brand": "Ray BEAMS",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-e",
       "source_file": "8e8a00fc9bdf19a04adadfaaf652e08cd879b63cc16b962048b03577e596b76b.png",
       "csv_id": "T129",
       "photo": true
@@ -680,7 +680,7 @@
       "brand": "Reformation",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-f",
       "source_file": "0ba8c166c7bcd9f9111f81a2b28b2748d8b155491b104ae49b72c3e0d72a81e0.png",
       "csv_id": "T130",
       "photo": true
@@ -692,7 +692,7 @@
       "brand": "Unknown",
       "type": "top",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-g",
       "source_file": "c9fd21f41117bd2176f7e0093b7ed7e07f6697e4f336c19f6b7953a1887c1c51.png",
       "csv_id": "T131",
       "photo": true
@@ -716,7 +716,7 @@
       "brand": "Sea Sea NY",
       "type": "blouse",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-f",
       "source_file": "ca4fccb437f06040225fb603d66fdc7df78c4a17c10a0843dd8ff6e8747bf969.png",
       "csv_id": "T133",
       "photo": true
@@ -728,7 +728,7 @@
       "brand": "Unknown",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-f",
       "source_file": "e7d105a48ff26a63666dcc61fbfd68f0209414d47d323e7ef0f9b65250289889.png",
       "csv_id": "T134",
       "photo": true
@@ -740,7 +740,7 @@
       "brand": "THE NEW SCHOOL",
       "type": "top",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-g",
       "source_file": "eec58249f14fecf3b54e9c9a35ee18224ba93d5dcc547b1dc7017e5fc5c7f738.png",
       "csv_id": "T135",
       "photo": true
@@ -752,7 +752,7 @@
       "brand": "Unknown",
       "type": "tee",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-g",
       "source_file": "cbaccb82b2f1916fa01ee6aafdefa9206921c5008f1dd6a93efed3be6fdeabda.png",
       "csv_id": "T136",
       "photo": true
@@ -776,7 +776,7 @@
       "brand": "Thom Browne.",
       "type": "tee",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-g",
       "source_file": "bac0448fd689036ba6c2265fe4dcc9001700eaf6002e55136ef0bc360c23023d.png",
       "csv_id": "T138",
       "photo": true
@@ -788,7 +788,7 @@
       "brand": "Tombolo",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-f",
       "source_file": "422fd9e932c1be53b0c28339bf6d777b9928dea37e74885f4268206b94c08bb1.jpg",
       "csv_id": "T139",
       "photo": true
@@ -800,7 +800,7 @@
       "brand": "Unknown",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-f",
       "source_file": "4081d6e5ba5e6f75a678b4daf3415b2802a17ad7daf29fdc7faf4c4deb884dbd.png",
       "csv_id": "T140",
       "photo": true
@@ -812,7 +812,7 @@
       "brand": "Tombolo",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-f",
       "source_file": "7ae134434933015d8f9412689c063b70d15a6696d865aebe8e068ddccc5eff29.png",
       "csv_id": "T141",
       "photo": true
@@ -836,7 +836,7 @@
       "brand": "Unknown",
       "type": "tee",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-g",
       "source_file": "194e3f8a41177b5726e64fc8cb718605e106a1af521b707cafef363287192713.png",
       "csv_id": "T143",
       "photo": true
@@ -848,7 +848,7 @@
       "brand": "Unknown",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-f",
       "source_file": "0e3139b1530d58d4713db3ff9b603f3327eb7b3474d4ed797c28cd1e339d3fa2.png",
       "csv_id": "T144",
       "photo": true
@@ -860,7 +860,7 @@
       "brand": "YMC",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-g",
       "source_file": "d6af5cf8bbe601d5a3705d08473779a6c2c06996040cafc4abaa01d1883823af.png",
       "csv_id": "T145",
       "photo": true
@@ -872,7 +872,7 @@
       "brand": "adidasEQUIPMENT",
       "type": "sleeveless-top",
       "category": "tshirts",
-      "zone": "tshirts-e",
+      "zone": "tshirts-g",
       "source_file": "115a2efaccc85b6684f4fd220d8f061faa321b835bb829903d6da9eb269e6e28.png",
       "csv_id": "T146",
       "photo": true
@@ -884,7 +884,7 @@
       "brand": "at dawn",
       "type": "blouse",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-g",
       "source_file": "60d08024b403e28e3df7aeb91b08bd46f0dfba0bd48c026122ba8a70001f366f.png",
       "csv_id": "T147",
       "photo": true
@@ -896,7 +896,7 @@
       "brand": "baziszt",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-g",
       "source_file": "9774cc803a793dc67c5c258ce00610c028243aef03ad633f6ac2c194f9d09c95.png",
       "csv_id": "T148",
       "photo": true
@@ -908,7 +908,7 @@
       "brand": "baziszt",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-g",
       "source_file": "6ada29471e61026de802caadfe6a85ffc47da301dbcfac6011df0e7e25637faa.png",
       "csv_id": "T149",
       "photo": true
@@ -920,7 +920,7 @@
       "brand": "Unknown",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-g",
       "source_file": "23e71aee5e4b85d7c27f5baf84310b876b77ae5a5b325e94efdedca8a647dcb2.png",
       "csv_id": "T150",
       "photo": true
@@ -932,7 +932,7 @@
       "brand": "cos",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-g",
       "source_file": "be235e33dc23eed99a56b2a403f1212a3c8676d35c97bb7a549b7c6f88be89ba.jpg",
       "csv_id": "T151",
       "photo": true
@@ -944,7 +944,7 @@
       "brand": "soeur",
       "type": "shirt",
       "category": "shirts",
-      "zone": "shirts-b",
+      "zone": "shirts-g",
       "source_file": "001f440af8dba911eee4fa64a7e13549240d8cc02722a44307f46692b9479967.png",
       "csv_id": "T152",
       "photo": true
@@ -1112,7 +1112,7 @@
       "brand": "Arc'teryx",
       "type": "hoodie",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "source_file": "ff4859b3e3e128620e7e08b585c5a260b341b3353216dadf1ef7f561fae9d830.jpg",
       "csv_id": "T237",
       "photo": true
@@ -1124,7 +1124,7 @@
       "brand": "Arc'teryx",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "source_file": "8bba6468972d9149f8d6bb7b1c920d33467c138bee20726fb905590e61a23ee2.jpg",
       "csv_id": "T238",
       "photo": true
@@ -1136,7 +1136,7 @@
       "brand": "BODE BotanicalEmbroidered",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "source_file": "eaacef6a67f976ff80f6bd0a0604daae7a4158697dc8c2314bec22bad6986159.png",
       "csv_id": "T239",
       "photo": true
@@ -1148,7 +1148,7 @@
       "brand": "Unknown",
       "type": "coat",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "source_file": "e0a29eda53bd6e2a551ed08ad9135bbfe8237fbbbdc226050db2cf6cd8a7962b.png",
       "csv_id": "T240",
       "photo": true
@@ -1160,7 +1160,7 @@
       "brand": "Unknown",
       "type": "blazer",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "source_file": "07bf7faddace161e06394d2dddebf104acc52bb50d54d9c38a7bde544c50984e.jpg",
       "csv_id": "T241",
       "photo": true
@@ -1172,7 +1172,7 @@
       "brand": "CHANEL",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "source_file": "a3a9891603764eda9bdf2a405000e863d68177f3a016c921e653fe45eeae2f96.png",
       "csv_id": "T242",
       "photo": true
@@ -1184,7 +1184,7 @@
       "brand": "Unknown",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "source_file": "281e232db6bd0a651c2de928dd8b345bc0677fa9c41f674561fec9e516e05b2b.png",
       "csv_id": "T243",
       "photo": true
@@ -1196,7 +1196,7 @@
       "brand": "Unknown",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "source_file": "9b1b7398711dc5d593e35b837458d73d12c057be4ab9a860796aa002acb85a17.png",
       "csv_id": "T244",
       "photo": true
@@ -1208,7 +1208,7 @@
       "brand": "GANNI",
       "type": "vest",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "source_file": "4feff2202577b737d78d3b3a92552fa337db1a7215e9b98fdec58711e479b01a.png",
       "csv_id": "T245",
       "photo": true
@@ -1220,7 +1220,7 @@
       "brand": "Hype and Vice",
       "type": "windbreaker",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "source_file": "900ecc7f0c81cf83d1978e30c8957618518eea09ec42bd49dc3cb6065694e929.png",
       "csv_id": "T246",
       "photo": true
@@ -1232,7 +1232,7 @@
       "brand": "Unknown",
       "type": "blazer",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "source_file": "7af291aca65731fc19bd83cdeda55874285d9d8a2b43519b34a21df32c9453c8.png",
       "csv_id": "T247",
       "photo": true
@@ -1244,7 +1244,7 @@
       "brand": "JACQUEMUS",
       "type": "blazer",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-e",
       "source_file": "25229962753f26b1889769ce7ad2f89a2a48570be598575f1534020a64217948.png",
       "csv_id": "T248",
       "photo": true
@@ -1256,7 +1256,7 @@
       "brand": "LEMAIRE",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "source_file": "9a0cf6d14941507627447bfd5c0beef2b3d883a08a899827b532d594f6805380.png",
       "csv_id": "T249",
       "photo": true
@@ -1268,7 +1268,7 @@
       "brand": "LEMAIRE",
       "type": "vest",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "source_file": "cbafa8ee0a826971da25f89840c347e1fd5c67cc7790698717d632d8df3c2c81.jpg",
       "csv_id": "T250",
       "photo": true
@@ -1280,7 +1280,7 @@
       "brand": "LOEWE",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "source_file": "9e40a69370f660b83f96d382939bda4e120387ff4bc497a2780ca9aa576b5341.png",
       "csv_id": "T251",
       "photo": true
@@ -1292,7 +1292,7 @@
       "brand": "Unknown",
       "type": "blazer",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "source_file": "76b0086bffb69634cb628aaa7b58b0f551e02458503ae907b3287c048581ff5f.jpg",
       "csv_id": "T252",
       "photo": true
@@ -1304,7 +1304,7 @@
       "brand": "Unknown",
       "type": "windbreaker",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "source_file": "4d47bc69ae3d62212f666836906c9f5aa5f89beb9dc361d1123971622ef82227.png",
       "csv_id": "T253",
       "photo": true
@@ -1316,7 +1316,7 @@
       "brand": "Unknown",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "source_file": "4db98b09ac514b832bc960a0f64644f778a9bacf81bb1fddb0fc9921295bc9a8.jpg",
       "csv_id": "T254",
       "photo": true
@@ -1328,7 +1328,7 @@
       "brand": "Unknown",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "source_file": "b99e81ac60d935ff9fdd01fbaf398313d083f3ef25a3060fc2f606b6627e7daa.jpg",
       "csv_id": "T255",
       "photo": true
@@ -1340,7 +1340,7 @@
       "brand": "Unknown",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "source_file": "acc2cdce48bc1b39f90a862495331777ab472139944771a525cf94ad7a97038c.jpg",
       "csv_id": "T256",
       "photo": true
@@ -1352,7 +1352,7 @@
       "brand": "Unknown",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "source_file": "4c377c1aaf7afcc4bf622d29cf288e85304efd1a8b5a5dfd03c914a966a1582d.jpg",
       "csv_id": "T257",
       "photo": true
@@ -1364,7 +1364,7 @@
       "brand": "SOEUR",
       "type": "vest",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "source_file": "fe9029d460d21bafd2df04a6cc2279c7f7c2c3fddeb3b87f873037e13c6af088.jpg",
       "csv_id": "T258",
       "photo": true
@@ -1376,7 +1376,7 @@
       "brand": "Unknown",
       "type": "vest",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "source_file": "c4c8787154a7400d6cef11f443205162dafdefcf3a663437f47daec78c6f3ccb.png",
       "csv_id": "T259",
       "photo": true
@@ -1388,7 +1388,7 @@
       "brand": "Sea NY",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-f",
       "source_file": "9c6ba7f0c96aabdc5cfc791c2fe59be7eb41ce6840959f902078ba12acd6d756.png",
       "csv_id": "T260",
       "photo": true
@@ -1400,7 +1400,7 @@
       "brand": "Seo. Sea NY",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "source_file": "c7e56bfd70973fc756e55cea8f169b8317a5c0ddbfc0a61bd3684aa617f66835.png",
       "csv_id": "T261",
       "photo": true
@@ -1412,7 +1412,7 @@
       "brand": "Unknown",
       "type": "vest",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "source_file": "6d3aa2897df1b215609bd8466c0372e612cb3091bc3e8380b98437f7bafb7e87.png",
       "csv_id": "T262",
       "photo": true
@@ -1424,7 +1424,7 @@
       "brand": "Unknown",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "source_file": "5936de166a29dc0d647b4ac949f8a96224fbb1a2a9d93473aa27d406a95b6fe4.jpg",
       "csv_id": "T264",
       "photo": true
@@ -1436,7 +1436,7 @@
       "brand": "THE NORTH FACE PURPLE LABEL",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "source_file": "4e515612b93460bb49d7cde0391d195f965c989f86168d7eb8e70002f716158d.png",
       "csv_id": "T265",
       "photo": true
@@ -1448,7 +1448,7 @@
       "brand": "Unknown",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "source_file": "440575723f0fa9e444fa16eb04bed99f515a68370aea8ed1f2719e3c42f2226e.png",
       "csv_id": "T266",
       "photo": true
@@ -1460,7 +1460,7 @@
       "brand": "Unknown",
       "type": "blazer",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "source_file": "b426ae6a0a641d11fc7eb54cd334e1db59dd27ab2c941cacaa52c153044d3a77.png",
       "csv_id": "T267",
       "photo": true
@@ -1472,7 +1472,7 @@
       "brand": "Unknown",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "source_file": "dc844e1d2e2fc56ab3c794e42831107da15d5d3235e992839bb57747b3817ce6.jpg",
       "csv_id": "T268",
       "photo": true
@@ -1484,7 +1484,7 @@
       "brand": "baziszt",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "source_file": "783792e8080a37eb20fa0da03020bd942ebe636234e6c7645d882198a0e611ac.png",
       "csv_id": "T269",
       "photo": true
@@ -1496,7 +1496,7 @@
       "brand": "Unknown",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "source_file": "718a5f5c9cf88861582f1110c20415859b30a060dfdfd8fded3cb1fe0477fe9f.png",
       "csv_id": "T270",
       "photo": true
@@ -1508,7 +1508,7 @@
       "brand": "nue notes",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "source_file": "1812b0c1171224bfd4cf2ef5dfee308e59e1c53b3f3f9dcc56ee742ec5d8ba23.png",
       "csv_id": "T271",
       "photo": true
@@ -1520,7 +1520,7 @@
       "brand": "soeur",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "source_file": "45a63f2a7e100c684283620666c9943f82c7a217e592bfaca57ada2da9165b3c.png",
       "csv_id": "T272",
       "photo": true
@@ -1532,7 +1532,7 @@
       "brand": "soeur",
       "type": "jacket",
       "category": "jackets",
-      "zone": "jackets-d",
+      "zone": "jackets-g",
       "source_file": "ba1580f8c54a3843a340e51ac7a80e67596c1e02af032ce87dd7679746566ec6.png",
       "csv_id": "T273",
       "photo": true
@@ -1652,7 +1652,7 @@
       "brand": "Unknown",
       "type": "skirt",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-f",
       "source_file": "4f8eb05453f2797a6c3b5ba86ec616cb63d43bb83aa6bc3704d10111bf49b1b0.png",
       "csv_id": "T320",
       "photo": true
@@ -1664,7 +1664,7 @@
       "brand": "Unknown",
       "type": "shorts",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-f",
       "source_file": "d72295dcfe8bfaa99b58f1d31481514550f1d75bd7e38730a5c1bce99628e99d.png",
       "csv_id": "T321",
       "photo": true
@@ -1676,7 +1676,7 @@
       "brand": "Unknown",
       "type": "skirt",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-f",
       "source_file": "20ada2350fa7bfd3e72d3b501415f8323a1b61f6cdbd5f19473f59fe08ec7749.jpg",
       "csv_id": "T322",
       "photo": true
@@ -1688,7 +1688,7 @@
       "brand": "Unknown",
       "type": "skirt",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-f",
       "source_file": "2572d23d3d97d9c26695b91c002bcc2bae519801d0c8a8c16efaa1adfe2fb0a0.jpg",
       "csv_id": "T323",
       "photo": true
@@ -1700,7 +1700,7 @@
       "brand": "Unknown",
       "type": "skirt",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-f",
       "source_file": "514a5ce551391aeecb942f5fea7f94780bb2c0a07d6e25204d9efaf461dc1c1a.png",
       "csv_id": "T324",
       "photo": true
@@ -1712,7 +1712,7 @@
       "brand": "Grlfrnd",
       "type": "shorts",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-f",
       "source_file": "5aabc2558769237df3ced4d7112c0535d020cd431c5b4609208f5bacb4756a25.png",
       "csv_id": "T325",
       "photo": true
@@ -1724,7 +1724,7 @@
       "brand": "Unknown",
       "type": "pants",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-f",
       "source_file": "048a141eff80b3e9f4309e2810fe08c441471dcc0c6fdfb50878894e7b2d6341.png",
       "csv_id": "T326",
       "photo": true
@@ -1736,7 +1736,7 @@
       "brand": "Unknown",
       "type": "pants",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-f",
       "source_file": "3615578fccc68336d9094c06d6cdd0458a55b555de77b5458265e6cffb39844f.png",
       "csv_id": "T327",
       "photo": true
@@ -1748,7 +1748,7 @@
       "brand": "Unknown",
       "type": "pants",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-f",
       "source_file": "14cf6ba515a5752da9aa6b85a1df7f00f414a27337efb2d8805cd204167efe5c.jpg",
       "csv_id": "T328",
       "photo": true
@@ -1760,7 +1760,7 @@
       "brand": "Unknown",
       "type": "shorts",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-g",
       "source_file": "8afb04bc2e6a0a94913e8337d374180cdbbd213a860ab3760565941c79b38cf0.png",
       "csv_id": "T329",
       "photo": true
@@ -1772,7 +1772,7 @@
       "brand": "Unknown",
       "type": "pants",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-g",
       "source_file": "c59b22d41086f10400316c195b378851bde0a308b3f9a01b76b6cfa783cd0f9c.jpg",
       "csv_id": "T330",
       "photo": true
@@ -1784,7 +1784,7 @@
       "brand": "Unknown",
       "type": "pants",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-g",
       "source_file": "1a4b5b7476287222f3475fee5d41b7626ab3701092d1169ea29c8e3889d2f572.jpg",
       "csv_id": "T331",
       "photo": true
@@ -1796,7 +1796,7 @@
       "brand": "Unknown",
       "type": "pants",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-g",
       "source_file": "ea5caa910d61a1187b2ed58f5546dbc976ee0323d36f072ed929e90f94cdfabf.jpg",
       "csv_id": "T332",
       "photo": true
@@ -1808,7 +1808,7 @@
       "brand": "Unknown",
       "type": "pants",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-g",
       "source_file": "3313759d23b2efff444af71ccf0d163c0d4fa887a1ccbd6c99df4909e5b7f176.jpg",
       "csv_id": "T333",
       "photo": true
@@ -1820,7 +1820,7 @@
       "brand": "Unknown",
       "type": "skirt",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-g",
       "source_file": "893bbbef9c248b81684e75d5e686e5bdc9a87860b30dd822159be138d5b8cc2e.png",
       "csv_id": "T334",
       "photo": true
@@ -1832,7 +1832,7 @@
       "brand": "Unknown",
       "type": "skirt",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-g",
       "source_file": "82a0f4e135cd85c88ed39d3e7dd3d31b030e845c43917233c0c5d015fe4cc414.jpg",
       "csv_id": "T335",
       "photo": true
@@ -1844,7 +1844,7 @@
       "brand": "Unknown",
       "type": "skirt",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-g",
       "source_file": "1b3e91604d35849070c95897c203bdda5f12485998aeaa0af1ba77089ee5cd43.png",
       "csv_id": "T336",
       "photo": true
@@ -1856,7 +1856,7 @@
       "brand": "Unknown",
       "type": "pants",
       "category": "bottoms",
-      "zone": "bottoms-e",
+      "zone": "bottoms-g",
       "source_file": "28128012d429c7e9f209b13b10a816b8b2cd1c786e55ca4846a90f1e259eedc3.jpg",
       "csv_id": "T337",
       "photo": true

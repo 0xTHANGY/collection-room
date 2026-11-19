@@ -1,0 +1,89 @@
+{
+  "zone": "shirts-b",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-073": {
+      "bbox": [
+        304,
+        52,
+        548,
+        416
+      ],
+      "confidence": "high",
+      "note": "Cream button-down with dark chest embroidery"
+    },
+    "today-074": {
+      "bbox": [
+        559,
+        51,
+        801,
+        418
+      ],
+      "confidence": "high",
+      "note": "Cream western shirt with an embroidered navy yoke and red piping"
+    },
+    "today-075": {
+      "bbox": [
+        817,
+        51,
+        1056,
+        415
+      ],
+      "confidence": "high",
+      "note": "White button-down with a pleated bib"
+    },
+    "today-076": {
+      "bbox": [
+        1061,
+        51,
+        1328,
+        351
+      ],
+      "confidence": "high",
+      "note": "Cropped navy polo with a white placket and chest badge"
+    },
+    "today-078": {
+      "bbox": [
+        289,
+        443,
+        546,
+        830
+      ],
+      "confidence": "high",
+      "note": "Long blue pinstripe button-down with a chest pocket"
+    },
+    "today-080": {
+      "bbox": [
+        552,
+        443,
+        799,
+        822
+      ],
+      "confidence": "high",
+      "note": "Black crewneck with asymmetric gray striped panels"
+    },
+    "today-081": {
+      "bbox": [
+        805,
+        443,
+        1063,
+        808
+      ],
+      "confidence": "high",
+      "note": "Pink and beige plaid shirt with two flap pockets"
+    },
+    "today-082": {
+      "bbox": [
+        1070,
+        443,
+        1333,
+        802
+      ],
+      "confidence": "high",
+      "note": "Cropped blue pinstripe shirt with long cuffs"
+    }
+  }
+}

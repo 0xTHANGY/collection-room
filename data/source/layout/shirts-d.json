@@ -1,0 +1,89 @@
+{
+  "zone": "shirts-d",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-104": {
+      "bbox": [
+        231,
+        65,
+        497,
+        422
+      ],
+      "confidence": "high",
+      "note": "Ivory button-up with contrast stitching and a curved hem"
+    },
+    "today-105": {
+      "bbox": [
+        518,
+        65,
+        798,
+        436
+      ],
+      "confidence": "high",
+      "note": "Loose black button-up with mixed buttons and gathered sleeves"
+    },
+    "today-107": {
+      "bbox": [
+        821,
+        65,
+        1089,
+        426
+      ],
+      "confidence": "high",
+      "note": "Black high-neck blouse with white-edged ruffles"
+    },
+    "today-108": {
+      "bbox": [
+        1108,
+        65,
+        1381,
+        431
+      ],
+      "confidence": "high",
+      "note": "Mustard button-up with a high-low hem"
+    },
+    "today-112": {
+      "bbox": [
+        222,
+        468,
+        515,
+        831
+      ],
+      "confidence": "high",
+      "note": "Dusty mauve polo with a cream center panel"
+    },
+    "today-113": {
+      "bbox": [
+        524,
+        468,
+        795,
+        847
+      ],
+      "confidence": "high",
+      "note": "Chartreuse button-up with a chest pocket and curved hem"
+    },
+    "today-115": {
+      "bbox": [
+        821,
+        468,
+        1086,
+        840
+      ],
+      "confidence": "high",
+      "note": "Pale green watercolor-print shirt with rust near the hem"
+    },
+    "today-116": {
+      "bbox": [
+        1104,
+        468,
+        1387,
+        843
+      ],
+      "confidence": "high",
+      "note": "Beige deer-print shirt with wide cuffs"
+    }
+  }
+}

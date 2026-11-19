@@ -1,0 +1,129 @@
+{
+  "zone": "jackets-d",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-225": {
+      "bbox": [
+        77,
+        65,
+        306,
+        409
+      ],
+      "confidence": "high",
+      "note": "Dusty mauve double-breasted blazer with flap pockets"
+    },
+    "today-226": {
+      "bbox": [
+        315,
+        65,
+        540,
+        407
+      ],
+      "confidence": "high",
+      "note": "Muted coral double-breasted blazer with pale lining"
+    },
+    "today-227": {
+      "bbox": [
+        547,
+        65,
+        768,
+        406
+      ],
+      "confidence": "high",
+      "note": "Deep burgundy velvet blazer with gold-tone buttons"
+    },
+    "today-228": {
+      "bbox": [
+        776,
+        65,
+        993,
+        404
+      ],
+      "confidence": "high",
+      "note": "Tan vertically striped double-breasted blazer"
+    },
+    "today-229": {
+      "bbox": [
+        1003,
+        65,
+        1229,
+        402
+      ],
+      "confidence": "high",
+      "note": "Dark navy single-button blazer with a small lapel pin"
+    },
+    "today-230": {
+      "bbox": [
+        1235,
+        65,
+        1478,
+        403
+      ],
+      "confidence": "high",
+      "note": "Olive jacket with embroidered scenes and sunburst pockets"
+    },
+    "today-231": {
+      "bbox": [
+        65,
+        462,
+        312,
+        798
+      ],
+      "confidence": "high",
+      "note": "Black collared bomber with angled flap pockets"
+    },
+    "today-232": {
+      "bbox": [
+        316,
+        462,
+        537,
+        802
+      ],
+      "confidence": "high",
+      "note": "Black hooded zip jacket with shiny side panels"
+    },
+    "today-233": {
+      "bbox": [
+        543,
+        462,
+        770,
+        796
+      ],
+      "confidence": "high",
+      "note": "Blue denim jacket with metal buttons and vertical pockets"
+    },
+    "today-234": {
+      "bbox": [
+        774,
+        462,
+        999,
+        802
+      ],
+      "confidence": "high",
+      "note": "Dark windowpane-check blazer with a blue lapel pin"
+    },
+    "today-235": {
+      "bbox": [
+        1011,
+        462,
+        1223,
+        793
+      ],
+      "confidence": "high",
+      "note": "Hot pink fleece vest with a green chest patch"
+    },
+    "today-236": {
+      "bbox": [
+        1240,
+        462,
+        1468,
+        797
+      ],
+      "confidence": "high",
+      "note": "Charcoal hooded shell with vertical zip pockets"
+    }
+  }
+}

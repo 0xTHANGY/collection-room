@@ -1,0 +1,89 @@
+{
+  "zone": "shirts-e",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-119": {
+      "bbox": [
+        216,
+        43,
+        472,
+        395
+      ],
+      "confidence": "high",
+      "note": "Blue pinstriped blouse with a white scalloped collar."
+    },
+    "today-120": {
+      "bbox": [
+        499,
+        43,
+        761,
+        412
+      ],
+      "confidence": "high",
+      "note": "Cream button-down with a chest pocket and curved hem."
+    },
+    "today-121": {
+      "bbox": [
+        780,
+        43,
+        1067,
+        394
+      ],
+      "confidence": "high",
+      "note": "Olive short-sleeve shirt with a multicolored figurative print."
+    },
+    "today-122": {
+      "bbox": [
+        1094,
+        43,
+        1343,
+        412
+      ],
+      "confidence": "high",
+      "note": "Navy shirt with gold ornament and portrait motifs."
+    },
+    "today-124": {
+      "bbox": [
+        212,
+        434,
+        473,
+        816
+      ],
+      "confidence": "high",
+      "note": "Black button-up with orange flowers."
+    },
+    "today-125": {
+      "bbox": [
+        489,
+        434,
+        777,
+        789
+      ],
+      "confidence": "high",
+      "note": "Boxy cream button-up with a green chest patch."
+    },
+    "today-126": {
+      "bbox": [
+        799,
+        434,
+        1060,
+        785
+      ],
+      "confidence": "high",
+      "note": "Black crew-neck top with layered pleated sleeves."
+    },
+    "today-129": {
+      "bbox": [
+        1081,
+        434,
+        1358,
+        807
+      ],
+      "confidence": "high",
+      "note": "Ivory blouse with a broad ruffled collar and gathered cuffs."
+    }
+  }
+}

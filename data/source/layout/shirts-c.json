@@ -1,0 +1,89 @@
+{
+  "zone": "shirts-c",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-083": {
+      "bbox": [
+        235,
+        57,
+        481,
+        410
+      ],
+      "confidence": "high",
+      "note": "Rose-pink floral jacquard button-up with chest pocket."
+    },
+    "today-088": {
+      "bbox": [
+        516,
+        57,
+        774,
+        409
+      ],
+      "confidence": "high",
+      "note": "Blue vertically striped shirt with narrow neck tie."
+    },
+    "today-089": {
+      "bbox": [
+        798,
+        57,
+        1060,
+        405
+      ],
+      "confidence": "high",
+      "note": "White pointed-collar button-up with chest pocket."
+    },
+    "today-090": {
+      "bbox": [
+        1087,
+        57,
+        1359,
+        380
+      ],
+      "confidence": "high",
+      "note": "Cream cropped top with blue trim and rose motifs."
+    },
+    "today-097": {
+      "bbox": [
+        236,
+        435,
+        482,
+        777
+      ],
+      "confidence": "high",
+      "note": "White button-up with oversized rounded cape collar."
+    },
+    "today-098": {
+      "bbox": [
+        516,
+        435,
+        775,
+        758
+      ],
+      "confidence": "high",
+      "note": "Beige micro-check cropped button-up."
+    },
+    "today-099": {
+      "bbox": [
+        805,
+        435,
+        1054,
+        765
+      ],
+      "confidence": "high",
+      "note": "Dusty mauve blouse with gathered hem and balloon sleeves."
+    },
+    "today-100": {
+      "bbox": [
+        1092,
+        435,
+        1354,
+        782
+      ],
+      "confidence": "high",
+      "note": "Ivory button-up with dropped shoulders and curved hem."
+    }
+  }
+}
