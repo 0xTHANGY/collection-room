@@ -1,0 +1,89 @@
+{
+  "zone": "hats-i",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-138": {
+      "bbox": [
+        252,
+        466,
+        479,
+        711
+      ],
+      "confidence": "high",
+      "note": "Pink ADER knit"
+    },
+    "batch2-140": {
+      "bbox": [
+        519,
+        464,
+        738,
+        712
+      ],
+      "confidence": "high",
+      "note": "Brown knit, vertical tan label"
+    },
+    "batch2-141": {
+      "bbox": [
+        788,
+        466,
+        1007,
+        713
+      ],
+      "confidence": "high",
+      "note": "Black knit, orange Prada patch"
+    },
+    "batch2-142": {
+      "bbox": [
+        1055,
+        467,
+        1281,
+        711
+      ],
+      "confidence": "high",
+      "note": "Orange Ganni knit"
+    },
+    "batch2-143": {
+      "bbox": [
+        340,
+        141,
+        549,
+        369
+      ],
+      "confidence": "high",
+      "note": "Cream knit, tiger patch"
+    },
+    "batch2-145": {
+      "bbox": [
+        597,
+        136,
+        819,
+        369
+      ],
+      "confidence": "high",
+      "note": "Marled knit, polar bear patch"
+    },
+    "batch2-148": {
+      "bbox": [
+        871,
+        137,
+        1081,
+        368
+      ],
+      "confidence": "high",
+      "note": "Speckled cream Supreme knit"
+    },
+    "batch2-190": {
+      "bbox": [
+        1144,
+        143,
+        1354,
+        364
+      ],
+      "confidence": "high",
+      "note": "Black cap, white skull"
+    }
+  }
+}

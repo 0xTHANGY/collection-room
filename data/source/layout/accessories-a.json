@@ -1,0 +1,89 @@
+{
+  "zone": "accessories-a",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-112": {
+      "bbox": [
+        200,
+        137,
+        404,
+        318
+      ],
+      "confidence": "high",
+      "note": "Black belt; broad gold Miu Miu buckle"
+    },
+    "batch2-113": {
+      "bbox": [
+        505,
+        137,
+        728,
+        313
+      ],
+      "confidence": "high",
+      "note": "Black belt; pearl double-C buckle"
+    },
+    "batch2-230": {
+      "bbox": [
+        794,
+        147,
+        1060,
+        299
+      ],
+      "confidence": "high",
+      "note": "Tan narrow belt; gold tip"
+    },
+    "batch2-300": {
+      "bbox": [
+        1142,
+        128,
+        1355,
+        328
+      ],
+      "confidence": "high",
+      "note": "Rust belt; broad square gold buckle"
+    },
+    "batch2-114": {
+      "bbox": [
+        194,
+        409,
+        460,
+        723
+      ],
+      "confidence": "high",
+      "note": "Dark gloves; white logos and clip"
+    },
+    "batch2-115": {
+      "bbox": [
+        511,
+        433,
+        865,
+        706
+      ],
+      "confidence": "high",
+      "note": "Cream fleece pair; KAVU bands and cord"
+    },
+    "batch2-116": {
+      "bbox": [
+        930,
+        392,
+        1016,
+        810
+      ],
+      "confidence": "high",
+      "note": "Pink tie; red flies"
+    },
+    "batch2-117": {
+      "bbox": [
+        1109,
+        391,
+        1191,
+        809
+      ],
+      "confidence": "high",
+      "note": "Brown tie; blue and cream flies"
+    }
+  }
+}

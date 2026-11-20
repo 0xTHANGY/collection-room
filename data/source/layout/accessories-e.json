@@ -1,0 +1,69 @@
+{
+  "zone": "accessories-e",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-486": {
+      "bbox": [
+        455,
+        93,
+        747,
+        415
+      ],
+      "confidence": "high",
+      "note": "Mauve and beige patterned loop scarf with metal hook"
+    },
+    "today-495": {
+      "bbox": [
+        818,
+        93,
+        1063,
+        372
+      ],
+      "confidence": "high",
+      "note": "Checkerboard cardholder with green rhino, orange trim and metal hook"
+    },
+    "today-496": {
+      "bbox": [
+        1123,
+        93,
+        1386,
+        382
+      ],
+      "confidence": "high",
+      "note": "Orange safari pouch with gold clasp, zipper pull and rail hook"
+    },
+    "today-497": {
+      "bbox": [
+        517,
+        443,
+        706,
+        750
+      ],
+      "confidence": "high",
+      "note": "Tall checkerboard wallet with palms, safari animals and metal hook"
+    },
+    "today-498": {
+      "bbox": [
+        793,
+        443,
+        1057,
+        719
+      ],
+      "confidence": "high",
+      "note": "Brown cardholder with yellow trim, colorful motifs and metal hook"
+    },
+    "today-499": {
+      "bbox": [
+        1135,
+        443,
+        1390,
+        720
+      ],
+      "confidence": "high",
+      "note": "Cream cardholder with tricolor tab and metal hook"
+    }
+  }
+}

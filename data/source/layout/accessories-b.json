@@ -1,0 +1,89 @@
+{
+  "zone": "accessories-b",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-118": {
+      "bbox": [
+        311,
+        128,
+        541,
+        415
+      ],
+      "confidence": "high",
+      "note": "Taupe scarf; green skull medallions"
+    },
+    "batch2-119": {
+      "bbox": [
+        591,
+        126,
+        790,
+        411
+      ],
+      "confidence": "high",
+      "note": "Peach scarf; mint skull print"
+    },
+    "batch2-121": {
+      "bbox": [
+        849,
+        125,
+        1036,
+        400
+      ],
+      "confidence": "high",
+      "note": "Black quilted scarf; side toggle"
+    },
+    "batch2-122": {
+      "bbox": [
+        1081,
+        127,
+        1298,
+        418
+      ],
+      "confidence": "high",
+      "note": "Blue black plaid; fringe"
+    },
+    "batch2-123": {
+      "bbox": [
+        329,
+        505,
+        539,
+        874
+      ],
+      "confidence": "high",
+      "note": "Black fuzzy asymmetric scarf"
+    },
+    "batch2-124": {
+      "bbox": [
+        609,
+        510,
+        779,
+        860
+      ],
+      "confidence": "high",
+      "note": "Gray navy layers; Miu Miu text"
+    },
+    "batch2-126": {
+      "bbox": [
+        840,
+        508,
+        1040,
+        878
+      ],
+      "confidence": "high",
+      "note": "Olive windowpane; dark edge and fringe"
+    },
+    "batch2-127": {
+      "bbox": [
+        1115,
+        507,
+        1264,
+        866
+      ],
+      "confidence": "high",
+      "note": "Cream olive knit; burgundy geometric bands"
+    }
+  }
+}

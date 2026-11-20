@@ -1,0 +1,189 @@
+{
+  "zone": "dresses-a",
+  "image_size": [
+    1672,
+    941
+  ],
+  "items": {
+    "batch2-016": {
+      "bbox": [
+        304,
+        51,
+        476,
+        291
+      ],
+      "confidence": "high",
+      "note": "Black velvet open-shoulder puff-sleeved dress"
+    },
+    "batch2-033": {
+      "bbox": [
+        523,
+        49,
+        673,
+        290
+      ],
+      "confidence": "high",
+      "note": "Cream sleeveless dress with ruffled neck and ties"
+    },
+    "batch2-034": {
+      "bbox": [
+        720,
+        45,
+        890,
+        265
+      ],
+      "confidence": "high",
+      "note": "White long-sleeved ruffled dress"
+    },
+    "batch2-035": {
+      "bbox": [
+        949,
+        47,
+        1073,
+        291
+      ],
+      "confidence": "high",
+      "note": "Blue button-front asymmetric tiered dress"
+    },
+    "batch2-036": {
+      "bbox": [
+        1134,
+        46,
+        1291,
+        283
+      ],
+      "confidence": "high",
+      "note": "Cream long-sleeved red floral dress"
+    },
+    "batch2-037": {
+      "bbox": [
+        1328,
+        48,
+        1487,
+        289
+      ],
+      "confidence": "high",
+      "note": "Black sleeveless dress with cream geometric trim"
+    },
+    "batch2-038": {
+      "bbox": [
+        329,
+        338,
+        465,
+        578
+      ],
+      "confidence": "high",
+      "note": "Pastel geometric sleeveless dress"
+    },
+    "batch2-039": {
+      "bbox": [
+        526,
+        337,
+        652,
+        582
+      ],
+      "confidence": "high",
+      "note": "Black puff-sleeved dress with pearl neckline"
+    },
+    "batch2-083": {
+      "bbox": [
+        1465,
+        350,
+        1671,
+        858
+      ],
+      "confidence": "high",
+      "note": "Peach pink sheer floral tiers and black shoulder bows"
+    },
+    "batch2-084": {
+      "bbox": [
+        950,
+        336,
+        1070,
+        584
+      ],
+      "confidence": "high",
+      "note": "Pink floral puff-sleeved maxi dress"
+    },
+    "batch2-085": {
+      "bbox": [
+        1148,
+        335,
+        1273,
+        587
+      ],
+      "confidence": "high",
+      "note": "Cream floral dress with pointed hem"
+    },
+    "batch2-086": {
+      "bbox": [
+        1349,
+        337,
+        1457,
+        582
+      ],
+      "confidence": "high",
+      "note": "Ivory sleeveless asymmetric draped dress"
+    },
+    "batch2-087": {
+      "bbox": [
+        318,
+        628,
+        472,
+        868
+      ],
+      "confidence": "high",
+      "note": "Cream cold-shoulder dress with black waist bars"
+    },
+    "batch2-088": {
+      "bbox": [
+        526,
+        631,
+        665,
+        856
+      ],
+      "confidence": "high",
+      "note": "Cream dress with black pompoms and hem"
+    },
+    "batch2-089": {
+      "bbox": [
+        711,
+        631,
+        871,
+        856
+      ],
+      "confidence": "high",
+      "note": "Navy sleeveless flared dress"
+    },
+    "batch2-091": {
+      "bbox": [
+        907,
+        654,
+        1083,
+        843
+      ],
+      "confidence": "high",
+      "note": "Black button-front skirt with large pockets"
+    },
+    "batch2-092": {
+      "bbox": [
+        1126,
+        635,
+        1282,
+        857
+      ],
+      "confidence": "high",
+      "note": "Yellow skirt with blue floral print"
+    },
+    "batch2-100": {
+      "bbox": [
+        1329,
+        630,
+        1471,
+        854
+      ],
+      "confidence": "high",
+      "note": "Green cream striped sleeveless dress"
+    }
+  }
+}

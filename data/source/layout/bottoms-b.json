@@ -1,0 +1,89 @@
+{
+  "zone": "bottoms-b",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-164": {
+      "bbox": [
+        270,
+        81,
+        512,
+        410
+      ],
+      "confidence": "high",
+      "note": "Dark balloon pants with cream drawstring and patch pockets"
+    },
+    "batch2-165": {
+      "bbox": [
+        545,
+        80,
+        779,
+        431
+      ],
+      "confidence": "high",
+      "note": "Olive balloon cargo pants with hem loops"
+    },
+    "batch2-166": {
+      "bbox": [
+        828,
+        81,
+        1045,
+        423
+      ],
+      "confidence": "high",
+      "note": "Pale blue elastic waist jeans"
+    },
+    "batch2-167": {
+      "bbox": [
+        1092,
+        81,
+        1323,
+        429
+      ],
+      "confidence": "high",
+      "note": "Fine purple and white striped trousers"
+    },
+    "batch2-169": {
+      "bbox": [
+        268,
+        507,
+        513,
+        848
+      ],
+      "confidence": "high",
+      "note": "Orange green and cream striped trousers"
+    },
+    "batch2-205": {
+      "bbox": [
+        566,
+        507,
+        760,
+        846
+      ],
+      "confidence": "high",
+      "note": "Dark washed straight jeans with button waist"
+    },
+    "batch2-206": {
+      "bbox": [
+        804,
+        507,
+        1047,
+        847
+      ],
+      "confidence": "high",
+      "note": "Gray denim balloon pants with elastic waist"
+    },
+    "batch2-207": {
+      "bbox": [
+        1093,
+        508,
+        1323,
+        845
+      ],
+      "confidence": "high",
+      "note": "Khaki pleated trousers with broad turned cuffs"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "hats-d": {"status":"retained", "reason":"Mirror and plant removal requires reconstructing window, wall, baseboard and perspective rug; no clean donor region for the rug. Original retained."},
+  "hats-h": {"status":"needs-generation", "reason":"Replace A-frame stand with wall rail without inventing structure in code."},
+  "batch2-192": {"status":"source-limited", "reason":"Helmet lettering is illegible in original; accurate lettering requires a better source, not invented text."},
+  "cr-003": {"status":"retained", "reason":"Embroidery in photograph differs in projection and fabric shading from painting; unvalidated composite not shipped."},
+  "batch2-058": {"status":"retained", "reason":"Embroidery in photograph differs in projection and fabric shading from painting; unvalidated composite not shipped."},
+  "batch2-211": {"status":"needs-generation", "reason":"Bottoms C rail placement crops silhouette; missing fabric cannot be reconstructed without inventing pixels."}
+}

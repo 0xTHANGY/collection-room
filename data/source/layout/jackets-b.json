@@ -1,0 +1,129 @@
+{
+  "zone": "jackets-b",
+  "image_size": [
+    1672,
+    941
+  ],
+  "items": {
+    "batch2-079": {
+      "bbox": [
+        316,
+        211,
+        485,
+        647
+      ],
+      "confidence": "high",
+      "note": "Sage long zip coat"
+    },
+    "batch2-080": {
+      "bbox": [
+        464,
+        211,
+        618,
+        648
+      ],
+      "confidence": "high",
+      "note": "Taupe quilted asymmetric coat"
+    },
+    "batch2-081": {
+      "bbox": [
+        599,
+        212,
+        746,
+        652
+      ],
+      "confidence": "high",
+      "note": "Tan long toggle coat"
+    },
+    "batch2-090": {
+      "bbox": [
+        824,
+        102,
+        983,
+        328
+      ],
+      "confidence": "high",
+      "note": "Black sleeveless zip vest"
+    },
+    "batch2-093": {
+      "bbox": [
+        988,
+        111,
+        1187,
+        324
+      ],
+      "confidence": "high",
+      "note": "Teal bomber with cream sleeves"
+    },
+    "batch2-094": {
+      "bbox": [
+        1190,
+        101,
+        1385,
+        328
+      ],
+      "confidence": "high",
+      "note": "Denim jacket with colorful patches"
+    },
+    "batch2-096": {
+      "bbox": [
+        1396,
+        101,
+        1600,
+        321
+      ],
+      "confidence": "high",
+      "note": "Plain pale denim jacket"
+    },
+    "batch2-097": {
+      "bbox": [
+        762,
+        391,
+        939,
+        632
+      ],
+      "confidence": "high",
+      "note": "Brown plaid jacket with hanging ties"
+    },
+    "batch2-098": {
+      "bbox": [
+        919,
+        392,
+        1100,
+        603
+      ],
+      "confidence": "high",
+      "note": "Orange diamond quilted jacket"
+    },
+    "batch2-099": {
+      "bbox": [
+        1083,
+        391,
+        1267,
+        613
+      ],
+      "confidence": "high",
+      "note": "Cream navy jacket with burgundy collar"
+    },
+    "batch2-196": {
+      "bbox": [
+        1256,
+        393,
+        1439,
+        632
+      ],
+      "confidence": "high",
+      "note": "Black leather biker with fringe and belt"
+    },
+    "batch2-197": {
+      "bbox": [
+        1428,
+        384,
+        1632,
+        616
+      ],
+      "confidence": "high",
+      "note": "Red MARTY SUPREME hooded jacket"
+    }
+  }
+}

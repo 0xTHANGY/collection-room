@@ -1,0 +1,59 @@
+{
+ "zone": "shoes-k",
+ "image_size": [
+  1536,
+  1024
+ ],
+ "items": {
+  "shoes-n055": {
+   "bbox": [
+    146,
+    624,
+    463,
+    979
+   ],
+   "confidence": "local, painting vs generated empty plate, visually checked",
+   "note": "V2.4.0 rollout, mask in data/source/newshoes/masks"
+  },
+  "shoes-n056": {
+   "bbox": [
+    604,
+    646,
+    941,
+    976
+   ],
+   "confidence": "local, painting vs generated empty plate, visually checked",
+   "note": "V2.4.0 rollout, mask in data/source/newshoes/masks"
+  },
+  "shoes-n057": {
+   "bbox": [
+    1061,
+    616,
+    1389,
+    977
+   ],
+   "confidence": "local, painting vs generated empty plate, visually checked",
+   "note": "V2.4.0 rollout, mask in data/source/newshoes/masks"
+  },
+  "shoes-n058": {
+   "bbox": [
+    430,
+    372,
+    699,
+    672
+   ],
+   "confidence": "local, painting vs generated empty plate, visually checked",
+   "note": "V2.4.0 rollout, mask in data/source/newshoes/masks"
+  },
+  "shoes-n059": {
+   "bbox": [
+    836,
+    369,
+    1101,
+    671
+   ],
+   "confidence": "local, painting vs generated empty plate, visually checked",
+   "note": "V2.4.0 rollout, mask in data/source/newshoes/masks"
+  }
+ }
+}

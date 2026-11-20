@@ -1,0 +1,29 @@
+{
+  "zone": "sweaters-e",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-087": {
+      "bbox": [
+        549,
+        74,
+        874,
+        547
+      ],
+      "confidence": "high",
+      "note": "Cream cropped crewneck with purple American Vintage chest lettering on the upper rail"
+    },
+    "today-189": {
+      "bbox": [
+        962,
+        337,
+        1320,
+        801
+      ],
+      "confidence": "high",
+      "note": "Fuzzy fuchsia V-neck cardigan with dark buttons on the lower rail"
+    }
+  }
+}

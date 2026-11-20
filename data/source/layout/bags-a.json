@@ -1,0 +1,89 @@
+{
+  "zone": "bags-a",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-056": {
+      "bbox": [
+        193,
+        84,
+        392,
+        435
+      ],
+      "confidence": "high",
+      "note": "Beige quilted bucket bag with gold clasp"
+    },
+    "batch2-316": {
+      "bbox": [
+        489,
+        84,
+        712,
+        431
+      ],
+      "confidence": "high",
+      "note": "Navy Tokyo tote"
+    },
+    "batch2-317": {
+      "bbox": [
+        794,
+        85,
+        1027,
+        431
+      ],
+      "confidence": "high",
+      "note": "Cream tote with oversized E and yellow G"
+    },
+    "batch2-318": {
+      "bbox": [
+        1103,
+        80,
+        1380,
+        431
+      ],
+      "confidence": "high",
+      "note": "Lime BAYC skull tote"
+    },
+    "batch2-319": {
+      "bbox": [
+        171,
+        500,
+        417,
+        849
+      ],
+      "confidence": "high",
+      "note": "Black skull tote with printed straps"
+    },
+    "batch2-320": {
+      "bbox": [
+        486,
+        502,
+        728,
+        850
+      ],
+      "confidence": "high",
+      "note": "Cream APEFEST fish illustration tote"
+    },
+    "batch2-321": {
+      "bbox": [
+        796,
+        500,
+        1036,
+        852
+      ],
+      "confidence": "high",
+      "note": "Neon striped check tote"
+    },
+    "batch2-322": {
+      "bbox": [
+        1121,
+        508,
+        1370,
+        850
+      ],
+      "confidence": "high",
+      "note": "White THANK YOU APEFEST bag"
+    }
+  }
+}

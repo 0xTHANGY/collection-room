@@ -1,0 +1,99 @@
+{
+  "zone": "hoodies-d",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-077": {
+      "bbox": [
+        193,
+        61,
+        419,
+        389
+      ],
+      "confidence": "high",
+      "note": "Lime New York V-neck with striped ribbing"
+    },
+    "today-079": {
+      "bbox": [
+        426,
+        62,
+        655,
+        395
+      ],
+      "confidence": "high",
+      "note": "Black crewneck with floral detail and diagonal zip panel"
+    },
+    "today-093": {
+      "bbox": [
+        660,
+        61,
+        901,
+        392
+      ],
+      "confidence": "high",
+      "note": "Navy Bode collared sweatshirt with Yale lettering"
+    },
+    "today-102": {
+      "bbox": [
+        906,
+        61,
+        1140,
+        395
+      ],
+      "confidence": "high",
+      "note": "Cream zip hoodie with a gathered drawstring hem"
+    },
+    "today-106": {
+      "bbox": [
+        1151,
+        62,
+        1395,
+        391
+      ],
+      "confidence": "high",
+      "note": "Dark navy sailor-collar pullover with chest pocket"
+    },
+    "today-117": {
+      "bbox": [
+        211,
+        440,
+        474,
+        782
+      ],
+      "confidence": "high",
+      "note": "Navy crewneck with Dumbo graphic"
+    },
+    "today-132": {
+      "bbox": [
+        495,
+        440,
+        761,
+        797
+      ],
+      "confidence": "high",
+      "note": "Boxy navy top with wide sleeves and dangling side ties"
+    },
+    "today-137": {
+      "bbox": [
+        781,
+        440,
+        1029,
+        779
+      ],
+      "confidence": "high",
+      "note": "Plain black crewneck with purple neck label"
+    },
+    "today-142": {
+      "bbox": [
+        1041,
+        440,
+        1323,
+        763
+      ],
+      "confidence": "high",
+      "note": "Beige sherpa fleece with snap placket"
+    }
+  }
+}

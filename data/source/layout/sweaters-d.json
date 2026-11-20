@@ -1,0 +1,99 @@
+{
+  "zone": "sweaters-d",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-346": {
+      "bbox": [
+        208,
+        99,
+        501,
+        367
+      ],
+      "confidence": "high",
+      "note": "Light gray short-sleeved knit"
+    },
+    "batch2-347": {
+      "bbox": [
+        510,
+        73,
+        786,
+        384
+      ],
+      "confidence": "high",
+      "note": "Gray ribbed turtleneck"
+    },
+    "batch2-349": {
+      "bbox": [
+        814,
+        107,
+        1018,
+        324
+      ],
+      "confidence": "high",
+      "note": "Olive bodice, embroidered straps and red trim"
+    },
+    "batch2-350": {
+      "bbox": [
+        1052,
+        99,
+        1344,
+        383
+      ],
+      "confidence": "high",
+      "note": "Navy V-neck with white and gray bands"
+    },
+    "batch2-351": {
+      "bbox": [
+        90,
+        458,
+        345,
+        755
+      ],
+      "confidence": "high",
+      "note": "Black cardigan with gold motifs and patch pockets"
+    },
+    "batch2-352": {
+      "bbox": [
+        351,
+        464,
+        604,
+        742
+      ],
+      "confidence": "high",
+      "note": "Pale pink crewneck"
+    },
+    "batch2-353": {
+      "bbox": [
+        611,
+        462,
+        877,
+        741
+      ],
+      "confidence": "high",
+      "note": "Cream knit with brown vertical stripes"
+    },
+    "batch2-354": {
+      "bbox": [
+        887,
+        461,
+        1173,
+        734
+      ],
+      "confidence": "high",
+      "note": "Adidas mountain winter pattern"
+    },
+    "cr-008": {
+      "bbox": [
+        1185,
+        465,
+        1451,
+        745
+      ],
+      "confidence": "high",
+      "note": "Bright pink fuzzy cardigan"
+    }
+  }
+}

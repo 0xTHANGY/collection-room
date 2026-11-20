@@ -1,0 +1,89 @@
+{
+  "zone": "bottoms-d",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-306": {
+      "bbox": [
+        350,
+        109,
+        499,
+        434
+      ],
+      "confidence": "high",
+      "note": "Pale acid-wash jeans"
+    },
+    "batch2-307": {
+      "bbox": [
+        570,
+        108,
+        776,
+        432
+      ],
+      "confidence": "high",
+      "note": "Charcoal cuffed jeans with colorful belt"
+    },
+    "batch2-308": {
+      "bbox": [
+        331,
+        528,
+        532,
+        894
+      ],
+      "confidence": "high",
+      "note": "Dark blue carpenter jeans with side loop"
+    },
+    "batch2-309": {
+      "bbox": [
+        574,
+        531,
+        768,
+        894
+      ],
+      "confidence": "high",
+      "note": "Charcoal trousers with black belt"
+    },
+    "batch2-310": {
+      "bbox": [
+        808,
+        530,
+        1026,
+        897
+      ],
+      "confidence": "high",
+      "note": "Indigo wide jeans with double waist buttons"
+    },
+    "batch2-311": {
+      "bbox": [
+        1059,
+        531,
+        1253,
+        896
+      ],
+      "confidence": "high",
+      "note": "Gray washed drawstring jeans"
+    },
+    "batch2-315": {
+      "bbox": [
+        815,
+        119,
+        1025,
+        346
+      ],
+      "confidence": "high",
+      "note": "Brown pleated long shorts"
+    },
+    "cr-005": {
+      "bbox": [
+        1058,
+        123,
+        1275,
+        299
+      ],
+      "confidence": "high",
+      "note": "Navy shorts with white hem text"
+    }
+  }
+}

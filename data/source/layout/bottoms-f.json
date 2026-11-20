@@ -1,0 +1,99 @@
+{
+  "zone": "bottoms-f",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-320": {
+      "bbox": [
+        160,
+        34,
+        413,
+        424
+      ],
+      "confidence": "high",
+      "note": "Cream A-line skirt with palm tree and donkey embroidery"
+    },
+    "today-321": {
+      "bbox": [
+        438,
+        34,
+        672,
+        317
+      ],
+      "confidence": "high",
+      "note": "Ivory elastic-waist shorts with pink animal motifs"
+    },
+    "today-322": {
+      "bbox": [
+        728,
+        34,
+        873,
+        419
+      ],
+      "confidence": "high",
+      "note": "Straight olive skirt with multicolored roses"
+    },
+    "today-323": {
+      "bbox": [
+        922,
+        34,
+        1168,
+        439
+      ],
+      "confidence": "high",
+      "note": "Taupe pleated culottes with a buttoned waist tab"
+    },
+    "today-324": {
+      "bbox": [
+        1188,
+        34,
+        1401,
+        449
+      ],
+      "confidence": "high",
+      "note": "Flared black velvet skirt"
+    },
+    "today-325": {
+      "bbox": [
+        215,
+        465,
+        463,
+        783
+      ],
+      "confidence": "high",
+      "note": "Frayed blue denim shorts with embroidered flowers and birds"
+    },
+    "today-326": {
+      "bbox": [
+        522,
+        465,
+        706,
+        893
+      ],
+      "confidence": "high",
+      "note": "Charcoal pleated trousers with turned-up cuffs"
+    },
+    "today-327": {
+      "bbox": [
+        800,
+        465,
+        1010,
+        895
+      ],
+      "confidence": "high",
+      "note": "Cream pinstriped wide-leg pants with a sun patch"
+    },
+    "today-328": {
+      "bbox": [
+        1099,
+        465,
+        1284,
+        889
+      ],
+      "confidence": "high",
+      "note": "Light gray joggers with a black drawstring and elastic cuffs"
+    }
+  }
+}

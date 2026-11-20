@@ -1,0 +1,89 @@
+{
+  "zone": "bottoms-a",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-003": {
+      "bbox": [
+        242,
+        438,
+        443,
+        870
+      ],
+      "confidence": "high",
+      "note": "Navy track pants with white piping and blue patch"
+    },
+    "batch2-004": {
+      "bbox": [
+        461,
+        439,
+        707,
+        873
+      ],
+      "confidence": "high",
+      "note": "Dark teal wide straight trousers"
+    },
+    "batch2-005": {
+      "bbox": [
+        714,
+        441,
+        936,
+        873
+      ],
+      "confidence": "high",
+      "note": "Olive trousers with gathered cuffs"
+    },
+    "batch2-040": {
+      "bbox": [
+        958,
+        443,
+        1175,
+        872
+      ],
+      "confidence": "high",
+      "note": "Gray cargo pants with cuff cords"
+    },
+    "batch2-155": {
+      "bbox": [
+        1198,
+        439,
+        1403,
+        871
+      ],
+      "confidence": "high",
+      "note": "Black trousers with white North Face logo"
+    },
+    "batch2-160": {
+      "bbox": [
+        411,
+        118,
+        642,
+        326
+      ],
+      "confidence": "high",
+      "note": "Cream drawstring shorts with horizontal stitched bands"
+    },
+    "batch2-162": {
+      "bbox": [
+        699,
+        121,
+        927,
+        317
+      ],
+      "confidence": "high",
+      "note": "Sage shorts with turned hems"
+    },
+    "batch2-163": {
+      "bbox": [
+        984,
+        118,
+        1216,
+        336
+      ],
+      "confidence": "high",
+      "note": "Navy pleated shorts with subtle check"
+    }
+  }
+}

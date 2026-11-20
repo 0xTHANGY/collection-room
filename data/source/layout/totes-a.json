@@ -1,0 +1,89 @@
+{
+  "zone": "totes-a",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-455": {
+      "bbox": [
+        248,
+        72,
+        468,
+        414
+      ],
+      "confidence": "high",
+      "note": "Olive woven tote with a blue plush charm"
+    },
+    "today-456": {
+      "bbox": [
+        524,
+        72,
+        761,
+        414
+      ],
+      "confidence": "high",
+      "note": "Blue grid-pattern tote with pale green straps"
+    },
+    "today-457": {
+      "bbox": [
+        818,
+        72,
+        1017,
+        421
+      ],
+      "confidence": "high",
+      "note": "Olive Bode crochet tote with a cream band and corner tassels"
+    },
+    "today-458": {
+      "bbox": [
+        1088,
+        72,
+        1327,
+        411
+      ],
+      "confidence": "high",
+      "note": "Magenta and navy striped tote with yellow trim"
+    },
+    "today-459": {
+      "bbox": [
+        243,
+        477,
+        475,
+        803
+      ],
+      "confidence": "high",
+      "note": "Green and magenta striped tote with burgundy trim"
+    },
+    "today-460": {
+      "bbox": [
+        526,
+        477,
+        759,
+        803
+      ],
+      "confidence": "high",
+      "note": "Green and yellow striped tote with a gingham handle"
+    },
+    "today-461": {
+      "bbox": [
+        807,
+        563,
+        1050,
+        803
+      ],
+      "confidence": "high",
+      "note": "Blue denim tote with wooden handles and a double-C emblem"
+    },
+    "today-462": {
+      "bbox": [
+        1101,
+        477,
+        1318,
+        811
+      ],
+      "confidence": "high",
+      "note": "Blue denim tote with brown straps and a plush charm"
+    }
+  }
+}

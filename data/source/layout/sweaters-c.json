@@ -1,0 +1,99 @@
+{
+  "zone": "sweaters-c",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-337": {
+      "bbox": [
+        185,
+        125,
+        423,
+        433
+      ],
+      "confidence": "high",
+      "note": "Navy sweater with blue striped shirt panels"
+    },
+    "batch2-338": {
+      "bbox": [
+        432,
+        113,
+        679,
+        416
+      ],
+      "confidence": "high",
+      "note": "Black turtleneck with thin white stripes"
+    },
+    "batch2-339": {
+      "bbox": [
+        689,
+        134,
+        928,
+        415
+      ],
+      "confidence": "high",
+      "note": "Plain light gray crewneck"
+    },
+    "batch2-340": {
+      "bbox": [
+        935,
+        125,
+        1184,
+        405
+      ],
+      "confidence": "high",
+      "note": "Olive sweater with colorful applique lettering"
+    },
+    "batch2-341": {
+      "bbox": [
+        1188,
+        120,
+        1443,
+        415
+      ],
+      "confidence": "high",
+      "note": "Ribbed sweater with offset seam and pocket painted pink"
+    },
+    "batch2-342": {
+      "bbox": [
+        213,
+        510,
+        478,
+        832
+      ],
+      "confidence": "high",
+      "note": "Blue gray half-zip with contrasting zipper stripes"
+    },
+    "batch2-343": {
+      "bbox": [
+        500,
+        512,
+        755,
+        845
+      ],
+      "confidence": "high",
+      "note": "Cropped mauve cable-knit half-zip"
+    },
+    "batch2-344": {
+      "bbox": [
+        776,
+        524,
+        1070,
+        828
+      ],
+      "confidence": "high",
+      "note": "Beige V-neck with scattered black and blue patches"
+    },
+    "batch2-345": {
+      "bbox": [
+        1089,
+        522,
+        1373,
+        825
+      ],
+      "confidence": "high",
+      "note": "Cream cable knit with colorful small shapes"
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "zone": "bottoms-e",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-311": {
+      "bbox": [
+        263,
+        40,
+        480,
+        384
+      ],
+      "confidence": "high",
+      "note": "Cream printed skirt with black side panels and hem drawcords"
+    },
+    "today-312": {
+      "bbox": [
+        494,
+        40,
+        703,
+        282
+      ],
+      "confidence": "high",
+      "note": "Navy drawstring shorts with a small white hem logo"
+    },
+    "today-313": {
+      "bbox": [
+        718,
+        40,
+        932,
+        302
+      ],
+      "confidence": "high",
+      "note": "Black Alo shorts with long drawstrings"
+    },
+    "today-314": {
+      "bbox": [
+        943,
+        40,
+        1151,
+        389
+      ],
+      "confidence": "high",
+      "note": "Black button-front skirt with a quilted side panel"
+    },
+    "today-315": {
+      "bbox": [
+        1176,
+        40,
+        1377,
+        399
+      ],
+      "confidence": "high",
+      "note": "Black elastic-waist skirt with two cargo pockets"
+    },
+    "today-316": {
+      "bbox": [
+        302,
+        424,
+        521,
+        860
+      ],
+      "confidence": "high",
+      "note": "Medium-blue wide-leg jeans with faded thighs"
+    },
+    "today-317": {
+      "bbox": [
+        561,
+        424,
+        771,
+        857
+      ],
+      "confidence": "high",
+      "note": "Cream barrel-leg jeans"
+    },
+    "today-318": {
+      "bbox": [
+        818,
+        424,
+        1036,
+        858
+      ],
+      "confidence": "high",
+      "note": "Pale blue wide-leg jeans"
+    },
+    "today-319": {
+      "bbox": [
+        1084,
+        424,
+        1323,
+        861
+      ],
+      "confidence": "high",
+      "note": "Washed charcoal wide-leg jeans with a gathered waist"
+    }
+  }
+}

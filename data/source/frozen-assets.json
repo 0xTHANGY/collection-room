@@ -1,0 +1,9 @@
+{
+  "note": "Served assets that cannot be recomputed from current sources. The build copies these bytes through unchanged (never re-encodes). Bytes were taken from commit 43accbf.",
+  "assets": {
+    "assets/zones/shirts-a-cover-640.webp": "data/source/frozen/shirts-a-cover-640.webp"
+  },
+  "reasons": {
+    "assets/zones/shirts-a-cover-640.webp": "Old cached cover from an earlier shirts-a wall-neutralisation state; regenerating it changes pixels. User decision 2026-11-15: keep the committed file."
+  }
+}

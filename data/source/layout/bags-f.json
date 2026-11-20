@@ -1,0 +1,89 @@
+{
+  "zone": "bags-f",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-388": {
+      "bbox": [
+        490,
+        95,
+        672,
+        403
+      ],
+      "confidence": "high",
+      "note": "Burgundy suede hobo bag with an integrated handle"
+    },
+    "today-389": {
+      "bbox": [
+        707,
+        95,
+        962,
+        406
+      ],
+      "confidence": "high",
+      "note": "Blush pink satchel with studded handles and a fuzzy charm"
+    },
+    "today-390": {
+      "bbox": [
+        987,
+        95,
+        1211,
+        390
+      ],
+      "confidence": "high",
+      "note": "Green plaid bag with a rounded tan handle and red lettering"
+    },
+    "today-391": {
+      "bbox": [
+        1244,
+        228,
+        1470,
+        373
+      ],
+      "confidence": "high",
+      "note": "Navy woven clutch with contrast stitching on the shelf"
+    },
+    "today-392": {
+      "bbox": [
+        475,
+        447,
+        704,
+        776
+      ],
+      "confidence": "high",
+      "note": "Cognac flap bag with a draped strap and gold clasp"
+    },
+    "today-393": {
+      "bbox": [
+        739,
+        447,
+        944,
+        779
+      ],
+      "confidence": "high",
+      "note": "Black flap bag with a rectangular gold clasp"
+    },
+    "today-394": {
+      "bbox": [
+        975,
+        447,
+        1192,
+        776
+      ],
+      "confidence": "high",
+      "note": "Beige shoulder bag with a gray-green front panel"
+    },
+    "today-395": {
+      "bbox": [
+        1224,
+        447,
+        1487,
+        774
+      ],
+      "confidence": "high",
+      "note": "Taupe padded bag with a central tufted button"
+    }
+  }
+}

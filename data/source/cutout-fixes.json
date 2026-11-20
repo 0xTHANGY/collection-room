@@ -1,0 +1,54 @@
+{
+  "batch2-274": {
+    "method": "opaque-pink"
+  },
+  "batch2-341": {
+    "method": "opaque-pink"
+  },
+  "batch2-060": {
+    "method": "edge-despill"
+  },
+  "batch2-147": {
+    "method": "edge-despill"
+  },
+  "cr-009": {
+    "method": "cuff-clone"
+  },
+  "batch2-116": {
+    "method": "hook",
+    "bottom": 0.094
+  },
+  "batch2-119": {
+    "method": "hook",
+    "bottom": 0.092
+  },
+  "batch2-278": {
+    "method": "hook",
+    "bottom": 0.115
+  },
+  "batch2-361": {
+    "method": "hook",
+    "bottom": 0.073
+  },
+  "batch2-123": {
+    "method": "fringe"
+  },
+  "batch2-117": {
+    "method": "fringe"
+  },
+  "batch2-128": {
+    "method": "fringe"
+  },
+  "batch2-133": {
+    "method": "fringe"
+  },
+  "batch2-240": {
+    "method": "fringe"
+  },
+  "batch2-242": {
+    "method": "fringe"
+  },
+  "batch2-192": {
+    "method": "visor-slits"
+  }
+}

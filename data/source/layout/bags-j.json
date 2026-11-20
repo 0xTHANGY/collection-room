@@ -1,0 +1,89 @@
+{
+  "zone": "bags-j",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-420": {
+      "bbox": [
+        248,
+        81,
+        400,
+        408
+      ],
+      "confidence": "high",
+      "note": "Black Prada bucket bag with a triangular badge"
+    },
+    "today-421": {
+      "bbox": [
+        492,
+        81,
+        766,
+        429
+      ],
+      "confidence": "high",
+      "note": "Black leather carryall with a hanging front handle"
+    },
+    "today-422": {
+      "bbox": [
+        839,
+        81,
+        1092,
+        425
+      ],
+      "confidence": "high",
+      "note": "Patterned Story MFG crochet bag with tassels and a side tie"
+    },
+    "today-423": {
+      "bbox": [
+        1172,
+        81,
+        1358,
+        427
+      ],
+      "confidence": "high",
+      "note": "Black penguin-shaped bag with a side loop"
+    },
+    "today-424": {
+      "bbox": [
+        213,
+        471,
+        429,
+        838
+      ],
+      "confidence": "high",
+      "note": "Brown suede Miu Miu tote with an oval handle opening"
+    },
+    "today-425": {
+      "bbox": [
+        487,
+        471,
+        753,
+        823
+      ],
+      "confidence": "high",
+      "note": "Dark brown Miu Miu bag with cream handles and a Hello Kitty charm"
+    },
+    "today-426": {
+      "bbox": [
+        837,
+        471,
+        1058,
+        838
+      ],
+      "confidence": "high",
+      "note": "Gray cable-knit Miu Miu tote"
+    },
+    "today-427": {
+      "bbox": [
+        1128,
+        471,
+        1381,
+        824
+      ],
+      "confidence": "high",
+      "note": "Navy Miu Miu shoulder bag with cream piping and strap"
+    }
+  }
+}

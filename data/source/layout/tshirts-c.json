@@ -1,0 +1,109 @@
+{
+  "zone": "tshirts-c",
+  "image_size": [
+    1672,
+    941
+  ],
+  "items": {
+    "batch2-184": {
+      "bbox": [
+        542,
+        110,
+        778,
+        368
+      ],
+      "confidence": "high",
+      "note": "White Bored Ape Sports Club Adidas jersey"
+    },
+    "batch2-185": {
+      "bbox": [
+        755,
+        111,
+        973,
+        366
+      ],
+      "confidence": "high",
+      "note": "Beige shirt with white neck and sleeve trim"
+    },
+    "batch2-186": {
+      "bbox": [
+        955,
+        111,
+        1170,
+        365
+      ],
+      "confidence": "high",
+      "note": "Pink shirt with green square graphic"
+    },
+    "batch2-187": {
+      "bbox": [
+        1148,
+        110,
+        1360,
+        367
+      ],
+      "confidence": "high",
+      "note": "White Supreme dragon 94 jersey"
+    },
+    "batch2-188": {
+      "bbox": [
+        1330,
+        110,
+        1550,
+        361
+      ],
+      "confidence": "high",
+      "note": "Gray striped pocket shirt with side buttons"
+    },
+    "batch2-189": {
+      "bbox": [
+        514,
+        445,
+        749,
+        705
+      ],
+      "confidence": "high",
+      "note": "Navy shirt with green Disturb Please text"
+    },
+    "batch2-194": {
+      "bbox": [
+        718,
+        445,
+        940,
+        705
+      ],
+      "confidence": "high",
+      "note": "White shirt with blue Kith square"
+    },
+    "batch2-195": {
+      "bbox": [
+        907,
+        446,
+        1136,
+        708
+      ],
+      "confidence": "high",
+      "note": "Lavender shirt with orange Kith logo"
+    },
+    "batch2-258": {
+      "bbox": [
+        1109,
+        444,
+        1330,
+        711
+      ],
+      "confidence": "high",
+      "note": "Black Bored Ape Sports Club Adidas jersey"
+    },
+    "batch2-262": {
+      "bbox": [
+        1307,
+        445,
+        1561,
+        620
+      ],
+      "confidence": "high",
+      "note": "White cropped Stussy shirt with tan script"
+    }
+  }
+}

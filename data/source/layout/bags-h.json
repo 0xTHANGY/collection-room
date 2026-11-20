@@ -1,0 +1,89 @@
+{
+  "zone": "bags-h",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-404": {
+      "bbox": [
+        273,
+        79,
+        500,
+        371
+      ],
+      "confidence": "high",
+      "note": "Cream plaid flap bag with a chunky gold chain"
+    },
+    "today-405": {
+      "bbox": [
+        565,
+        79,
+        798,
+        375
+      ],
+      "confidence": "high",
+      "note": "Tan quilted bag with a black flap and looped strap"
+    },
+    "today-406": {
+      "bbox": [
+        839,
+        79,
+        1135,
+        401
+      ],
+      "confidence": "high",
+      "note": "Gray and black duffel with two plush charms"
+    },
+    "today-407": {
+      "bbox": [
+        1205,
+        79,
+        1355,
+        391
+      ],
+      "confidence": "high",
+      "note": "Small black quilted flap bag with a gold and black chain"
+    },
+    "today-408": {
+      "bbox": [
+        254,
+        435,
+        483,
+        786
+      ],
+      "confidence": "high",
+      "note": "Black quilted tote with gold CHANEL lettering"
+    },
+    "today-409": {
+      "bbox": [
+        526,
+        435,
+        860,
+        765
+      ],
+      "confidence": "high",
+      "note": "Monogram duffel with green and red stripes"
+    },
+    "today-410": {
+      "bbox": [
+        902,
+        435,
+        1121,
+        755
+      ],
+      "confidence": "high",
+      "note": "Green and black bag with a rectangular gold handle"
+    },
+    "today-411": {
+      "bbox": [
+        1201,
+        435,
+        1422,
+        793
+      ],
+      "confidence": "high",
+      "note": "Tan and beige bucket bag with a braided base"
+    }
+  }
+}

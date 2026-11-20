@@ -1,0 +1,89 @@
+{
+  "zone": "bags-b",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-323": {
+      "bbox": [
+        225,
+        73,
+        467,
+        418
+      ],
+      "confidence": "high",
+      "note": "Gray stacked PARSONS percentages"
+    },
+    "batch2-324": {
+      "bbox": [
+        525,
+        73,
+        741,
+        419
+      ],
+      "confidence": "high",
+      "note": "Red PARSONS tote"
+    },
+    "batch2-325": {
+      "bbox": [
+        800,
+        75,
+        1040,
+        416
+      ],
+      "confidence": "high",
+      "note": "Navy tote with red PARSONS"
+    },
+    "batch2-326": {
+      "bbox": [
+        1080,
+        79,
+        1404,
+        415
+      ],
+      "confidence": "high",
+      "note": "Black Topologie bag with purple rope and charms"
+    },
+    "batch2-358": {
+      "bbox": [
+        237,
+        503,
+        471,
+        822
+      ],
+      "confidence": "high",
+      "note": "Cream ECHIGO-TSUMARI bag with yellow triangle"
+    },
+    "batch2-359": {
+      "bbox": [
+        528,
+        481,
+        751,
+        822
+      ],
+      "confidence": "high",
+      "note": "Cream tote with black 60"
+    },
+    "batch2-360": {
+      "bbox": [
+        811,
+        486,
+        1039,
+        823
+      ],
+      "confidence": "high",
+      "note": "Yellow-green tote with red 70"
+    },
+    "batch2-362": {
+      "bbox": [
+        1114,
+        622,
+        1395,
+        791
+      ],
+      "confidence": "high",
+      "note": "Pink Topologie pouch with carabiner and heart charm"
+    }
+  }
+}

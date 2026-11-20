@@ -1,0 +1,99 @@
+{
+  "zone": "hoodies-b",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-249": {
+      "bbox": [
+        155,
+        99,
+        405,
+        390
+      ],
+      "confidence": "high",
+      "note": "Black hoodie with small white emblem"
+    },
+    "batch2-250": {
+      "bbox": [
+        411,
+        111,
+        660,
+        390
+      ],
+      "confidence": "high",
+      "note": "Black cropped crewneck with colorful dragons"
+    },
+    "batch2-251": {
+      "bbox": [
+        667,
+        110,
+        916,
+        390
+      ],
+      "confidence": "high",
+      "note": "Purple cropped crewneck with yellow lettering"
+    },
+    "batch2-252": {
+      "bbox": [
+        923,
+        114,
+        1163,
+        390
+      ],
+      "confidence": "high",
+      "note": "Khaki cropped Kith crewneck"
+    },
+    "batch2-282": {
+      "bbox": [
+        1169,
+        111,
+        1433,
+        390
+      ],
+      "confidence": "high",
+      "note": "Black crewneck with white text block"
+    },
+    "batch2-285": {
+      "bbox": [
+        173,
+        469,
+        459,
+        785
+      ],
+      "confidence": "high",
+      "note": "Washed charcoal hoodie with sleeve X"
+    },
+    "batch2-286": {
+      "bbox": [
+        476,
+        463,
+        766,
+        826
+      ],
+      "confidence": "high",
+      "note": "Black hoodie with beaded cords and red tassel"
+    },
+    "batch2-288": {
+      "bbox": [
+        781,
+        468,
+        1062,
+        787
+      ],
+      "confidence": "high",
+      "note": "Black PARSONS hoodie"
+    },
+    "batch2-289": {
+      "bbox": [
+        1066,
+        477,
+        1393,
+        734
+      ],
+      "confidence": "high",
+      "note": "Washed black short sleeve hoodie"
+    }
+  }
+}

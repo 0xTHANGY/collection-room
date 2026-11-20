@@ -1,0 +1,89 @@
+{
+  "zone": "bottoms-c",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-208": {
+      "bbox": [
+        534,
+        97,
+        761,
+        455
+      ],
+      "confidence": "high",
+      "note": "Dark wide trousers with ochre vertical streaks"
+    },
+    "batch2-211": {
+      "bbox": [
+        793,
+        98,
+        1091,
+        455
+      ],
+      "confidence": "high",
+      "note": "Charcoal very wide pleated trousers"
+    },
+    "batch2-232": {
+      "bbox": [
+        199,
+        146,
+        396,
+        799
+      ],
+      "confidence": "high",
+      "note": "Tan bib overalls with chest logo and reinforced knees"
+    },
+    "batch2-301": {
+      "bbox": [
+        1115,
+        96,
+        1367,
+        456
+      ],
+      "confidence": "high",
+      "note": "Faded blue wide jeans with distressed upper leg"
+    },
+    "batch2-302": {
+      "bbox": [
+        497,
+        529,
+        686,
+        882
+      ],
+      "confidence": "high",
+      "note": "Washed black jeans with white paint marks"
+    },
+    "batch2-303": {
+      "bbox": [
+        722,
+        528,
+        925,
+        881
+      ],
+      "confidence": "high",
+      "note": "Pale blue plain loose jeans"
+    },
+    "batch2-304": {
+      "bbox": [
+        970,
+        529,
+        1156,
+        882
+      ],
+      "confidence": "high",
+      "note": "Blue jeans with scattered embroidered people"
+    },
+    "batch2-305": {
+      "bbox": [
+        1213,
+        529,
+        1391,
+        882
+      ],
+      "confidence": "high",
+      "note": "Dark blue jeans with exposed gold button fly"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+ "zone": "shoes-i",
+ "image_size": [
+  1536,
+  1024
+ ],
+ "items": {
+  "shoes-n043": {
+   "bbox": [
+    196,
+    592,
+    490,
+    987
+   ],
+   "confidence": "local, painting vs generated empty plate, visually checked",
+   "note": "V2.4.0 rollout, mask in data/source/newshoes/masks"
+  },
+  "shoes-n044": {
+   "bbox": [
+    611,
+    593,
+    918,
+    987
+   ],
+   "confidence": "local, painting vs generated empty plate, visually checked",
+   "note": "V2.4.0 rollout, mask in data/source/newshoes/masks"
+  },
+  "shoes-n045": {
+   "bbox": [
+    1039,
+    583,
+    1351,
+    993
+   ],
+   "confidence": "local, painting vs generated empty plate, visually checked",
+   "note": "V2.4.0 rollout, mask in data/source/newshoes/masks"
+  },
+  "shoes-n046": {
+   "bbox": [
+    257,
+    277,
+    530,
+    597
+   ],
+   "confidence": "local, painting vs generated empty plate, visually checked",
+   "note": "V2.4.0 rollout, mask in data/source/newshoes/masks"
+  },
+  "shoes-n047": {
+   "bbox": [
+    631,
+    293,
+    896,
+    592
+   ],
+   "confidence": "local, painting vs generated empty plate, visually checked",
+   "note": "V2.4.0 rollout, mask in data/source/newshoes/masks"
+  },
+  "shoes-n048": {
+   "bbox": [
+    1014,
+    287,
+    1283,
+    599
+   ],
+   "confidence": "local, painting vs generated empty plate, visually checked",
+   "note": "V2.4.0 rollout, mask in data/source/newshoes/masks"
+  }
+ }
+}

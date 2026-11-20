@@ -1,0 +1,89 @@
+{
+  "zone": "bags-g",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-396": {
+      "bbox": [
+        245,
+        69,
+        461,
+        413
+      ],
+      "confidence": "high",
+      "note": "Brown quilted flap bag with a gold chain and clasp"
+    },
+    "today-397": {
+      "bbox": [
+        527,
+        69,
+        752,
+        420
+      ],
+      "confidence": "high",
+      "note": "Blue denim monogram bag with clear links"
+    },
+    "today-398": {
+      "bbox": [
+        828,
+        69,
+        1023,
+        419
+      ],
+      "confidence": "high",
+      "note": "White quilted bucket bag with a black base and chain"
+    },
+    "today-399": {
+      "bbox": [
+        1120,
+        69,
+        1271,
+        415
+      ],
+      "confidence": "high",
+      "note": "Black quilted flap bag with a gold heart clasp"
+    },
+    "today-400": {
+      "bbox": [
+        251,
+        467,
+        455,
+        814
+      ],
+      "confidence": "high",
+      "note": "Black quilted crescent bag with a gold logo"
+    },
+    "today-401": {
+      "bbox": [
+        536,
+        467,
+        738,
+        810
+      ],
+      "confidence": "high",
+      "note": "Rectangular black quilted vanity bag with a gold zipper"
+    },
+    "today-402": {
+      "bbox": [
+        827,
+        467,
+        978,
+        817
+      ],
+      "confidence": "high",
+      "note": "Brown paisley bag with a beige patterned strap"
+    },
+    "today-403": {
+      "bbox": [
+        1077,
+        467,
+        1305,
+        819
+      ],
+      "confidence": "high",
+      "note": "Black fringed bucket bag with multicolored lettering"
+    }
+  }
+}

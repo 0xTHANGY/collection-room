@@ -1,0 +1,99 @@
+{
+  "zone": "sweaters-b",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "batch2-273": {
+      "bbox": [
+        236,
+        109,
+        522,
+        394
+      ],
+      "confidence": "high",
+      "note": "Navy fruit graphic sweater with multicolor trim"
+    },
+    "batch2-274": {
+      "bbox": [
+        539,
+        111,
+        818,
+        401
+      ],
+      "confidence": "high",
+      "note": "Fuzzy crewneck painted bright pink"
+    },
+    "batch2-275": {
+      "bbox": [
+        859,
+        109,
+        1066,
+        392
+      ],
+      "confidence": "high",
+      "note": "Gray sleeveless polo knit"
+    },
+    "batch2-276": {
+      "bbox": [
+        1113,
+        102,
+        1347,
+        389
+      ],
+      "confidence": "high",
+      "note": "Navy ribbed zip vest with side loops"
+    },
+    "batch2-277": {
+      "bbox": [
+        181,
+        477,
+        385,
+        746
+      ],
+      "confidence": "high",
+      "note": "Dark navy V-neck vest"
+    },
+    "batch2-279": {
+      "bbox": [
+        412,
+        478,
+        621,
+        749
+      ],
+      "confidence": "high",
+      "note": "Gray button vest with green chest patch"
+    },
+    "batch2-280": {
+      "bbox": [
+        647,
+        475,
+        869,
+        751
+      ],
+      "confidence": "high",
+      "note": "Pink button vest with white chest label"
+    },
+    "batch2-281": {
+      "bbox": [
+        898,
+        475,
+        1108,
+        750
+      ],
+      "confidence": "high",
+      "note": "Periwinkle button vest with dark chest label"
+    },
+    "batch2-287": {
+      "bbox": [
+        1132,
+        476,
+        1406,
+        761
+      ],
+      "confidence": "high",
+      "note": "Dusty pink top with gathered hem and cuffs"
+    }
+  }
+}

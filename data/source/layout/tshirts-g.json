@@ -1,0 +1,79 @@
+{
+  "zone": "tshirts-g",
+  "image_size": [
+    1536,
+    1024
+  ],
+  "items": {
+    "today-128": {
+      "bbox": [
+        193,
+        54,
+        449,
+        434
+      ],
+      "confidence": "high",
+      "note": "Black ribbed crop tee with dangling drawstrings"
+    },
+    "today-131": {
+      "bbox": [
+        463,
+        54,
+        753,
+        420
+      ],
+      "confidence": "high",
+      "note": "Navy and white striped pocket tee"
+    },
+    "today-135": {
+      "bbox": [
+        766,
+        54,
+        1061,
+        417
+      ],
+      "confidence": "high",
+      "note": "Black tee with red PARSONS lettering"
+    },
+    "today-136": {
+      "bbox": [
+        1073,
+        54,
+        1370,
+        428
+      ],
+      "confidence": "high",
+      "note": "Off-white pocket tee with purple neck label"
+    },
+    "today-138": {
+      "bbox": [
+        243,
+        463,
+        595,
+        809
+      ],
+      "confidence": "high",
+      "note": "White cropped pocket tee with striped trim and side buttons"
+    },
+    "today-143": {
+      "bbox": [
+        610,
+        463,
+        935,
+        798
+      ],
+      "confidence": "high",
+      "note": "Navy crop tee with colorful butterflies around the collar"
+    },
+    "today-146": {
+      "bbox": [
+        1002,
+        463,
+        1238,
+        832
+      ],
+      "confidence": "high",
+      "note": "Navy Adidas V-neck vest with teal trim"
+    }
+  }
+}
