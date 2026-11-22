@@ -65,7 +65,7 @@ def main():
     gate={}
     for old in (ROOT/'assets/items/v2').glob('*-800.webp'): old.unlink()
     GEN=json.loads((ROOT/'data/source/generated-v22.json').read_text()) if (ROOT/'data/source/generated-v22.json').exists() else {'zones':{},'cutouts':{}}
-    catalog={'version':'2.3','categories':[],'zones':[],'items':[]}
+    catalog={'version':'3.0','categories':[],'zones':[],'items':[]}
     missing=[];fallback=[];counts={}
     for order,(cat,zh,en) in enumerate(LABELS):
         source=json.loads((FINAL/cat/'docs'/f'{cat}-items.json').read_text())

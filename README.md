@@ -1,6 +1,6 @@
 # Collection Room
 
-Current version: V2.4.0 (the footer version is stamped at build time from `data/source/site.json`).
+Current version: V3.0.0 (the footer version is stamped at build time from `data/source/site.json`).
 
 A buildless static HTML/CSS/JavaScript website. No dependencies, API keys, or build step.
 
