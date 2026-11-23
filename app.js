@@ -92,10 +92,11 @@ function makeGhost(rect) {
   g.querySelectorAll('img').forEach((img) => { img.loading = 'eager'; });
   g.scrollTop = dialog.scrollTop;
   showOnTop(g);
+  g.querySelector('.detail-copy').scrollTop = dialog.querySelector('.detail-copy').scrollTop;
   return g;
 }
 function fitGhost() {
-  // The real card grows when its photo arrives; the flying copy follows, as the flying dialog used to.
+  // Keep the flying copy aligned if the real card resizes.
   if (!ghost || flipState !== 'opening') return;
   const r = dialog.getBoundingClientRect();
   Object.assign(ghost.style, { left: `${r.left}px`, top: `${r.top}px`, width: `${r.width}px`, height: `${r.height}px` });
@@ -212,7 +213,9 @@ function openItem(item, trigger) {
   }
   flipState = 'opening';
   closeQueued = false;
+  const copy = dialog.querySelector('.detail-copy');
   dialog.showModal();
+  copy.scrollTop = 0;
   document.body.classList.add('modal-open');
   dialog.classList.add('is-open');
   const origin = originSnapshot;
@@ -583,7 +586,7 @@ function renderZone(zone) {
   view.append(note);
   let room, layers, hotspots;
   if (painting) {
-    room = document.createElement('div'); room.className = 'room zone-room'; room.style.aspectRatio = String(zone.aspect);
+    room = document.createElement('div'); room.className = 'room zone-room'; room.style.setProperty('--room-aspect', zone.aspect);
     const stage = document.createElement('div'); stage.className = 'room-stage';
     const image = document.createElement('img'); image.src = withV(painting.src); image.srcset = srcset(zone.images); image.sizes = '(max-width: 1043px) 92vw, 960px'; image.width = zone.natural_size[0]; image.height = zone.natural_size[1]; image.alt = `${categoryLabel(zone.category)} · ${zone.letter.toUpperCase()}`; stage.append(image);
     layers = document.createElement('div'); layers.className = 'zone-layers'; layers.setAttribute('aria-hidden','true'); stage.append(layers);
