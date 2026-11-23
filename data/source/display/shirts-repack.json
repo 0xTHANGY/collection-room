@@ -1,0 +1,197 @@
+{
+  "category": "shirts",
+  "items": 54,
+  "scale": 0.6,
+  "zones_before": [
+    "shirts-a",
+    "shirts-b",
+    "shirts-c",
+    "shirts-d",
+    "shirts-e",
+    "shirts-f",
+    "shirts-g"
+  ],
+  "zones_after": [
+    "shirts-a",
+    "shirts-b",
+    "shirts-c",
+    "shirts-d"
+  ],
+  "counts": [
+    14,
+    14,
+    13,
+    13
+  ],
+  "per_zone_rods": {
+    "shirts-a": [
+      5,
+      5,
+      4
+    ],
+    "shirts-b": [
+      5,
+      5,
+      4
+    ],
+    "shirts-c": [
+      5,
+      4,
+      4
+    ],
+    "shirts-d": [
+      5,
+      4,
+      4
+    ]
+  },
+  "gaps": {
+    "shirts-a": [
+      77.03333333333335,
+      64.53333333333335,
+      108.52000000000001
+    ],
+    "shirts-b": [
+      60.43333333333334,
+      60.73333333333335,
+      96.75999999999999
+    ],
+    "shirts-c": [
+      46.29999999999999,
+      92.75999999999999,
+      89.52000000000001
+    ],
+    "shirts-d": [
+      39.866666666666674,
+      83.12,
+      80.84
+    ]
+  },
+  "src_plates": {
+    "shirts-a": "hoodies-b",
+    "shirts-b": "accessories-c",
+    "shirts-c": "bottoms-b",
+    "shirts-d": "hoodies-c"
+  },
+  "rails": {
+    "shirts-a": [
+      {
+        "wood_top": 48,
+        "hook_y": 54
+      },
+      {
+        "wood_top": 314,
+        "hook_y": 320
+      },
+      {
+        "wood_top": 580,
+        "hook_y": 586
+      }
+    ],
+    "shirts-b": [
+      {
+        "wood_top": 40,
+        "hook_y": 49
+      },
+      {
+        "wood_top": 304,
+        "hook_y": 313
+      },
+      {
+        "wood_top": 568,
+        "hook_y": 577
+      }
+    ],
+    "shirts-c": [
+      {
+        "wood_top": 20,
+        "hook_y": 28
+      },
+      {
+        "wood_top": 307,
+        "hook_y": 315
+      },
+      {
+        "wood_top": 594,
+        "hook_y": 602
+      }
+    ],
+    "shirts-d": [
+      {
+        "wood_top": 37,
+        "hook_y": 46
+      },
+      {
+        "wood_top": 284,
+        "hook_y": 293
+      },
+      {
+        "wood_top": 531,
+        "hook_y": 540
+      }
+    ]
+  },
+  "redirects_added": {
+    "shirts/e": "#/shirts/c",
+    "shirts/shirts-e": "#/shirts/c",
+    "shirts/f": "#/shirts/d",
+    "shirts/shirts-f": "#/shirts/d",
+    "shirts/g": "#/shirts/d",
+    "shirts/shirts-g": "#/shirts/d"
+  },
+  "old_zone_mapping": {
+    "shirts-a": {
+      "majority": "shirts-a",
+      "dest_counts": {
+        "shirts-a": 8
+      },
+      "split": false
+    },
+    "shirts-b": {
+      "majority": "shirts-a",
+      "dest_counts": {
+        "shirts-a": 6,
+        "shirts-b": 2
+      },
+      "split": true
+    },
+    "shirts-c": {
+      "majority": "shirts-b",
+      "dest_counts": {
+        "shirts-b": 8
+      },
+      "split": false
+    },
+    "shirts-d": {
+      "majority": "shirts-b",
+      "dest_counts": {
+        "shirts-b": 4,
+        "shirts-c": 4
+      },
+      "split": true
+    },
+    "shirts-e": {
+      "majority": "shirts-c",
+      "dest_counts": {
+        "shirts-c": 8
+      },
+      "split": false
+    },
+    "shirts-f": {
+      "majority": "shirts-d",
+      "dest_counts": {
+        "shirts-c": 1,
+        "shirts-d": 6
+      },
+      "split": true
+    },
+    "shirts-g": {
+      "majority": "shirts-d",
+      "dest_counts": {
+        "shirts-d": 7
+      },
+      "split": false
+    }
+  },
+  "handle_special": []
+}
