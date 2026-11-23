@@ -560,6 +560,30 @@ function makeButton(text, action, className = '') {
   const b = document.createElement('button'); b.type = 'button'; b.textContent = text; b.className = className; b.addEventListener('click', action); return b;
 }
 function zoneHash(z) { return `#/${z.category}/${z.letter}`; }
+
+function inflateRect(rect, minSize) {
+  const w = Math.max(rect.width, minSize);
+  const h = Math.max(rect.height, minSize);
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+  return { left: cx - w / 2, top: cy - h / 2, right: cx + w / 2, bottom: cy + h / 2 };
+}
+function pickHotspotAt(clientX, clientY, hotspotEls, minSize = 44) {
+  const top = document.elementFromPoint(clientX, clientY);
+  const direct = top && top.closest ? top.closest('.hotspot') : null;
+  if (direct && hotspotEls.includes(direct)) return direct;
+  let best = null, bestD = Infinity;
+  for (const el of hotspotEls) {
+    const r = el.getBoundingClientRect();
+    const box = inflateRect(r, minSize);
+    if (clientX < box.left || clientX >= box.right || clientY < box.top || clientY >= box.bottom) continue;
+    const dx = clientX < r.left ? r.left - clientX : clientX >= r.right ? clientX - r.right : 0;
+    const dy = clientY < r.top ? r.top - clientY : clientY >= r.bottom ? clientY - r.bottom : 0;
+    const d = Math.hypot(dx, dy);
+    if (d < bestD) { bestD = d; best = el; }
+  }
+  return best;
+}
 function renderZone(zone) {
   activeZone = zone.id;
   const view = $('zone-view'); view.replaceChildren();
@@ -568,9 +592,11 @@ function renderZone(zone) {
   const title = document.createElement('h1'); title.textContent = `${categoryLabel(zone.category)} · ${zone.letter.toUpperCase()}`; nav.append(title); view.append(nav);
   const tabs = document.createElement('nav'); tabs.className = 'zone-tabs'; tabs.setAttribute('aria-label', '区域');
   const siblings = catalog.zones.filter(z => z.category === zone.category); const index = siblings.indexOf(zone);
-  const prev = makeButton('← 上一区', () => { location.hash = zoneHash(siblings[index - 1]); }); prev.disabled = index === 0; tabs.append(prev);
-  for (const z of siblings) { const a = document.createElement('a'); a.href = zoneHash(z); a.textContent = z.letter.toUpperCase(); if (z === zone) a.setAttribute('aria-current', 'page'); tabs.append(a); }
-  const next = makeButton('下一区 →', () => { location.hash = zoneHash(siblings[index + 1]); }); next.disabled = index === siblings.length - 1; tabs.append(next); view.append(tabs);
+  const prev = makeButton('← 上一区', () => { location.hash = zoneHash(siblings[index - 1]); }, 'zone-tab-prev'); prev.disabled = index === 0; tabs.append(prev);
+  const letters = document.createElement('div'); letters.className = 'zone-tab-letters';
+  for (const z of siblings) { const a = document.createElement('a'); a.href = zoneHash(z); a.textContent = z.letter.toUpperCase(); if (z === zone) a.setAttribute('aria-current', 'page'); letters.append(a); }
+  tabs.append(letters);
+  const next = makeButton('下一区 →', () => { location.hash = zoneHash(siblings[index + 1]); }, 'zone-tab-next'); next.disabled = index === siblings.length - 1; tabs.append(next); view.append(tabs);
   view.dataset.zoneId = zone.id;
   const painting = zone.images?.[1] || zone.images?.[0];
   const hasLayout = painting && zone.has_layout;
@@ -580,6 +606,11 @@ function renderZone(zone) {
     const image = document.createElement('img'); image.src = painting.src; image.srcset = srcset(zone.images); image.sizes = '(max-width: 700px) 100vw, min(1360px, 92vw)'; image.width = zone.natural_size[0]; image.height = zone.natural_size[1]; image.alt = `${categoryLabel(zone.category)} · ${zone.letter.toUpperCase()}`; room.append(image);
     layers = document.createElement('div'); layers.className = 'zone-layers'; layers.setAttribute('aria-hidden','true'); room.append(layers);
     hotspots = document.createElement('div'); hotspots.className = 'zone-hotspots'; room.append(hotspots); view.append(room);
+    room.addEventListener('click', (event) => {
+      if (event.target.closest('.hotspot')) return;
+      const pick = pickHotspotAt(event.clientX, event.clientY, [...hotspots.querySelectorAll('.hotspot')]);
+      if (pick) pick.click();
+    });
   }
   const note = document.createElement('p'); note.className = 'list-note'; note.textContent = hasLayout ? '点击物件，或从清单打开收藏卡片。' : '物件位置待补充，请从清单打开收藏卡片。'; view.append(note);
   const list = document.createElement('ul'); list.className = 'zone-item-list'; view.append(list);
@@ -598,6 +629,8 @@ function renderZone(zone) {
     if (layer && hotspot) entries.push({item,layer,hotspot});
   }
   if (room) setupMotion(entries, room);
+  const currentLetter = tabs.querySelector('.zone-tab-letters [aria-current]');
+  if (currentLetter) requestAnimationFrame(() => currentLetter.scrollIntoView({ inline: 'center', block: 'nearest' }));
 }
 function route(event) {
   if (!catalog) return;

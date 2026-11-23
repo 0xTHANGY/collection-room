@@ -8,3 +8,13 @@
 
 .room-tile-text{align-items:center;align-content:center;padding:14px;border:1px solid var(--line);border-radius:4px}
 .room-tile-text:hover{outline:1px solid var(--accent)}
+
+/* 390 gate: zone tabs stay on one row; letters scroll; 44px tap targets */
+.zone-tabs{flex-wrap:nowrap;min-width:0}
+.zone-tab-letters{display:flex;gap:8px;align-items:center;flex-wrap:nowrap;overflow-x:auto;min-width:0;flex:1;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.zone-tabs .zone-tab-prev,.zone-tabs .zone-tab-next{flex-shrink:0}
+@media(max-width:650px){
+  .zone-tab-letters{gap:5px}
+  .zone-tabs .zone-tab-prev,.zone-tabs .zone-tab-next,.zone-tabs a{min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box}
+  .close{width:44px;height:44px}
+}
