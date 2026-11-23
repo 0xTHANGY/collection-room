@@ -119,7 +119,7 @@ footer{font-size:12px}
   }
 }
 
-/* Decisions: rooms index as hub; 4:5 mobile card; pinch-zoom / pan on mobile rooms */
+/* Decisions: rooms index as hub; 4:5 mobile card */
 .rooms-index{margin:0 0 36px}
 @media(max-width:650px){
   .detail-photo{
@@ -129,19 +129,141 @@ footer{font-size:12px}
     min-height:0;
     max-height:none;
   }
-  .zone-room{touch-action:none}
 }
 .room-stage{
   position:absolute;
   inset:0;
   width:100%;
   height:100%;
-  transform-origin:0 0;
-  will-change:transform;
 }
 .room-stage > img{
   display:block;
   width:100%;
   height:100%;
   object-fit:fill;
+}
+
+/* Rooms index, zones, and item cards */
+:root {
+  --sans: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --focus-light: #fffaf2;
+  --control-line: #7d806e;
+  --target: 44px;
+}
+#hub-view,
+#zone-view,
+#item-dialog,
+.card-ghost {
+  font-family: var(--sans);
+}
+#hub-view .intro { padding-bottom: 24px; }
+#room-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.room-tile {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-content: start;
+  align-items: baseline;
+  gap: 8px;
+}
+.room-tile img {
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  background: #e9e6df;
+}
+.room-tile span { font-size: 14px; font-weight: 600; overflow-wrap: anywhere; }
+.room-tile small { font-size: 13px; white-space: nowrap; }
+.room-tile-text { align-content: center; }
+
+#zone-view {
+  width: min(100%, 960px);
+  margin-inline: auto;
+}
+#zone-view .zone-tabs { padding-bottom: 8px; }
+#zone-view .zone-tab-letters {
+  position: relative;
+  flex: 0 1 auto;
+  padding: 4px;
+}
+#zone-view .zone-tabs :is(a, button) {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--target);
+  min-height: var(--target);
+  border-color: var(--control-line);
+  white-space: nowrap;
+}
+#zone-view .zone-tabs a:focus-visible { outline-offset: -4px; }
+#zone-view .zone-tabs [aria-current]:focus-visible { outline-color: var(--focus-light); }
+#zone-view .list-note { margin: 0 0 8px; font-size: 13px; }
+#zone-view .zone-item-list .list-item { font-size: 16px; }
+#zone-view .list-item .item-category { max-width: 7em; overflow-wrap: anywhere; }
+#zone-view .hotspot::after { content: none; }
+.hotspot-indicator {
+  position: absolute;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  visibility: hidden;
+}
+.hotspot-indicator::after {
+  content: '＋';
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border: 1px solid white;
+  border-radius: 50%;
+  background: var(--focus-light);
+  color: var(--ink);
+  font: 13px/1 var(--sans);
+}
+.hotspot:is(:hover, :focus-visible) + .hotspot-indicator { visibility: visible; }
+.hotspot:focus-visible + .hotspot-indicator {
+  /* Independent of the button's polygon hit area and inside the room edges. */
+  outline: 2px solid var(--focus-light);
+  outline-offset: -2px;
+  box-shadow: inset 0 0 0 4px var(--accent);
+}
+@media (forced-colors: active) {
+  .hotspot:focus-visible + .hotspot-indicator { outline-color: Highlight; }
+}
+
+.detail-header {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  padding: 4px 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+.detail-header .close {
+  position: static;
+  width: var(--target);
+  height: var(--target);
+  border-color: var(--control-line);
+  border-radius: 4px;
+}
+.detail-header .close:focus-visible { outline-offset: -5px; }
+.detail-copy { padding: 24px; }
+.detail-copy > :is(.eyebrow, h2, .category) { margin: 0 0 8px; }
+.detail-copy > p:not([class]) { margin: 0; }
+.story { margin-top: 16px; padding-top: 12px; }
+.story p { font-size: 16px; margin: 8px 0 0; }
+
+@media (max-width: 650px) {
+  #room-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .room-tile span { font-size: 12px; }
+  .wordmark {
+    min-width: var(--target);
+    min-height: var(--target);
+  }
+  #zone-view .zone-nav { gap: 8px; }
+  #zone-view .zone-nav h1 { font-size: clamp(19px, 6vw, 26px); min-width: 0; overflow-wrap: anywhere; }
+  #item-dialog[open] { grid-template-rows: repeat(3, max-content); }
+  .detail-copy { padding: 16px; }
 }

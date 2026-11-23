@@ -306,7 +306,7 @@ function settleClose(restoreFocus = true) {
 }
 // A 'close' event that arrives after the card was already settled and a new card opened is stale.
 dialog.addEventListener('close', () => { if (!dialog.open) settleClose(true); });
-const ASSET_V = '20261123f';
+const ASSET_V = '20261123g';
 function withV(url) {
   if (typeof url !== 'string' || !url) return url;
   if (/[?&]v=/.test(url)) return url;
@@ -556,199 +556,16 @@ function pickHotspotAt(clientX, clientY, hotspotEls, minSize = 44) {
   }
   return best;
 }
-const MOBILE_ROOM = window.matchMedia('(max-width: 650px)');
-let panZoomDocGuard = null;
-const ZOOM_MIN = 1;
-const ZOOM_MAX = 3;
-function attachRoomPanZoom(room) {
-  const stage = room.querySelector('.room-stage') || room;
-  const state = { scale: 1, x: 0, y: 0 };
-  const pointers = new Map();
-  let pinch0 = null;
-  let pan0 = null;
-  let moved = 0;
-  let gesturing = false;
-  let downPoint = null;
-  let suppressTimer = 0;
-  const armSuppress = () => {
-    room._panZoom.suppressClick = true;
-    if (suppressTimer) clearTimeout(suppressTimer);
-    suppressTimer = setTimeout(() => {
-      room._panZoom.suppressClick = false;
-      suppressTimer = 0;
-    }, 100);
-  };
-  const enabled = () => MOBILE_ROOM.matches;
-  const clamp = () => {
-    const vw = room.clientWidth;
-    const vh = room.clientHeight;
-    const sw = stage.offsetWidth * state.scale;
-    const sh = stage.offsetHeight * state.scale;
-    if (sw <= vw) state.x = (vw - sw) / 2;
-    else state.x = Math.min(0, Math.max(vw - sw, state.x));
-    if (sh <= vh) state.y = (vh - sh) / 2;
-    else state.y = Math.min(0, Math.max(vh - sh, state.y));
-  };
-  const paint = () => {
-    clamp();
-    stage.style.transformOrigin = '0 0';
-    stage.style.transform = `translate(${state.x}px, ${state.y}px) scale(${state.scale})`;
-    room.classList.toggle('is-zoomed', state.scale > 1.001);
-  };
-  const reset = () => { state.scale = 1; state.x = 0; state.y = 0; paint(); };
-  const zoomAt = (newScale, cx, cy) => {
-    const prev = state.scale;
-    const next = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, newScale));
-    if (next <= ZOOM_MIN) { reset(); return; }
-    const contentX = (cx - state.x) / prev;
-    const contentY = (cy - state.y) / prev;
-    state.scale = next;
-    state.x = cx - contentX * next;
-    state.y = cy - contentY * next;
-    paint();
-  };
-  const set = (scale, x, y) => {
-    state.scale = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, scale));
-    state.x = x;
-    state.y = y;
-    paint();
-  };
-  room.addEventListener('pointerdown', (event) => {
-    if (!enabled()) return;
-    try { room.setPointerCapture(event.pointerId); } catch (e) { /* not capturable */ }
-    pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
-    moved = 0;
-    if (pointers.size === 1) downPoint = { x: event.clientX, y: event.clientY };
-    if (pointers.size === 2) {
-      const [a, b] = [...pointers.values()];
-      pinch0 = { dist: Math.hypot(a.x - b.x, a.y - b.y) || 1, scale: state.scale, x: state.x, y: state.y };
-      pan0 = null;
-      gesturing = true;
-    } else if (pointers.size === 1) {
-      pan0 = { x: event.clientX, y: event.clientY, sx: state.x, sy: state.y };
-      pinch0 = null;
-    }
-  });
-  room.addEventListener('pointermove', (event) => {
-    if (!enabled() || !pointers.has(event.pointerId)) return;
-    const prev = pointers.get(event.pointerId);
-    pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
-    moved += Math.hypot(event.clientX - prev.x, event.clientY - prev.y);
-    if (pointers.size === 2 && pinch0) {
-      event.preventDefault();
-      const [a, b] = [...pointers.values()];
-      const dist = Math.hypot(a.x - b.x, a.y - b.y) || 1;
-      const mid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
-      const rr = room.getBoundingClientRect();
-      zoomAt(pinch0.scale * (dist / pinch0.dist), mid.x - rr.left, mid.y - rr.top);
-      gesturing = true;
-    } else if (pointers.size === 1 && pan0 && state.scale > 1.001) {
-      event.preventDefault();
-      state.x = pan0.sx + (event.clientX - pan0.x);
-      state.y = pan0.sy + (event.clientY - pan0.y);
-      paint();
-      if (moved > 8) gesturing = true;
-    }
-  }, { passive: false });
-  const endPointer = (event) => {
-    if (!pointers.has(event.pointerId)) return;
-    try { if (room.hasPointerCapture(event.pointerId)) room.releasePointerCapture(event.pointerId); } catch (e) { /* already released */ }
-    pointers.delete(event.pointerId);
-    if (pointers.size < 2) pinch0 = null;
-    if (pointers.size === 1) {
-      const only = [...pointers.values()][0];
-      pan0 = { x: only.x, y: only.y, sx: state.x, sy: state.y };
-    } else pan0 = null;
-    if (pointers.size === 0) {
-      const wasGesture = gesturing || moved > 8;
-      if (wasGesture) armSuppress();
-      else if (enabled() && downPoint) {
-        const pick = pickHotspotAt(downPoint.x, downPoint.y, [...room.querySelectorAll('.hotspot')]);
-        if (pick) { pick.click(); armSuppress(); }
-      }
-      gesturing = false;
-      moved = 0;
-      downPoint = null;
-    }
-  };
-  room.addEventListener('pointerup', endPointer);
-  room.addEventListener('pointercancel', endPointer);
-  room.addEventListener('click', (event) => {
-    if (!room._panZoom.suppressClick) return;
-    event.preventDefault();
-    event.stopPropagation();
-    room._panZoom.suppressClick = false;
-  }, true);
-  if (panZoomDocGuard) panZoomDocGuard.abort();
-  panZoomDocGuard = new AbortController();
-  const docOpts = { capture: true, signal: panZoomDocGuard.signal };
-  const pointInRoom = (event) => {
-    if (!room.isConnected) return false;
-    const rr = room.getBoundingClientRect();
-    return event.clientX >= rr.left && event.clientX < rr.right && event.clientY >= rr.top && event.clientY < rr.bottom;
-  };
-  let edgeMissId = null;
-  document.addEventListener('pointerdown', (event) => {
-    if (!enabled() || !pointInRoom(event) || room.contains(event.target)) return;
-    edgeMissId = event.pointerId;
-    downPoint = { x: event.clientX, y: event.clientY };
-    moved = 0;
-    gesturing = false;
-  }, docOpts);
-  document.addEventListener('pointerup', (event) => {
-    if (edgeMissId !== event.pointerId || !downPoint) return;
-    edgeMissId = null;
-    const dist = Math.hypot(event.clientX - downPoint.x, event.clientY - downPoint.y);
-    if (dist <= 8 && enabled() && room.isConnected) {
-      const pick = pickHotspotAt(downPoint.x, downPoint.y, [...room.querySelectorAll('.hotspot')]);
-      if (pick) { pick.click(); armSuppress(); }
-    }
-    downPoint = null;
-    moved = 0;
-  }, docOpts);
-  document.addEventListener('pointercancel', (event) => {
-    if (edgeMissId !== event.pointerId) return;
-    edgeMissId = null;
-    downPoint = null;
-    moved = 0;
-  }, docOpts);
-  document.addEventListener('click', (event) => {
-    if (!room._panZoom || !room._panZoom.suppressClick) return;
-    event.preventDefault();
-    event.stopPropagation();
-    event.stopImmediatePropagation();
-    room._panZoom.suppressClick = false;
-  }, docOpts);
-  room.addEventListener('wheel', (event) => {
-    if (!enabled()) return;
-    if (event.ctrlKey || event.metaKey) {
-      event.preventDefault();
-      const rr = room.getBoundingClientRect();
-      zoomAt(state.scale * Math.exp(-event.deltaY * 0.01), event.clientX - rr.left, event.clientY - rr.top);
-      return;
-    }
-    if (state.scale > 1.001) {
-      event.preventDefault();
-      state.x -= event.deltaX;
-      state.y -= event.deltaY;
-      paint();
-    }
-  }, { passive: false });
-  const onBp = () => { if (!MOBILE_ROOM.matches) reset(); };
-  if (MOBILE_ROOM.addEventListener) MOBILE_ROOM.addEventListener('change', onBp);
-  else MOBILE_ROOM.addListener(onBp);
-  room._panZoom = { get: () => ({ scale: state.scale, x: state.x, y: state.y }), set, reset, zoomAt, suppressClick: false };
-  paint();
-}
 function renderZone(zone) {
-
   activeZone = zone.id;
   const view = $('zone-view'); view.replaceChildren();
+  view.dataset.category = zone.category;
   const nav = document.createElement('nav'); nav.className = 'zone-nav'; nav.setAttribute('aria-label', '分室导航');
   const home = document.createElement('a'); home.href = '#/'; home.className = 'zone-back';
   const backMark = document.createElement('span'); backMark.setAttribute('aria-hidden', 'true'); backMark.textContent = '←';
   home.append(backMark, document.createTextNode('收藏房间')); nav.append(home);
   const title = document.createElement('h1');
+  title.tabIndex = -1;
   title.append(document.createTextNode(`${categoryLabel(zone.category)} · ${zone.letter.toUpperCase()}`));
   const count = document.createElement('small'); count.className = 'zone-count'; count.textContent = `${zone.items.length} 件`;
   title.append(count); nav.append(title); view.append(nav);
@@ -762,22 +579,22 @@ function renderZone(zone) {
   view.dataset.zoneId = zone.id;
   const painting = zone.images?.[1] || zone.images?.[0];
   const hasLayout = painting && zone.has_layout;
+  const note = document.createElement('p'); note.className = 'list-note'; note.textContent = hasLayout ? '点击物件，或从清单打开收藏卡片。' : '物件位置待补充，请从清单打开收藏卡片。';
+  view.append(note);
   let room, layers, hotspots;
   if (painting) {
     room = document.createElement('div'); room.className = 'room zone-room'; room.style.aspectRatio = String(zone.aspect);
     const stage = document.createElement('div'); stage.className = 'room-stage';
-    const image = document.createElement('img'); image.src = withV(painting.src); image.srcset = srcset(zone.images); image.sizes = '(max-width: 700px) 100vw, min(1360px, 92vw)'; image.width = zone.natural_size[0]; image.height = zone.natural_size[1]; image.alt = `${categoryLabel(zone.category)} · ${zone.letter.toUpperCase()}`; stage.append(image);
+    const image = document.createElement('img'); image.src = withV(painting.src); image.srcset = srcset(zone.images); image.sizes = '(max-width: 1043px) 92vw, 960px'; image.width = zone.natural_size[0]; image.height = zone.natural_size[1]; image.alt = `${categoryLabel(zone.category)} · ${zone.letter.toUpperCase()}`; stage.append(image);
     layers = document.createElement('div'); layers.className = 'zone-layers'; layers.setAttribute('aria-hidden','true'); stage.append(layers);
     hotspots = document.createElement('div'); hotspots.className = 'zone-hotspots'; stage.append(hotspots);
     room.append(stage); view.append(room);
-    attachRoomPanZoom(room);
     room.addEventListener('click', (event) => {
       if (event.target.closest('.hotspot')) return;
       const pick = pickHotspotAt(event.clientX, event.clientY, [...hotspots.querySelectorAll('.hotspot')]);
       if (pick) pick.click();
     });
   }
-  const note = document.createElement('p'); note.className = 'list-note'; note.textContent = hasLayout ? '点击物件，或从清单打开收藏卡片。' : '物件位置待补充，请从清单打开收藏卡片。'; view.append(note);
   const list = document.createElement('ul'); list.className = 'zone-item-list'; view.append(list);
   const entries = [];
   for (const id of zone.items) {
@@ -789,14 +606,26 @@ function renderZone(zone) {
       if (item.hotspot.clip) Object.assign(hotspot.style, { borderRadius: '0', clipPath: `polygon(${item.hotspot.clip.map(([x, y]) => `${x}% ${y}%`).join(', ')})` });
       if (Number.isFinite(item.layer?.zIndex)) hotspot.style.zIndex = item.layer.zIndex;
       hotspots.append(hotspot);
+      const indicator = document.createElement('span');
+      indicator.className = 'hotspot-indicator';
+      indicator.setAttribute('aria-hidden', 'true');
+      for (const key of ['left','top','width','height']) indicator.style[key] = hotspot.style[key];
+      hotspots.append(indicator);
     }
     const li = document.createElement('li'); const b = document.createElement('button'); fillListButton(b, item); b.addEventListener('click', () => openItem(item, b)); li.append(b); list.append(li);
     if (layer && hotspot) entries.push({item,layer,hotspot});
   }
   if (room) setupMotion(entries, room);
   const currentLetter = tabs.querySelector('.zone-tab-letters [aria-current]');
-  if (currentLetter) requestAnimationFrame(() => currentLetter.scrollIntoView({ inline: 'center', block: 'nearest' }));
+  if (currentLetter) requestAnimationFrame(() => {
+    letters.scrollLeft = currentLetter.offsetLeft - (letters.clientWidth - currentLetter.offsetWidth) / 2;
+  });
 }
+let keyboardRoomLink = null;
+document.addEventListener('click', (event) => {
+  const link = event.target.closest('a');
+  keyboardRoomLink = event.detail === 0 && link?.matches('#room-tiles .room-tile, #zone-view .zone-back, .wordmark') ? link : null;
+});
 function route(event) {
   if (!catalog) return;
   // A card opened right after our own back-navigation already owns this URL: nothing to route.
@@ -820,12 +649,19 @@ function route(event) {
     item = null;
   }
   const fromHub = !$('hub-view').hidden;
+  const keyboardLink = keyboardRoomLink;
+  keyboardRoomLink = null;
+  const previousCategory = $('zone-view').dataset.category;
   $('hub-view').hidden = !!zone; $('zone-view').hidden = !zone;
   if (zone) {
     if (activeZone !== zone.id) { renderZone(zone); window.scrollTo(0, 0); }
     if (fromHub) window.scrollTo(0, 0);
+    if (fromHub && keyboardLink) $('zone-view').querySelector('h1').focus({ preventScroll: true });
     if (item) requestAnimationFrame(() => openItem(item, $('zone-view').querySelector(`button[data-item-id="${item.id}"]`)));
-  } else window.scrollTo(0, 0);
+  } else {
+    window.scrollTo(0, 0);
+    if (!fromHub && keyboardLink) $('room-tiles').querySelector(`[href="#/${previousCategory}"]`)?.focus();
+  }
 }
 async function initCatalog() {
   try {
