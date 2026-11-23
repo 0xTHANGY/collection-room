@@ -589,7 +589,10 @@ function renderZone(zone) {
     const layer = layers && item.layer ? createLayer(item, layers) : null;
     if (hotspots && item.hotspot) {
       hotspot = makeButton('', () => openItem(item, hotspot), 'hotspot'); hotspot.dataset.itemId = id; hotspot.setAttribute('aria-label', item.name); hotspot.setAttribute('aria-haspopup','dialog');
-      for (const key of ['left','top','width','height']) hotspot.style[key] = `${item.hotspot[key]}%`; hotspots.append(hotspot);
+      for (const key of ['left','top','width','height']) hotspot.style[key] = `${item.hotspot[key]}%`;
+      if (item.hotspot.clip) Object.assign(hotspot.style, { borderRadius: '0', clipPath: `polygon(${item.hotspot.clip.map(([x, y]) => `${x}% ${y}%`).join(', ')})` });
+      if (Number.isFinite(item.layer?.zIndex)) hotspot.style.zIndex = item.layer.zIndex;
+      hotspots.append(hotspot);
     }
     const li = document.createElement('li'); const b = makeButton(`${item.number}  ${item.name}`, () => openItem(item,b), 'list-item'); b.dataset.itemId = id; b.setAttribute('aria-haspopup','dialog'); li.append(b); list.append(li);
     if (layer && hotspot) entries.push({item,layer,hotspot});
@@ -603,6 +606,11 @@ function route(event) {
   // Any real navigation (Back/Forward, zone tabs, links) closes an open or closing card immediately.
   if (dialog.open || flipState !== 'idle') { routing = true; if (dialog.open) dialog.close(); settleClose(false); }
   if (ghost || veil) stopFlip();  // a card still flying home does not follow us to another page
+  const rawHash = location.hash.replace(/^#\/?/, '');
+  const redirectTo = catalog.redirects?.[rawHash] || catalog.redirects?.[rawHash.replace(/\/+$/, '')];
+  if (redirectTo && redirectTo !== location.hash) {
+    history.replaceState(history.state, '', redirectTo.startsWith('#') ? redirectTo : `#/${redirectTo}`);
+  }
   const parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean);
   let item = parts[0] === 'item' ? catalog.items.find(i => i.id === parts[1]) : null;
   // Back/Forward onto an entry whose card was opened in-page (tagged state) returns to the zone only:

@@ -181,6 +181,9 @@ def main():
     (REVIEW/'gate.json').write_text(json.dumps(gate,indent=2))
     (REVIEW/'gate-table.md').write_text('Zone | Passed/total | Failures\n---|---|---\n'+'\n'.join(z+' | '+str(sum(v['passed'] for v in g.values()))+'/'+str(len(g))+' | '+'; '.join(i+': '+', '.join(v['reasons']) for i,v in g.items() if not v['passed']) for z,g in gate.items()))
     (ROOT/'data/catalog.json').write_text(json.dumps(catalog,ensure_ascii=False,separators=(',',':'))+'\n')
+    # Display-only tote merge/repack; extraction layout bboxes are not used.
+    from repack_totes import apply as apply_totes_repack
+    apply_totes_repack(catalog)
     summary=dict(card_images_bytes=sum(p.stat().st_size for p in (ROOT/'assets/items/v2').glob('*.webp')),categories=len(catalog['categories']),zones=len(catalog['zones']),items=len(catalog['items']),asset_bytes_written=sum((ROOT/p).stat().st_size for p in written),asset_files_written=len(written),assets_total_bytes=sum(p.stat().st_size for p in (ROOT/'assets').rglob('*') if p.is_file()),overlap_pairs=counts,zones_lacking_layout=missing,fallback_ids=fallback,first_load_bytes=None)
     # Measure the actual responsive/lazy hub requests at the requested viewport.
     try:

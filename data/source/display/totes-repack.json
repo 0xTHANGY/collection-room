@@ -1,0 +1,172 @@
+{
+  "scale": 0.54,
+  "target_zone": "totes-a",
+  "merged": [
+    "totes-b"
+  ],
+  "gaps_px": {
+    "top": 13.277777777777764,
+    "bottom": 19.659999999999997
+  },
+  "pack": "8 top + 7 bottom, number order today-455..today-469",
+  "handle_special": [
+    "today-461"
+  ],
+  "redirects": {
+    "totes/b": "#/totes/a",
+    "totes/totes-b": "#/totes/a"
+  },
+  "items": {
+    "today-455": {
+      "source_zone": "totes-a",
+      "kind": "hook",
+      "left": 15.8203125,
+      "top": 6.93359375,
+      "width": 7.747395833333333,
+      "height": 17.96875,
+      "zIndex": 1,
+      "scale": 0.54
+    },
+    "today-456": {
+      "source_zone": "totes-a",
+      "kind": "hook",
+      "left": 24.479166666666664,
+      "top": 6.93359375,
+      "width": 8.3984375,
+      "height": 18.06640625,
+      "zIndex": 2,
+      "scale": 0.54
+    },
+    "today-457": {
+      "source_zone": "totes-a",
+      "kind": "hook",
+      "left": 33.72395833333333,
+      "top": 6.93359375,
+      "width": 6.966145833333333,
+      "height": 17.1875,
+      "zIndex": 3,
+      "scale": 0.54
+    },
+    "today-458": {
+      "source_zone": "totes-a",
+      "kind": "hook",
+      "left": 41.6015625,
+      "top": 6.93359375,
+      "width": 8.463541666666668,
+      "height": 17.87109375,
+      "zIndex": 4,
+      "scale": 0.54
+    },
+    "today-459": {
+      "source_zone": "totes-a",
+      "kind": "hook",
+      "left": 50.911458333333336,
+      "top": 6.93359375,
+      "width": 8.138020833333332,
+      "height": 17.1875,
+      "zIndex": 5,
+      "scale": 0.54
+    },
+    "today-460": {
+      "source_zone": "totes-a",
+      "kind": "hook",
+      "left": 59.895833333333336,
+      "top": 6.93359375,
+      "width": 8.203125,
+      "height": 14.74609375,
+      "zIndex": 6,
+      "scale": 0.54
+    },
+    "today-461": {
+      "source_zone": "totes-a",
+      "kind": "handle",
+      "left": 69.01041666666666,
+      "top": 9.66796875,
+      "width": 8.59375,
+      "height": 12.6953125,
+      "zIndex": 7,
+      "scale": 0.54
+    },
+    "today-462": {
+      "source_zone": "totes-a",
+      "kind": "hook",
+      "left": 78.45052083333334,
+      "top": 6.93359375,
+      "width": 7.6171875,
+      "height": 16.015625,
+      "zIndex": 8,
+      "scale": 0.54
+    },
+    "today-463": {
+      "source_zone": "totes-a",
+      "kind": "hook",
+      "left": 16.276041666666664,
+      "top": 46.58203125,
+      "width": 9.244791666666668,
+      "height": 17.1875,
+      "zIndex": 9,
+      "scale": 0.54
+    },
+    "today-464": {
+      "source_zone": "totes-a",
+      "kind": "hook",
+      "left": 26.7578125,
+      "top": 46.58203125,
+      "width": 8.984375,
+      "height": 16.796875,
+      "zIndex": 10,
+      "scale": 0.54
+    },
+    "today-465": {
+      "source_zone": "totes-a",
+      "kind": "hook",
+      "left": 37.04427083333333,
+      "top": 46.58203125,
+      "width": 7.747395833333333,
+      "height": 18.45703125,
+      "zIndex": 11,
+      "scale": 0.54
+    },
+    "today-466": {
+      "source_zone": "totes-a",
+      "kind": "hook",
+      "left": 46.09375,
+      "top": 46.58203125,
+      "width": 8.528645833333332,
+      "height": 16.9921875,
+      "zIndex": 12,
+      "scale": 0.54
+    },
+    "today-467": {
+      "source_zone": "totes-a",
+      "kind": "hook",
+      "left": 55.924479166666664,
+      "top": 46.58203125,
+      "width": 7.942708333333333,
+      "height": 16.6015625,
+      "zIndex": 13,
+      "scale": 0.54
+    },
+    "today-468": {
+      "source_zone": "totes-a",
+      "kind": "hook",
+      "left": 65.10416666666666,
+      "top": 46.58203125,
+      "width": 8.723958333333332,
+      "height": 16.89453125,
+      "zIndex": 14,
+      "scale": 0.54
+    },
+    "today-469": {
+      "source_zone": "totes-a",
+      "kind": "hook",
+      "left": 75.06510416666666,
+      "top": 46.58203125,
+      "width": 9.244791666666668,
+      "height": 15.52734375,
+      "zIndex": 15,
+      "scale": 0.54
+    }
+  },
+  "note": "Display coordinates only. Extraction bboxes in data/source/layout/ are unchanged."
+}
