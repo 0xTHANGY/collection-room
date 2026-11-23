@@ -60,8 +60,9 @@ def detect_rail_bands(plate, min_frac=0.18):
     h, w = plate.shape[:2]
     wood = wood_mask(plate)
     xs0, xs1 = int(w * 0.12), int(w * 0.88)
-    # ignore bottom 18% (rug / baseboard) and very top 3%
-    y_lo, y_hi = int(h * 0.03), int(h * 0.82)
+    # ignore bottom 18% (rug / baseboard); keep the first few rows so a
+    # ceiling-hugging rail (e.g. dresses-a at y≈11) is not dropped.
+    y_lo, y_hi = 0, int(h * 0.82)
     ys = [y for y in range(y_lo, y_hi) if wood[y, xs0:xs1].mean() > min_frac]
     bands = []
     if not ys:
@@ -88,11 +89,14 @@ def detect_rail_bands(plate, min_frac=0.18):
         y0, y1, x0, x1 = b
         if not (8 <= (y1 - y0) <= 70):
             continue
-        if y0 > h * 0.62:
-            continue
         below = wood[y1 + 1 : min(h, y1 + 50), max(0, x0) : min(plate.shape[1], x1 + 1)].mean() if y1 + 1 < h else 0
         if below > 0.25:
             continue  # furniture face continues under this band
+        # Cabinets sit low; thin isolated rails may sit just past 0.62*h
+        # (dresses-a bottom rail is at 0.631*h on a 900px plate).
+        thick = (y1 - y0) > 28
+        if y0 > h * 0.75 or (y0 > h * 0.62 and thick):
+            continue
         rails.append(b)
     rails.sort(key=lambda b: (b[1] - b[0], -b[0]), reverse=True)
     rails = sorted(rails[:3], key=lambda b: b[0])
@@ -103,11 +107,21 @@ def detect_obstacle_y(plate):
     """First y of furniture/rug in the lower wall (usable wall ends above this)."""
     h, w = plate.shape[:2]
     wood = wood_mask(plate)
-    # cabinet / bench: dark wood block in lower third, wide
-    for y in range(int(h * 0.55), int(h * 0.92)):
-        frac = wood[y, int(w * 0.15) : int(w * 0.85)].mean()
+    # cabinet / bench: dark wood block in lower third, wide.
+    # Skip thin isolated wood rows — those are rails, not furniture.
+    y = int(h * 0.55)
+    mid0, mid1 = int(w * 0.15), int(w * 0.85)
+    while y < int(h * 0.92):
+        frac = wood[y, mid0:mid1].mean()
         if frac > 0.35:
+            y1 = y
+            while y1 < h - 1 and wood[y1, mid0:mid1].mean() > 0.15:
+                y1 += 1
+            if y1 - y <= 28:
+                y = y1 + 1
+                continue
             return y
+        y += 1
     # rug / baseboard fallback: sudden darkening / texture in bottom
     lum = plate.mean(2)
     for y in range(int(h * 0.70), h - 8):
@@ -162,6 +176,43 @@ def detect_hook_xs(plate, band):
                 i = j
             else:
                 i += 1
+    # Local color-anomaly hooks: small rings that hug the wood and are too
+    # light to show up as a dark silhouette against the wall (dresses-a).
+    wood = plate[y0 : y1 + 1, x0 : x1 + 1].astype(float)
+    col = wood.mean(0)
+    k, pad = 41, 20
+    padded = np.pad(col, ((pad, pad), (0, 0)), mode="edge")
+    mm = np.empty_like(col)
+    for i in range(len(col)):
+        mm[i] = np.median(padded[i : i + k], axis=0)
+    dev = np.linalg.norm(col - mm, axis=1)
+    extra = np.zeros(len(col))
+    y_lo2, y_hi2 = y1 + 1, min(plate.shape[0], y1 + 10)
+    y_a2, y_b2 = max(0, y0 - 8), y0
+    if y_hi2 > y_lo2:
+        below2 = plate[y_lo2:y_hi2, x0 : x1 + 1].astype(float).mean(2)
+        extra = np.maximum(extra, np.abs(below2 - float(np.median(below2))).max(0))
+    if y_b2 > y_a2:
+        above2 = plate[y_a2:y_b2, x0 : x1 + 1].astype(float).mean(2)
+        extra = np.maximum(extra, np.abs(above2 - float(np.median(above2))).max(0))
+    anom = np.convolve(dev + 0.35 * extra, np.ones(5) / 5.0, mode="same")
+    mad = float(np.median(np.abs(anom - np.median(anom))))
+    ath = max(12.0, float(np.median(anom)) + 4 * mad)
+    anomaly_xs = []
+    for i in range(20, len(anom) - 20):
+        if anom[i] < ath:
+            continue
+        if anom[i] >= anom[max(0, i - 6) : i + 7].max() - 1e-9:
+            hx = int(x0 + i)
+            if hx - x0 > 40 and x1 - hx > 40:
+                anomaly_xs.append(hx)
+    # Drop weak wood-grain peaks; keep strong rings.
+    if anomaly_xs:
+        ascores = [float(anom[hx - x0]) for hx in anomaly_xs]
+        keep_thr = max(30.0, float(np.median(ascores)) * 0.7)
+        anomaly_xs = [hx for hx, s in zip(anomaly_xs, ascores) if s >= keep_thr]
+    xs.extend(anomaly_xs)
+
     xs = sorted(xs)
     merged = []
     for hx in xs:
@@ -321,7 +372,7 @@ def heal_under_rail(img, rails, depth=16):
     return out
 
 
-def add_three_rails(plate, first_wood=None, spacing=None, max_item_below=260):
+def add_three_rails(plate, first_wood=None, spacing=None, max_item_below=260, keep_spacing=False):
     bands = detect_rail_bands(plate)
     if len(bands) < 1:
         raise SystemExit("no rail bands detected")
@@ -339,22 +390,28 @@ def add_three_rails(plate, first_wood=None, spacing=None, max_item_below=260):
     for y0, y1, x0, x1 in bands:
         wall = erase_rail_band(wall, y0 - 10, y1 + 6, x0 - 24, x1 + 24)
     obstacle = detect_obstacle_y(plate)
-    if first_wood is None:
-        # lift the first rail a bit if the original sat low, to fit three rows
-        first_wood = min(src[0], max(48, src[0] - 20))
-    if spacing is None:
-        # Prefer enough room *between* rails so a typical tall item does not cover the rail below.
-        gap = 16
-        want = int(max_item_below + gap)
-        # Even split of leftover wall under the last rail (so bottom items can hang).
-        usable = obstacle - 16 - first_wood - wood_h - max_item_below
-        even = usable // 2 if usable > 0 else 240
-        spacing = max(wood_h + 40, want, even)
-        last = first_wood + 2 * spacing
-        if last + wood_h + max_item_below > obstacle - 8:
-            # shrink: keep as close to `want` as the wall allows
-            spacing = max(wood_h + 36, (obstacle - 8 - max_item_below - wood_h - first_wood) // 2)
-    wood_ys = [first_wood, first_wood + spacing, first_wood + 2 * spacing]
+    bands_by_y = sorted(bands, key=lambda b: b[0])
+    if keep_spacing and len(bands_by_y) >= 3:
+        wood_ys = [b[0] for b in bands_by_y[:3]]
+        first_wood = wood_ys[0]
+        spacing = int(round((wood_ys[1] - wood_ys[0] + wood_ys[2] - wood_ys[1]) / 2))
+    else:
+        if first_wood is None:
+            # lift the first rail a bit if the original sat low, to fit three rows
+            first_wood = min(src[0], max(48, src[0] - 20))
+        if spacing is None:
+            # Prefer enough room *between* rails so a typical tall item does not cover the rail below.
+            gap = 16
+            want = int(max_item_below + gap)
+            # Even split of leftover wall under the last rail (so bottom items can hang).
+            usable = obstacle - 16 - first_wood - wood_h - max_item_below
+            even = usable // 2 if usable > 0 else 240
+            spacing = max(wood_h + 40, want, even)
+            last = first_wood + 2 * spacing
+            if last + wood_h + max_item_below > obstacle - 8:
+                # shrink: keep as close to `want` as the wall allows
+                spacing = max(wood_h + 36, (obstacle - 8 - max_item_below - wood_h - first_wood) // 2)
+        wood_ys = [first_wood, first_wood + spacing, first_wood + 2 * spacing]
     canvas = Image.fromarray(wall).convert("RGBA")
     rails = []
     hook_from_wood = max(6, min(12, wood_h // 3))
@@ -600,9 +657,12 @@ def choose_scale(recs, counts, plates_meta, target=DEFAULT_SCALE):
     return max(0.42, float(round(s, 2)))
 
 
-def apply_category(category, scale=None, preview_dir=None, write=False, plate_ids=None, target=None):
+def apply_category(category, scale=None, preview_dir=None, write=False, plate_ids=None, target=None, only_zones=None, keep_spacing=False):
     catalog = json.loads(CATALOG.read_text())
     recs = load_layers(catalog, category)
+    if only_zones:
+        allow = set(only_zones)
+        recs = [r for r in recs if r["src_zone"] in allow]
     if not recs:
         raise SystemExit(f"no items for {category}")
     old_zones = []
@@ -611,10 +671,21 @@ def apply_category(category, scale=None, preview_dir=None, write=False, plate_id
         if r["src_zone"] not in seen:
             old_zones.append(r["src_zone"])
             seen.add(r["src_zone"])
-    counts = zone_counts(len(recs), target=target or TARGET_PER_ZONE)
-    n_new = len(counts)
-    new_letters = letters(n_new)
-    new_zone_ids = [f"{category}-{L}" for L in new_letters]
+    if only_zones:
+        # Keep the named rooms; do not collapse the rest of the category.
+        new_zone_ids = list(only_zones)
+        counts = zone_counts(len(recs), target=target or TARGET_PER_ZONE)
+        if len(counts) != len(new_zone_ids):
+            if len(new_zone_ids) == 1:
+                counts = [len(recs)]
+            else:
+                raise SystemExit(f"only_zones {new_zone_ids} does not match counts {counts}")
+        n_new = len(counts)
+    else:
+        counts = zone_counts(len(recs), target=target or TARGET_PER_ZONE)
+        n_new = len(counts)
+        new_letters = letters(n_new)
+        new_zone_ids = [f"{category}-{L}" for L in new_letters]
 
     # choose source empty plates: prefer first n existing zones (unique rooms)
     if plate_ids is None:
@@ -635,7 +706,7 @@ def apply_category(category, scale=None, preview_dir=None, write=False, plate_id
         if not src.exists():
             raise SystemExit(f"missing plate {src}")
         plate = np.array(Image.open(src).convert("RGB"))
-        three, rails, meta = add_three_rails(plate, max_item_below=int(max_h_guess) + 8)
+        three, rails, meta = add_three_rails(plate, max_item_below=int(max_h_guess) + 8, keep_spacing=keep_spacing)
         built.append((three, rails, meta, zid))
         plates_meta.append({"rails": rails, "meta": meta})
 
@@ -648,7 +719,7 @@ def apply_category(category, scale=None, preview_dir=None, write=False, plate_id
             for zid in plate_ids:
                 src = ROOT / "assets/zones" / f"{zid}-1600.webp"
                 plate = np.array(Image.open(src).convert("RGB"))
-                three, rails, meta = add_three_rails(plate, max_item_below=int(max_h_real) + 8)
+                three, rails, meta = add_three_rails(plate, max_item_below=int(max_h_real) + 8, keep_spacing=keep_spacing)
                 built.append((three, rails, meta, zid))
                 plates_meta.append({"rails": rails, "meta": meta})
 
@@ -809,32 +880,43 @@ def apply_category(category, scale=None, preview_dir=None, write=False, plate_id
 
     zones = []
     existing = {z["id"]: z for z in catalog["zones"]}
-    # keep non-category zones in original order; replace category zones with the new set in letter order
-    inserted = False
-    for z in catalog["zones"]:
-        if z["id"].startswith(category + "-") or z["id"] == category:
-            if not inserted:
-                for zid in new_zone_ids:
-                    base = dict(existing.get(zid) or existing[old_zones[0]])
-                    base = dict(base)
-                    base["id"] = zid
-                    base.update(zone_entries_new[zid])
-                    zones.append(base)
-                inserted = True
-            continue
-        zones.append(z)
-    if not inserted:
-        for zid in new_zone_ids:
-            base = dict(existing[old_zones[0]])
-            base["id"] = zid
-            base.update(zone_entries_new[zid])
-            zones.append(base)
+    if only_zones:
+        # Leave sibling rooms in this category untouched.
+        for z in catalog["zones"]:
+            if z["id"] in zone_entries_new:
+                base = dict(z)
+                base.update(zone_entries_new[z["id"]])
+                zones.append(base)
+            else:
+                zones.append(z)
+    else:
+        # keep non-category zones in original order; replace category zones with the new set in letter order
+        inserted = False
+        for z in catalog["zones"]:
+            if z["id"].startswith(category + "-") or z["id"] == category:
+                if not inserted:
+                    for zid in new_zone_ids:
+                        base = dict(existing.get(zid) or existing[old_zones[0]])
+                        base = dict(base)
+                        base["id"] = zid
+                        base.update(zone_entries_new[zid])
+                        zones.append(base)
+                    inserted = True
+                continue
+            zones.append(z)
+        if not inserted:
+            for zid in new_zone_ids:
+                base = dict(existing[old_zones[0]])
+                base["id"] = zid
+                base.update(zone_entries_new[zid])
+                zones.append(base)
     catalog["zones"] = zones
 
     for cat in catalog["categories"]:
         if cat["id"] == category:
-            cat["count"] = len(recs)
-            cat["cover_zone"] = new_zone_ids[0]
+            cat["count"] = sum(1 for i in catalog["items"] if i["category"] == category)
+            if not only_zones:
+                cat["cover_zone"] = new_zone_ids[0]
 
     catalog["redirects"] = redirects
     CATALOG.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n")
@@ -854,9 +936,12 @@ def main():
     ap.add_argument("--write", action="store_true")
     ap.add_argument("--plates", default=None, help="comma-separated source plate zone ids")
     ap.add_argument("--target", type=int, default=None, help="target items per zone")
+    ap.add_argument("--only-zones", default=None, help="comma-separated zone ids to convert; leave siblings alone")
+    ap.add_argument("--keep-spacing", action="store_true", help="clone rails at the detected y positions")
     args = ap.parse_args()
     plate_ids = args.plates.split(",") if args.plates else None
-    apply_category(args.category, scale=args.scale, preview_dir=args.preview, write=args.write, plate_ids=plate_ids, target=args.target)
+    only_zones = args.only_zones.split(",") if args.only_zones else None
+    apply_category(args.category, scale=args.scale, preview_dir=args.preview, write=args.write, plate_ids=plate_ids, target=args.target, only_zones=only_zones, keep_spacing=args.keep_spacing)
 
 
 if __name__ == "__main__":

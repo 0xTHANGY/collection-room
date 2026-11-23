@@ -1,0 +1,58 @@
+{
+  "category": "dresses",
+  "items": 10,
+  "scale": 0.62,
+  "zones_before": [
+    "dresses-c"
+  ],
+  "zones_after": [
+    "dresses-c"
+  ],
+  "counts": [
+    10
+  ],
+  "per_zone_rods": {
+    "dresses-c": [
+      4,
+      3,
+      3
+    ]
+  },
+  "gaps": {
+    "dresses-c": [
+      149.932,
+      221.05,
+      196.095
+    ]
+  },
+  "src_plates": {
+    "dresses-c": "dresses-a"
+  },
+  "rails": {
+    "dresses-c": [
+      {
+        "wood_top": 11,
+        "hook_y": 17
+      },
+      {
+        "wood_top": 289,
+        "hook_y": 295
+      },
+      {
+        "wood_top": 568,
+        "hook_y": 574
+      }
+    ]
+  },
+  "redirects_added": {},
+  "old_zone_mapping": {
+    "dresses-c": {
+      "majority": "dresses-c",
+      "dest_counts": {
+        "dresses-c": 10
+      },
+      "split": false
+    }
+  },
+  "handle_special": []
+}
