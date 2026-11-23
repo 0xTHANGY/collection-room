@@ -1,0 +1,318 @@
+{
+  "category": "shoes",
+  "items": 61,
+  "scale": 0.6,
+  "zones_before": [
+    "shoes-a",
+    "shoes-b",
+    "shoes-c",
+    "shoes-d",
+    "shoes-e",
+    "shoes-f",
+    "shoes-g",
+    "shoes-h",
+    "shoes-i",
+    "shoes-j",
+    "shoes-k"
+  ],
+  "zones_after": [
+    "shoes-a",
+    "shoes-b",
+    "shoes-c",
+    "shoes-d",
+    "shoes-e"
+  ],
+  "counts": [
+    13,
+    12,
+    12,
+    12,
+    12
+  ],
+  "per_zone_rows": {
+    "shoes-a": [
+      5,
+      4,
+      4
+    ],
+    "shoes-b": [
+      4,
+      4,
+      4
+    ],
+    "shoes-c": [
+      4,
+      4,
+      4
+    ],
+    "shoes-d": [
+      4,
+      4,
+      4
+    ],
+    "shoes-e": [
+      4,
+      4,
+      4
+    ]
+  },
+  "gaps": {
+    "shoes-a": [
+      114.7,
+      181.47571830985913,
+      140.57637621832365
+    ],
+    "shoes-b": [
+      157.24,
+      175.05027624309392,
+      161.96720197930725
+    ],
+    "shoes-c": [
+      164.48,
+      167.8,
+      187.38330827067668
+    ],
+    "shoes-d": [
+      153.8,
+      183.54183333333333,
+      180.0058446069781
+    ],
+    "shoes-e": [
+      162.72,
+      165.24,
+      206.08
+    ]
+  },
+  "src_plates": {
+    "shoes-a": "shoes-c-rug",
+    "shoes-b": "shoes-d-rug",
+    "shoes-c": "shoes-i-rug",
+    "shoes-d": "shoes-b-rug",
+    "shoes-e": "shoes-g-rug"
+  },
+  "rug_tops": {
+    "shoes-a": 372,
+    "shoes-b": 383,
+    "shoes-c": 316,
+    "shoes-d": 374,
+    "shoes-e": 350
+  },
+  "baselines": {
+    "shoes-a": [
+      602.4,
+      806.2,
+      1010
+    ],
+    "shoes-b": [
+      587.0,
+      798.5,
+      1010
+    ],
+    "shoes-c": [
+      529.0,
+      769.5,
+      1010
+    ],
+    "shoes-d": [
+      597.8,
+      803.9,
+      1010
+    ],
+    "shoes-e": [
+      536.6,
+      773.3,
+      1010
+    ]
+  },
+  "per_item_scale": {
+    "shoes-a": [
+      0.377,
+      0.491,
+      0.552,
+      0.558,
+      0.6
+    ],
+    "shoes-b": [
+      0.522,
+      0.562,
+      0.595,
+      0.6
+    ],
+    "shoes-c": [
+      0.583,
+      0.596,
+      0.6
+    ],
+    "shoes-d": [
+      0.515,
+      0.516,
+      0.519,
+      0.534,
+      0.55,
+      0.6
+    ],
+    "shoes-e": [
+      0.6
+    ]
+  },
+  "redirects_added": {
+    "shoes/f": "#/shoes/c",
+    "shoes/shoes-f": "#/shoes/c",
+    "shoes/g": "#/shoes/c",
+    "shoes/shoes-g": "#/shoes/c",
+    "shoes/h": "#/shoes/d",
+    "shoes/shoes-h": "#/shoes/d",
+    "shoes/i": "#/shoes/d",
+    "shoes/shoes-i": "#/shoes/d",
+    "shoes/j": "#/shoes/e",
+    "shoes/shoes-j": "#/shoes/e",
+    "shoes/k": "#/shoes/e",
+    "shoes/shoes-k": "#/shoes/e"
+  },
+  "old_zone_mapping": {
+    "shoes-a": {
+      "majority": "shoes-a",
+      "dest_counts": {
+        "shoes-a": 2
+      },
+      "split": false
+    },
+    "shoes-b": {
+      "majority": "shoes-a",
+      "dest_counts": {
+        "shoes-a": 6
+      },
+      "split": false
+    },
+    "shoes-c": {
+      "majority": "shoes-a",
+      "dest_counts": {
+        "shoes-a": 5,
+        "shoes-b": 1
+      },
+      "split": true
+    },
+    "shoes-d": {
+      "majority": "shoes-b",
+      "dest_counts": {
+        "shoes-b": 6
+      },
+      "split": false
+    },
+    "shoes-e": {
+      "majority": "shoes-b",
+      "dest_counts": {
+        "shoes-b": 5,
+        "shoes-c": 1
+      },
+      "split": true
+    },
+    "shoes-f": {
+      "majority": "shoes-c",
+      "dest_counts": {
+        "shoes-c": 6
+      },
+      "split": false
+    },
+    "shoes-g": {
+      "majority": "shoes-c",
+      "dest_counts": {
+        "shoes-c": 5,
+        "shoes-d": 1
+      },
+      "split": true
+    },
+    "shoes-h": {
+      "majority": "shoes-d",
+      "dest_counts": {
+        "shoes-d": 6
+      },
+      "split": false
+    },
+    "shoes-i": {
+      "majority": "shoes-d",
+      "dest_counts": {
+        "shoes-d": 5,
+        "shoes-e": 1
+      },
+      "split": true
+    },
+    "shoes-j": {
+      "majority": "shoes-e",
+      "dest_counts": {
+        "shoes-e": 6
+      },
+      "split": false
+    },
+    "shoes-k": {
+      "majority": "shoes-e",
+      "dest_counts": {
+        "shoes-e": 5
+      },
+      "split": false
+    }
+  },
+  "cleaned_layers": [
+    "batch2-055",
+    "batch2-057",
+    "shoes-n001",
+    "shoes-n002",
+    "shoes-n003",
+    "shoes-n004",
+    "shoes-n005",
+    "shoes-n006",
+    "shoes-n007",
+    "shoes-n008",
+    "shoes-n009",
+    "shoes-n010",
+    "shoes-n011",
+    "shoes-n012",
+    "shoes-n013",
+    "shoes-n014",
+    "shoes-n015",
+    "shoes-n016",
+    "shoes-n017",
+    "shoes-n018",
+    "shoes-n019",
+    "shoes-n020",
+    "shoes-n021",
+    "shoes-n022",
+    "shoes-n023",
+    "shoes-n024",
+    "shoes-n025",
+    "shoes-n026",
+    "shoes-n027",
+    "shoes-n028",
+    "shoes-n029",
+    "shoes-n030",
+    "shoes-n031",
+    "shoes-n032",
+    "shoes-n033",
+    "shoes-n034",
+    "shoes-n035",
+    "shoes-n036",
+    "shoes-n037",
+    "shoes-n038",
+    "shoes-n039",
+    "shoes-n040",
+    "shoes-n041",
+    "shoes-n042",
+    "shoes-n043",
+    "shoes-n044",
+    "shoes-n045",
+    "shoes-n046",
+    "shoes-n047",
+    "shoes-n048",
+    "shoes-n049",
+    "shoes-n050",
+    "shoes-n051",
+    "shoes-n052",
+    "shoes-n053",
+    "shoes-n054",
+    "shoes-n055",
+    "shoes-n056",
+    "shoes-n057",
+    "shoes-n058",
+    "shoes-n059"
+  ]
+}
