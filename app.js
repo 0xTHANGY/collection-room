@@ -306,7 +306,7 @@ function settleClose(restoreFocus = true) {
 }
 // A 'close' event that arrives after the card was already settled and a new card opened is stale.
 dialog.addEventListener('close', () => { if (!dialog.open) settleClose(true); });
-const ASSET_V = '20261123e';
+const ASSET_V = '20261123f';
 function withV(url) {
   if (typeof url !== 'string' || !url) return url;
   if (/[?&]v=/.test(url)) return url;
@@ -557,6 +557,7 @@ function pickHotspotAt(clientX, clientY, hotspotEls, minSize = 44) {
   return best;
 }
 const MOBILE_ROOM = window.matchMedia('(max-width: 650px)');
+let panZoomDocGuard = null;
 const ZOOM_MIN = 1;
 const ZOOM_MAX = 3;
 function attachRoomPanZoom(room) {
@@ -567,6 +568,16 @@ function attachRoomPanZoom(room) {
   let pan0 = null;
   let moved = 0;
   let gesturing = false;
+  let downPoint = null;
+  let suppressTimer = 0;
+  const armSuppress = () => {
+    room._panZoom.suppressClick = true;
+    if (suppressTimer) clearTimeout(suppressTimer);
+    suppressTimer = setTimeout(() => {
+      room._panZoom.suppressClick = false;
+      suppressTimer = 0;
+    }, 100);
+  };
   const enabled = () => MOBILE_ROOM.matches;
   const clamp = () => {
     const vw = room.clientWidth;
@@ -607,6 +618,7 @@ function attachRoomPanZoom(room) {
     try { room.setPointerCapture(event.pointerId); } catch (e) { /* not capturable */ }
     pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
     moved = 0;
+    if (pointers.size === 1) downPoint = { x: event.clientX, y: event.clientY };
     if (pointers.size === 2) {
       const [a, b] = [...pointers.values()];
       pinch0 = { dist: Math.hypot(a.x - b.x, a.y - b.y) || 1, scale: state.scale, x: state.x, y: state.y };
@@ -640,6 +652,7 @@ function attachRoomPanZoom(room) {
   }, { passive: false });
   const endPointer = (event) => {
     if (!pointers.has(event.pointerId)) return;
+    try { if (room.hasPointerCapture(event.pointerId)) room.releasePointerCapture(event.pointerId); } catch (e) { /* already released */ }
     pointers.delete(event.pointerId);
     if (pointers.size < 2) pinch0 = null;
     if (pointers.size === 1) {
@@ -647,9 +660,15 @@ function attachRoomPanZoom(room) {
       pan0 = { x: only.x, y: only.y, sx: state.x, sy: state.y };
     } else pan0 = null;
     if (pointers.size === 0) {
-      if (gesturing || moved > 8) room._panZoom.suppressClick = true;
+      const wasGesture = gesturing || moved > 8;
+      if (wasGesture) armSuppress();
+      else if (enabled() && downPoint) {
+        const pick = pickHotspotAt(downPoint.x, downPoint.y, [...room.querySelectorAll('.hotspot')]);
+        if (pick) { pick.click(); armSuppress(); }
+      }
       gesturing = false;
       moved = 0;
+      downPoint = null;
     }
   };
   room.addEventListener('pointerup', endPointer);
@@ -660,6 +679,46 @@ function attachRoomPanZoom(room) {
     event.stopPropagation();
     room._panZoom.suppressClick = false;
   }, true);
+  if (panZoomDocGuard) panZoomDocGuard.abort();
+  panZoomDocGuard = new AbortController();
+  const docOpts = { capture: true, signal: panZoomDocGuard.signal };
+  const pointInRoom = (event) => {
+    if (!room.isConnected) return false;
+    const rr = room.getBoundingClientRect();
+    return event.clientX >= rr.left && event.clientX < rr.right && event.clientY >= rr.top && event.clientY < rr.bottom;
+  };
+  let edgeMissId = null;
+  document.addEventListener('pointerdown', (event) => {
+    if (!enabled() || !pointInRoom(event) || room.contains(event.target)) return;
+    edgeMissId = event.pointerId;
+    downPoint = { x: event.clientX, y: event.clientY };
+    moved = 0;
+    gesturing = false;
+  }, docOpts);
+  document.addEventListener('pointerup', (event) => {
+    if (edgeMissId !== event.pointerId || !downPoint) return;
+    edgeMissId = null;
+    const dist = Math.hypot(event.clientX - downPoint.x, event.clientY - downPoint.y);
+    if (dist <= 8 && enabled() && room.isConnected) {
+      const pick = pickHotspotAt(downPoint.x, downPoint.y, [...room.querySelectorAll('.hotspot')]);
+      if (pick) { pick.click(); armSuppress(); }
+    }
+    downPoint = null;
+    moved = 0;
+  }, docOpts);
+  document.addEventListener('pointercancel', (event) => {
+    if (edgeMissId !== event.pointerId) return;
+    edgeMissId = null;
+    downPoint = null;
+    moved = 0;
+  }, docOpts);
+  document.addEventListener('click', (event) => {
+    if (!room._panZoom || !room._panZoom.suppressClick) return;
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    room._panZoom.suppressClick = false;
+  }, docOpts);
   room.addEventListener('wheel', (event) => {
     if (!enabled()) return;
     if (event.ctrlKey || event.metaKey) {
