@@ -1,0 +1,282 @@
+{
+  "category": "bags",
+  "items": 81,
+  "scale": 0.61,
+  "zones_before": [
+    "bags-a",
+    "bags-b",
+    "bags-c",
+    "bags-d",
+    "bags-e",
+    "bags-f",
+    "bags-g",
+    "bags-h",
+    "bags-i",
+    "bags-j"
+  ],
+  "zones_after": [
+    "bags-a",
+    "bags-b",
+    "bags-c",
+    "bags-d",
+    "bags-e",
+    "bags-f"
+  ],
+  "counts": [
+    14,
+    14,
+    14,
+    13,
+    13,
+    13
+  ],
+  "per_zone_rods": {
+    "bags-a": [
+      5,
+      5,
+      4
+    ],
+    "bags-b": [
+      5,
+      5,
+      4
+    ],
+    "bags-c": [
+      5,
+      5,
+      4
+    ],
+    "bags-d": [
+      5,
+      4,
+      4
+    ],
+    "bags-e": [
+      5,
+      4,
+      4
+    ],
+    "bags-f": [
+      5,
+      4,
+      4
+    ]
+  },
+  "gaps": {
+    "bags-a": [
+      67.53666666666668,
+      66.11333333333334,
+      100.80799999999999
+    ],
+    "bags-b": [
+      64.385,
+      59.40333333333334,
+      91.78
+    ],
+    "bags-c": [
+      64.385,
+      53.50666666666668,
+      101.296
+    ],
+    "bags-d": [
+      78.92333333333335,
+      114.96,
+      134.96800000000002
+    ],
+    "bags-e": [
+      73.33166666666666,
+      113.252,
+      126.672
+    ],
+    "bags-f": [
+      90.71666666666665,
+      120.694,
+      110.56800000000001
+    ]
+  },
+  "src_plates": {
+    "bags-a": "bags-a",
+    "bags-b": "bags-b",
+    "bags-c": "bags-c",
+    "bags-d": "bags-d",
+    "bags-e": "bags-a",
+    "bags-f": "bags-b"
+  },
+  "rails": {
+    "bags-a": [
+      {
+        "wood_top": 48,
+        "hook_y": 58
+      },
+      {
+        "wood_top": 333,
+        "hook_y": 343
+      },
+      {
+        "wood_top": 618,
+        "hook_y": 628
+      }
+    ],
+    "bags-b": [
+      {
+        "wood_top": 44,
+        "hook_y": 54
+      },
+      {
+        "wood_top": 321,
+        "hook_y": 331
+      },
+      {
+        "wood_top": 598,
+        "hook_y": 608
+      }
+    ],
+    "bags-c": [
+      {
+        "wood_top": 40,
+        "hook_y": 52
+      },
+      {
+        "wood_top": 325,
+        "hook_y": 337
+      },
+      {
+        "wood_top": 610,
+        "hook_y": 622
+      }
+    ],
+    "bags-d": [
+      {
+        "wood_top": 39,
+        "hook_y": 49
+      },
+      {
+        "wood_top": 331,
+        "hook_y": 341
+      },
+      {
+        "wood_top": 623,
+        "hook_y": 633
+      }
+    ],
+    "bags-e": [
+      {
+        "wood_top": 48,
+        "hook_y": 58
+      },
+      {
+        "wood_top": 333,
+        "hook_y": 343
+      },
+      {
+        "wood_top": 618,
+        "hook_y": 628
+      }
+    ],
+    "bags-f": [
+      {
+        "wood_top": 44,
+        "hook_y": 54
+      },
+      {
+        "wood_top": 321,
+        "hook_y": 331
+      },
+      {
+        "wood_top": 598,
+        "hook_y": 608
+      }
+    ]
+  },
+  "redirects_added": {
+    "bags/g": "#/bags/d",
+    "bags/bags-g": "#/bags/d",
+    "bags/h": "#/bags/e",
+    "bags/bags-h": "#/bags/e",
+    "bags/i": "#/bags/f",
+    "bags/bags-i": "#/bags/f",
+    "bags/j": "#/bags/f",
+    "bags/bags-j": "#/bags/f"
+  },
+  "old_zone_mapping": {
+    "bags-a": {
+      "majority": "bags-a",
+      "dest_counts": {
+        "bags-a": 8
+      },
+      "split": false
+    },
+    "bags-b": {
+      "majority": "bags-a",
+      "dest_counts": {
+        "bags-a": 6,
+        "bags-b": 2
+      },
+      "split": true
+    },
+    "bags-c": {
+      "majority": "bags-b",
+      "dest_counts": {
+        "bags-b": 8
+      },
+      "split": false
+    },
+    "bags-d": {
+      "majority": "bags-b",
+      "dest_counts": {
+        "bags-b": 4,
+        "bags-c": 4
+      },
+      "split": true
+    },
+    "bags-e": {
+      "majority": "bags-c",
+      "dest_counts": {
+        "bags-c": 9
+      },
+      "split": false
+    },
+    "bags-f": {
+      "majority": "bags-d",
+      "dest_counts": {
+        "bags-c": 1,
+        "bags-d": 7
+      },
+      "split": true
+    },
+    "bags-g": {
+      "majority": "bags-d",
+      "dest_counts": {
+        "bags-d": 6,
+        "bags-e": 2
+      },
+      "split": true
+    },
+    "bags-h": {
+      "majority": "bags-e",
+      "dest_counts": {
+        "bags-e": 8
+      },
+      "split": false
+    },
+    "bags-i": {
+      "majority": "bags-f",
+      "dest_counts": {
+        "bags-e": 3,
+        "bags-f": 5
+      },
+      "split": true
+    },
+    "bags-j": {
+      "majority": "bags-f",
+      "dest_counts": {
+        "bags-f": 8
+      },
+      "split": false
+    }
+  },
+  "handle_special": [
+    "today-391",
+    "today-427"
+  ]
+}

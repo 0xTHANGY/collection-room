@@ -600,7 +600,7 @@ def choose_scale(recs, counts, plates_meta, target=DEFAULT_SCALE):
     return max(0.42, float(round(s, 2)))
 
 
-def apply_category(category, scale=None, preview_dir=None, write=False, plate_ids=None):
+def apply_category(category, scale=None, preview_dir=None, write=False, plate_ids=None, target=None):
     catalog = json.loads(CATALOG.read_text())
     recs = load_layers(catalog, category)
     if not recs:
@@ -611,7 +611,7 @@ def apply_category(category, scale=None, preview_dir=None, write=False, plate_id
         if r["src_zone"] not in seen:
             old_zones.append(r["src_zone"])
             seen.add(r["src_zone"])
-    counts = zone_counts(len(recs))
+    counts = zone_counts(len(recs), target=target or TARGET_PER_ZONE)
     n_new = len(counts)
     new_letters = letters(n_new)
     new_zone_ids = [f"{category}-{L}" for L in new_letters]
@@ -853,9 +853,10 @@ def main():
     ap.add_argument("--preview", default=None, help="directory for plate/pack PNGs")
     ap.add_argument("--write", action="store_true")
     ap.add_argument("--plates", default=None, help="comma-separated source plate zone ids")
+    ap.add_argument("--target", type=int, default=None, help="target items per zone")
     args = ap.parse_args()
     plate_ids = args.plates.split(",") if args.plates else None
-    apply_category(args.category, scale=args.scale, preview_dir=args.preview, write=args.write, plate_ids=plate_ids)
+    apply_category(args.category, scale=args.scale, preview_dir=args.preview, write=args.write, plate_ids=plate_ids, target=args.target)
 
 
 if __name__ == "__main__":
