@@ -1,0 +1,141 @@
+{
+  "category": "hoodies",
+  "items": 35,
+  "scale": 0.62,
+  "zones_before": [
+    "hoodies-a",
+    "hoodies-b",
+    "hoodies-c",
+    "hoodies-d"
+  ],
+  "zones_after": [
+    "hoodies-a",
+    "hoodies-b",
+    "hoodies-c"
+  ],
+  "counts": [
+    12,
+    12,
+    11
+  ],
+  "per_zone_rods": {
+    "hoodies-a": [
+      4,
+      4,
+      4
+    ],
+    "hoodies-b": [
+      4,
+      4,
+      4
+    ],
+    "hoodies-c": [
+      4,
+      4,
+      3
+    ]
+  },
+  "gaps": {
+    "hoodies-a": [
+      92.90799999999999,
+      83.23600000000002,
+      95.51199999999999
+    ],
+    "hoodies-b": [
+      92.90799999999999,
+      91.172,
+      97.744
+    ],
+    "hoodies-c": [
+      91.248,
+      93.232,
+      145.525
+    ]
+  },
+  "src_plates": {
+    "hoodies-a": "hoodies-a",
+    "hoodies-b": "hoodies-b",
+    "hoodies-c": "hoodies-c"
+  },
+  "rails": {
+    "hoodies-a": [
+      {
+        "wood_top": 48,
+        "hook_y": 54
+      },
+      {
+        "wood_top": 294,
+        "hook_y": 300
+      },
+      {
+        "wood_top": 540,
+        "hook_y": 546
+      }
+    ],
+    "hoodies-b": [
+      {
+        "wood_top": 48,
+        "hook_y": 54
+      },
+      {
+        "wood_top": 298,
+        "hook_y": 304
+      },
+      {
+        "wood_top": 548,
+        "hook_y": 554
+      }
+    ],
+    "hoodies-c": [
+      {
+        "wood_top": 37,
+        "hook_y": 47
+      },
+      {
+        "wood_top": 266,
+        "hook_y": 276
+      },
+      {
+        "wood_top": 495,
+        "hook_y": 505
+      }
+    ]
+  },
+  "redirects_added": {
+    "hoodies/d": "#/hoodies/c",
+    "hoodies/hoodies-d": "#/hoodies/c"
+  },
+  "old_zone_mapping": {
+    "hoodies-a": {
+      "majority": "hoodies-a",
+      "dest_counts": {
+        "hoodies-a": 9
+      },
+      "split": false
+    },
+    "hoodies-b": {
+      "majority": "hoodies-b",
+      "dest_counts": {
+        "hoodies-a": 3,
+        "hoodies-b": 6
+      },
+      "split": true
+    },
+    "hoodies-c": {
+      "majority": "hoodies-b",
+      "dest_counts": {
+        "hoodies-b": 6,
+        "hoodies-c": 2
+      },
+      "split": true
+    },
+    "hoodies-d": {
+      "majority": "hoodies-c",
+      "dest_counts": {
+        "hoodies-c": 9
+      },
+      "split": false
+    }
+  },
+  "handle_special": []
+}
