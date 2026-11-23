@@ -1,0 +1,165 @@
+{
+  "category": "accessories",
+  "items": 35,
+  "scale": 0.55,
+  "zones_before": [
+    "accessories-a",
+    "accessories-b",
+    "accessories-c",
+    "accessories-d",
+    "accessories-e"
+  ],
+  "zones_after": [
+    "accessories-a",
+    "accessories-b",
+    "accessories-c"
+  ],
+  "counts": [
+    12,
+    12,
+    11
+  ],
+  "per_zone_rods": {
+    "accessories-a": [
+      4,
+      4,
+      4
+    ],
+    "accessories-b": [
+      4,
+      4,
+      4
+    ],
+    "accessories-c": [
+      4,
+      4,
+      3
+    ]
+  },
+  "gaps": {
+    "accessories-a": [
+      126.21999999999998,
+      138.86999999999998,
+      134.35999999999999
+    ],
+    "accessories-b": [
+      128.67,
+      92.69999999999997,
+      86.86999999999998
+    ],
+    "accessories-c": [
+      115.0,
+      110.48999999999998,
+      186.375
+    ]
+  },
+  "src_plates": {
+    "accessories-a": "accessories-a",
+    "accessories-b": "accessories-b",
+    "accessories-c": "accessories-c"
+  },
+  "rails": {
+    "accessories-a": [
+      {
+        "wood_top": 53,
+        "hook_y": 61
+      },
+      {
+        "wood_top": 346,
+        "hook_y": 354
+      },
+      {
+        "wood_top": 639,
+        "hook_y": 647
+      }
+    ],
+    "accessories-b": [
+      {
+        "wood_top": 49,
+        "hook_y": 60
+      },
+      {
+        "wood_top": 346,
+        "hook_y": 357
+      },
+      {
+        "wood_top": 643,
+        "hook_y": 654
+      }
+    ],
+    "accessories-c": [
+      {
+        "wood_top": 40,
+        "hook_y": 49
+      },
+      {
+        "wood_top": 297,
+        "hook_y": 306
+      },
+      {
+        "wood_top": 554,
+        "hook_y": 563
+      }
+    ]
+  },
+  "redirects_added": {
+    "accessories/d": "#/accessories/c",
+    "accessories/accessories-d": "#/accessories/c",
+    "accessories/e": "#/accessories/c",
+    "accessories/accessories-e": "#/accessories/c"
+  },
+  "old_zone_mapping": {
+    "accessories-a": {
+      "majority": "accessories-a",
+      "dest_counts": {
+        "accessories-a": 8
+      },
+      "split": false
+    },
+    "accessories-b": {
+      "majority": "accessories-a",
+      "dest_counts": {
+        "accessories-a": 4,
+        "accessories-b": 4
+      },
+      "split": true
+    },
+    "accessories-c": {
+      "majority": "accessories-b",
+      "dest_counts": {
+        "accessories-b": 8
+      },
+      "split": false
+    },
+    "accessories-d": {
+      "majority": "accessories-c",
+      "dest_counts": {
+        "accessories-c": 5
+      },
+      "split": false
+    },
+    "accessories-e": {
+      "majority": "accessories-c",
+      "dest_counts": {
+        "accessories-c": 6
+      },
+      "split": false
+    }
+  },
+  "handle_special": [
+    "batch2-113",
+    "batch2-230",
+    "batch2-115",
+    "batch2-116",
+    "batch2-117",
+    "batch2-119",
+    "batch2-121",
+    "batch2-122",
+    "batch2-241",
+    "batch2-130",
+    "batch2-131",
+    "batch2-133",
+    "batch2-238",
+    "today-497"
+  ]
+}

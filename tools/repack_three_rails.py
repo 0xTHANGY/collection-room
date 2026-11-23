@@ -331,7 +331,7 @@ def add_three_rails(plate, first_wood=None, spacing=None, max_item_below=260):
         y0, y1, x0, x1 = band
         hooks = detect_hook_xs(cleaned, band)
         if hooks:
-            cleaned = surgical_remove_hooks(cleaned, hooks, y0, y1, x0, x1, below=42, above=18, halfw=16)
+            cleaned = surgical_remove_hooks(cleaned, hooks, y0, y1, x0, x1, below=64, above=18, halfw=32)
     src = bands[0]
     sprite, sx0, sy0, wood_off, wood_h = extract_rail_sprite(cleaned, src)
     # erase all detected rails (and a little extra for hooks sticking above)
@@ -378,7 +378,7 @@ def add_three_rails(plate, first_wood=None, spacing=None, max_item_below=260):
         band = (rail["wood_top"], rail["rail_bottom"], rail.get("wood_x0", rail["x0"]), rail.get("wood_x1", rail["x1"]))
         hooks = detect_hook_xs(rgb, band)
         if hooks:
-            rgb = surgical_remove_hooks(rgb, hooks, rail["wood_top"], rail["rail_bottom"], band[2], band[3], below=42, above=8, halfw=14)
+            rgb = surgical_remove_hooks(rgb, hooks, rail["wood_top"], rail["rail_bottom"], band[2], band[3], below=64, above=8, halfw=28)
     rgb = heal_under_rail(rgb, rails)
     return rgb, rails, dict(
         first_wood=first_wood, spacing=spacing, wood_h=wood_h, obstacle=obstacle, src_bands=bands
