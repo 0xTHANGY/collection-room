@@ -343,12 +343,16 @@ def add_three_rails(plate, first_wood=None, spacing=None, max_item_below=260):
         # lift the first rail a bit if the original sat low, to fit three rows
         first_wood = min(src[0], max(48, src[0] - 20))
     if spacing is None:
-        # leave room under the last rail for the tallest item plus a small gap
+        # Prefer enough room *between* rails so a typical tall item does not cover the rail below.
+        gap = 16
+        want = int(max_item_below + gap)
+        # Even split of leftover wall under the last rail (so bottom items can hang).
         usable = obstacle - 16 - first_wood - wood_h - max_item_below
-        spacing = max(wood_h + 40, usable // 2 if usable > 0 else 240)
-        # if last bag would hit the obstacle, shrink spacing
+        even = usable // 2 if usable > 0 else 240
+        spacing = max(wood_h + 40, want, even)
         last = first_wood + 2 * spacing
         if last + wood_h + max_item_below > obstacle - 8:
+            # shrink: keep as close to `want` as the wall allows
             spacing = max(wood_h + 36, (obstacle - 8 - max_item_below - wood_h - first_wood) // 2)
     wood_ys = [first_wood, first_wood + spacing, first_wood + 2 * spacing]
     canvas = Image.fromarray(wall).convert("RGBA")
@@ -463,32 +467,68 @@ def pack_row(row, rail, scale):
     return placed, gap
 
 
-def clip_polygon(alpha):
-    mask = np.uint8(alpha > 40)
-    contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    if not contours:
-        return [[0, 0], [100, 0], [100, 100], [0, 100]]
-    cnt = max(contours, key=cv2.contourArea)
+def _poly_from_cnt(cnt, w, h):
     peri = cv2.arcLength(cnt, True)
     approx = cv2.approxPolyDP(cnt, max(1.5, 0.008 * peri), True)
     if len(approx) < 3:
-        x, y, w, h = cv2.boundingRect(cnt)
+        x, y, bw, bh = cv2.boundingRect(cnt)
         return [
-            [100 * x / alpha.shape[1], 100 * y / alpha.shape[0]],
-            [100 * (x + w) / alpha.shape[1], 100 * y / alpha.shape[0]],
-            [100 * (x + w) / alpha.shape[1], 100 * (y + h) / alpha.shape[0]],
-            [100 * x / alpha.shape[1], 100 * (y + h) / alpha.shape[0]],
+            [100 * x / w, 100 * y / h],
+            [100 * (x + bw) / w, 100 * y / h],
+            [100 * (x + bw) / w, 100 * (y + bh) / h],
+            [100 * x / w, 100 * (y + bh) / h],
         ]
+    return [
+        [float(np.clip(100.0 * x / w, 0, 100)), float(np.clip(100.0 * y / h, 0, 100))]
+        for x, y in approx.reshape(-1, 2)
+    ]
+
+
+def _pip(x, y, poly):
+    inside = False
+    n = len(poly)
+    for i in range(n):
+        x1, y1 = poly[i]
+        x2, y2 = poly[(i + 1) % n]
+        if ((y1 > y) != (y2 > y)) and (x < (x2 - x1) * (y - y1) / (y2 - y1 + 1e-15) + x1):
+            inside = not inside
+    return inside
+
+
+def clip_polygon(alpha):
+    """Tight outline, pulled just far enough to contain the opaque centroid (crotch gap)."""
+    mask = np.uint8(alpha > 40)
+    contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     h, w = alpha.shape
-    pts = []
-    for x, y in approx.reshape(-1, 2):
-        pts.append(
-            [
-                float(np.clip(100.0 * x / w, 0, 100)),
-                float(np.clip(100.0 * y / h, 0, 100)),
-            ]
-        )
-    return pts
+    if not contours:
+        return [[0, 0], [100, 0], [100, 100], [0, 100]]
+    cnt = max(contours, key=cv2.contourArea)
+    poly = _poly_from_cnt(cnt, w, h)
+    ys, xs = np.where(alpha > 80)
+    if len(xs) == 0:
+        return poly
+    cx, cy = float(xs.mean() / w * 100), float(ys.mean() / h * 100)
+    # A vertex exactly on the centroid is treated as outside by CSS clip-path.
+    # Always pull a small diamond around the centroid into the polygon.
+    diamond = np.array(
+        [
+            [cx, cy - 4],
+            [cx + 4, cy],
+            [cx, cy + 4],
+            [cx - 4, cy],
+        ],
+        dtype=np.float32,
+    )
+    diamond[:, 0] = np.clip(diamond[:, 0] / 100.0 * w, 0, w - 1)
+    diamond[:, 1] = np.clip(diamond[:, 1] / 100.0 * h, 0, h - 1)
+    if _pip(cx, cy, poly) and all(
+        _pip(float(px / w * 100), float(py / h * 100), poly) for px, py in diamond
+    ):
+        return poly
+    # Fatten only the existing tight outline around the centroid, not the whole silhouette.
+    verts = np.array([[x / 100.0 * w, y / 100.0 * h] for x, y in poly], dtype=np.float32)
+    hull = cv2.convexHull(np.vstack([verts, diamond]))
+    return _poly_from_cnt(hull, w, h)
 
 
 def composite(plate, placed):
@@ -514,9 +554,21 @@ def letters(n):
     return list(string.ascii_lowercase[:n])
 
 
+def layout_height(recs):
+    """Height used to space rails. Ignore a single extreme outlier (e.g. overalls)."""
+    hs = sorted(r["h"] for r in recs)
+    if not hs:
+        return 1
+    p95 = hs[min(len(hs) - 1, int(round(0.95 * (len(hs) - 1))))]
+    mx = hs[-1]
+    if mx > p95 * 1.2 and len(hs) >= 8:
+        return max(1, p95)
+    return max(1, mx)
+
+
 def choose_scale(recs, counts, plates_meta, target=DEFAULT_SCALE):
     """Fit a consistent scale: prefer ~0.62, shrink if a row would collide."""
-    max_h = max(r["h"] for r in recs)
+    max_h = layout_height(recs)
     # horizontal: busiest row (max items on one rail) vs usable width
     max_row = max(max(rod_counts(c)) for c in counts)
     max_w_sum = 0
@@ -526,14 +578,24 @@ def choose_scale(recs, counts, plates_meta, target=DEFAULT_SCALE):
         max_w_sum = max(max_w_sum, sum(widths[i : i + max_row]))
     usable = min(m["rails"][0]["x1"] - m["rails"][0]["x0"] for m in plates_meta) if plates_meta else 1000
     s_h = (usable - MIN_GAP * (max_row + 1)) / max(1, max_w_sum)
-    # vertical: tallest item under last rail
+    # vertical: between rails and under the last rail
     s_v = 1.0
     for m in plates_meta:
         rails = m["rails"]
         obstacle = m["meta"]["obstacle"]
+        spacing = rails[1]["wood_top"] - rails[0]["wood_top"]
+        if spacing > 24:
+            s_v = min(s_v, (spacing - 16) / max_h)
         room = obstacle - 8 - rails[2]["rail_bottom"]
         if room > 40:
             s_v = min(s_v, room / max_h)
+        # also: could we have spaced rails farther? bound by full wall
+        first = m["meta"].get("first_wood", rails[0]["wood_top"])
+        wood_h = m["meta"].get("wood_h", rails[0].get("wood_h", 16))
+        wall = obstacle - 8 - first - wood_h
+        # 2 gaps + last hang = 3 * (scale*h + slack)
+        if wall > 80:
+            s_v = min(s_v, (wall - 48) / (3 * max_h))
     s = min(target, s_h, s_v)
     return max(0.42, float(round(s, 2)))
 
@@ -564,7 +626,7 @@ def apply_category(category, scale=None, preview_dir=None, write=False, plate_id
 
     # preview max item height at target scale to place rails
     target = scale or DEFAULT_SCALE
-    max_h_guess = max(r["h"] for r in recs) * target
+    max_h_guess = layout_height(recs) * target
 
     plates_meta = []
     built = []
@@ -580,7 +642,7 @@ def apply_category(category, scale=None, preview_dir=None, write=False, plate_id
     if scale is None:
         scale = choose_scale(recs, counts, plates_meta, target=DEFAULT_SCALE)
         # if auto scale changed a lot, rebuild rails with the real max height
-        max_h_real = max(r["h"] for r in recs) * scale
+        max_h_real = layout_height(recs) * scale
         if abs(max_h_real - max_h_guess) > 20:
             built, plates_meta = [], []
             for zid in plate_ids:
@@ -602,6 +664,26 @@ def apply_category(category, scale=None, preview_dir=None, write=False, plate_id
         for n in rc:
             rows.append(chunk[cursor : cursor + n])
             cursor += n
+        # Keep items taller than the inter-rail gap on the bottom rail.
+        if len(rows) == 3 and len(rails) >= 2:
+            spacing = rails[1]["wood_top"] - rails[0]["wood_top"]
+            limit = spacing - 12
+            for ri in (0, 1):
+                kept, moved = [], []
+                for it in rows[ri]:
+                    if it["h"] * scale > limit:
+                        moved.append(it)
+                    else:
+                        kept.append(it)
+                if not moved:
+                    continue
+                # swap with the shortest items already on the bottom rail
+                bottom = list(rows[2])
+                bottom.sort(key=lambda it: it["h"])
+                take = bottom[: len(moved)]
+                bottom = bottom[len(moved) :] + moved
+                rows[ri] = kept + take
+                rows[2] = bottom
         packed, gaps = [], []
         for row, rail in zip(rows, rails):
             if not row:

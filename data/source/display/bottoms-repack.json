@@ -1,0 +1,186 @@
+{
+  "category": "bottoms",
+  "items": 59,
+  "scale": 0.54,
+  "zones_before": [
+    "bottoms-a",
+    "bottoms-b",
+    "bottoms-c",
+    "bottoms-d"
+  ],
+  "zones_after": [
+    "bottoms-a",
+    "bottoms-b",
+    "bottoms-c",
+    "bottoms-d"
+  ],
+  "counts": [
+    15,
+    15,
+    15,
+    14
+  ],
+  "per_zone_rods": {
+    "bottoms-a": [
+      5,
+      5,
+      5
+    ],
+    "bottoms-b": [
+      5,
+      5,
+      5
+    ],
+    "bottoms-c": [
+      5,
+      5,
+      5
+    ],
+    "bottoms-d": [
+      5,
+      5,
+      4
+    ]
+  },
+  "gaps": {
+    "bottoms-a": [
+      55.29666666666666,
+      47.28666666666667,
+      50.886666666666656
+    ],
+    "bottoms-b": [
+      73.83,
+      100.02,
+      90.75
+    ],
+    "bottoms-c": [
+      57.54666666666666,
+      58.71666666666666,
+      53.22666666666667
+    ],
+    "bottoms-d": [
+      60.06666666666666,
+      63.30666666666665,
+      80.28799999999998
+    ]
+  },
+  "src_plates": {
+    "bottoms-a": "bottoms-a",
+    "bottoms-b": "bottoms-b",
+    "bottoms-c": "bottoms-d",
+    "bottoms-d": "bottoms-a"
+  },
+  "rails": {
+    "bottoms-a": [
+      {
+        "wood_top": 40,
+        "hook_y": 47
+      },
+      {
+        "wood_top": 324,
+        "hook_y": 331
+      },
+      {
+        "wood_top": 608,
+        "hook_y": 615
+      }
+    ],
+    "bottoms-b": [
+      {
+        "wood_top": 30,
+        "hook_y": 36
+      },
+      {
+        "wood_top": 301,
+        "hook_y": 307
+      },
+      {
+        "wood_top": 572,
+        "hook_y": 578
+      }
+    ],
+    "bottoms-c": [
+      {
+        "wood_top": 40,
+        "hook_y": 47
+      },
+      {
+        "wood_top": 324,
+        "hook_y": 331
+      },
+      {
+        "wood_top": 608,
+        "hook_y": 615
+      }
+    ],
+    "bottoms-d": [
+      {
+        "wood_top": 40,
+        "hook_y": 47
+      },
+      {
+        "wood_top": 324,
+        "hook_y": 331
+      },
+      {
+        "wood_top": 608,
+        "hook_y": 615
+      }
+    ]
+  },
+  "redirects_added": {
+    "bottoms/e": "#/bottoms/c",
+    "bottoms/bottoms-e": "#/bottoms/c",
+    "bottoms/f": "#/bottoms/d",
+    "bottoms/bottoms-f": "#/bottoms/d",
+    "bottoms/g": "#/bottoms/d",
+    "bottoms/bottoms-g": "#/bottoms/d"
+  },
+  "old_zone_mapping": {
+    "bottoms-a": {
+      "majority": "bottoms-a",
+      "dest_counts": {
+        "bottoms-a": 15
+      },
+      "split": false
+    },
+    "bottoms-b": {
+      "majority": "bottoms-b",
+      "dest_counts": {
+        "bottoms-b": 15
+      },
+      "split": false
+    },
+    "bottoms-c": {
+      "majority": "bottoms-c",
+      "dest_counts": {
+        "bottoms-c": 15
+      },
+      "split": false
+    },
+    "bottoms-d": {
+      "majority": "bottoms-d",
+      "dest_counts": {
+        "bottoms-d": 14
+      },
+      "split": false
+    }
+  },
+  "handle_special": [
+    "batch2-164",
+    "batch2-165",
+    "batch2-166",
+    "batch2-167",
+    "batch2-169",
+    "batch2-205",
+    "batch2-206",
+    "batch2-207",
+    "today-312",
+    "today-313",
+    "today-314",
+    "today-318",
+    "today-329",
+    "today-331",
+    "today-336"
+  ]
+}
