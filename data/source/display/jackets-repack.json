@@ -1,0 +1,249 @@
+{
+  "category": "jackets",
+  "items": 84,
+  "scale": 0.62,
+  "zones_before": [
+    "jackets-a",
+    "jackets-b",
+    "jackets-c",
+    "jackets-d",
+    "jackets-e",
+    "jackets-f",
+    "jackets-g"
+  ],
+  "zones_after": [
+    "jackets-a",
+    "jackets-b",
+    "jackets-c",
+    "jackets-d",
+    "jackets-e",
+    "jackets-f"
+  ],
+  "counts": [
+    14,
+    14,
+    14,
+    14,
+    14,
+    14
+  ],
+  "per_zone_rods": {
+    "jackets-a": [
+      5,
+      5,
+      4
+    ],
+    "jackets-b": [
+      5,
+      5,
+      4
+    ],
+    "jackets-c": [
+      5,
+      5,
+      4
+    ],
+    "jackets-d": [
+      5,
+      5,
+      4
+    ],
+    "jackets-e": [
+      5,
+      5,
+      4
+    ],
+    "jackets-f": [
+      5,
+      5,
+      4
+    ]
+  },
+  "gaps": {
+    "jackets-a": [
+      131.67333333333332,
+      128.78,
+      151.56
+    ],
+    "jackets-b": [
+      94.68,
+      93.64666666666666,
+      139.656
+    ],
+    "jackets-c": [
+      97.05666666666667,
+      84.45,
+      114.35999999999999
+    ],
+    "jackets-d": [
+      35.970000000000006,
+      39.48333333333335,
+      69.94800000000001
+    ],
+    "jackets-e": [
+      70.50666666666666,
+      82.90666666666668,
+      123.172
+    ],
+    "jackets-f": [
+      79.07666666666667,
+      77.21666666666668,
+      116.096
+    ]
+  },
+  "src_plates": {
+    "jackets-a": "sweaters-c",
+    "jackets-b": "hoodies-a",
+    "jackets-c": "accessories-a",
+    "jackets-d": "bottoms-a",
+    "jackets-e": "sweaters-b",
+    "jackets-f": "bags-d"
+  },
+  "rails": {
+    "jackets-a": [
+      {
+        "wood_top": 48,
+        "hook_y": 55
+      },
+      {
+        "wood_top": 354,
+        "hook_y": 361
+      },
+      {
+        "wood_top": 660,
+        "hook_y": 667
+      }
+    ],
+    "jackets-b": [
+      {
+        "wood_top": 48,
+        "hook_y": 54
+      },
+      {
+        "wood_top": 314,
+        "hook_y": 320
+      },
+      {
+        "wood_top": 580,
+        "hook_y": 586
+      }
+    ],
+    "jackets-c": [
+      {
+        "wood_top": 48,
+        "hook_y": 56
+      },
+      {
+        "wood_top": 354,
+        "hook_y": 362
+      },
+      {
+        "wood_top": 660,
+        "hook_y": 668
+      }
+    ],
+    "jackets-d": [
+      {
+        "wood_top": 40,
+        "hook_y": 47
+      },
+      {
+        "wood_top": 343,
+        "hook_y": 350
+      },
+      {
+        "wood_top": 646,
+        "hook_y": 653
+      }
+    ],
+    "jackets-e": [
+      {
+        "wood_top": 48,
+        "hook_y": 54
+      },
+      {
+        "wood_top": 295,
+        "hook_y": 301
+      },
+      {
+        "wood_top": 542,
+        "hook_y": 548
+      }
+    ],
+    "jackets-f": [
+      {
+        "wood_top": 39,
+        "hook_y": 49
+      },
+      {
+        "wood_top": 355,
+        "hook_y": 365
+      },
+      {
+        "wood_top": 671,
+        "hook_y": 681
+      }
+    ]
+  },
+  "redirects_added": {
+    "jackets/g": "#/jackets/f",
+    "jackets/jackets-g": "#/jackets/f"
+  },
+  "old_zone_mapping": {
+    "jackets-a": {
+      "majority": "jackets-a",
+      "dest_counts": {
+        "jackets-a": 12
+      },
+      "split": false
+    },
+    "jackets-b": {
+      "majority": "jackets-b",
+      "dest_counts": {
+        "jackets-a": 2,
+        "jackets-b": 10
+      },
+      "split": true
+    },
+    "jackets-c": {
+      "majority": "jackets-c",
+      "dest_counts": {
+        "jackets-b": 4,
+        "jackets-c": 8
+      },
+      "split": true
+    },
+    "jackets-d": {
+      "majority": "jackets-c",
+      "dest_counts": {
+        "jackets-c": 6,
+        "jackets-d": 6
+      },
+      "split": true
+    },
+    "jackets-e": {
+      "majority": "jackets-d",
+      "dest_counts": {
+        "jackets-d": 8,
+        "jackets-e": 4
+      },
+      "split": true
+    },
+    "jackets-f": {
+      "majority": "jackets-e",
+      "dest_counts": {
+        "jackets-e": 10,
+        "jackets-f": 2
+      },
+      "split": true
+    },
+    "jackets-g": {
+      "majority": "jackets-f",
+      "dest_counts": {
+        "jackets-f": 12
+      },
+      "split": false
+    }
+  },
+  "handle_special": []
+}
