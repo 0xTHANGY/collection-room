@@ -3,7 +3,6 @@ const $ = (id) => document.getElementById(id);
 const dialog = $('item-dialog');
 let opener = null;
 let imageRequest = 0;
-const roomImage = $('room-image');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const HANG = { spring: 8, damping: 1.1, max: 10, push: 0.2 };
 const SKEW = { spring: 40, damping: 7, lag: 0.22, max: 2 };
@@ -18,14 +17,6 @@ let ghost = null;         // visual stand-in that flies; the real dialog never m
 let veil = null;          // stand-in for the dialog backdrop while a closed card flies home
 let originSnapshot = null;
 let currentItem = null;
-function roomReady() {
-  $('room').setAttribute('aria-busy', 'false');
-  $('room-status').hidden = roomImage.naturalWidth > 0;
-  if (!roomImage.naturalWidth) $('room-status').textContent = '房间图片暂时无法显示，请使用下方收藏清单。';
-}
-roomImage.addEventListener('load', roomReady);
-roomImage.addEventListener('error', roomReady);
-if (roomImage.complete) roomReady();
 function invertTransform(from, to) {
   const sx = to.width ? from.width / to.width : 1;
   const sy = to.height ? from.height / to.height : 1;
@@ -176,8 +167,10 @@ function openItem(item, trigger) {
   currentItem = item;
   originSnapshot = originRectFor(trigger, item);
   dialog.dataset.itemId = item.id;
-  $('detail-brand').textContent = item.brand || '';
-  $('detail-brand').hidden = !item.brand;
+  const brandText = (!item.brand || item.brand === 'Unknown') ? '品牌待补充' : item.brand;
+  $('detail-brand').textContent = brandText;
+  $('detail-brand').hidden = false;
+  $('detail-brand').lang = (!item.brand || item.brand === 'Unknown') ? 'zh-CN' : 'en';
   $('detail-id').textContent = `${item.id} / ${item.number}`;
   const detailName = item.display_name || item.id;
   $('detail-name').textContent = detailName;
@@ -313,15 +306,7 @@ function settleClose(restoreFocus = true) {
 }
 // A 'close' event that arrives after the card was already settled and a new card opened is stale.
 dialog.addEventListener('close', () => { if (!dialog.open) settleClose(true); });
-$('reveal').addEventListener('click', () => {
-  const active = $('room').classList.toggle('reveal');
-  $('reveal').setAttribute('aria-pressed', String(active));
-  $('reveal').textContent = active ? '隐藏收藏位置' : '显示收藏位置';
-});
-$('collection').addEventListener('toggle', () => {
-  document.querySelector('.summary-action').textContent = $('collection').open ? '收起' : '展开';
-});
-const ASSET_V = '20261123d';
+const ASSET_V = '20261123e';
 function withV(url) {
   if (typeof url !== 'string' || !url) return url;
   if (/[?&]v=/.test(url)) return url;
@@ -450,7 +435,7 @@ function attachHang(layer) {
   };
   return { layer, state, impulse, setPressed };
 }
-function setupMotion(entries, surface = $('room')) {
+function setupMotion(entries, surface) {
   const hang = [];
   const rest = [];
   for (const entry of entries) {
@@ -506,50 +491,6 @@ function setupMotion(entries, surface = $('room')) {
     }
   }, { passive: true });
   surface.addEventListener('pointerleave', () => { last = null; });
-}
-async function init() {
-  try {
-    const response = await fetch(withV('data/items.json'));
-    if (!response.ok) throw new Error('Could not load collection');
-    const items = await response.json();
-    let loaded = 0;
-    const motionEntries = [];
-    for (const item of items) {
-      try {
-        validateItem(item);
-        const name = item.display_name || item.id;
-        const layer = item.layer ? createLayer(item) : null;
-        const hotspot = document.createElement('button');
-        hotspot.type = 'button';
-        hotspot.className = 'hotspot';
-        hotspot.setAttribute('aria-label', name);
-        hotspot.dataset.itemId = item.id;
-        hotspot.setAttribute('aria-haspopup', 'dialog');
-        hotspot.title = name;
-        for (const key of ['left', 'top', 'width', 'height']) hotspot.style[key] = `${item.hotspot[key]}%`;
-        // Optional outline (percent points of the hotspot box) so only the item's own visible pixels are clickable.
-        if (item.hotspot.clip) Object.assign(hotspot.style, { borderRadius: '0', clipPath: `polygon(${item.hotspot.clip.map(([x, y]) => `${x}% ${y}%`).join(', ')})` });
-        hotspot.addEventListener('click', () => openItem(item, hotspot));
-        const li = document.createElement('li');
-        const button = document.createElement('button');
-        button.type = 'button';
-        fillListButton(button, item);
-        button.addEventListener('click', () => openItem(item, button));
-        li.append(button);
-        $('hotspots').append(hotspot);
-        $('item-list').append(li);
-        if (layer) motionEntries.push({ item, layer, hotspot });
-        loaded++;
-      } catch (error) {
-        console.error(`Skipping collection item ${item?.id ?? '(unknown)'}`, error);
-      }
-    }
-    $('item-count').textContent = `${String(loaded).padStart(2, '0')} OBJECTS / COLLECTION INDEX`;
-    setupMotion(motionEntries);
-  } catch (error) {
-    $('data-status').textContent = '收藏清单加载失败，请刷新重试。请通过本地静态服务器打开此页面。';
-    console.error(error);
-  }
 }
 let routing = false;
 let catalog = null;
@@ -615,7 +556,133 @@ function pickHotspotAt(clientX, clientY, hotspotEls, minSize = 44) {
   }
   return best;
 }
+const MOBILE_ROOM = window.matchMedia('(max-width: 650px)');
+const ZOOM_MIN = 1;
+const ZOOM_MAX = 3;
+function attachRoomPanZoom(room) {
+  const stage = room.querySelector('.room-stage') || room;
+  const state = { scale: 1, x: 0, y: 0 };
+  const pointers = new Map();
+  let pinch0 = null;
+  let pan0 = null;
+  let moved = 0;
+  let gesturing = false;
+  const enabled = () => MOBILE_ROOM.matches;
+  const clamp = () => {
+    const vw = room.clientWidth;
+    const vh = room.clientHeight;
+    const sw = stage.offsetWidth * state.scale;
+    const sh = stage.offsetHeight * state.scale;
+    if (sw <= vw) state.x = (vw - sw) / 2;
+    else state.x = Math.min(0, Math.max(vw - sw, state.x));
+    if (sh <= vh) state.y = (vh - sh) / 2;
+    else state.y = Math.min(0, Math.max(vh - sh, state.y));
+  };
+  const paint = () => {
+    clamp();
+    stage.style.transformOrigin = '0 0';
+    stage.style.transform = `translate(${state.x}px, ${state.y}px) scale(${state.scale})`;
+    room.classList.toggle('is-zoomed', state.scale > 1.001);
+  };
+  const reset = () => { state.scale = 1; state.x = 0; state.y = 0; paint(); };
+  const zoomAt = (newScale, cx, cy) => {
+    const prev = state.scale;
+    const next = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, newScale));
+    if (next <= ZOOM_MIN) { reset(); return; }
+    const contentX = (cx - state.x) / prev;
+    const contentY = (cy - state.y) / prev;
+    state.scale = next;
+    state.x = cx - contentX * next;
+    state.y = cy - contentY * next;
+    paint();
+  };
+  const set = (scale, x, y) => {
+    state.scale = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, scale));
+    state.x = x;
+    state.y = y;
+    paint();
+  };
+  room.addEventListener('pointerdown', (event) => {
+    if (!enabled()) return;
+    try { room.setPointerCapture(event.pointerId); } catch (e) { /* not capturable */ }
+    pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    moved = 0;
+    if (pointers.size === 2) {
+      const [a, b] = [...pointers.values()];
+      pinch0 = { dist: Math.hypot(a.x - b.x, a.y - b.y) || 1, scale: state.scale, x: state.x, y: state.y };
+      pan0 = null;
+      gesturing = true;
+    } else if (pointers.size === 1) {
+      pan0 = { x: event.clientX, y: event.clientY, sx: state.x, sy: state.y };
+      pinch0 = null;
+    }
+  });
+  room.addEventListener('pointermove', (event) => {
+    if (!enabled() || !pointers.has(event.pointerId)) return;
+    const prev = pointers.get(event.pointerId);
+    pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    moved += Math.hypot(event.clientX - prev.x, event.clientY - prev.y);
+    if (pointers.size === 2 && pinch0) {
+      event.preventDefault();
+      const [a, b] = [...pointers.values()];
+      const dist = Math.hypot(a.x - b.x, a.y - b.y) || 1;
+      const mid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+      const rr = room.getBoundingClientRect();
+      zoomAt(pinch0.scale * (dist / pinch0.dist), mid.x - rr.left, mid.y - rr.top);
+      gesturing = true;
+    } else if (pointers.size === 1 && pan0 && state.scale > 1.001) {
+      event.preventDefault();
+      state.x = pan0.sx + (event.clientX - pan0.x);
+      state.y = pan0.sy + (event.clientY - pan0.y);
+      paint();
+      if (moved > 8) gesturing = true;
+    }
+  }, { passive: false });
+  const endPointer = (event) => {
+    if (!pointers.has(event.pointerId)) return;
+    pointers.delete(event.pointerId);
+    if (pointers.size < 2) pinch0 = null;
+    if (pointers.size === 1) {
+      const only = [...pointers.values()][0];
+      pan0 = { x: only.x, y: only.y, sx: state.x, sy: state.y };
+    } else pan0 = null;
+    if (pointers.size === 0) {
+      if (gesturing || moved > 8) room._panZoom.suppressClick = true;
+      gesturing = false;
+      moved = 0;
+    }
+  };
+  room.addEventListener('pointerup', endPointer);
+  room.addEventListener('pointercancel', endPointer);
+  room.addEventListener('click', (event) => {
+    if (!room._panZoom.suppressClick) return;
+    event.preventDefault();
+    event.stopPropagation();
+    room._panZoom.suppressClick = false;
+  }, true);
+  room.addEventListener('wheel', (event) => {
+    if (!enabled()) return;
+    if (event.ctrlKey || event.metaKey) {
+      event.preventDefault();
+      const rr = room.getBoundingClientRect();
+      zoomAt(state.scale * Math.exp(-event.deltaY * 0.01), event.clientX - rr.left, event.clientY - rr.top);
+      return;
+    }
+    if (state.scale > 1.001) {
+      event.preventDefault();
+      state.x -= event.deltaX;
+      state.y -= event.deltaY;
+      paint();
+    }
+  }, { passive: false });
+  const onBp = () => { if (!MOBILE_ROOM.matches) reset(); };
+  if (MOBILE_ROOM.addEventListener) MOBILE_ROOM.addEventListener('change', onBp);
+  else MOBILE_ROOM.addListener(onBp);
+  room._panZoom = { get: () => ({ scale: state.scale, x: state.x, y: state.y }), set, reset, zoomAt, suppressClick: false };
+  paint();
+}
 function renderZone(zone) {
+
   activeZone = zone.id;
   const view = $('zone-view'); view.replaceChildren();
   const nav = document.createElement('nav'); nav.className = 'zone-nav'; nav.setAttribute('aria-label', '分室导航');
@@ -639,9 +706,12 @@ function renderZone(zone) {
   let room, layers, hotspots;
   if (painting) {
     room = document.createElement('div'); room.className = 'room zone-room'; room.style.aspectRatio = String(zone.aspect);
-    const image = document.createElement('img'); image.src = withV(painting.src); image.srcset = srcset(zone.images); image.sizes = '(max-width: 700px) 100vw, min(1360px, 92vw)'; image.width = zone.natural_size[0]; image.height = zone.natural_size[1]; image.alt = `${categoryLabel(zone.category)} · ${zone.letter.toUpperCase()}`; room.append(image);
-    layers = document.createElement('div'); layers.className = 'zone-layers'; layers.setAttribute('aria-hidden','true'); room.append(layers);
-    hotspots = document.createElement('div'); hotspots.className = 'zone-hotspots'; room.append(hotspots); view.append(room);
+    const stage = document.createElement('div'); stage.className = 'room-stage';
+    const image = document.createElement('img'); image.src = withV(painting.src); image.srcset = srcset(zone.images); image.sizes = '(max-width: 700px) 100vw, min(1360px, 92vw)'; image.width = zone.natural_size[0]; image.height = zone.natural_size[1]; image.alt = `${categoryLabel(zone.category)} · ${zone.letter.toUpperCase()}`; stage.append(image);
+    layers = document.createElement('div'); layers.className = 'zone-layers'; layers.setAttribute('aria-hidden','true'); stage.append(layers);
+    hotspots = document.createElement('div'); hotspots.className = 'zone-hotspots'; stage.append(hotspots);
+    room.append(stage); view.append(room);
+    attachRoomPanZoom(room);
     room.addEventListener('click', (event) => {
       if (event.target.closest('.hotspot')) return;
       const pick = pickHotspotAt(event.clientX, event.clientY, [...hotspots.querySelectorAll('.hotspot')]);
@@ -713,13 +783,7 @@ async function initCatalog() {
       const label = document.createElement('span'); label.textContent = `${c.label} / ${c.label_en}`; const count = document.createElement('small'); count.textContent = `${c.count} 件`; a.append(label,count); $('room-tiles').append(a);
     }
     route();
-    for (const button of document.querySelectorAll('#item-list .list-item')) {
-      const item = catalog.items.find(i => i.id === button.dataset.itemId);
-      if (!item) continue;
-      const cat = button.querySelector('.item-category');
-      if (cat) { cat.textContent = itemCategoryLabel(item); cat.lang = 'zh-CN'; }
-    }
   } catch (error) { $('data-status').textContent = '分室清单加载失败，请刷新重试。'; console.error(error); }
 }
 window.addEventListener('hashchange', route);
-init(); initCatalog();
+initCatalog();
