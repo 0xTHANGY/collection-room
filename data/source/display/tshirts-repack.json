@@ -1,0 +1,223 @@
+{
+  "category": "tshirts",
+  "items": 63,
+  "scale": 0.62,
+  "zones_before": [
+    "tshirts-a",
+    "tshirts-b",
+    "tshirts-c",
+    "tshirts-d",
+    "tshirts-e",
+    "tshirts-f",
+    "tshirts-g"
+  ],
+  "zones_after": [
+    "tshirts-a",
+    "tshirts-b",
+    "tshirts-c",
+    "tshirts-d",
+    "tshirts-e"
+  ],
+  "counts": [
+    13,
+    13,
+    13,
+    12,
+    12
+  ],
+  "per_zone_rods": {
+    "tshirts-a": [
+      5,
+      4,
+      4
+    ],
+    "tshirts-b": [
+      5,
+      4,
+      4
+    ],
+    "tshirts-c": [
+      5,
+      4,
+      4
+    ],
+    "tshirts-d": [
+      4,
+      4,
+      4
+    ],
+    "tshirts-e": [
+      4,
+      4,
+      4
+    ]
+  },
+  "gaps": {
+    "tshirts-a": [
+      78.04333333333334,
+      112.128,
+      110.516
+    ],
+    "tshirts-b": [
+      65.33333333333333,
+      109.02799999999999,
+      115.476
+    ],
+    "tshirts-c": [
+      68.84666666666668,
+      117.708,
+      119.072
+    ],
+    "tshirts-d": [
+      73.91599999999998,
+      56.431999999999995,
+      54.82000000000001
+    ],
+    "tshirts-e": [
+      92.53599999999999,
+      89.55999999999999,
+      77.16
+    ]
+  },
+  "src_plates": {
+    "tshirts-a": "sweaters-c",
+    "tshirts-b": "hoodies-a",
+    "tshirts-c": "accessories-a",
+    "tshirts-d": "bottoms-a",
+    "tshirts-e": "bags-d"
+  },
+  "rails": {
+    "tshirts-a": [
+      {
+        "wood_top": 48,
+        "hook_y": 55
+      },
+      {
+        "wood_top": 348,
+        "hook_y": 355
+      },
+      {
+        "wood_top": 648,
+        "hook_y": 655
+      }
+    ],
+    "tshirts-b": [
+      {
+        "wood_top": 48,
+        "hook_y": 54
+      },
+      {
+        "wood_top": 308,
+        "hook_y": 314
+      },
+      {
+        "wood_top": 568,
+        "hook_y": 574
+      }
+    ],
+    "tshirts-c": [
+      {
+        "wood_top": 48,
+        "hook_y": 56
+      },
+      {
+        "wood_top": 348,
+        "hook_y": 356
+      },
+      {
+        "wood_top": 648,
+        "hook_y": 656
+      }
+    ],
+    "tshirts-d": [
+      {
+        "wood_top": 40,
+        "hook_y": 47
+      },
+      {
+        "wood_top": 337,
+        "hook_y": 344
+      },
+      {
+        "wood_top": 634,
+        "hook_y": 641
+      }
+    ],
+    "tshirts-e": [
+      {
+        "wood_top": 39,
+        "hook_y": 49
+      },
+      {
+        "wood_top": 349,
+        "hook_y": 359
+      },
+      {
+        "wood_top": 659,
+        "hook_y": 669
+      }
+    ]
+  },
+  "redirects_added": {
+    "tshirts/f": "#/tshirts/e",
+    "tshirts/tshirts-f": "#/tshirts/e",
+    "tshirts/g": "#/tshirts/e",
+    "tshirts/tshirts-g": "#/tshirts/e"
+  },
+  "old_zone_mapping": {
+    "tshirts-a": {
+      "majority": "tshirts-a",
+      "dest_counts": {
+        "tshirts-a": 10
+      },
+      "split": false
+    },
+    "tshirts-b": {
+      "majority": "tshirts-b",
+      "dest_counts": {
+        "tshirts-a": 3,
+        "tshirts-b": 7
+      },
+      "split": true
+    },
+    "tshirts-c": {
+      "majority": "tshirts-b",
+      "dest_counts": {
+        "tshirts-b": 6,
+        "tshirts-c": 4
+      },
+      "split": true
+    },
+    "tshirts-d": {
+      "majority": "tshirts-c",
+      "dest_counts": {
+        "tshirts-c": 9,
+        "tshirts-d": 1
+      },
+      "split": true
+    },
+    "tshirts-e": {
+      "majority": "tshirts-d",
+      "dest_counts": {
+        "tshirts-d": 8
+      },
+      "split": false
+    },
+    "tshirts-f": {
+      "majority": "tshirts-e",
+      "dest_counts": {
+        "tshirts-d": 3,
+        "tshirts-e": 5
+      },
+      "split": true
+    },
+    "tshirts-g": {
+      "majority": "tshirts-e",
+      "dest_counts": {
+        "tshirts-e": 7
+      },
+      "split": false
+    }
+  },
+  "handle_special": []
+}
