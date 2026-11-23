@@ -140,11 +140,11 @@
     "number": "006",
     "layer": {
       "image": "assets/layers/cr-006-layer.webp",
-      "left": 49.375,
+      "left": 48.203,
       "top": 27.917,
-      "width": 13.984,
+      "width": 16.328,
       "height": 37.917,
-      "pivotX": 46.93,
+      "pivotX": 47.37,
       "pivotY": 6.0,
       "motion": "hang"
     }
@@ -190,11 +190,11 @@
     "number": "008",
     "layer": {
       "image": "assets/layers/cr-008-layer.webp",
-      "left": 61.016,
+      "left": 60.391,
       "top": 28.611,
-      "width": 13.672,
+      "width": 14.922,
       "height": 37.917,
-      "pivotX": 48.29,
+      "pivotX": 48.43,
       "pivotY": 6.0,
       "motion": "hang"
     }
@@ -215,11 +215,11 @@
     "number": "009",
     "layer": {
       "image": "assets/layers/cr-009-layer.webp",
-      "left": 72.031,
+      "left": 70.703,
       "top": 29.028,
-      "width": 10.938,
+      "width": 13.594,
       "height": 36.667,
-      "pivotX": 48.57,
+      "pivotX": 48.85,
       "pivotY": 6.0,
       "motion": "hang"
     }
