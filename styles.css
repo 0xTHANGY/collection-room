@@ -293,3 +293,5 @@ footer{font-size:12px}
     outline-offset: -4px;
   }
 }
+/* qa3: phone names stay within two lines; ellipsis only when shrinking to the floor is not enough */
+@media(max-width:650px){.name-clamped{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}}

@@ -215,6 +215,7 @@ function openItem(item, trigger) {
   closeQueued = false;
   const copy = dialog.querySelector('.detail-copy');
   dialog.showModal();
+  fitName($('detail-name'), 14);
   copy.scrollTop = 0;
   document.body.classList.add('modal-open');
   dialog.classList.add('is-open');
@@ -309,7 +310,7 @@ function settleClose(restoreFocus = true) {
 }
 // A 'close' event that arrives after the card was already settled and a new card opened is stale.
 dialog.addEventListener('close', () => { if (!dialog.open) settleClose(true); });
-const ASSET_V = '20261123j';
+const ASSET_V = '20261123k';
 function withV(url) {
   if (typeof url !== 'string' || !url) return url;
   if (/[?&]v=/.test(url)) return url;
@@ -511,6 +512,27 @@ function itemCategoryLabel(item) {
   }
   return item.category || '';
 }
+const mobileNames = window.matchMedia('(max-width: 650px)');
+// Phones: names use at most two lines. Shrink the font one pixel at a time (not below minPx);
+// only if that is still not enough, clamp to two lines with an ellipsis. The full name stays in
+// the DOM (and in a title) so nothing is rewritten.
+function fitName(el, minPx, maxLines = 2) {
+  if (!el) return;
+  el.style.fontSize = ''; el.classList.remove('name-clamped'); el.removeAttribute('title');
+  if (!mobileNames.matches || !el.textContent) return;
+  const lines = () => { const cs = getComputedStyle(el); const lh = parseFloat(cs.lineHeight) || parseFloat(cs.fontSize) * 1.25; return Math.round(el.offsetHeight / lh); };
+  let fs = parseFloat(getComputedStyle(el).fontSize);
+  while (lines() > maxLines && fs > minPx) { fs = Math.max(minPx, fs - 1); el.style.fontSize = `${fs}px`; }
+  if (lines() > maxLines) { el.classList.add('name-clamped'); el.title = el.textContent; }
+}
+function fitListNames(root) { for (const el of root.querySelectorAll('.list-item .item-name')) fitName(el, 12); }
+let fitTimer = 0;
+function refitNames() {
+  clearTimeout(fitTimer);
+  fitTimer = setTimeout(() => { const v = $('zone-view'); if (v && !v.hidden) fitListNames(v); if (dialog.open) fitName($('detail-name'), 14); }, 120);
+}
+window.addEventListener('resize', refitNames);
+mobileNames.addEventListener?.('change', refitNames);
 function fillListButton(button, item) {
   button.replaceChildren();
   button.type = 'button';
@@ -619,6 +641,7 @@ function renderZone(zone) {
     if (layer && hotspot) entries.push({item,layer,hotspot});
   }
   if (room) setupMotion(entries, room);
+  requestAnimationFrame(() => fitListNames(view));
   const currentLetter = tabs.querySelector('.zone-tab-letters [aria-current]');
   if (currentLetter) requestAnimationFrame(() => {
     letters.scrollLeft = currentLetter.offsetLeft - (letters.clientWidth - currentLetter.offsetWidth) / 2;
