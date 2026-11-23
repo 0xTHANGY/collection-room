@@ -309,7 +309,7 @@ function settleClose(restoreFocus = true) {
 }
 // A 'close' event that arrives after the card was already settled and a new card opened is stale.
 dialog.addEventListener('close', () => { if (!dialog.open) settleClose(true); });
-const ASSET_V = '20261123g';
+const ASSET_V = '20261123i';
 function withV(url) {
   if (typeof url !== 'string' || !url) return url;
   if (/[?&]v=/.test(url)) return url;
