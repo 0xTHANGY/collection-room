@@ -201,7 +201,7 @@ function openItem(item, trigger) {
       if (request !== imageRequest) return;
       photo.sizes = loader.sizes;
       photo.srcset = loader.srcset;
-      photo.src = source;
+      photo.src = withV(source);
       photo.hidden = false;
       status.hidden = true;
       syncGhostPhoto();
@@ -212,8 +212,8 @@ function openItem(item, trigger) {
       syncGhostPhoto();
     };
     loader.sizes = '(max-width: 650px) 90vw, 430px';
-    loader.srcset = cards?.length ? srcset(cards) : `${source} 800w`;
-    loader.src = source;
+    loader.srcset = cards?.length ? srcset(cards) : `${withV(source)} 800w`;
+    loader.src = withV(source);
   } else {
     syncGhostPhoto();
   }
@@ -321,6 +321,12 @@ $('reveal').addEventListener('click', () => {
 $('collection').addEventListener('toggle', () => {
   document.querySelector('.summary-action').textContent = $('collection').open ? '收起' : '展开';
 });
+const ASSET_V = '20261123c';
+function withV(url) {
+  if (typeof url !== 'string' || !url) return url;
+  if (/[?&]v=/.test(url)) return url;
+  return url + (url.includes('?') ? '&' : '?') + 'v=' + ASSET_V;
+}
 function isSafePath(value) {
   return typeof value === 'string' && value && !/^(?:[/\\]|[a-z][a-z\d+.-]*:)/i.test(value) && !value.includes(':') && !value.includes('\\') && !value.split('/').includes('..');
 }
@@ -352,7 +358,7 @@ function createLayer(item, container = $('layers')) {
   for (const key of ['left', 'top', 'width', 'height']) wrap.style[key] = `${item.layer[key]}%`;
   const layer = document.createElement('img');
   layer.className = 'layer';
-  layer.src = item.layer.image;
+  layer.src = withV(item.layer.image);
   layer.alt = '';
   layer.draggable = false;
   layer.style.transformOrigin = `${item.layer.pivotX}% ${item.layer.pivotY}%`;
@@ -360,7 +366,7 @@ function createLayer(item, container = $('layers')) {
   wrap.append(layer);
   container.append(wrap);
   if (item.layer.fallback) wrap.classList.add('layer-fallback');
-  layer.srcset = `${item.layer.image} 1x`;
+  layer.srcset = `${withV(item.layer.image)} 1x`;
   layer.sizes = '(max-width: 700px) 100vw, 92vw';
   layer._wrap = wrap;
   layersById.set(item.id, layer);
@@ -503,7 +509,7 @@ function setupMotion(entries, surface = $('room')) {
 }
 async function init() {
   try {
-    const response = await fetch('data/items.json');
+    const response = await fetch(withV('data/items.json'));
     if (!response.ok) throw new Error('Could not load collection');
     const items = await response.json();
     let loaded = 0;
@@ -548,7 +554,7 @@ async function init() {
 let routing = false;
 let catalog = null;
 let activeZone = null;
-const srcset = (images) => [...new Map(images.map(i => [i.width, i])).values()].map(i => `${i.src} ${i.width}w`).join(', ');
+const srcset = (images) => [...new Map(images.map(i => [i.width, i])).values()].map(i => `${withV(i.src)} ${i.width}w`).join(', ');
 const categoryLabel = (id) => catalog?.categories.find(c => c.id === id)?.label || id;
 function hasCJK(text) {
   return typeof text === 'string' && /[\u3400-\u9FFF\u3040-\u30FF\uAC00-\uD7AF]/.test(text);
@@ -633,7 +639,7 @@ function renderZone(zone) {
   let room, layers, hotspots;
   if (painting) {
     room = document.createElement('div'); room.className = 'room zone-room'; room.style.aspectRatio = String(zone.aspect);
-    const image = document.createElement('img'); image.src = painting.src; image.srcset = srcset(zone.images); image.sizes = '(max-width: 700px) 100vw, min(1360px, 92vw)'; image.width = zone.natural_size[0]; image.height = zone.natural_size[1]; image.alt = `${categoryLabel(zone.category)} · ${zone.letter.toUpperCase()}`; room.append(image);
+    const image = document.createElement('img'); image.src = withV(painting.src); image.srcset = srcset(zone.images); image.sizes = '(max-width: 700px) 100vw, min(1360px, 92vw)'; image.width = zone.natural_size[0]; image.height = zone.natural_size[1]; image.alt = `${categoryLabel(zone.category)} · ${zone.letter.toUpperCase()}`; room.append(image);
     layers = document.createElement('div'); layers.className = 'zone-layers'; layers.setAttribute('aria-hidden','true'); room.append(layers);
     hotspots = document.createElement('div'); hotspots.className = 'zone-hotspots'; room.append(hotspots); view.append(room);
     room.addEventListener('click', (event) => {
@@ -694,12 +700,12 @@ function route(event) {
 }
 async function initCatalog() {
   try {
-    const response = await fetch('data/catalog.json'); if (!response.ok) throw new Error('Catalog unavailable'); catalog = await response.json();
+    const response = await fetch(withV('data/catalog.json')); if (!response.ok) throw new Error('Catalog unavailable'); catalog = await response.json();
     for (const c of catalog.categories) {
       const z = catalog.zones.find(z => z.id === c.cover_zone); const a = document.createElement('a'); a.className = 'room-tile'; a.href = `#/${c.id}`;
       const cover = z?.cover || z?.images?.at(-1);
       if (cover) {
-        const img = document.createElement('img'); img.loading = 'lazy'; img.src = cover.src; img.srcset = `${cover.src} ${cover.width}w`; img.sizes = '(max-width: 650px) 45vw, 300px'; img.width = cover.width; img.height = cover.height; img.alt = '';
+        const img = document.createElement('img'); img.loading = 'lazy'; img.src = withV(cover.src); img.srcset = `${withV(cover.src)} ${cover.width}w`; img.sizes = '(max-width: 650px) 45vw, 300px'; img.width = cover.width; img.height = cover.height; img.alt = '';
         a.append(img);
       } else {
         a.classList.add('room-tile-text');
