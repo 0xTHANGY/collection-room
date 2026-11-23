@@ -1,0 +1,326 @@
+{
+  "category": "hats",
+  "items": 98,
+  "scale": 0.59,
+  "zones_before": [
+    "hats-a",
+    "hats-b",
+    "hats-c",
+    "hats-d",
+    "hats-e",
+    "hats-f",
+    "hats-g",
+    "hats-h",
+    "hats-i",
+    "hats-j",
+    "hats-k",
+    "hats-l"
+  ],
+  "zones_after": [
+    "hats-a",
+    "hats-b",
+    "hats-c",
+    "hats-d",
+    "hats-e",
+    "hats-f",
+    "hats-g"
+  ],
+  "counts": [
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14
+  ],
+  "per_zone_rods": {
+    "hats-a": [
+      5,
+      5,
+      4
+    ],
+    "hats-b": [
+      5,
+      5,
+      4
+    ],
+    "hats-c": [
+      5,
+      5,
+      4
+    ],
+    "hats-d": [
+      5,
+      5,
+      4
+    ],
+    "hats-e": [
+      5,
+      5,
+      4
+    ],
+    "hats-f": [
+      5,
+      5,
+      4
+    ],
+    "hats-g": [
+      5,
+      5,
+      4
+    ]
+  },
+  "gaps": {
+    "hats-a": [
+      67.08999999999999,
+      72.40000000000002,
+      111.07000000000001
+    ],
+    "hats-b": [
+      43.93000000000001,
+      49.92833333333334,
+      87.526
+    ],
+    "hats-c": [
+      77.52833333333335,
+      87.06666666666668,
+      125.95599999999999
+    ],
+    "hats-d": [
+      41.213333333333345,
+      35.116666666666674,
+      74.0
+    ],
+    "hats-e": [
+      47.583333333333336,
+      58.695000000000014,
+      102.176
+    ],
+    "hats-f": [
+      63.591666666666676,
+      49.038333333333334,
+      117.728
+    ],
+    "hats-g": [
+      83.25333333333333,
+      72.14166666666667,
+      97.662
+    ]
+  },
+  "src_plates": {
+    "hats-a": "hats-a",
+    "hats-b": "hats-b",
+    "hats-c": "hats-c",
+    "hats-d": "hats-d",
+    "hats-e": "hats-e",
+    "hats-f": "hats-f",
+    "hats-g": "hats-g"
+  },
+  "rails": {
+    "hats-a": [
+      {
+        "wood_top": 130,
+        "hook_y": 142
+      },
+      {
+        "wood_top": 342,
+        "hook_y": 354
+      },
+      {
+        "wood_top": 554,
+        "hook_y": 566
+      }
+    ],
+    "hats-b": [
+      {
+        "wood_top": 94,
+        "hook_y": 106
+      },
+      {
+        "wood_top": 323,
+        "hook_y": 335
+      },
+      {
+        "wood_top": 552,
+        "hook_y": 564
+      }
+    ],
+    "hats-c": [
+      {
+        "wood_top": 80,
+        "hook_y": 92
+      },
+      {
+        "wood_top": 331,
+        "hook_y": 343
+      },
+      {
+        "wood_top": 582,
+        "hook_y": 594
+      }
+    ],
+    "hats-d": [
+      {
+        "wood_top": 122,
+        "hook_y": 134
+      },
+      {
+        "wood_top": 327,
+        "hook_y": 339
+      },
+      {
+        "wood_top": 532,
+        "hook_y": 544
+      }
+    ],
+    "hats-e": [
+      {
+        "wood_top": 86,
+        "hook_y": 98
+      },
+      {
+        "wood_top": 316,
+        "hook_y": 328
+      },
+      {
+        "wood_top": 546,
+        "hook_y": 558
+      }
+    ],
+    "hats-f": [
+      {
+        "wood_top": 109,
+        "hook_y": 121
+      },
+      {
+        "wood_top": 330,
+        "hook_y": 342
+      },
+      {
+        "wood_top": 551,
+        "hook_y": 563
+      }
+    ],
+    "hats-g": [
+      {
+        "wood_top": 81,
+        "hook_y": 93
+      },
+      {
+        "wood_top": 305,
+        "hook_y": 317
+      },
+      {
+        "wood_top": 529,
+        "hook_y": 541
+      }
+    ]
+  },
+  "redirects_added": {
+    "hats/h": "#/hats/e",
+    "hats/hats-h": "#/hats/e",
+    "hats/i": "#/hats/e",
+    "hats/hats-i": "#/hats/e",
+    "hats/j": "#/hats/f",
+    "hats/hats-j": "#/hats/f",
+    "hats/k": "#/hats/f",
+    "hats/hats-k": "#/hats/f",
+    "hats/l": "#/hats/g",
+    "hats/hats-l": "#/hats/g"
+  },
+  "old_zone_mapping": {
+    "hats-a": {
+      "majority": "hats-a",
+      "dest_counts": {
+        "hats-a": 8
+      },
+      "split": false
+    },
+    "hats-b": {
+      "majority": "hats-a",
+      "dest_counts": {
+        "hats-a": 6,
+        "hats-b": 2
+      },
+      "split": true
+    },
+    "hats-c": {
+      "majority": "hats-b",
+      "dest_counts": {
+        "hats-b": 8
+      },
+      "split": false
+    },
+    "hats-d": {
+      "majority": "hats-b",
+      "dest_counts": {
+        "hats-b": 4,
+        "hats-c": 4
+      },
+      "split": true
+    },
+    "hats-e": {
+      "majority": "hats-c",
+      "dest_counts": {
+        "hats-c": 8
+      },
+      "split": false
+    },
+    "hats-f": {
+      "majority": "hats-d",
+      "dest_counts": {
+        "hats-c": 2,
+        "hats-d": 6
+      },
+      "split": true
+    },
+    "hats-g": {
+      "majority": "hats-d",
+      "dest_counts": {
+        "hats-d": 8
+      },
+      "split": false
+    },
+    "hats-h": {
+      "majority": "hats-e",
+      "dest_counts": {
+        "hats-e": 8
+      },
+      "split": false
+    },
+    "hats-i": {
+      "majority": "hats-e",
+      "dest_counts": {
+        "hats-e": 6,
+        "hats-f": 2
+      },
+      "split": true
+    },
+    "hats-j": {
+      "majority": "hats-f",
+      "dest_counts": {
+        "hats-f": 8
+      },
+      "split": false
+    },
+    "hats-k": {
+      "majority": "hats-f",
+      "dest_counts": {
+        "hats-f": 4,
+        "hats-g": 4
+      },
+      "split": true
+    },
+    "hats-l": {
+      "majority": "hats-g",
+      "dest_counts": {
+        "hats-g": 10
+      },
+      "split": false
+    }
+  },
+  "handle_special": [
+    "batch2-226"
+  ]
+}
