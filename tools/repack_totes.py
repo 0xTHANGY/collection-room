@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Repack the totes category onto one empty plate (display coords only).
+"""Repack the totes category onto one empty plate with three cloned rails (display coords only).
 
 Does not change extraction layouts or card images. No model image generation:
-the empty plate is built with the existing v21 wall reconstruct (bags path)
-plus a surgical rail cleanup. Existing layer webps are reused.
+the empty plate is built with the existing v21 wall reconstruct (bags path),
+surgical hook cleanup, then a third rail cloned from the existing rod pixels.
+Existing layer webps are reused.
 
 Safe to re-run: the original totes-a painting is frozen at
 data/source/display/totes-a-painting.webp on the first run.
@@ -25,13 +26,17 @@ LAYOUT_A = ROOT / "data/source/layout/totes-a.json"
 CATALOG = ROOT / "data/catalog.json"
 OUT_JSON = DISPLAY / "totes-repack.json"
 
-SCALE = 0.54
+SCALE = 0.62
 # hook tip sits slightly below the top of the rail (matches original totes-a placements)
-RAIL_TOP = dict(hook_y=72, rail_bottom=96, x0=230, x1=1335)
-RAIL_BOT = dict(hook_y=478, rail_bottom=501, x0=230, x1=1315)
+RAIL_X0, RAIL_X1 = 230, 1335  # usable hang span inside the end caps
 HOOK_XS_TOP = (357, 640, 920, 1207)
 HOOK_XS_BOT = (358, 639, 927, 1205)
 MIN_GAP = 10
+# 3-rail layout: wood tops evenly spaced; hook_y = wood_top + 9
+WOOD_Y0 = 58
+WOOD_SPACING = 260
+HOOK_FROM_WOOD = 9
+RAIL_WOOD_H = 34  # original wood y=63..97
 
 
 def save_webp(im: Image.Image, path: Path, quality=80):
@@ -186,7 +191,76 @@ def even_under_rail(im, y_shadow_end, x0, x1, wall_row, n=15):
     return out
 
 
-def build_plate():
+
+def extract_rail_sprite(plate):
+    """Cut the top rail (wood, end caps, contact shadow) as an RGBA sprite."""
+    y0, y1 = 63, 97
+    sy0, sy1 = 58, 108
+    sx0, sx1 = 193, 1372
+    crop = plate[sy0 : sy1 + 1, sx0 : sx1 + 1].copy()
+    ch, cw = crop.shape[:2]
+    r, g, b = crop[:, :, 0].astype(int), crop[:, :, 1].astype(int), crop[:, :, 2].astype(int)
+    chroma = crop.max(2).astype(int) - crop.min(2)
+    lum = crop.mean(2)
+    wood = (r > b + 18) & (r > 55) & (r < 210) & (g > 35) & (g < 170)
+    wood_mask = cv2.dilate(np.uint8(wood) * 255, np.ones((3, 3), np.uint8))
+    shadow = np.zeros_like(wood_mask)
+    wood_bottom_local = y1 - sy0
+    for yy in range(wood_bottom_local + 1, ch):
+        dark = (lum[yy] < 175) | (chroma[yy] > 18)
+        near = cv2.dilate(wood_mask, np.ones((25, 5), np.uint8))[yy] > 0
+        shadow[yy] = np.uint8(dark & near) * 255
+    above = np.zeros_like(wood_mask)
+    for yy in range(0, max(0, y0 - sy0)):
+        near = cv2.dilate(wood_mask, np.ones((7, 3), np.uint8))[yy] > 0
+        odd = (np.abs(lum[yy] - 198) > 8) | (chroma[yy] > 16)
+        above[yy] = np.uint8(odd & near) * 255
+    alpha = np.maximum.reduce([wood_mask, shadow, above])
+    alpha = cv2.morphologyEx(alpha, cv2.MORPH_CLOSE, np.ones((3, 3), np.uint8))
+    alpha_f = cv2.GaussianBlur(alpha, (3, 3), 0.6)
+    sprite = Image.fromarray(np.dstack([crop, alpha_f]))
+    return sprite, sx0, sy0, y0 - sy0
+
+
+def erase_rail_band(img, ey0, ey1, ex0, ex1, donor_above=12, donor_below=16):
+    """Fill a horizontal band with a vertical lerp of wall rows outside the rail."""
+    out = img.copy()
+    h = out.shape[0]
+    y_top = max(0, ey0 - donor_above)
+    y_bot = min(h - 1, ey1 + donor_below)
+    top = np.median(out[max(0, y_top - 5) : y_top, ex0 : ex1 + 1], axis=0)
+    bot = np.median(out[y_bot + 1 : min(h, y_bot + 6), ex0 : ex1 + 1], axis=0)
+    span = max(1, y_bot - y_top)
+    for y in range(y_top, y_bot + 1):
+        t = (y - y_top) / span
+        out[y, ex0 : ex1 + 1] = np.clip((1 - t) * top + t * bot, 0, 255).astype(np.uint8)
+    return out
+
+
+def add_three_rails(two_rail_plate):
+    """Erase the original two rods and paste three clones of the top rod."""
+    sprite, sx0, sy0, wood_off = extract_rail_sprite(two_rail_plate)
+    wall = two_rail_plate.copy()
+    wall = erase_rail_band(wall, 58, 108, 188, 1380, donor_above=12, donor_below=16)
+    wall = erase_rail_band(wall, 462, 518, 188, 1380, donor_above=16, donor_below=16)
+    wood_ys = [WOOD_Y0, WOOD_Y0 + WOOD_SPACING, WOOD_Y0 + 2 * WOOD_SPACING]
+    canvas = Image.fromarray(wall).convert("RGBA")
+    rails = []
+    for yt in wood_ys:
+        canvas.alpha_composite(sprite, (sx0, yt - wood_off))
+        rails.append(
+            dict(
+                hook_y=yt + HOOK_FROM_WOOD,
+                rail_bottom=yt + RAIL_WOOD_H,
+                x0=RAIL_X0,
+                x1=RAIL_X1,
+                wood_top=yt,
+            )
+        )
+    return np.array(canvas.convert("RGB")), rails
+
+
+def build_two_rail_plate():
     rgb = freeze_painting()
     plate = reconstruct_plate(rgb)
     plate = surgical_remove_hooks(plate, HOOK_XS_TOP, 63, 96, 203, 1361, below=20, halfw=18)
@@ -194,6 +268,11 @@ def build_plate():
     plate = fill_under_rail_patches(plate, HOOK_XS_BOT, 501, 201, 1338)
     plate = even_under_rail(plate, y_shadow_end=504, x0=230, x1=1318, wall_row=520, n=15)
     return plate
+
+
+def build_plate():
+    two = build_two_rail_plate()
+    return add_three_rails(two)
 
 
 def load_layers(catalog):
@@ -305,17 +384,21 @@ def pct(box, w, h):
 
 def apply(catalog=None):
     catalog = catalog or json.loads(CATALOG.read_text())
-    plate = build_plate()
+    plate, rails = build_plate()
     recs = load_layers(catalog)
     if len(recs) != 15:
         raise SystemExit(f"expected 15 totes, found {len(recs)}")
-    top, bot = recs[:8], recs[8:]
-    p1, g1 = pack_row(top, RAIL_TOP, SCALE)
-    p2, g2 = pack_row(bot, RAIL_BOT, SCALE)
-    if g1 < MIN_GAP or g2 < MIN_GAP:
-        raise SystemExit(f"gaps too tight: top={g1:.1f} bottom={g2:.1f}")
-    placed = p1 + p2
+    rows = [recs[0:5], recs[5:10], recs[10:15]]
+    packed, gaps = [], []
+    for row, rail in zip(rows, rails):
+        pl, g = pack_row(row, rail, SCALE)
+        packed.extend(pl)
+        gaps.append(g)
+    if any(g < MIN_GAP for g in gaps):
+        raise SystemExit(f"gaps too tight: {gaps}")
+    placed = packed
     composited = composite(plate, placed)
+    g1, g2, g3 = gaps
     h, w = plate.shape[:2]
 
     # Zone images are the EMPTY plate (layers sit on top in the browser).
@@ -393,8 +476,9 @@ def apply(catalog=None):
         "scale": SCALE,
         "target_zone": "totes-a",
         "merged": ["totes-b"],
-        "gaps_px": {"top": g1, "bottom": g2},
-        "pack": "8 top + 7 bottom, number order today-455..today-469",
+        "gaps_px": {"row0": g1, "row1": g2, "row2": g3},
+        "pack": "5/5/5 on three cloned rails, number order today-455..today-469",
+        "rails": rails,
         "handle_special": [r["id"] for r in recs if r["kind"] == "handle"],
         "redirects": catalog["redirects"],
         "items": display_items,
@@ -406,8 +490,9 @@ def apply(catalog=None):
             {
                 "totes_zones": 1,
                 "items": 15,
-                "top_gap_px": round(g1, 2),
-                "bottom_gap_px": round(g2, 2),
+                "row_gaps_px": [round(g1, 2), round(g2, 2), round(g3, 2)],
+                "scale": SCALE,
+                "rails": [{"wood_top": r["wood_top"], "hook_y": r["hook_y"]} for r in rails],
                 "handle_special": record["handle_special"],
                 "cover": cover,
                 "images": images,
