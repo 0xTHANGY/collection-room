@@ -80,10 +80,23 @@ def detect_rail_bands(plate, min_frac=0.18):
                 bands.append((a, prev, x0, x1))
             a = y
         prev = y
-    # keep the two (or three) thickest mid-wall bands
-    bands.sort(key=lambda b: (b[1] - b[0], -b[0]), reverse=True)
-    bands = sorted(bands[:3], key=lambda b: b[0])
-    return bands
+    # Rails are thin/medium horizontal bars. Cabinets/benches are lower and continue downward.
+    h = plate.shape[0]
+    wood = wood_mask(plate)
+    rails = []
+    for b in bands:
+        y0, y1, x0, x1 = b
+        if not (8 <= (y1 - y0) <= 70):
+            continue
+        if y0 > h * 0.62:
+            continue
+        below = wood[y1 + 1 : min(h, y1 + 50), max(0, x0) : min(plate.shape[1], x1 + 1)].mean() if y1 + 1 < h else 0
+        if below > 0.25:
+            continue  # furniture face continues under this band
+        rails.append(b)
+    rails.sort(key=lambda b: (b[1] - b[0], -b[0]), reverse=True)
+    rails = sorted(rails[:3], key=lambda b: b[0])
+    return rails
 
 
 def detect_obstacle_y(plate):
@@ -109,31 +122,54 @@ def detect_obstacle_y(plate):
 def detect_hook_xs(plate, band):
     """X centers of metal hooks, using the top of the wood (not the grey wall)."""
     y0, y1, x0, x1 = band
-    y_a, y_b = y0, min(plate.shape[0], y0 + 12)
+    # Score metal only on the wood (not the grey wall above/below, which matches "bright low-chroma").
+    y_a, y_b = y0, min(plate.shape[0], y0 + min(12, max(8, y1 - y0)))
     crop = plate[y_a:y_b, x0:x1 + 1]
     lum = crop.mean(2)
     chroma = crop.max(2).astype(int) - crop.min(2)
     r, b = crop[:, :, 0].astype(int), crop[:, :, 2].astype(int)
-    metal = (lum > 150) & (chroma < 40) & (np.abs(r - b) < 40) & (r < b + 30)
+    metal = (lum > 140) & (chroma < 50) & (np.abs(r - b) < 50) & (r < b + 40)
     score = metal.mean(0)
+    # Peak-pick metal on the wood so thin 1-column hooks are not dropped.
+    kernel = np.ones(5) / 5.0
+    sm = np.convolve(score, kernel, mode="same")
     xs = []
-    i = 0
-    n = len(score)
-    while i < n:
-        if score[i] > 0.45:
-            j = i
-            while j < n and score[j] > 0.2:
-                j += 1
-            if j - i >= 2:
-                sl = score[i:j]
-                hx = int(x0 + i + int(sl.argmax()))
-                # skip end caps
-                if hx - x0 > 40 and x1 - hx > 40:
-                    xs.append(hx)
-            i = j
+    for i in range(8, len(sm) - 8):
+        if sm[i] < 0.16:
+            continue
+        if sm[i] >= sm[i - 2 : i + 3].max() - 1e-9:
+            hx = int(x0 + i)
+            if hx - x0 > 40 and x1 - hx > 40:
+                xs.append(hx)
+    # Also find hooks that hang *below* the rod (dark thin silhouette vs the wall).
+    y_lo, y_hi = y1 + 1, min(plate.shape[0], y1 + 24)
+    if y_hi - y_lo >= 8:
+        below = plate[y_lo:y_hi, x0:x1 + 1].astype(np.float32).mean(2)
+        col = below.mean(0)
+        wall = float(np.median(col))
+        dark = col < (wall - 12)
+        i = 0
+        n = len(dark)
+        while i < n:
+            if dark[i]:
+                j = i
+                while j < n and dark[j]:
+                    j += 1
+                if 1 <= j - i <= 18:
+                    hx = int(x0 + i + int(col[i:j].argmin()))
+                    if hx - x0 > 40 and x1 - hx > 40:
+                        xs.append(hx)
+                i = j
+            else:
+                i += 1
+    xs = sorted(xs)
+    merged = []
+    for hx in xs:
+        if not merged or hx - merged[-1] > 70:
+            merged.append(hx)
         else:
-            i += 1
-    return xs
+            merged[-1] = (merged[-1] + hx) // 2
+    return merged
 
 
 def surgical_remove_hooks(im, hooks, y0, y1, x_rail0, x_rail1, below=24, above=16, halfw=16):
@@ -295,7 +331,7 @@ def add_three_rails(plate, first_wood=None, spacing=None, max_item_below=260):
         y0, y1, x0, x1 = band
         hooks = detect_hook_xs(cleaned, band)
         if hooks:
-            cleaned = surgical_remove_hooks(cleaned, hooks, y0, y1, x0, x1, below=22, above=18, halfw=16)
+            cleaned = surgical_remove_hooks(cleaned, hooks, y0, y1, x0, x1, below=42, above=18, halfw=16)
     src = bands[0]
     sprite, sx0, sy0, wood_off, wood_h = extract_rail_sprite(cleaned, src)
     # erase all detected rails (and a little extra for hooks sticking above)
@@ -333,6 +369,12 @@ def add_three_rails(plate, first_wood=None, spacing=None, max_item_below=260):
             )
         )
     rgb = np.array(canvas.convert("RGB"))
+    # second pass: strip any hooks that were cloned because detection missed them first time
+    for rail in rails:
+        band = (rail["wood_top"], rail["rail_bottom"], rail.get("wood_x0", rail["x0"]), rail.get("wood_x1", rail["x1"]))
+        hooks = detect_hook_xs(rgb, band)
+        if hooks:
+            rgb = surgical_remove_hooks(rgb, hooks, rail["wood_top"], rail["rail_bottom"], band[2], band[3], below=42, above=8, halfw=14)
     rgb = heal_under_rail(rgb, rails)
     return rgb, rails, dict(
         first_wood=first_wood, spacing=spacing, wood_h=wood_h, obstacle=obstacle, src_bands=bands

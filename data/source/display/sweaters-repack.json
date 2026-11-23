@@ -1,0 +1,151 @@
+{
+  "category": "sweaters",
+  "items": 39,
+  "scale": 0.62,
+  "zones_before": [
+    "sweaters-a",
+    "sweaters-b",
+    "sweaters-c",
+    "sweaters-d",
+    "sweaters-e"
+  ],
+  "zones_after": [
+    "sweaters-a",
+    "sweaters-b",
+    "sweaters-c"
+  ],
+  "counts": [
+    13,
+    13,
+    13
+  ],
+  "per_zone_rods": {
+    "sweaters-a": [
+      5,
+      4,
+      4
+    ],
+    "sweaters-b": [
+      5,
+      4,
+      4
+    ],
+    "sweaters-c": [
+      5,
+      4,
+      4
+    ]
+  },
+  "gaps": {
+    "sweaters-a": [
+      62.81666666666666,
+      106.008,
+      86.292
+    ],
+    "sweaters-b": [
+      72.55,
+      96.35999999999999,
+      93.63200000000002
+    ],
+    "sweaters-c": [
+      47.663333333333334,
+      94.644,
+      74.18400000000001
+    ]
+  },
+  "src_plates": {
+    "sweaters-a": "sweaters-a",
+    "sweaters-b": "sweaters-b",
+    "sweaters-c": "sweaters-c"
+  },
+  "rails": {
+    "sweaters-a": [
+      {
+        "wood_top": 48,
+        "hook_y": 54
+      },
+      {
+        "wood_top": 264,
+        "hook_y": 270
+      },
+      {
+        "wood_top": 480,
+        "hook_y": 486
+      }
+    ],
+    "sweaters-b": [
+      {
+        "wood_top": 48,
+        "hook_y": 54
+      },
+      {
+        "wood_top": 258,
+        "hook_y": 264
+      },
+      {
+        "wood_top": 468,
+        "hook_y": 474
+      }
+    ],
+    "sweaters-c": [
+      {
+        "wood_top": 48,
+        "hook_y": 56
+      },
+      {
+        "wood_top": 329,
+        "hook_y": 337
+      },
+      {
+        "wood_top": 610,
+        "hook_y": 618
+      }
+    ]
+  },
+  "redirects_added": {
+    "sweaters/d": "#/sweaters/c",
+    "sweaters/sweaters-d": "#/sweaters/c",
+    "sweaters/e": "#/sweaters/c",
+    "sweaters/sweaters-e": "#/sweaters/c"
+  },
+  "old_zone_mapping": {
+    "sweaters-a": {
+      "majority": "sweaters-a",
+      "dest_counts": {
+        "sweaters-a": 10
+      },
+      "split": false
+    },
+    "sweaters-b": {
+      "majority": "sweaters-b",
+      "dest_counts": {
+        "sweaters-a": 3,
+        "sweaters-b": 6
+      },
+      "split": true
+    },
+    "sweaters-c": {
+      "majority": "sweaters-b",
+      "dest_counts": {
+        "sweaters-b": 7,
+        "sweaters-c": 2
+      },
+      "split": true
+    },
+    "sweaters-d": {
+      "majority": "sweaters-c",
+      "dest_counts": {
+        "sweaters-c": 9
+      },
+      "split": false
+    },
+    "sweaters-e": {
+      "majority": "sweaters-c",
+      "dest_counts": {
+        "sweaters-c": 2
+      },
+      "split": false
+    }
+  },
+  "handle_special": []
+}
