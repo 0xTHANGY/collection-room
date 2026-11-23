@@ -18,3 +18,96 @@
   .zone-tabs .zone-tab-prev,.zone-tabs .zone-tab-next,.zone-tabs a{min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box}
   .close{width:44px;height:44px}
 }
+
+/* QA UI: no-decision fixes (高-1, 高-2, 中-2/3/4 leftover/5, 低-1..6) */
+#hub-view #room{
+  width:min(100%,calc((100dvh - 22rem) * 1280 / 720));
+  margin-inline:auto;
+}
+h1,h2,.header-note,.zone-nav h1{
+  font-family:Georgia,"Songti SC","STSong","SimSun","NSimSun","Noto Serif CJK SC","Noto Serif SC","Source Han Serif SC",serif;
+}
+.eyebrow{font-size:12px}
+.room-toolbar{font-size:11px}
+.room-toolbar button{font-size:12px;min-height:44px;padding:8px 4px}
+.room-caption{font-size:12px}
+.room-caption>span:last-child{font-size:11px}
+summary{min-height:44px}
+summary small{font-size:11px}
+.summary-action{font-size:12px}
+#item-list li,
+.zone-item-list li{
+  display:flex;
+  align-items:stretch;
+  border-bottom:1px solid var(--line);
+  min-width:0;
+}
+#item-list .list-item,
+.zone-item-list .list-item{
+  align-items:flex-start;
+  padding:14px 0;
+  border-bottom:0;
+  display:grid;
+  grid-template-columns:3.25em minmax(0,1fr) auto;
+  column-gap:12px;
+  height:100%;
+  width:100%;
+  box-sizing:border-box;
+}
+.list-item .number{font-size:11px;padding-top:.2em}
+.list-item .item-name{min-width:0;overflow-wrap:anywhere}
+.list-item .item-category{margin-left:0;font-size:12px;padding-top:.15em}
+footer{font-size:12px}
+.detail-foot{font-size:11px}
+.detail-photo{padding:24px}
+.hotspot{align-items:flex-start;justify-content:flex-end}
+.hotspot::after{margin:2px 2px 0 0}
+.room-tile img{aspect-ratio:auto;object-fit:unset;height:auto}
+.room-tile small{font-size:12px}
+.zone-nav{align-items:center;gap:16px}
+.zone-back{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  min-height:44px;
+  min-width:44px;
+  padding:8px 12px 8px 0;
+  font-size:14px;
+  color:inherit;
+  text-decoration:none;
+  flex-shrink:0;
+}
+.zone-nav h1{font-size:32px}
+.zone-count{
+  font-size:14px;
+  color:var(--muted);
+  font-weight:400;
+  letter-spacing:0;
+  margin-left:12px;
+  font-style:normal;
+}
+.zone-tab-letters a,
+.zone-tabs a{
+  min-width:2.5em;
+  text-align:center;
+  justify-content:center;
+  display:inline-flex;
+  align-items:center;
+}
+.zone-tabs button:disabled{
+  opacity:1;
+  color:var(--muted);
+  background:transparent;
+  border-style:dashed;
+  cursor:not-allowed;
+}
+@media(max-width:650px){
+  .wordmark{font-size:11px}
+  #reveal,summary,.zone-back{min-height:44px}
+  .room-caption{font-size:12px}
+  .room-caption>span:last-child{font-size:11px}
+  summary small{font-size:11px}
+  footer{font-size:12px;gap:15px}
+  .detail-photo{padding:16px}
+  .zone-nav h1{font-size:26px}
+}

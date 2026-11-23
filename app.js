@@ -179,7 +179,9 @@ function openItem(item, trigger) {
   $('detail-brand').textContent = item.brand || '';
   $('detail-brand').hidden = !item.brand;
   $('detail-id').textContent = `${item.id} / ${item.number}`;
-  $('detail-name').textContent = item.display_name || item.id;
+  const detailName = item.display_name || item.id;
+  $('detail-name').textContent = detailName;
+  $('detail-name').lang = hasCJK(detailName) ? 'zh-CN' : 'en';
   $('detail-category').textContent = categoryLabel(item.category);
   $('detail-story').textContent = typeof item.story === 'string' ? item.story : '故事待补充';
   const photo = $('detail-image');
@@ -525,15 +527,7 @@ async function init() {
         const li = document.createElement('li');
         const button = document.createElement('button');
         button.type = 'button';
-        button.className = 'list-item';
-        button.setAttribute('aria-haspopup', 'dialog');
-        for (const [className, text] of [['number', item.number], ['item-name', name], ['item-category', item.category]]) {
-          const span = document.createElement('span');
-          span.className = className;
-          if (className === 'item-name' || className === 'item-category') span.lang = 'en';
-          span.textContent = text;
-          button.append(span);
-        }
+        fillListButton(button, item);
         button.addEventListener('click', () => openItem(item, button));
         li.append(button);
         $('hotspots').append(hotspot);
@@ -556,6 +550,37 @@ let catalog = null;
 let activeZone = null;
 const srcset = (images) => [...new Map(images.map(i => [i.width, i])).values()].map(i => `${i.src} ${i.width}w`).join(', ');
 const categoryLabel = (id) => catalog?.categories.find(c => c.id === id)?.label || id;
+function hasCJK(text) {
+  return typeof text === 'string' && /[\u3400-\u9FFF\u3040-\u30FF\uAC00-\uD7AF]/.test(text);
+}
+function itemCategoryLabel(item) {
+  if (catalog) {
+    const fromCat = catalog.items.find(i => i.id === item.id);
+    const id = (fromCat || item).category;
+    return categoryLabel(id);
+  }
+  return item.category || '';
+}
+function fillListButton(button, item) {
+  button.replaceChildren();
+  button.type = 'button';
+  button.className = 'list-item';
+  button.setAttribute('aria-haspopup', 'dialog');
+  button.dataset.itemId = item.id;
+  const name = item.display_name || item.name || item.id;
+  const rows = [
+    ['number', item.number, null],
+    ['item-name', name, hasCJK(name) ? 'zh-CN' : 'en'],
+    ['item-category', itemCategoryLabel(item), 'zh-CN'],
+  ];
+  for (const [className, text, lang] of rows) {
+    const span = document.createElement('span');
+    span.className = className;
+    if (lang) span.lang = lang;
+    span.textContent = text;
+    button.append(span);
+  }
+}
 function makeButton(text, action, className = '') {
   const b = document.createElement('button'); b.type = 'button'; b.textContent = text; b.className = className; b.addEventListener('click', action); return b;
 }
@@ -588,8 +613,13 @@ function renderZone(zone) {
   activeZone = zone.id;
   const view = $('zone-view'); view.replaceChildren();
   const nav = document.createElement('nav'); nav.className = 'zone-nav'; nav.setAttribute('aria-label', '分室导航');
-  const home = document.createElement('a'); home.href = '#/'; home.textContent = '收藏房间 /'; nav.append(home);
-  const title = document.createElement('h1'); title.textContent = `${categoryLabel(zone.category)} · ${zone.letter.toUpperCase()}`; nav.append(title); view.append(nav);
+  const home = document.createElement('a'); home.href = '#/'; home.className = 'zone-back';
+  const backMark = document.createElement('span'); backMark.setAttribute('aria-hidden', 'true'); backMark.textContent = '←';
+  home.append(backMark, document.createTextNode('收藏房间')); nav.append(home);
+  const title = document.createElement('h1');
+  title.append(document.createTextNode(`${categoryLabel(zone.category)} · ${zone.letter.toUpperCase()}`));
+  const count = document.createElement('small'); count.className = 'zone-count'; count.textContent = `${zone.items.length} 件`;
+  title.append(count); nav.append(title); view.append(nav);
   const tabs = document.createElement('nav'); tabs.className = 'zone-tabs'; tabs.setAttribute('aria-label', '区域');
   const siblings = catalog.zones.filter(z => z.category === zone.category); const index = siblings.indexOf(zone);
   const prev = makeButton('← 上一区', () => { location.hash = zoneHash(siblings[index - 1]); }, 'zone-tab-prev'); prev.disabled = index === 0; tabs.append(prev);
@@ -625,7 +655,7 @@ function renderZone(zone) {
       if (Number.isFinite(item.layer?.zIndex)) hotspot.style.zIndex = item.layer.zIndex;
       hotspots.append(hotspot);
     }
-    const li = document.createElement('li'); const b = makeButton(`${item.number}  ${item.name}`, () => openItem(item,b), 'list-item'); b.dataset.itemId = id; b.setAttribute('aria-haspopup','dialog'); li.append(b); list.append(li);
+    const li = document.createElement('li'); const b = document.createElement('button'); fillListButton(b, item); b.addEventListener('click', () => openItem(item, b)); li.append(b); list.append(li);
     if (layer && hotspot) entries.push({item,layer,hotspot});
   }
   if (room) setupMotion(entries, room);
@@ -677,6 +707,12 @@ async function initCatalog() {
       const label = document.createElement('span'); label.textContent = `${c.label} / ${c.label_en}`; const count = document.createElement('small'); count.textContent = `${c.count} 件`; a.append(label,count); $('room-tiles').append(a);
     }
     route();
+    for (const button of document.querySelectorAll('#item-list .list-item')) {
+      const item = catalog.items.find(i => i.id === button.dataset.itemId);
+      if (!item) continue;
+      const cat = button.querySelector('.item-category');
+      if (cat) { cat.textContent = itemCategoryLabel(item); cat.lang = 'zh-CN'; }
+    }
   } catch (error) { $('data-status').textContent = '分室清单加载失败，请刷新重试。'; console.error(error); }
 }
 window.addEventListener('hashchange', route);
