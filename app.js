@@ -333,6 +333,7 @@ function validateRect(rect, label) {
 function validateItem(item) {
   if (!isSafePath(item.image)) throw new Error('Image must be a same-site relative path');
   validateRect(item.hotspot, 'hotspot');
+  if (item.hotspot.clip !== undefined && !(Array.isArray(item.hotspot.clip) && item.hotspot.clip.length >= 3 && item.hotspot.clip.every((p) => Array.isArray(p) && p.length === 2 && p.every((v) => Number.isFinite(v) && v >= 0 && v <= 100)))) throw new Error('Invalid hotspot clip');
   if (typeof item.number !== 'string' || !/^\d{3}$/.test(item.number)) throw new Error('Invalid item number');
   if (item.layer) {
     if (!isSafePath(item.layer.image)) throw new Error('Layer image must be a same-site relative path');
@@ -518,6 +519,8 @@ async function init() {
         hotspot.setAttribute('aria-haspopup', 'dialog');
         hotspot.title = name;
         for (const key of ['left', 'top', 'width', 'height']) hotspot.style[key] = `${item.hotspot[key]}%`;
+        // Optional outline (percent points of the hotspot box) so only the item's own visible pixels are clickable.
+        if (item.hotspot.clip) Object.assign(hotspot.style, { borderRadius: '0', clipPath: `polygon(${item.hotspot.clip.map(([x, y]) => `${x}% ${y}%`).join(', ')})` });
         hotspot.addEventListener('click', () => openItem(item, hotspot));
         const li = document.createElement('li');
         const button = document.createElement('button');
