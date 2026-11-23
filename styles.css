@@ -111,3 +111,9 @@ footer{font-size:12px}
   .detail-photo{padding:16px}
   .zone-nav h1{font-size:26px}
 }
+@media(max-width:650px){
+  dialog[open]{
+    align-content:start;
+    grid-template-rows:max-content max-content;
+  }
+}

@@ -321,7 +321,7 @@ $('reveal').addEventListener('click', () => {
 $('collection').addEventListener('toggle', () => {
   document.querySelector('.summary-action').textContent = $('collection').open ? '收起' : '展开';
 });
-const ASSET_V = '20261123c';
+const ASSET_V = '20261123d';
 function withV(url) {
   if (typeof url !== 'string' || !url) return url;
   if (/[?&]v=/.test(url)) return url;
