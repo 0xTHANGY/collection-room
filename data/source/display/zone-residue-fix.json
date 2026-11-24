@@ -1,0 +1,132 @@
+{
+ "note": "P1 cutout audit 2026-11-24: rail-end/bracket/bench residue from repack_three_rails cloned sprites",
+ "zones": {
+  "tshirts-c": {
+   "ops": [
+    {
+     "op": "ends",
+     "sides": [
+      "left",
+      "right"
+     ],
+     "in": 130,
+     "out": 100
+    },
+    {
+     "op": "box",
+     "box": [
+      1156,
+      764,
+      70,
+      84
+     ],
+     "rref": [
+      1228,
+      1240
+     ]
+    }
+   ]
+  },
+  "jackets-c": {
+   "ops": [
+    {
+     "op": "ends",
+     "sides": [
+      "left",
+      "right"
+     ],
+     "in": 130,
+     "out": 100
+    },
+    {
+     "op": "box",
+     "box": [
+      1156,
+      764,
+      70,
+      84
+     ],
+     "rref": [
+      1228,
+      1240
+     ]
+    }
+   ]
+  },
+  "accessories-a": {
+   "ops": [
+    {
+     "op": "ends",
+     "sides": [
+      "left",
+      "right"
+     ],
+     "in": 130,
+     "out": 100
+    },
+    {
+     "op": "box",
+     "box": [
+      1156,
+      764,
+      70,
+      84
+     ],
+     "rref": [
+      1228,
+      1240
+     ]
+    }
+   ]
+  },
+  "shirts-d": {
+   "ops": [
+    {
+     "op": "fade",
+     "sides": [
+      "left"
+     ]
+    }
+   ]
+  },
+  "tshirts-b": {
+   "ops": [
+    {
+     "op": "box",
+     "box": [
+      1403,
+      442,
+      59,
+      60
+     ]
+    }
+   ]
+  },
+  "jackets-b": {
+   "ops": [
+    {
+     "op": "box",
+     "box": [
+      1402,
+      442,
+      60,
+      56
+     ]
+    }
+   ]
+  },
+  "hats-a": {
+   "ops": [
+    {
+     "op": "box",
+     "box": [
+      1402,
+      482,
+      77,
+      73
+     ]
+    }
+   ]
+  }
+ }
+}
