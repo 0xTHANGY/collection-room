@@ -48,9 +48,7 @@
   },
   "bags": {
     "a": [
-      "cr-007",
       "batch2-056",
-      "batch2-326",
       "batch2-362",
       "batch2-366",
       "batch2-385",
@@ -61,11 +59,11 @@
       "today-391",
       "today-392",
       "today-393",
-      "today-394"
+      "today-394",
+      "today-395",
+      "today-396"
     ],
     "b": [
-      "today-395",
-      "today-396",
       "today-397",
       "today-398",
       "today-399",
@@ -77,10 +75,10 @@
       "today-405",
       "today-406",
       "today-407",
-      "today-408"
+      "today-408",
+      "today-409"
     ],
     "c": [
-      "today-409",
       "today-410",
       "today-411",
       "today-412",
@@ -805,12 +803,13 @@
       "batch2-323",
       "batch2-324",
       "batch2-325",
+      "batch2-326",
       "batch2-358",
       "batch2-359",
-      "batch2-360",
-      "batch2-364"
+      "batch2-360"
     ],
     "b": [
+      "batch2-364",
       "batch2-365",
       "batch2-367",
       "batch2-368",
@@ -823,10 +822,10 @@
       "batch2-375",
       "batch2-376",
       "batch2-377",
-      "batch2-378",
-      "batch2-379"
+      "batch2-378"
     ],
     "c": [
+      "batch2-379",
       "batch2-380",
       "batch2-381",
       "batch2-382",

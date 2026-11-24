@@ -63,7 +63,7 @@
       "label_en": "Bags",
       "order": 7,
       "cover_zone": "bags-a",
-      "count": 55
+      "count": 53
     },
     {
       "id": "totes",
@@ -71,7 +71,7 @@
       "label_en": "Totes",
       "order": 8,
       "cover_zone": "totes-a",
-      "count": 41
+      "count": 42
     },
     {
       "id": "accessories",
@@ -1491,9 +1491,7 @@
       "aspect": 1.5,
       "has_layout": true,
       "items": [
-        "cr-007",
         "batch2-056",
-        "batch2-326",
         "batch2-362",
         "batch2-366",
         "batch2-385",
@@ -1504,7 +1502,9 @@
         "today-391",
         "today-392",
         "today-393",
-        "today-394"
+        "today-394",
+        "today-395",
+        "today-396"
       ]
     },
     {
@@ -1540,8 +1540,6 @@
       "aspect": 1.5,
       "has_layout": true,
       "items": [
-        "today-395",
-        "today-396",
         "today-397",
         "today-398",
         "today-399",
@@ -1553,7 +1551,8 @@
         "today-405",
         "today-406",
         "today-407",
-        "today-408"
+        "today-408",
+        "today-409"
       ]
     },
     {
@@ -1589,7 +1588,6 @@
       "aspect": 1.5,
       "has_layout": true,
       "items": [
-        "today-409",
         "today-410",
         "today-411",
         "today-412",
@@ -1669,10 +1667,10 @@
         "batch2-323",
         "batch2-324",
         "batch2-325",
+        "batch2-326",
         "batch2-358",
         "batch2-359",
-        "batch2-360",
-        "batch2-364"
+        "batch2-360"
       ],
       "images": [
         {
@@ -1708,6 +1706,7 @@
       "letter": "b",
       "has_layout": true,
       "items": [
+        "batch2-364",
         "batch2-365",
         "batch2-367",
         "batch2-368",
@@ -1720,8 +1719,7 @@
         "batch2-375",
         "batch2-376",
         "batch2-377",
-        "batch2-378",
-        "batch2-379"
+        "batch2-378"
       ],
       "images": [
         {
@@ -1757,6 +1755,7 @@
       "letter": "c",
       "has_layout": true,
       "items": [
+        "batch2-379",
         "batch2-380",
         "batch2-381",
         "batch2-382",
@@ -55184,7 +55183,7 @@
         }
       ],
       "hotspot": {
-        "left": 31.901041666666668,
+        "left": 17.317708333333336,
         "top": 5.56640625,
         "width": 8.072916666666668,
         "height": 21.19140625,
@@ -55225,12 +55224,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-056.webp",
-        "left": 31.901041666666668,
+        "left": 17.317708333333336,
         "top": 5.56640625,
         "width": 8.072916666666668,
         "height": 21.19140625,
         "rect": {
-          "left": 31.901041666666668,
+          "left": 17.317708333333336,
           "top": 5.56640625,
           "width": 8.072916666666668,
           "height": 21.19140625
@@ -55243,7 +55242,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 2
+        "zIndex": 1
       }
     },
     {
@@ -56216,8 +56215,8 @@
     },
     {
       "id": "batch2-326",
-      "category": "bags",
-      "zone": "bags-a",
+      "category": "totes",
+      "zone": "totes-a",
       "number": "326",
       "name": "Topologie black rope-handle tote",
       "display_name": "Topologie black rope-handle tote",
@@ -56238,84 +56237,84 @@
         }
       ],
       "hotspot": {
-        "left": 43.1640625,
-        "top": 5.56640625,
-        "width": 12.955729166666666,
-        "height": 20.99609375,
+        "left": 21.744791666666664,
+        "top": 57.2265625,
+        "width": 12.109375,
+        "height": 19.62890625,
         "clip": [
           [
-            48.24120603015076,
+            48.38709677419355,
             0.0
           ],
           [
-            32.1608040201005,
-            26.976744186046513
+            32.25806451612903,
+            26.865671641791046
           ],
           [
-            10.050251256281408,
-            24.186046511627907
+            11.290322580645162,
+            23.880597014925375
           ],
           [
-            0.0,
-            36.27906976744186
+            0.5376344086021505,
+            35.32338308457712
           ],
           [
-            8.542713567839195,
-            70.23255813953489
+            8.602150537634408,
+            70.64676616915423
           ],
           [
-            4.0201005025125625,
-            82.79069767441861
+            3.763440860215054,
+            81.59203980099502
           ],
           [
-            21.105527638190956,
-            99.06976744186046
+            20.967741935483872,
+            99.0049751243781
           ],
           [
-            80.90452261306532,
-            99.06976744186046
+            81.18279569892474,
+            99.0049751243781
           ],
           [
-            87.93969849246231,
-            92.55813953488372
+            87.63440860215054,
+            93.03482587064677
           ],
           [
-            96.98492462311557,
-            36.27906976744186
+            96.7741935483871,
+            35.82089552238806
           ],
           [
-            92.46231155778895,
-            27.441860465116278
+            92.47311827956989,
+            27.36318407960199
           ],
           [
-            99.49748743718592,
-            29.767441860465116
+            99.46236559139786,
+            29.850746268656717
           ],
           [
-            90.95477386934674,
-            23.25581395348837
+            90.3225806451613,
+            22.885572139303484
           ],
           [
-            66.83417085427136,
-            26.046511627906977
+            66.12903225806451,
+            25.870646766169155
           ],
           [
-            60.301507537688444,
-            11.162790697674419
+            60.215053763440864,
+            10.945273631840797
           ]
         ]
       },
       "layer": {
         "image": "assets/zones/layers/batch2-326.webp",
-        "left": 43.1640625,
-        "top": 5.56640625,
-        "width": 12.955729166666666,
-        "height": 20.99609375,
+        "left": 21.744791666666664,
+        "top": 57.2265625,
+        "width": 12.109375,
+        "height": 19.62890625,
         "rect": {
-          "left": 43.1640625,
-          "top": 5.56640625,
-          "width": 12.955729166666666,
-          "height": 20.99609375
+          "left": 21.744791666666664,
+          "top": 57.2265625,
+          "width": 12.109375,
+          "height": 19.62890625
         },
         "pivot": {
           "x": 50,
@@ -56325,7 +56324,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 3
+        "zIndex": 11
       }
     },
     {
@@ -56352,7 +56351,7 @@
         }
       ],
       "hotspot": {
-        "left": 22.526041666666664,
+        "left": 40.69010416666667,
         "top": 57.2265625,
         "width": 8.7890625,
         "height": 18.1640625,
@@ -56417,12 +56416,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-358.webp",
-        "left": 22.526041666666664,
+        "left": 40.69010416666667,
         "top": 57.2265625,
         "width": 8.7890625,
         "height": 18.1640625,
         "rect": {
-          "left": 22.526041666666664,
+          "left": 40.69010416666667,
           "top": 57.2265625,
           "width": 8.7890625,
           "height": 18.1640625
@@ -56435,7 +56434,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 11
+        "zIndex": 12
       }
     },
     {
@@ -56462,7 +56461,7 @@
         }
       ],
       "hotspot": {
-        "left": 38.8671875,
+        "left": 56.25,
         "top": 57.2265625,
         "width": 8.3984375,
         "height": 19.23828125,
@@ -56511,12 +56510,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-359.webp",
-        "left": 38.8671875,
+        "left": 56.25,
         "top": 57.2265625,
         "width": 8.3984375,
         "height": 19.23828125,
         "rect": {
-          "left": 38.8671875,
+          "left": 56.25,
           "top": 57.2265625,
           "width": 8.3984375,
           "height": 19.23828125
@@ -56529,7 +56528,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 12
+        "zIndex": 13
       }
     },
     {
@@ -56556,7 +56555,7 @@
         }
       ],
       "hotspot": {
-        "left": 54.817708333333336,
+        "left": 71.484375,
         "top": 57.2265625,
         "width": 8.658854166666668,
         "height": 18.9453125,
@@ -56609,12 +56608,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-360.webp",
-        "left": 54.817708333333336,
+        "left": 71.484375,
         "top": 57.2265625,
         "width": 8.658854166666668,
         "height": 18.9453125,
         "rect": {
-          "left": 54.817708333333336,
+          "left": 71.484375,
           "top": 57.2265625,
           "width": 8.658854166666668,
           "height": 18.9453125
@@ -56627,7 +56626,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 13
+        "zIndex": 14
       }
     },
     {
@@ -56654,7 +56653,7 @@
         }
       ],
       "hotspot": {
-        "left": 59.375,
+        "left": 29.6875,
         "top": 5.56640625,
         "width": 11.197916666666668,
         "height": 10.64453125,
@@ -56723,12 +56722,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-362.webp",
-        "left": 59.375,
+        "left": 29.6875,
         "top": 5.56640625,
         "width": 11.197916666666668,
         "height": 10.64453125,
         "rect": {
-          "left": 59.375,
+          "left": 29.6875,
           "top": 5.56640625,
           "width": 11.197916666666668,
           "height": 10.64453125
@@ -56741,13 +56740,13 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 4
+        "zIndex": 2
       }
     },
     {
       "id": "batch2-364",
       "category": "totes",
-      "zone": "totes-a",
+      "zone": "totes-b",
       "number": "364",
       "name": "Brain Dead Studios 611 N Fairfax tote",
       "display_name": "Brain Dead Studios 611 N Fairfax tote",
@@ -56768,8 +56767,8 @@
         }
       ],
       "hotspot": {
-        "left": 71.02864583333334,
-        "top": 57.2265625,
+        "left": 19.53125,
+        "top": 6.4453125,
         "width": 8.333333333333332,
         "height": 21.09375,
         "clip": [
@@ -56821,13 +56820,13 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-364.webp",
-        "left": 71.02864583333334,
-        "top": 57.2265625,
+        "left": 19.53125,
+        "top": 6.4453125,
         "width": 8.333333333333332,
         "height": 21.09375,
         "rect": {
-          "left": 71.02864583333334,
-          "top": 57.2265625,
+          "left": 19.53125,
+          "top": 6.4453125,
           "width": 8.333333333333332,
           "height": 21.09375
         },
@@ -56839,7 +56838,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 14
+        "zIndex": 1
       }
     },
     {
@@ -56866,7 +56865,7 @@
         }
       ],
       "hotspot": {
-        "left": 19.010416666666664,
+        "left": 32.35677083333333,
         "top": 6.4453125,
         "width": 8.854166666666668,
         "height": 22.0703125,
@@ -56931,12 +56930,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-365.webp",
-        "left": 19.010416666666664,
+        "left": 32.35677083333333,
         "top": 6.4453125,
         "width": 8.854166666666668,
         "height": 22.0703125,
         "rect": {
-          "left": 19.010416666666664,
+          "left": 32.35677083333333,
           "top": 6.4453125,
           "width": 8.854166666666668,
           "height": 22.0703125
@@ -56949,7 +56948,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 1
+        "zIndex": 2
       }
     },
     {
@@ -56976,7 +56975,7 @@
         }
       ],
       "hotspot": {
-        "left": 73.828125,
+        "left": 45.18229166666667,
         "top": 5.56640625,
         "width": 9.9609375,
         "height": 23.14453125,
@@ -57041,12 +57040,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-366.webp",
-        "left": 73.828125,
+        "left": 45.18229166666667,
         "top": 5.56640625,
         "width": 9.9609375,
         "height": 23.14453125,
         "rect": {
-          "left": 73.828125,
+          "left": 45.18229166666667,
           "top": 5.56640625,
           "width": 9.9609375,
           "height": 23.14453125
@@ -57059,7 +57058,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 5
+        "zIndex": 3
       }
     },
     {
@@ -57086,7 +57085,7 @@
         }
       ],
       "hotspot": {
-        "left": 31.966145833333332,
+        "left": 45.83333333333333,
         "top": 6.4453125,
         "width": 9.895833333333332,
         "height": 21.38671875,
@@ -57151,12 +57150,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-367.webp",
-        "left": 31.966145833333332,
+        "left": 45.83333333333333,
         "top": 6.4453125,
         "width": 9.895833333333332,
         "height": 21.38671875,
         "rect": {
-          "left": 31.966145833333332,
+          "left": 45.83333333333333,
           "top": 6.4453125,
           "width": 9.895833333333332,
           "height": 21.38671875
@@ -57169,7 +57168,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 2
+        "zIndex": 3
       }
     },
     {
@@ -57196,7 +57195,7 @@
         }
       ],
       "hotspot": {
-        "left": 45.8984375,
+        "left": 60.286458333333336,
         "top": 6.4453125,
         "width": 8.528645833333332,
         "height": 22.36328125,
@@ -57253,12 +57252,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-368.webp",
-        "left": 45.8984375,
+        "left": 60.286458333333336,
         "top": 6.4453125,
         "width": 8.528645833333332,
         "height": 22.36328125,
         "rect": {
-          "left": 45.8984375,
+          "left": 60.286458333333336,
           "top": 6.4453125,
           "width": 8.528645833333332,
           "height": 22.36328125
@@ -57271,7 +57270,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 3
+        "zIndex": 4
       }
     },
     {
@@ -57298,7 +57297,7 @@
         }
       ],
       "hotspot": {
-        "left": 58.463541666666664,
+        "left": 73.37239583333334,
         "top": 6.4453125,
         "width": 9.049479166666668,
         "height": 22.265625,
@@ -57359,12 +57358,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-369.webp",
-        "left": 58.463541666666664,
+        "left": 73.37239583333334,
         "top": 6.4453125,
         "width": 9.049479166666668,
         "height": 22.265625,
         "rect": {
-          "left": 58.463541666666664,
+          "left": 73.37239583333334,
           "top": 6.4453125,
           "width": 9.049479166666668,
           "height": 22.265625
@@ -57377,7 +57376,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 4
+        "zIndex": 5
       }
     },
     {
@@ -57404,8 +57403,8 @@
         }
       ],
       "hotspot": {
-        "left": 71.54947916666666,
-        "top": 6.4453125,
+        "left": 18.815104166666664,
+        "top": 31.8359375,
         "width": 11.328125,
         "height": 22.65625,
         "clip": [
@@ -57465,13 +57464,13 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-370.webp",
-        "left": 71.54947916666666,
-        "top": 6.4453125,
+        "left": 18.815104166666664,
+        "top": 31.8359375,
         "width": 11.328125,
         "height": 22.65625,
         "rect": {
-          "left": 71.54947916666666,
-          "top": 6.4453125,
+          "left": 18.815104166666664,
+          "top": 31.8359375,
           "width": 11.328125,
           "height": 22.65625
         },
@@ -57483,7 +57482,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 5
+        "zIndex": 6
       }
     },
     {
@@ -57510,7 +57509,7 @@
         }
       ],
       "hotspot": {
-        "left": 18.684895833333336,
+        "left": 33.984375,
         "top": 31.8359375,
         "width": 8.658854166666668,
         "height": 22.4609375,
@@ -57567,12 +57566,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-371.webp",
-        "left": 18.684895833333336,
+        "left": 33.984375,
         "top": 31.8359375,
         "width": 8.658854166666668,
         "height": 22.4609375,
         "rect": {
-          "left": 18.684895833333336,
+          "left": 33.984375,
           "top": 31.8359375,
           "width": 8.658854166666668,
           "height": 22.4609375
@@ -57585,7 +57584,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 6
+        "zIndex": 7
       }
     },
     {
@@ -57612,7 +57611,7 @@
         }
       ],
       "hotspot": {
-        "left": 30.989583333333332,
+        "left": 46.484375,
         "top": 31.8359375,
         "width": 8.59375,
         "height": 20.60546875,
@@ -57673,12 +57672,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-372.webp",
-        "left": 30.989583333333332,
+        "left": 46.484375,
         "top": 31.8359375,
         "width": 8.59375,
         "height": 20.60546875,
         "rect": {
-          "left": 30.989583333333332,
+          "left": 46.484375,
           "top": 31.8359375,
           "width": 8.59375,
           "height": 20.60546875
@@ -57691,7 +57690,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 7
+        "zIndex": 8
       }
     },
     {
@@ -57718,7 +57717,7 @@
         }
       ],
       "hotspot": {
-        "left": 43.29427083333333,
+        "left": 58.919270833333336,
         "top": 31.8359375,
         "width": 9.765625,
         "height": 20.8984375,
@@ -57775,12 +57774,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-373.webp",
-        "left": 43.29427083333333,
+        "left": 58.919270833333336,
         "top": 31.8359375,
         "width": 9.765625,
         "height": 20.8984375,
         "rect": {
-          "left": 43.29427083333333,
+          "left": 58.919270833333336,
           "top": 31.8359375,
           "width": 9.765625,
           "height": 20.8984375
@@ -57793,7 +57792,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 8
+        "zIndex": 9
       }
     },
     {
@@ -57820,7 +57819,7 @@
         }
       ],
       "hotspot": {
-        "left": 56.770833333333336,
+        "left": 72.52604166666666,
         "top": 31.8359375,
         "width": 10.546875,
         "height": 20.60546875,
@@ -57873,12 +57872,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-374.webp",
-        "left": 56.770833333333336,
+        "left": 72.52604166666666,
         "top": 31.8359375,
         "width": 10.546875,
         "height": 20.60546875,
         "rect": {
-          "left": 56.770833333333336,
+          "left": 72.52604166666666,
           "top": 31.8359375,
           "width": 10.546875,
           "height": 20.60546875
@@ -57891,7 +57890,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 9
+        "zIndex": 10
       }
     },
     {
@@ -57918,8 +57917,8 @@
         }
       ],
       "hotspot": {
-        "left": 70.96354166666666,
-        "top": 31.8359375,
+        "left": 21.223958333333336,
+        "top": 57.2265625,
         "width": 12.239583333333332,
         "height": 20.41015625,
         "clip": [
@@ -57971,13 +57970,13 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-375.webp",
-        "left": 70.96354166666666,
-        "top": 31.8359375,
+        "left": 21.223958333333336,
+        "top": 57.2265625,
         "width": 12.239583333333332,
         "height": 20.41015625,
         "rect": {
-          "left": 70.96354166666666,
-          "top": 31.8359375,
+          "left": 21.223958333333336,
+          "top": 57.2265625,
           "width": 12.239583333333332,
           "height": 20.41015625
         },
@@ -57989,7 +57988,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 10
+        "zIndex": 11
       }
     },
     {
@@ -58016,7 +58015,7 @@
         }
       ],
       "hotspot": {
-        "left": 21.744791666666664,
+        "left": 39.77864583333333,
         "top": 57.2265625,
         "width": 8.203125,
         "height": 20.21484375,
@@ -58057,12 +58056,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-376.webp",
-        "left": 21.744791666666664,
+        "left": 39.77864583333333,
         "top": 57.2265625,
         "width": 8.203125,
         "height": 20.21484375,
         "rect": {
-          "left": 21.744791666666664,
+          "left": 39.77864583333333,
           "top": 57.2265625,
           "width": 8.203125,
           "height": 20.21484375
@@ -58075,7 +58074,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 11
+        "zIndex": 12
       }
     },
     {
@@ -58102,7 +58101,7 @@
         }
       ],
       "hotspot": {
-        "left": 36.71875,
+        "left": 54.231770833333336,
         "top": 57.2265625,
         "width": 9.244791666666668,
         "height": 20.3125,
@@ -58159,12 +58158,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-377.webp",
-        "left": 36.71875,
+        "left": 54.231770833333336,
         "top": 57.2265625,
         "width": 9.244791666666668,
         "height": 20.3125,
         "rect": {
-          "left": 36.71875,
+          "left": 54.231770833333336,
           "top": 57.2265625,
           "width": 9.244791666666668,
           "height": 20.3125
@@ -58177,7 +58176,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 12
+        "zIndex": 13
       }
     },
     {
@@ -58204,7 +58203,7 @@
         }
       ],
       "hotspot": {
-        "left": 52.734375,
+        "left": 69.79166666666666,
         "top": 57.2265625,
         "width": 10.872395833333332,
         "height": 20.703125,
@@ -58265,12 +58264,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-378.webp",
-        "left": 52.734375,
+        "left": 69.79166666666666,
         "top": 57.2265625,
         "width": 10.872395833333332,
         "height": 20.703125,
         "rect": {
-          "left": 52.734375,
+          "left": 69.79166666666666,
           "top": 57.2265625,
           "width": 10.872395833333332,
           "height": 20.703125
@@ -58283,13 +58282,13 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 13
+        "zIndex": 14
       }
     },
     {
       "id": "batch2-379",
       "category": "totes",
-      "zone": "totes-b",
+      "zone": "totes-c",
       "number": "379",
       "name": "Eli and Edythe Broad Art Museum tote",
       "display_name": "Eli and Edythe Broad Art Museum tote",
@@ -58310,8 +58309,8 @@
         }
       ],
       "hotspot": {
-        "left": 70.37760416666666,
-        "top": 57.2265625,
+        "left": 19.53125,
+        "top": 6.4453125,
         "width": 9.765625,
         "height": 20.80078125,
         "clip": [
@@ -58379,13 +58378,13 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-379.webp",
-        "left": 70.37760416666666,
-        "top": 57.2265625,
+        "left": 19.53125,
+        "top": 6.4453125,
         "width": 9.765625,
         "height": 20.80078125,
         "rect": {
-          "left": 70.37760416666666,
-          "top": 57.2265625,
+          "left": 19.53125,
+          "top": 6.4453125,
           "width": 9.765625,
           "height": 20.80078125
         },
@@ -58397,7 +58396,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 14
+        "zIndex": 1
       }
     },
     {
@@ -58424,7 +58423,7 @@
         }
       ],
       "hotspot": {
-        "left": 19.010416666666664,
+        "left": 33.7890625,
         "top": 6.4453125,
         "width": 7.552083333333333,
         "height": 13.8671875,
@@ -58485,12 +58484,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-380.webp",
-        "left": 19.010416666666664,
+        "left": 33.7890625,
         "top": 6.4453125,
         "width": 7.552083333333333,
         "height": 13.8671875,
         "rect": {
-          "left": 19.010416666666664,
+          "left": 33.7890625,
           "top": 6.4453125,
           "width": 7.552083333333333,
           "height": 13.8671875
@@ -58503,7 +58502,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 1
+        "zIndex": 2
       }
     },
     {
@@ -58530,7 +58529,7 @@
         }
       ],
       "hotspot": {
-        "left": 30.598958333333332,
+        "left": 45.8984375,
         "top": 6.4453125,
         "width": 10.9375,
         "height": 20.703125,
@@ -58587,12 +58586,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-381.webp",
-        "left": 30.598958333333332,
+        "left": 45.8984375,
         "top": 6.4453125,
         "width": 10.9375,
         "height": 20.703125,
         "rect": {
-          "left": 30.598958333333332,
+          "left": 45.8984375,
           "top": 6.4453125,
           "width": 10.9375,
           "height": 20.703125
@@ -58605,7 +58604,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 2
+        "zIndex": 3
       }
     },
     {
@@ -58632,7 +58631,7 @@
         }
       ],
       "hotspot": {
-        "left": 45.57291666666667,
+        "left": 61.393229166666664,
         "top": 6.4453125,
         "width": 9.765625,
         "height": 21.58203125,
@@ -58689,12 +58688,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-382.webp",
-        "left": 45.57291666666667,
+        "left": 61.393229166666664,
         "top": 6.4453125,
         "width": 9.765625,
         "height": 21.58203125,
         "rect": {
-          "left": 45.57291666666667,
+          "left": 61.393229166666664,
           "top": 6.4453125,
           "width": 9.765625,
           "height": 21.58203125
@@ -58707,7 +58706,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 3
+        "zIndex": 4
       }
     },
     {
@@ -58734,7 +58733,7 @@
         }
       ],
       "hotspot": {
-        "left": 59.375,
+        "left": 75.71614583333334,
         "top": 6.4453125,
         "width": 6.705729166666667,
         "height": 23.53515625,
@@ -58775,12 +58774,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-383.webp",
-        "left": 59.375,
+        "left": 75.71614583333334,
         "top": 6.4453125,
         "width": 6.705729166666667,
         "height": 23.53515625,
         "rect": {
-          "left": 59.375,
+          "left": 75.71614583333334,
           "top": 6.4453125,
           "width": 6.705729166666667,
           "height": 23.53515625
@@ -58793,7 +58792,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 4
+        "zIndex": 5
       }
     },
     {
@@ -58820,8 +58819,8 @@
         }
       ],
       "hotspot": {
-        "left": 70.05208333333334,
-        "top": 6.4453125,
+        "left": 19.075520833333336,
+        "top": 31.8359375,
         "width": 12.825520833333334,
         "height": 11.62109375,
         "clip": [
@@ -58905,13 +58904,13 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-384.webp",
-        "left": 70.05208333333334,
-        "top": 6.4453125,
+        "left": 19.075520833333336,
+        "top": 31.8359375,
         "width": 12.825520833333334,
         "height": 11.62109375,
         "rect": {
-          "left": 70.05208333333334,
-          "top": 6.4453125,
+          "left": 19.075520833333336,
+          "top": 31.8359375,
           "width": 12.825520833333334,
           "height": 11.62109375
         },
@@ -58923,7 +58922,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 5
+        "zIndex": 6
       }
     },
     {
@@ -58950,8 +58949,8 @@
         }
       ],
       "hotspot": {
-        "left": 17.578125,
-        "top": 33.3984375,
+        "left": 59.375,
+        "top": 5.56640625,
         "width": 10.026041666666668,
         "height": 14.74609375,
         "clip": [
@@ -59019,13 +59018,13 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-385.webp",
-        "left": 17.578125,
-        "top": 33.3984375,
+        "left": 59.375,
+        "top": 5.56640625,
         "width": 10.026041666666668,
         "height": 14.74609375,
         "rect": {
-          "left": 17.578125,
-          "top": 33.3984375,
+          "left": 59.375,
+          "top": 5.56640625,
           "width": 10.026041666666668,
           "height": 14.74609375
         },
@@ -59037,7 +59036,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 6
+        "zIndex": 4
       }
     },
     {
@@ -59064,8 +59063,8 @@
         }
       ],
       "hotspot": {
-        "left": 32.16145833333333,
-        "top": 33.3984375,
+        "left": 73.69791666666666,
+        "top": 5.56640625,
         "width": 8.984375,
         "height": 15.33203125,
         "clip": [
@@ -59133,13 +59132,13 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-386.webp",
-        "left": 32.16145833333333,
-        "top": 33.3984375,
+        "left": 73.69791666666666,
+        "top": 5.56640625,
         "width": 8.984375,
         "height": 15.33203125,
         "rect": {
-          "left": 32.16145833333333,
-          "top": 33.3984375,
+          "left": 73.69791666666666,
+          "top": 5.56640625,
           "width": 8.984375,
           "height": 15.33203125
         },
@@ -59151,7 +59150,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 7
+        "zIndex": 5
       }
     },
     {
@@ -59178,7 +59177,7 @@
         }
       ],
       "hotspot": {
-        "left": 45.703125,
+        "left": 17.7734375,
         "top": 33.3984375,
         "width": 12.3046875,
         "height": 15.13671875,
@@ -59255,12 +59254,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/batch2-387.webp",
-        "left": 45.703125,
+        "left": 17.7734375,
         "top": 33.3984375,
         "width": 12.3046875,
         "height": 15.13671875,
         "rect": {
-          "left": 45.703125,
+          "left": 17.7734375,
           "top": 33.3984375,
           "width": 12.3046875,
           "height": 15.13671875
@@ -59273,93 +59272,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 8
-      }
-    },
-    {
-      "id": "cr-007",
-      "category": "bags",
-      "zone": "bags-a",
-      "number": "007",
-      "name": "Bode Tote",
-      "display_name": "Bode Tote",
-      "brand": "Bode",
-      "type": "plaid-tote",
-      "story": "故事待补充",
-      "image": "assets/items/v2/cr-007-600.webp",
-      "card_images": [
-        {
-          "src": "assets/items/v2/cr-007-600.webp",
-          "width": 395,
-          "height": 600
-        },
-        {
-          "src": "assets/items/v2/cr-007-400.webp",
-          "width": 264,
-          "height": 400
-        }
-      ],
-      "hotspot": {
-        "left": 16.2109375,
-        "top": 5.56640625,
-        "width": 12.434895833333332,
-        "height": 23.33984375,
-        "clip": [
-          [
-            98.42931937172774,
-            25.523012552301257
-          ],
-          [
-            69.63350785340315,
-            25.10460251046025
-          ],
-          [
-            51.30890052356021,
-            0.0
-          ],
-          [
-            41.8848167539267,
-            4.602510460251046
-          ],
-          [
-            30.89005235602094,
-            25.10460251046025
-          ],
-          [
-            1.5706806282722514,
-            25.10460251046025
-          ],
-          [
-            0.5235602094240838,
-            98.74476987447699
-          ],
-          [
-            98.42931937172774,
-            99.581589958159
-          ]
-        ]
-      },
-      "layer": {
-        "image": "assets/zones/layers/cr-007.webp",
-        "left": 16.2109375,
-        "top": 5.56640625,
-        "width": 12.434895833333332,
-        "height": 23.33984375,
-        "rect": {
-          "left": 16.2109375,
-          "top": 5.56640625,
-          "width": 12.434895833333332,
-          "height": 23.33984375
-        },
-        "pivot": {
-          "x": 50,
-          "y": 0
-        },
-        "pivotX": 50,
-        "pivotY": 0,
-        "motion": "hang",
-        "fallback": false,
-        "zIndex": 1
+        "zIndex": 6
       }
     },
     {
@@ -124537,13 +124450,13 @@
       "category": "bags",
       "zone": "bags-a",
       "number": "612",
-      "name": "AESTHER EKME | Bag",
+      "name": "Aesther Ekme burgundy hobo bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "AESTHER EKME | Bag",
+      "display_name": "Aesther Ekme burgundy hobo bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 62.565104166666664,
+        "left": 34.765625,
         "top": 33.3984375,
         "width": 7.2265625,
         "height": 16.40625,
@@ -124600,12 +124513,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-388.webp",
-        "left": 62.565104166666664,
+        "left": 34.765625,
         "top": 33.3984375,
         "width": 7.2265625,
         "height": 16.40625,
         "rect": {
-          "left": 62.565104166666664,
+          "left": 34.765625,
           "top": 33.3984375,
           "width": 7.2265625,
           "height": 16.40625
@@ -124618,7 +124531,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 9
+        "zIndex": 7
       },
       "image": "assets/items/v2/today-388-600.webp",
       "card_images": [
@@ -124639,13 +124552,13 @@
       "category": "bags",
       "zone": "bags-a",
       "number": "613",
-      "name": "BALENCIAGA | Classic Mini City Bag",
+      "name": "Balenciaga Classic Mini City Bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "BALENCIAGA | Classic Mini City Bag",
+      "display_name": "Balenciaga Classic Mini City Bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 74.34895833333334,
+        "left": 46.74479166666667,
         "top": 33.3984375,
         "width": 8.072916666666668,
         "height": 15.33203125,
@@ -124710,12 +124623,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-389.webp",
-        "left": 74.34895833333334,
+        "left": 46.74479166666667,
         "top": 33.3984375,
         "width": 8.072916666666668,
         "height": 15.33203125,
         "rect": {
-          "left": 74.34895833333334,
+          "left": 46.74479166666667,
           "top": 33.3984375,
           "width": 8.072916666666668,
           "height": 15.33203125
@@ -124728,7 +124641,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 10
+        "zIndex": 8
       },
       "image": "assets/items/v2/today-389-600.webp",
       "card_images": [
@@ -124749,13 +124662,13 @@
       "category": "totes",
       "zone": "totes-c",
       "number": "614",
-      "name": "BAZISZT | Spring Summer | Plaid Bag",
+      "name": "Baziszt Plaid Bag",
       "brand": "BAZISZT",
       "type": "bag",
-      "display_name": "BAZISZT | Spring Summer | Plaid Bag",
+      "display_name": "Baziszt Plaid Bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 22.395833333333336,
+        "left": 35.9375,
         "top": 31.8359375,
         "width": 8.333333333333332,
         "height": 16.50390625,
@@ -124816,12 +124729,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-390.webp",
-        "left": 22.395833333333336,
+        "left": 35.9375,
         "top": 31.8359375,
         "width": 8.333333333333332,
         "height": 16.50390625,
         "rect": {
-          "left": 22.395833333333336,
+          "left": 35.9375,
           "top": 31.8359375,
           "width": 8.333333333333332,
           "height": 16.50390625
@@ -124834,7 +124747,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 6
+        "zIndex": 7
       },
       "image": "assets/items/v2/today-390-600.webp",
       "card_images": [
@@ -124855,14 +124768,14 @@
       "category": "bags",
       "zone": "bags-a",
       "number": "615",
-      "name": "Bottega Veneta",
+      "name": "Bottega Veneta navy padded woven bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "Bottega Veneta",
+      "display_name": "Bottega Veneta navy padded woven bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 20.833333333333336,
-        "top": 61.23046875,
+        "left": 59.505208333333336,
+        "top": 33.3984375,
         "width": 8.919270833333332,
         "height": 11.71875,
         "clip": [
@@ -124910,13 +124823,13 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-391.webp",
-        "left": 20.833333333333336,
-        "top": 61.23046875,
+        "left": 59.505208333333336,
+        "top": 33.3984375,
         "width": 8.919270833333332,
         "height": 11.71875,
         "rect": {
-          "left": 20.833333333333336,
-          "top": 61.23046875,
+          "left": 59.505208333333336,
+          "top": 33.3984375,
           "width": 8.919270833333332,
           "height": 11.71875
         },
@@ -124928,7 +124841,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 11
+        "zIndex": 9
       },
       "image": "assets/items/v2/today-391-600.webp",
       "card_images": [
@@ -124949,14 +124862,14 @@
       "category": "bags",
       "zone": "bags-a",
       "number": "616",
-      "name": "CELINE | Bag",
+      "name": "Celine brown leather shoulder bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "CELINE | Bag",
+      "display_name": "Celine brown leather shoulder bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 37.56510416666667,
-        "top": 61.23046875,
+        "left": 73.11197916666666,
+        "top": 33.3984375,
         "width": 9.114583333333332,
         "height": 19.62890625,
         "clip": [
@@ -125012,13 +124925,13 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-392.webp",
-        "left": 37.56510416666667,
-        "top": 61.23046875,
+        "left": 73.11197916666666,
+        "top": 33.3984375,
         "width": 9.114583333333332,
         "height": 19.62890625,
         "rect": {
-          "left": 37.56510416666667,
-          "top": 61.23046875,
+          "left": 73.11197916666666,
+          "top": 33.3984375,
           "width": 9.114583333333332,
           "height": 19.62890625
         },
@@ -125030,7 +124943,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 12
+        "zIndex": 10
       },
       "image": "assets/items/v2/today-392-600.webp",
       "card_images": [
@@ -125051,13 +124964,13 @@
       "category": "bags",
       "zone": "bags-a",
       "number": "617",
-      "name": "CELINE | Classic Box Bag",
+      "name": "Celine Classic Box Bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "CELINE | Classic Box Bag",
+      "display_name": "Celine Classic Box Bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 54.557291666666664,
+        "left": 20.638020833333336,
         "top": 61.23046875,
         "width": 8.138020833333332,
         "height": 19.3359375,
@@ -125110,12 +125023,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-393.webp",
-        "left": 54.557291666666664,
+        "left": 20.638020833333336,
         "top": 61.23046875,
         "width": 8.138020833333332,
         "height": 19.3359375,
         "rect": {
-          "left": 54.557291666666664,
+          "left": 20.638020833333336,
           "top": 61.23046875,
           "width": 8.138020833333332,
           "height": 19.3359375
@@ -125128,7 +125041,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 13
+        "zIndex": 11
       },
       "image": "assets/items/v2/today-393-600.webp",
       "card_images": [
@@ -125149,13 +125062,13 @@
       "category": "bags",
       "zone": "bags-a",
       "number": "618",
-      "name": "CELINE | Frame Shoulder Bag",
+      "name": "Celine Frame Shoulder Bag",
       "brand": "CELINE",
       "type": "bag",
-      "display_name": "CELINE | Frame Shoulder Bag",
+      "display_name": "Celine Frame Shoulder Bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 70.5078125,
+        "left": 36.45833333333333,
         "top": 61.23046875,
         "width": 8.59375,
         "height": 19.62890625,
@@ -125208,12 +125121,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-394.webp",
-        "left": 70.5078125,
+        "left": 36.45833333333333,
         "top": 61.23046875,
         "width": 8.59375,
         "height": 19.62890625,
         "rect": {
-          "left": 70.5078125,
+          "left": 36.45833333333333,
           "top": 61.23046875,
           "width": 8.59375,
           "height": 19.62890625
@@ -125226,7 +125139,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 14
+        "zIndex": 12
       },
       "image": "assets/items/v2/today-394-600.webp",
       "card_images": [
@@ -125245,16 +125158,16 @@
     {
       "id": "today-395",
       "category": "bags",
-      "zone": "bags-b",
+      "zone": "bags-a",
       "number": "619",
-      "name": "CELINE | Pillow Bag",
+      "name": "Celine Pillow Bag",
       "brand": "CELINE",
       "type": "bag",
-      "display_name": "CELINE | Pillow Bag",
+      "display_name": "Celine Pillow Bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 18.359375,
-        "top": 5.17578125,
+        "left": 52.734375,
+        "top": 61.23046875,
         "width": 10.416666666666668,
         "height": 16.40625,
         "clip": [
@@ -125330,13 +125243,13 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-395.webp",
-        "left": 18.359375,
-        "top": 5.17578125,
+        "left": 52.734375,
+        "top": 61.23046875,
         "width": 10.416666666666668,
         "height": 16.40625,
         "rect": {
-          "left": 18.359375,
-          "top": 5.17578125,
+          "left": 52.734375,
+          "top": 61.23046875,
           "width": 10.416666666666668,
           "height": 16.40625
         },
@@ -125348,7 +125261,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 1
+        "zIndex": 13
       },
       "image": "assets/items/v2/today-395-600.webp",
       "card_images": [
@@ -125367,16 +125280,16 @@
     {
       "id": "today-396",
       "category": "bags",
-      "zone": "bags-b",
+      "zone": "bags-a",
       "number": "620",
-      "name": "CHANEL | Classic Double Flap Bag",
+      "name": "Chanel Classic Double Flap Bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "CHANEL | Classic Double Flap Bag",
+      "display_name": "Chanel Classic Double Flap Bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 34.1796875,
-        "top": 5.17578125,
+        "left": 70.76822916666666,
+        "top": 61.23046875,
         "width": 8.59375,
         "height": 20.5078125,
         "clip": [
@@ -125420,13 +125333,13 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-396.webp",
-        "left": 34.1796875,
-        "top": 5.17578125,
+        "left": 70.76822916666666,
+        "top": 61.23046875,
         "width": 8.59375,
         "height": 20.5078125,
         "rect": {
-          "left": 34.1796875,
-          "top": 5.17578125,
+          "left": 70.76822916666666,
+          "top": 61.23046875,
           "width": 8.59375,
           "height": 20.5078125
         },
@@ -125438,7 +125351,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 2
+        "zIndex": 14
       },
       "image": "assets/items/v2/today-396-600.webp",
       "card_images": [
@@ -125459,13 +125372,13 @@
       "category": "bags",
       "zone": "bags-b",
       "number": "621",
-      "name": "CHANEL | Denim Shoulder Bag",
+      "name": "Chanel Denim Shoulder Bag",
       "brand": "CHANEL",
       "type": "bag",
-      "display_name": "CHANEL | Denim Shoulder Bag",
+      "display_name": "Chanel Denim Shoulder Bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 48.11197916666667,
+        "left": 18.880208333333336,
         "top": 5.17578125,
         "width": 8.919270833333332,
         "height": 20.8984375,
@@ -125518,12 +125431,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-397.webp",
-        "left": 48.11197916666667,
+        "left": 18.880208333333336,
         "top": 5.17578125,
         "width": 8.919270833333332,
         "height": 20.8984375,
         "rect": {
-          "left": 48.11197916666667,
+          "left": 18.880208333333336,
           "top": 5.17578125,
           "width": 8.919270833333332,
           "height": 20.8984375
@@ -125536,7 +125449,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 3
+        "zIndex": 1
       },
       "image": "assets/items/v2/today-397-600.webp",
       "card_images": [
@@ -125557,13 +125470,13 @@
       "category": "bags",
       "zone": "bags-b",
       "number": "622",
-      "name": "CHANEL | Gabrielle Drawstring Bag",
+      "name": "Chanel Gabrielle Drawstring Bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "CHANEL | Gabrielle Drawstring Bag",
+      "display_name": "Chanel Gabrielle Drawstring Bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 62.369791666666664,
+        "left": 33.59375,
         "top": 5.17578125,
         "width": 7.8125,
         "height": 20.8984375,
@@ -125616,12 +125529,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-398.webp",
-        "left": 62.369791666666664,
+        "left": 33.59375,
         "top": 5.17578125,
         "width": 7.8125,
         "height": 20.8984375,
         "rect": {
-          "left": 62.369791666666664,
+          "left": 33.59375,
           "top": 5.17578125,
           "width": 7.8125,
           "height": 20.8984375
@@ -125634,7 +125547,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 4
+        "zIndex": 2
       },
       "image": "assets/items/v2/today-398-600.webp",
       "card_images": [
@@ -125655,13 +125568,13 @@
       "category": "bags",
       "zone": "bags-b",
       "number": "623",
-      "name": "CHANEL | Heart Mini Flap Bag",
+      "name": "Chanel Heart Mini Flap Bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "CHANEL | Heart Mini Flap Bag",
+      "display_name": "Chanel Heart Mini Flap Bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 75.5859375,
+        "left": 47.265625,
         "top": 5.17578125,
         "width": 6.0546875,
         "height": 20.703125,
@@ -125710,12 +125623,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-399.webp",
-        "left": 75.5859375,
+        "left": 47.265625,
         "top": 5.17578125,
         "width": 6.0546875,
         "height": 20.703125,
         "rect": {
-          "left": 75.5859375,
+          "left": 47.265625,
           "top": 5.17578125,
           "width": 6.0546875,
           "height": 20.703125
@@ -125728,7 +125641,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 5
+        "zIndex": 3
       },
       "image": "assets/items/v2/today-399-600.webp",
       "card_images": [
@@ -125749,14 +125662,14 @@
       "category": "bags",
       "zone": "bags-b",
       "number": "624",
-      "name": "CHANEL | Mini Hobo Bag",
+      "name": "Chanel Mini Hobo Bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "CHANEL | Mini Hobo Bag",
+      "display_name": "Chanel Mini Hobo Bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 18.619791666666664,
-        "top": 29.78515625,
+        "left": 59.1796875,
+        "top": 5.17578125,
         "width": 8.138020833333332,
         "height": 20.703125,
         "clip": [
@@ -125812,13 +125725,13 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-400.webp",
-        "left": 18.619791666666664,
-        "top": 29.78515625,
+        "left": 59.1796875,
+        "top": 5.17578125,
         "width": 8.138020833333332,
         "height": 20.703125,
         "rect": {
-          "left": 18.619791666666664,
-          "top": 29.78515625,
+          "left": 59.1796875,
+          "top": 5.17578125,
           "width": 8.138020833333332,
           "height": 20.703125
         },
@@ -125830,7 +125743,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 6
+        "zIndex": 4
       },
       "image": "assets/items/v2/today-400-600.webp",
       "card_images": [
@@ -125851,14 +125764,14 @@
       "category": "bags",
       "zone": "bags-b",
       "number": "625",
-      "name": "CHANEL | Vanity Case Bag",
+      "name": "Chanel Vanity Case Bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "CHANEL | Vanity Case Bag",
+      "display_name": "Chanel Vanity Case Bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 32.35677083333333,
-        "top": 29.78515625,
+        "left": 73.11197916666666,
+        "top": 5.17578125,
         "width": 8.0078125,
         "height": 20.41015625,
         "clip": [
@@ -125926,13 +125839,13 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-401.webp",
-        "left": 32.35677083333333,
-        "top": 29.78515625,
+        "left": 73.11197916666666,
+        "top": 5.17578125,
         "width": 8.0078125,
         "height": 20.41015625,
         "rect": {
-          "left": 32.35677083333333,
-          "top": 29.78515625,
+          "left": 73.11197916666666,
+          "top": 5.17578125,
           "width": 8.0078125,
           "height": 20.41015625
         },
@@ -125944,7 +125857,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 7
+        "zIndex": 5
       },
       "image": "assets/items/v2/today-401-600.webp",
       "card_images": [
@@ -125965,13 +125878,13 @@
       "category": "bags",
       "zone": "bags-b",
       "number": "626",
-      "name": "Call ItByYourName | AllSeason | Bandana Shoulder Bag",
+      "name": "Call It By Your Name Bandana Shoulder Bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "Call ItByYourName | AllSeason | Bandana Shoulder Bag",
+      "display_name": "Call It By Your Name Bandana Shoulder Bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 45.96354166666667,
+        "left": 21.09375,
         "top": 29.8828125,
         "width": 6.0546875,
         "height": 20.8984375,
@@ -126024,12 +125937,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-402.webp",
-        "left": 45.96354166666667,
+        "left": 21.09375,
         "top": 29.8828125,
         "width": 6.0546875,
         "height": 20.8984375,
         "rect": {
-          "left": 45.96354166666667,
+          "left": 21.09375,
           "top": 29.8828125,
           "width": 6.0546875,
           "height": 20.8984375
@@ -126042,7 +125955,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 8
+        "zIndex": 6
       },
       "image": "assets/items/v2/today-402-600.webp",
       "card_images": [
@@ -126063,13 +125976,13 @@
       "category": "bags",
       "zone": "bags-b",
       "number": "627",
-      "name": "Chanel",
+      "name": "Chanel black tweed bucket bag",
       "brand": "CHANEL",
       "type": "bag",
-      "display_name": "Chanel",
+      "display_name": "Chanel black tweed bucket bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 57.6171875,
+        "left": 35.22135416666667,
         "top": 29.78515625,
         "width": 9.114583333333332,
         "height": 20.8984375,
@@ -126134,12 +126047,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-403.webp",
-        "left": 57.6171875,
+        "left": 35.22135416666667,
         "top": 29.78515625,
         "width": 9.114583333333332,
         "height": 20.8984375,
         "rect": {
-          "left": 57.6171875,
+          "left": 35.22135416666667,
           "top": 29.78515625,
           "width": 9.114583333333332,
           "height": 20.8984375
@@ -126152,7 +126065,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 9
+        "zIndex": 7
       },
       "image": "assets/items/v2/today-403-600.webp",
       "card_images": [
@@ -126173,13 +126086,13 @@
       "category": "bags",
       "zone": "bags-b",
       "number": "628",
-      "name": "Chanel",
+      "name": "Chanel cream check tweed flap bag",
       "brand": "CHANEL",
       "type": "bag",
-      "display_name": "Chanel",
+      "display_name": "Chanel cream check tweed flap bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 72.265625,
+        "left": 52.408854166666664,
         "top": 29.78515625,
         "width": 9.114583333333332,
         "height": 17.48046875,
@@ -126236,12 +126149,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-404.webp",
-        "left": 72.265625,
+        "left": 52.408854166666664,
         "top": 29.78515625,
         "width": 9.114583333333332,
         "height": 17.48046875,
         "rect": {
-          "left": 72.265625,
+          "left": 52.408854166666664,
           "top": 29.78515625,
           "width": 9.114583333333332,
           "height": 17.48046875
@@ -126254,7 +126167,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 10
+        "zIndex": 8
       },
       "image": "assets/items/v2/today-404-600.webp",
       "card_images": [
@@ -126275,14 +126188,14 @@
       "category": "bags",
       "zone": "bags-b",
       "number": "629",
-      "name": "Chanel",
+      "name": "Chanel black and beige flap crossbody bag",
       "brand": "CHANEL",
       "type": "bag",
-      "display_name": "Chanel",
+      "display_name": "Chanel black and beige flap crossbody bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 20.572916666666664,
-        "top": 55.17578125,
+        "left": 69.59635416666666,
+        "top": 29.78515625,
         "width": 9.309895833333332,
         "height": 16.6015625,
         "clip": [
@@ -126354,13 +126267,13 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-405.webp",
-        "left": 20.572916666666664,
-        "top": 55.17578125,
+        "left": 69.59635416666666,
+        "top": 29.78515625,
         "width": 9.309895833333332,
         "height": 16.6015625,
         "rect": {
-          "left": 20.572916666666664,
-          "top": 55.17578125,
+          "left": 69.59635416666666,
+          "top": 29.78515625,
           "width": 9.309895833333332,
           "height": 16.6015625
         },
@@ -126372,7 +126285,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 11
+        "zIndex": 9
       },
       "image": "assets/items/v2/today-405-600.webp",
       "card_images": [
@@ -126393,13 +126306,13 @@
       "category": "bags",
       "zone": "bags-b",
       "number": "630",
-      "name": "Chanel",
+      "name": "Chanel grey bowling bag",
       "brand": "CHANEL",
       "type": "bag",
-      "display_name": "Chanel",
+      "display_name": "Chanel grey bowling bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 37.5,
+        "left": 19.791666666666664,
         "top": 55.17578125,
         "width": 11.783854166666668,
         "height": 19.23828125,
@@ -126484,12 +126397,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-406.webp",
-        "left": 37.5,
+        "left": 19.791666666666664,
         "top": 55.17578125,
         "width": 11.783854166666668,
         "height": 19.23828125,
         "rect": {
-          "left": 37.5,
+          "left": 19.791666666666664,
           "top": 55.17578125,
           "width": 11.783854166666668,
           "height": 19.23828125
@@ -126502,7 +126415,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 12
+        "zIndex": 10
       },
       "image": "assets/items/v2/today-406-600.webp",
       "card_images": [
@@ -126523,13 +126436,13 @@
       "category": "bags",
       "zone": "bags-b",
       "number": "631",
-      "name": "Chanel | All Season | Classic Flap Bag",
+      "name": "Chanel Classic Flap Bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "Chanel | All Season | Classic Flap Bag",
+      "display_name": "Chanel Classic Flap Bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 56.770833333333336,
+        "left": 38.34635416666667,
         "top": 55.17578125,
         "width": 6.0546875,
         "height": 17.48046875,
@@ -126582,12 +126495,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-407.webp",
-        "left": 56.770833333333336,
+        "left": 38.34635416666667,
         "top": 55.17578125,
         "width": 6.0546875,
         "height": 17.48046875,
         "rect": {
-          "left": 56.770833333333336,
+          "left": 38.34635416666667,
           "top": 55.17578125,
           "width": 6.0546875,
           "height": 17.48046875
@@ -126600,7 +126513,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 13
+        "zIndex": 11
       },
       "image": "assets/items/v2/today-407-600.webp",
       "card_images": [
@@ -126621,13 +126534,13 @@
       "category": "bags",
       "zone": "bags-b",
       "number": "632",
-      "name": "EL | Chanel | All Season | 22 Hobo Bag",
+      "name": "Chanel 22 Hobo Bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "EL | Chanel | All Season | 22 Hobo Bag",
+      "display_name": "Chanel 22 Hobo Bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 70.37760416666666,
+        "left": 51.106770833333336,
         "top": 55.17578125,
         "width": 8.984375,
         "height": 19.53125,
@@ -126680,12 +126593,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-408.webp",
-        "left": 70.37760416666666,
+        "left": 51.106770833333336,
         "top": 55.17578125,
         "width": 8.984375,
         "height": 19.53125,
         "rect": {
-          "left": 70.37760416666666,
+          "left": 51.106770833333336,
           "top": 55.17578125,
           "width": 8.984375,
           "height": 19.53125
@@ -126698,7 +126611,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 14
+        "zIndex": 12
       },
       "image": "assets/items/v2/today-408-600.webp",
       "card_images": [
@@ -126717,16 +126630,16 @@
     {
       "id": "today-409",
       "category": "bags",
-      "zone": "bags-c",
+      "zone": "bags-b",
       "number": "633",
-      "name": "Gucci",
+      "name": "Gucci GG monogram duffle bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "Gucci",
+      "display_name": "Gucci GG monogram duffle bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 17.7734375,
-        "top": 4.98046875,
+        "left": 66.92708333333334,
+        "top": 55.17578125,
         "width": 13.28125,
         "height": 17.7734375,
         "clip": [
@@ -126786,13 +126699,13 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-409.webp",
-        "left": 17.7734375,
-        "top": 4.98046875,
+        "left": 66.92708333333334,
+        "top": 55.17578125,
         "width": 13.28125,
         "height": 17.7734375,
         "rect": {
-          "left": 17.7734375,
-          "top": 4.98046875,
+          "left": 66.92708333333334,
+          "top": 55.17578125,
           "width": 13.28125,
           "height": 17.7734375
         },
@@ -126804,7 +126717,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 1
+        "zIndex": 13
       },
       "image": "assets/items/v2/today-409-600.webp",
       "card_images": [
@@ -126825,13 +126738,13 @@
       "category": "bags",
       "zone": "bags-c",
       "number": "634",
-      "name": "Jil Sander",
+      "name": "Jil Sander green and black flat bag",
       "brand": "Jil Sander",
       "type": "bag",
-      "display_name": "Jil Sander",
+      "display_name": "Jil Sander green and black flat bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 35.7421875,
+        "left": 18.424479166666664,
         "top": 4.98046875,
         "width": 8.723958333333332,
         "height": 19.140625,
@@ -126884,12 +126797,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-410.webp",
-        "left": 35.7421875,
+        "left": 18.424479166666664,
         "top": 4.98046875,
         "width": 8.723958333333332,
         "height": 19.140625,
         "rect": {
-          "left": 35.7421875,
+          "left": 18.424479166666664,
           "top": 4.98046875,
           "width": 8.723958333333332,
           "height": 19.140625
@@ -126902,7 +126815,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 2
+        "zIndex": 1
       },
       "image": "assets/items/v2/today-410-600.webp",
       "card_images": [
@@ -126923,13 +126836,13 @@
       "category": "bags",
       "zone": "bags-c",
       "number": "635",
-      "name": "LOEWE",
+      "name": "Loewe tan leather and canvas bucket bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "LOEWE",
+      "display_name": "Loewe tan leather and canvas bucket bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 49.21875,
+        "left": 32.6171875,
         "top": 4.98046875,
         "width": 8.7890625,
         "height": 19.53125,
@@ -126998,12 +126911,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-411.webp",
-        "left": 49.21875,
+        "left": 32.6171875,
         "top": 4.98046875,
         "width": 8.7890625,
         "height": 19.53125,
         "rect": {
-          "left": 49.21875,
+          "left": 32.6171875,
           "top": 4.98046875,
           "width": 8.7890625,
           "height": 19.53125
@@ -127016,7 +126929,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 3
+        "zIndex": 2
       },
       "image": "assets/items/v2/today-411-600.webp",
       "card_images": [
@@ -127037,13 +126950,13 @@
       "category": "bags",
       "zone": "bags-c",
       "number": "636",
-      "name": "LOUIS VUITTON | Petite Malle Souple",
+      "name": "Louis Vuitton Petite Malle Souple",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "LOUIS VUITTON | Petite Malle Souple",
+      "display_name": "Louis Vuitton Petite Malle Souple",
       "story": "故事待补充",
       "hotspot": {
-        "left": 62.6953125,
+        "left": 46.80989583333333,
         "top": 4.98046875,
         "width": 6.770833333333333,
         "height": 17.1875,
@@ -127080,12 +126993,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-412.webp",
-        "left": 62.6953125,
+        "left": 46.80989583333333,
         "top": 4.98046875,
         "width": 6.770833333333333,
         "height": 17.1875,
         "rect": {
-          "left": 62.6953125,
+          "left": 46.80989583333333,
           "top": 4.98046875,
           "width": 6.770833333333333,
           "height": 17.1875
@@ -127098,7 +127011,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 4
+        "zIndex": 3
       },
       "image": "assets/items/v2/today-412-600.webp",
       "card_images": [
@@ -127119,13 +127032,13 @@
       "category": "bags",
       "zone": "bags-c",
       "number": "637",
-      "name": "LOUIS VUITTON | Shearling Bumbag",
+      "name": "Louis Vuitton Shearling Bumbag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "LOUIS VUITTON | Shearling Bumbag",
+      "display_name": "Louis Vuitton Shearling Bumbag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 74.21875,
+        "left": 58.919270833333336,
         "top": 4.98046875,
         "width": 8.072916666666668,
         "height": 18.359375,
@@ -127186,12 +127099,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-413.webp",
-        "left": 74.21875,
+        "left": 58.919270833333336,
         "top": 4.98046875,
         "width": 8.072916666666668,
         "height": 18.359375,
         "rect": {
-          "left": 74.21875,
+          "left": 58.919270833333336,
           "top": 4.98046875,
           "width": 8.072916666666668,
           "height": 18.359375
@@ -127204,7 +127117,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 5
+        "zIndex": 4
       },
       "image": "assets/items/v2/today-413-600.webp",
       "card_images": [
@@ -127225,14 +127138,14 @@
       "category": "bags",
       "zone": "bags-c",
       "number": "638",
-      "name": "Lemaire",
+      "name": "Lemaire tan crescent shoulder bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "Lemaire",
+      "display_name": "Lemaire tan crescent shoulder bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 18.815104166666664,
-        "top": 32.8125,
+        "left": 72.4609375,
+        "top": 4.98046875,
         "width": 9.114583333333332,
         "height": 17.48046875,
         "clip": [
@@ -127300,13 +127213,13 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-414.webp",
-        "left": 18.815104166666664,
-        "top": 32.8125,
+        "left": 72.4609375,
+        "top": 4.98046875,
         "width": 9.114583333333332,
         "height": 17.48046875,
         "rect": {
-          "left": 18.815104166666664,
-          "top": 32.8125,
+          "left": 72.4609375,
+          "top": 4.98046875,
           "width": 9.114583333333332,
           "height": 17.48046875
         },
@@ -127318,7 +127231,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 6
+        "zIndex": 5
       },
       "image": "assets/items/v2/today-414-600.webp",
       "card_images": [
@@ -127339,13 +127252,13 @@
       "category": "bags",
       "zone": "bags-c",
       "number": "639",
-      "name": "Lemaire | All Season | Small Soft Game Bag",
+      "name": "Lemaire Small Soft Game Bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "Lemaire | All Season | Small Soft Game Bag",
+      "display_name": "Lemaire Small Soft Game Bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 33.72395833333333,
+        "left": 21.809895833333336,
         "top": 32.8125,
         "width": 7.6171875,
         "height": 17.67578125,
@@ -127402,12 +127315,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-415.webp",
-        "left": 33.72395833333333,
+        "left": 21.809895833333336,
         "top": 32.8125,
         "width": 7.6171875,
         "height": 17.67578125,
         "rect": {
-          "left": 33.72395833333333,
+          "left": 21.809895833333336,
           "top": 32.8125,
           "width": 7.6171875,
           "height": 17.67578125
@@ -127420,7 +127333,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 7
+        "zIndex": 6
       },
       "image": "assets/items/v2/today-415-600.webp",
       "card_images": [
@@ -127441,13 +127354,13 @@
       "category": "bags",
       "zone": "bags-c",
       "number": "640",
-      "name": "Lemaire | Spring/Summer | Crochet Small Bag",
+      "name": "Lemaire Crochet Small Bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "Lemaire | Spring/Summer | Crochet Small Bag",
+      "display_name": "Lemaire Crochet Small Bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 47.13541666666667,
+        "left": 38.21614583333333,
         "top": 32.8125,
         "width": 5.533854166666666,
         "height": 17.7734375,
@@ -127496,12 +127409,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-416.webp",
-        "left": 47.13541666666667,
+        "left": 38.21614583333333,
         "top": 32.8125,
         "width": 5.533854166666666,
         "height": 17.7734375,
         "rect": {
-          "left": 47.13541666666667,
+          "left": 38.21614583333333,
           "top": 32.8125,
           "width": 5.533854166666666,
           "height": 17.7734375
@@ -127514,7 +127427,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 8
+        "zIndex": 7
       },
       "image": "assets/items/v2/today-416-600.webp",
       "card_images": [
@@ -127535,13 +127448,13 @@
       "category": "bags",
       "zone": "bags-c",
       "number": "641",
-      "name": "Loewe",
+      "name": "Loewe navy top-handle bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "Loewe",
+      "display_name": "Loewe navy top-handle bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 58.463541666666664,
+        "left": 52.5390625,
         "top": 32.8125,
         "width": 8.7890625,
         "height": 17.7734375,
@@ -127618,12 +127531,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-417.webp",
-        "left": 58.463541666666664,
+        "left": 52.5390625,
         "top": 32.8125,
         "width": 8.7890625,
         "height": 17.7734375,
         "rect": {
-          "left": 58.463541666666664,
+          "left": 52.5390625,
           "top": 32.8125,
           "width": 8.7890625,
           "height": 17.7734375
@@ -127636,7 +127549,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 9
+        "zIndex": 8
       },
       "image": "assets/items/v2/today-417-600.webp",
       "card_images": [
@@ -127657,13 +127570,13 @@
       "category": "bags",
       "zone": "bags-c",
       "number": "642",
-      "name": "Loewe | All Season | Small Basket Bag",
+      "name": "Loewe Small Basket Bag",
       "brand": "Loewe",
       "type": "bag",
-      "display_name": "Loewe | All Season | Small Basket Bag",
+      "display_name": "Loewe Small Basket Bag",
       "story": "故事待补充",
       "hotspot": {
-        "left": 73.046875,
+        "left": 70.05208333333334,
         "top": 32.8125,
         "width": 8.138020833333332,
         "height": 17.7734375,
@@ -127716,12 +127629,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-418.webp",
-        "left": 73.046875,
+        "left": 70.05208333333334,
         "top": 32.8125,
         "width": 8.138020833333332,
         "height": 17.7734375,
         "rect": {
-          "left": 73.046875,
+          "left": 70.05208333333334,
           "top": 32.8125,
           "width": 8.138020833333332,
           "height": 17.7734375
@@ -127734,7 +127647,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 10
+        "zIndex": 9
       },
       "image": "assets/items/v2/today-418-600.webp",
       "card_images": [
@@ -127755,10 +127668,10 @@
       "category": "bags",
       "zone": "bags-c",
       "number": "643",
-      "name": "MANSUR GAVRIEL",
+      "name": "Mansur Gavriel pink drawstring bucket bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "MANSUR GAVRIEL",
+      "display_name": "Mansur Gavriel pink drawstring bucket bag",
       "story": "故事待补充",
       "hotspot": {
         "left": 20.703125,
@@ -127828,7 +127741,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 11
+        "zIndex": 10
       },
       "image": "assets/items/v2/today-419-600.webp",
       "card_images": [
@@ -127849,10 +127762,10 @@
       "category": "bags",
       "zone": "bags-c",
       "number": "644",
-      "name": "Prada",
+      "name": "Prada black bucket bag",
       "brand": "Prada",
       "type": "bag",
-      "display_name": "Prada",
+      "display_name": "Prada black bucket bag",
       "story": "故事待补充",
       "hotspot": {
         "left": 36.78385416666667,
@@ -127946,7 +127859,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 12
+        "zIndex": 11
       },
       "image": "assets/items/v2/today-420-600.webp",
       "card_images": [
@@ -127967,10 +127880,10 @@
       "category": "bags",
       "zone": "bags-c",
       "number": "645",
-      "name": "Prada",
+      "name": "Prada black leather top-handle bag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "Prada",
+      "display_name": "Prada black leather top-handle bag",
       "story": "故事待补充",
       "hotspot": {
         "left": 50.5859375,
@@ -128068,7 +127981,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 13
+        "zIndex": 12
       },
       "image": "assets/items/v2/today-421-600.webp",
       "card_images": [
@@ -128089,10 +128002,10 @@
       "category": "bags",
       "zone": "bags-c",
       "number": "646",
-      "name": "Story MFG",
+      "name": "Story MFG patterned shoulder bag",
       "brand": "Story MFG",
       "type": "bag",
-      "display_name": "Story MFG",
+      "display_name": "Story MFG patterned shoulder bag",
       "story": "故事待补充",
       "hotspot": {
         "left": 69.20572916666666,
@@ -128202,7 +128115,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 14
+        "zIndex": 13
       },
       "image": "assets/items/v2/today-422-600.webp",
       "card_images": [
@@ -128223,10 +128136,10 @@
       "category": "bags",
       "zone": "bags-d",
       "number": "647",
-      "name": "ThomBrowne | All season | Handbag",
+      "name": "Thom Browne black sculptural handbag",
       "brand": "Unknown",
       "type": "bag",
-      "display_name": "ThomBrowne | All season | Handbag",
+      "display_name": "Thom Browne black sculptural handbag",
       "story": "故事待补充",
       "hotspot": {
         "left": 17.7734375,
@@ -128365,10 +128278,10 @@
       "category": "bags",
       "zone": "bags-d",
       "number": "648",
-      "name": "miu miu",
+      "name": "Miu Miu brown suede tote",
       "brand": "miu miu",
       "type": "bag",
-      "display_name": "miu miu",
+      "display_name": "Miu Miu brown suede tote",
       "story": "故事待补充",
       "hotspot": {
         "left": 30.013020833333332,
@@ -128471,10 +128384,10 @@
       "category": "bags",
       "zone": "bags-d",
       "number": "649",
-      "name": "miu miu",
+      "name": "Miu Miu brown leather top-handle bag",
       "brand": "miu miu",
       "type": "bag",
-      "display_name": "miu miu",
+      "display_name": "Miu Miu brown leather top-handle bag",
       "story": "故事待补充",
       "hotspot": {
         "left": 43.359375,
@@ -128601,10 +128514,10 @@
       "category": "bags",
       "zone": "bags-d",
       "number": "650",
-      "name": "miu miu",
+      "name": "Miu Miu grey cable-knit bag",
       "brand": "miu miu",
       "type": "bag",
-      "display_name": "miu miu",
+      "display_name": "Miu Miu grey cable-knit bag",
       "story": "故事待补充",
       "hotspot": {
         "left": 58.658854166666664,
@@ -128723,10 +128636,10 @@
       "category": "bags",
       "zone": "bags-d",
       "number": "651",
-      "name": "miu miu",
+      "name": "Miu Miu navy and white shoulder bag",
       "brand": "miu miu",
       "type": "bag",
-      "display_name": "miu miu",
+      "display_name": "Miu Miu navy and white shoulder bag",
       "story": "故事待补充",
       "hotspot": {
         "left": 72.20052083333334,
@@ -128845,10 +128758,10 @@
       "category": "bags",
       "zone": "bags-d",
       "number": "652",
-      "name": "Another Aspect | Bag",
+      "name": "Another Aspect olive textured tote",
       "brand": "Unknown",
       "type": "tote",
-      "display_name": "Another Aspect | Bag",
+      "display_name": "Another Aspect olive textured tote",
       "story": "故事待补充",
       "hotspot": {
         "left": 20.833333333333336,
@@ -128959,13 +128872,13 @@
       "category": "totes",
       "zone": "totes-c",
       "number": "653",
-      "name": "BODE",
+      "name": "Bode blue woven check tote",
       "brand": "BODE",
       "type": "tote",
-      "display_name": "BODE",
+      "display_name": "Bode blue woven check tote",
       "story": "故事待补充",
       "hotspot": {
-        "left": 38.15104166666667,
+        "left": 48.30729166666667,
         "top": 31.8359375,
         "width": 8.854166666666668,
         "height": 19.04296875,
@@ -129014,12 +128927,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-456.webp",
-        "left": 38.15104166666667,
+        "left": 48.30729166666667,
         "top": 31.8359375,
         "width": 8.854166666666668,
         "height": 19.04296875,
         "rect": {
-          "left": 38.15104166666667,
+          "left": 48.30729166666667,
           "top": 31.8359375,
           "width": 8.854166666666668,
           "height": 19.04296875
@@ -129032,7 +128945,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 7
+        "zIndex": 8
       },
       "image": "assets/items/v2/today-456-600.webp",
       "card_images": [
@@ -129053,10 +128966,10 @@
       "category": "bags",
       "zone": "bags-d",
       "number": "654",
-      "name": "Bode | All Season | Crochet Tote Bag",
+      "name": "Bode Crochet Tote Bag",
       "brand": "Bode",
       "type": "tote",
-      "display_name": "Bode | All Season | Crochet Tote Bag",
+      "display_name": "Bode Crochet Tote Bag",
       "story": "故事待补充",
       "hotspot": {
         "left": 37.36979166666667,
@@ -129155,13 +129068,13 @@
       "category": "totes",
       "zone": "totes-c",
       "number": "655",
-      "name": "Bode | All Season | Multi Stripe Tote",
+      "name": "Bode Multi Stripe Tote",
       "brand": "Bode",
       "type": "tote",
-      "display_name": "Bode | All Season | Multi Stripe Tote",
+      "display_name": "Bode Multi Stripe Tote",
       "story": "故事待补充",
       "hotspot": {
-        "left": 54.4921875,
+        "left": 61.263020833333336,
         "top": 31.8359375,
         "width": 8.919270833333332,
         "height": 18.84765625,
@@ -129214,12 +129127,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-458.webp",
-        "left": 54.4921875,
+        "left": 61.263020833333336,
         "top": 31.8359375,
         "width": 8.919270833333332,
         "height": 18.84765625,
         "rect": {
-          "left": 54.4921875,
+          "left": 61.263020833333336,
           "top": 31.8359375,
           "width": 8.919270833333332,
           "height": 18.84765625
@@ -129232,7 +129145,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 8
+        "zIndex": 9
       },
       "image": "assets/items/v2/today-458-600.webp",
       "card_images": [
@@ -129253,13 +129166,13 @@
       "category": "totes",
       "zone": "totes-c",
       "number": "656",
-      "name": "Bode | Spring/Summer | Bag",
+      "name": "Bode green and red striped tote",
       "brand": "BODE",
       "type": "tote",
-      "display_name": "Bode | Spring/Summer | Bag",
+      "display_name": "Bode green and red striped tote",
       "story": "故事待补充",
       "hotspot": {
-        "left": 70.83333333333334,
+        "left": 74.21875,
         "top": 31.8359375,
         "width": 8.59375,
         "height": 18.1640625,
@@ -129312,12 +129225,12 @@
       },
       "layer": {
         "image": "assets/zones/layers/today-459.webp",
-        "left": 70.83333333333334,
+        "left": 74.21875,
         "top": 31.8359375,
         "width": 8.59375,
         "height": 18.1640625,
         "rect": {
-          "left": 70.83333333333334,
+          "left": 74.21875,
           "top": 31.8359375,
           "width": 8.59375,
           "height": 18.1640625
@@ -129330,7 +129243,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 9
+        "zIndex": 10
       },
       "image": "assets/items/v2/today-459-600.webp",
       "card_images": [
@@ -129351,10 +129264,10 @@
       "category": "totes",
       "zone": "totes-c",
       "number": "657",
-      "name": "Bode | Spring/Summer | Cotton Tote Bag",
+      "name": "Bode Cotton Tote Bag",
       "brand": "Bode",
       "type": "tote",
-      "display_name": "Bode | Spring/Summer | Cotton Tote Bag",
+      "display_name": "Bode Cotton Tote Bag",
       "story": "故事待补充",
       "hotspot": {
         "left": 22.265625,
@@ -129424,7 +129337,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 10
+        "zIndex": 11
       },
       "image": "assets/items/v2/today-460-600.webp",
       "card_images": [
@@ -129445,10 +129358,10 @@
       "category": "bags",
       "zone": "bags-d",
       "number": "658",
-      "name": "CHANEL | Denim Tote Bag",
+      "name": "Chanel Denim Tote Bag",
       "brand": "Unknown",
       "type": "tote",
-      "display_name": "CHANEL | Denim Tote Bag",
+      "display_name": "Chanel Denim Tote Bag",
       "story": "故事待补充",
       "hotspot": {
         "left": 53.059895833333336,
@@ -129531,10 +129444,10 @@
       "category": "bags",
       "zone": "bags-d",
       "number": "659",
-      "name": "Chanel",
+      "name": "Chanel denim tote with leather handles",
       "brand": "CHANEL",
       "type": "tote",
-      "display_name": "Chanel",
+      "display_name": "Chanel denim tote with leather handles",
       "story": "故事待补充",
       "hotspot": {
         "left": 70.63802083333334,
@@ -129649,10 +129562,10 @@
       "category": "bags",
       "zone": "bags-d",
       "number": "660",
-      "name": "DIOR",
+      "name": "Dior navy monogram tote (VIVIAN)",
       "brand": "DIOR",
       "type": "tote",
-      "display_name": "DIOR",
+      "display_name": "Dior navy monogram tote (VIVIAN)",
       "story": "故事待补充",
       "hotspot": {
         "left": 19.921875,
@@ -129739,10 +129652,10 @@
       "category": "bags",
       "zone": "bags-d",
       "number": "661",
-      "name": "DIOR",
+      "name": "Dior pink toile tote (VIVIAN)",
       "brand": "DIOR",
       "type": "tote",
-      "display_name": "DIOR",
+      "display_name": "Dior pink toile tote (VIVIAN)",
       "story": "故事待补充",
       "hotspot": {
         "left": 37.3046875,
@@ -129833,10 +129746,10 @@
       "category": "totes",
       "zone": "totes-c",
       "number": "662",
-      "name": "Giftshop | Spring/Summer | Cotton Tote Bag",
+      "name": "Cream cotton tote printed \"La Grande Épicerie de Paris\"",
       "brand": "Unknown",
       "type": "tote",
-      "display_name": "Giftshop | Spring/Summer | Cotton Tote Bag",
+      "display_name": "Cream cotton tote printed \"La Grande Épicerie de Paris\"",
       "story": "故事待补充",
       "hotspot": {
         "left": 38.15104166666667,
@@ -129910,7 +129823,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 11
+        "zIndex": 12
       },
       "image": "assets/items/v2/today-465-600.webp",
       "card_images": [
@@ -129931,10 +129844,10 @@
       "category": "totes",
       "zone": "totes-c",
       "number": "663",
-      "name": "HITTETANAKA | SACPLASTIQUE | Brigitte Tanaka | MaisondeCafe | Organza Tote Bag",
+      "name": "Brigitte Tanaka Maison de Café organza tote",
       "brand": "Unknown",
       "type": "tote",
-      "display_name": "HITTETANAKA | SACPLASTIQUE | Brigitte Tanaka | MaisondeCafe | Organza Tote Bag",
+      "display_name": "Brigitte Tanaka Maison de Café organza tote",
       "story": "故事待补充",
       "hotspot": {
         "left": 53.580729166666664,
@@ -130004,7 +129917,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 12
+        "zIndex": 13
       },
       "image": "assets/items/v2/today-466-600.webp",
       "card_images": [
@@ -130025,10 +129938,10 @@
       "category": "bags",
       "zone": "bags-d",
       "number": "664",
-      "name": "THOM BROWNE. | Bag",
+      "name": "Thom Browne grey check tote",
       "brand": "THOM BROWNE. NEW YORK",
       "type": "tote",
-      "display_name": "THOM BROWNE. | Bag",
+      "display_name": "Thom Browne grey check tote",
       "story": "故事待补充",
       "hotspot": {
         "left": 54.361979166666664,
@@ -130115,10 +130028,10 @@
       "category": "bags",
       "zone": "bags-d",
       "number": "665",
-      "name": "TOKBROVE. | NEYORK | THOM BROWNE.",
+      "name": "Thom Browne navy plaid tote",
       "brand": "Unknown",
       "type": "tote",
-      "display_name": "TOKBROVE. | NEYORK | THOM BROWNE.",
+      "display_name": "Thom Browne navy plaid tote",
       "story": "故事待补充",
       "hotspot": {
         "left": 70.18229166666666,
@@ -130253,10 +130166,10 @@
       "category": "totes",
       "zone": "totes-c",
       "number": "666",
-      "name": "baziszt | Spring/Summer | Cotton Tote Bag",
+      "name": "Baziszt Cotton Tote Bag",
       "brand": "baziszt",
       "type": "tote",
-      "display_name": "baziszt | Spring/Summer | Cotton Tote Bag",
+      "display_name": "Baziszt Cotton Tote Bag",
       "story": "故事待补充",
       "hotspot": {
         "left": 69.921875,
@@ -130330,7 +130243,7 @@
         "pivotY": 0,
         "motion": "hang",
         "fallback": false,
-        "zIndex": 13
+        "zIndex": 14
       },
       "image": "assets/items/v2/today-469-600.webp",
       "card_images": [
@@ -130957,6 +130870,7 @@
     "bags/e": "#/bags/d",
     "bags/bags-e": "#/bags/d",
     "bags/f": "#/bags/d",
-    "bags/bags-f": "#/bags/d"
+    "bags/bags-f": "#/bags/d",
+    "item/cr-007": "#/item/today-456"
   }
 }

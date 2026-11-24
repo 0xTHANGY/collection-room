@@ -24,8 +24,10 @@ import repack_three_rails as repack
 ROOT = repack.ROOT
 DISPLAY = repack.DISPLAY
 MEMBERSHIP = DISPLAY / "bags-totes-membership.json"
+NAME_CLEANUP = DISPLAY / "name-cleanup.json"
 SUMMARY = DISPLAY / "bags-totes-reassign.json"
 SOURCE_ZONES = ROOT / "data/source/zones.json"
+SOURCE_ITEMS = ROOT / "data/source/today-2026-11-18/items.json"
 PLATES = {
     "bags": ["bags-a", "bags-b", "bags-c", "bags-d"],
     "totes": ["totes-a"] * 3,
@@ -157,14 +159,15 @@ def write_images(output):
                                      Image.Resampling.LANCZOS), ROOT / cover_info["src"])
 
 
-def validate(catalog, membership, original_ids):
+def validate(catalog, membership, expected_ids):
     items = {item["id"]: item for item in catalog["items"]}
     zones = {zone["id"]: zone for zone in catalog["zones"]}
-    if Counter(item["id"] for item in catalog["items"]) != original_ids:
+    if Counter(item["id"] for item in catalog["items"]) != expected_ids:
         raise ValueError("Catalog item IDs were lost or duplicated")
     if any(item["zone"] not in zones for item in items.values()):
         raise ValueError("An item references a missing zone")
     routes = {f"#/{zone['category']}/{zone['letter']}" for zone in zones.values()}
+    routes.update(f"#/item/{item_id}" for item_id in items)
     for route, target in catalog["redirects"].items():
         if target not in routes:
             raise ValueError(f"Dangling redirect {route}: {target}")
@@ -255,22 +258,38 @@ def main():
 
     catalog = read_json(repack.CATALOG)
     membership = read_json(args.membership)
+    removed = membership.pop("removed_duplicates", {})
     original_ids = Counter(item["id"] for item in catalog["items"])
     current = {item["id"]: item["category"] for item in catalog["items"]
                if item["category"] in PLATES}
     target = {item_id: category for category, ids in membership.items() for item_id in ids}
-    if (set(membership) != set(PLATES) or set(target) != set(current)
+    if (set(membership) != set(PLATES) or set(target) != current.keys() - removed.keys()
             or sum(map(len, membership.values())) != len(target)
             or any(count != 1 for count in original_ids.values())):
         raise ValueError("Membership must partition the original bags and totes IDs exactly once")
+    if (removed.keys() & (original_ids.keys() - current.keys())
+            or set(removed.values()) - target.keys()):
+        raise ValueError("Duplicate removals must point from removed bags or totes to retained items")
+
+    names = read_json(NAME_CLEANUP)
+    source_items = read_json(SOURCE_ITEMS)
+    source_by_id = {item["id"]: item for item in source_items["items"]}
+    if names.keys() - target.keys() or names.keys() - source_by_id.keys():
+        raise ValueError("Name cleanup IDs must be retained bags or totes with source records")
+    for item_id, name in names.items():
+        source_by_id[item_id]["name"] = name
 
     before = {zone["id"]: len(zone["items"]) for zone in catalog["zones"]
               if zone["category"] in PLATES}
     moves = {item_id: {"from": current[item_id], "to": category}
              for item_id, category in target.items() if current[item_id] != category}
+    catalog["items"] = [item for item in catalog["items"] if item["id"] not in removed]
     for item in catalog["items"]:
-        if item["id"] in target:
-            item["category"] = target[item["id"]]
+        item_id = item["id"]
+        if item_id in target:
+            item["category"] = target[item_id]
+        if item_id in names:
+            item.update(name=names[item_id], display_name=names[item_id])
 
     source_zones = read_json(SOURCE_ZONES)
     assets, scales, limits = {}, {}, {}
@@ -296,20 +315,23 @@ def main():
             catalog["redirects"][key] = "#/bags/d"
     for key in ("totes/b", "totes/totes-b"):
         catalog["redirects"].pop(key, None)
+    for duplicate, retained in removed.items():
+        catalog["redirects"][f"item/{duplicate}"] = f"#/item/{retained}"
     after = {zone_id: len(zone["items"]) for zone_id, (zone, *_) in assets.items()}
-    summary = dict(before=before, after=after, moved_ids=moves, scale=scales,
+    summary = dict(before=before, after=after, moved_ids=moves, removed_duplicates=removed, scale=scales,
                    scale_constraints=limits, deleted_files=[], redirects_changed={
                        key: {"from": old_redirects.get(key), "to": catalog["redirects"].get(key)}
                        for key in sorted(old_redirects.keys() | catalog["redirects"].keys())
                        if old_redirects.get(key) != catalog["redirects"].get(key)
                    })
-    validate(catalog, membership, original_ids)
+    validate(catalog, membership, original_ids - Counter(removed.keys()))
     if args.write:
         write_images(assets)
         if catalog != read_json(repack.CATALOG) or not SUMMARY.exists():
             write_json(SUMMARY, summary)
         write_json(repack.CATALOG, catalog)
         write_json(SOURCE_ZONES, source_zones)
+        write_json(SOURCE_ITEMS, source_items)
         if args.proof_dir:
             write_proofs(args.proof_dir, catalog)
     print(json.dumps(summary, ensure_ascii=False, indent=2))

@@ -1,13 +1,11 @@
 {
  "bags": [
   "batch2-056",
-  "batch2-326",
   "batch2-362",
   "batch2-366",
   "batch2-385",
   "batch2-386",
   "batch2-387",
-  "cr-007",
   "today-388",
   "today-389",
   "today-391",
@@ -67,6 +65,7 @@
   "batch2-323",
   "batch2-324",
   "batch2-325",
+  "batch2-326",
   "batch2-358",
   "batch2-359",
   "batch2-360",
@@ -98,5 +97,8 @@
   "today-465",
   "today-466",
   "today-469"
- ]
+ ],
+ "removed_duplicates": {
+  "cr-007": "today-456"
+ }
 }

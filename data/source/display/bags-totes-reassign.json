@@ -4,188 +4,27 @@
     "bags-b": 14,
     "bags-c": 14,
     "bags-d": 13,
-    "bags-e": 13,
-    "bags-f": 13,
-    "totes-a": 15
-  },
-  "after": {
-    "bags-a": 14,
-    "bags-b": 14,
-    "bags-c": 14,
-    "bags-d": 13,
     "totes-a": 14,
     "totes-b": 14,
     "totes-c": 13
   },
+  "after": {
+    "bags-a": 14,
+    "bags-b": 13,
+    "bags-c": 13,
+    "bags-d": 13,
+    "totes-a": 14,
+    "totes-b": 14,
+    "totes-c": 14
+  },
   "moved_ids": {
-    "today-455": {
-      "from": "totes",
-      "to": "bags"
-    },
-    "today-457": {
-      "from": "totes",
-      "to": "bags"
-    },
-    "today-461": {
-      "from": "totes",
-      "to": "bags"
-    },
-    "today-462": {
-      "from": "totes",
-      "to": "bags"
-    },
-    "today-463": {
-      "from": "totes",
-      "to": "bags"
-    },
-    "today-464": {
-      "from": "totes",
-      "to": "bags"
-    },
-    "today-467": {
-      "from": "totes",
-      "to": "bags"
-    },
-    "today-468": {
-      "from": "totes",
-      "to": "bags"
-    },
-    "batch2-316": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-317": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-318": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-319": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-320": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-321": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-322": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-323": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-324": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-325": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-358": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-359": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-360": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-364": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-365": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-367": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-368": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-369": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-370": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-371": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-372": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-373": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-374": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-375": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-376": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-377": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-378": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-379": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-380": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-381": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-382": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-383": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "batch2-384": {
-      "from": "bags",
-      "to": "totes"
-    },
-    "today-390": {
+    "batch2-326": {
       "from": "bags",
       "to": "totes"
     }
+  },
+  "removed_duplicates": {
+    "cr-007": "today-456"
   },
   "scale": {
     "bags": 0.61,
@@ -200,53 +39,9 @@
   },
   "deleted_files": [],
   "redirects_changed": {
-    "bags/bags-e": {
+    "item/cr-007": {
       "from": null,
-      "to": "#/bags/d"
-    },
-    "bags/bags-f": {
-      "from": null,
-      "to": "#/bags/d"
-    },
-    "bags/bags-h": {
-      "from": "#/bags/e",
-      "to": "#/bags/d"
-    },
-    "bags/bags-i": {
-      "from": "#/bags/f",
-      "to": "#/bags/d"
-    },
-    "bags/bags-j": {
-      "from": "#/bags/f",
-      "to": "#/bags/d"
-    },
-    "bags/e": {
-      "from": null,
-      "to": "#/bags/d"
-    },
-    "bags/f": {
-      "from": null,
-      "to": "#/bags/d"
-    },
-    "bags/h": {
-      "from": "#/bags/e",
-      "to": "#/bags/d"
-    },
-    "bags/i": {
-      "from": "#/bags/f",
-      "to": "#/bags/d"
-    },
-    "bags/j": {
-      "from": "#/bags/f",
-      "to": "#/bags/d"
-    },
-    "totes/b": {
-      "from": "#/totes/a",
-      "to": null
-    },
-    "totes/totes-b": {
-      "from": "#/totes/a",
-      "to": null
+      "to": "#/item/today-456"
     }
   }
 }
