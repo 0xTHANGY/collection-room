@@ -1,0 +1,66 @@
+{
+ "shoes-n001": {
+  "removed_px": 6555,
+  "backdrop": [
+   107,
+   94,
+   83
+  ]
+ },
+ "shoes-n002": {
+  "removed_px": 10174,
+  "backdrop": [
+   116,
+   100,
+   88
+  ]
+ },
+ "shoes-n006": {
+  "removed_px": 904,
+  "backdrop": [
+   143,
+   114,
+   101
+  ]
+ },
+ "shoes-n015": {
+  "removed_px": 5040,
+  "backdrop": [
+   120,
+   105,
+   92
+  ]
+ },
+ "shoes-n035": {
+  "removed_px": 2291,
+  "backdrop": [
+   132,
+   112,
+   97
+  ]
+ },
+ "shoes-n049": {
+  "removed_px": 3473,
+  "backdrop": [
+   133,
+   117,
+   103
+  ]
+ },
+ "shoes-n050": {
+  "removed_px": 5716,
+  "backdrop": [
+   124,
+   108,
+   95
+  ]
+ },
+ "shoes-n056": {
+  "removed_px": 8330,
+  "backdrop": [
+   95,
+   83,
+   71
+  ]
+ }
+}
