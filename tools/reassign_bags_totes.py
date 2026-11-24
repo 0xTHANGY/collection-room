@@ -106,6 +106,22 @@ def plan_category(catalog, category):
     return plans, scale, scaled_for
 
 
+def center_clickable(clip):
+    """Keep the hotspot's box centre inside its clip polygon.
+
+    Strap bags can have an opaque centroid far from the box centre; a click (or
+    the verifier) at the centre then hits the room image instead of the item.
+    Only when the centre falls outside, use the convex hull of the outline plus
+    a small centre diamond. Other clips are returned unchanged.
+    """
+    if repack._pip(50.0, 50.0, clip):
+        return clip
+    import cv2
+    pts = np.array(clip + [[48.0, 50.0], [52.0, 50.0], [50.0, 48.0], [50.0, 52.0]], dtype=np.float32)
+    hull = cv2.convexHull(pts)[:, 0, :]
+    return [[round(float(x), 4), round(float(y), 4)] for x, y in hull]
+
+
 def pack_category(catalog, category, plans, scale):
     existing = {zone["id"]: zone for zone in catalog["zones"]}
     output = {}
@@ -127,7 +143,7 @@ def pack_category(catalog, category, plans, scale):
                 box, rect=dict(box), fallback=False, motion=position["rec"]["motion"],
                 pivot={"x": 50, "y": 0}, pivotX=50, pivotY=0, zIndex=position["zIndex"],
             )
-            item["hotspot"] = dict(box, clip=position["clip"])
+            item["hotspot"] = dict(box, clip=center_clickable(position["clip"]))
         stem = f"assets/zones/{zone_id}"
         images = []
         for size in (1600, 1024, 640):
