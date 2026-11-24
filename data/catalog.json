@@ -11901,13 +11901,13 @@
       "card_images": [
         {
           "src": "assets/items/v2/batch2-261-600.webp",
-          "width": 576,
-          "height": 600
+          "width": 573,
+          "height": 425
         },
         {
           "src": "assets/items/v2/batch2-261-400.webp",
-          "width": 384,
-          "height": 400
+          "width": 382,
+          "height": 283
         }
       ],
       "hotspot": {
@@ -16219,13 +16219,13 @@
       "card_images": [
         {
           "src": "assets/items/v2/batch2-151-600.webp",
-          "width": 331,
-          "height": 600
+          "width": 328,
+          "height": 502
         },
         {
           "src": "assets/items/v2/batch2-151-400.webp",
-          "width": 221,
-          "height": 400
+          "width": 219,
+          "height": 335
         }
       ],
       "hotspot": {
@@ -16683,13 +16683,13 @@
       "card_images": [
         {
           "src": "assets/items/v2/batch2-153-600.webp",
-          "width": 451,
-          "height": 600
+          "width": 450,
+          "height": 509
         },
         {
           "src": "assets/items/v2/batch2-153-400.webp",
-          "width": 301,
-          "height": 400
+          "width": 300,
+          "height": 339
         }
       ],
       "hotspot": {
@@ -16949,13 +16949,13 @@
       "card_images": [
         {
           "src": "assets/items/v2/batch2-154-600.webp",
-          "width": 426,
-          "height": 600
+          "width": 421,
+          "height": 507
         },
         {
           "src": "assets/items/v2/batch2-154-400.webp",
-          "width": 284,
-          "height": 400
+          "width": 281,
+          "height": 338
         }
       ],
       "hotspot": {
@@ -23293,13 +23293,13 @@
       "card_images": [
         {
           "src": "assets/items/v2/batch2-184-600.webp",
-          "width": 436,
-          "height": 600
+          "width": 434,
+          "height": 507
         },
         {
           "src": "assets/items/v2/batch2-184-400.webp",
-          "width": 291,
-          "height": 400
+          "width": 289,
+          "height": 338
         }
       ],
       "hotspot": {
@@ -24891,13 +24891,13 @@
       "card_images": [
         {
           "src": "assets/items/v2/batch2-187-600.webp",
-          "width": 455,
-          "height": 600
+          "width": 453,
+          "height": 503
         },
         {
           "src": "assets/items/v2/batch2-187-400.webp",
-          "width": 303,
-          "height": 400
+          "width": 302,
+          "height": 335
         }
       ],
       "hotspot": {
@@ -26185,13 +26185,13 @@
       "card_images": [
         {
           "src": "assets/items/v2/batch2-258-600.webp",
-          "width": 418,
-          "height": 600
+          "width": 415,
+          "height": 501
         },
         {
           "src": "assets/items/v2/batch2-258-400.webp",
-          "width": 279,
-          "height": 400
+          "width": 277,
+          "height": 334
         }
       ],
       "hotspot": {
@@ -30187,13 +30187,13 @@
       "card_images": [
         {
           "src": "assets/items/v2/batch2-207-600.webp",
-          "width": 322,
-          "height": 600
+          "width": 320,
+          "height": 529
         },
         {
           "src": "assets/items/v2/batch2-207-400.webp",
-          "width": 215,
-          "height": 400
+          "width": 213,
+          "height": 353
         }
       ],
       "hotspot": {
@@ -30851,13 +30851,13 @@
       "card_images": [
         {
           "src": "assets/items/v2/batch2-211-600.webp",
-          "width": 400,
-          "height": 600
+          "width": 399,
+          "height": 538
         },
         {
           "src": "assets/items/v2/batch2-211-400.webp",
-          "width": 267,
-          "height": 400
+          "width": 266,
+          "height": 359
         }
       ],
       "hotspot": {
@@ -47183,13 +47183,13 @@
       "card_images": [
         {
           "src": "assets/items/v2/batch2-349-600.webp",
-          "width": 474,
-          "height": 600
+          "width": 470,
+          "height": 439
         },
         {
           "src": "assets/items/v2/batch2-349-400.webp",
-          "width": 316,
-          "height": 400
+          "width": 313,
+          "height": 293
         }
       ],
       "hotspot": {
@@ -54411,13 +54411,13 @@
       "card_images": [
         {
           "src": "assets/items/v2/batch2-294-600.webp",
-          "width": 391,
-          "height": 600
+          "width": 388,
+          "height": 549
         },
         {
           "src": "assets/items/v2/batch2-294-400.webp",
-          "width": 260,
-          "height": 400
+          "width": 259,
+          "height": 366
         }
       ],
       "hotspot": {
@@ -100679,13 +100679,13 @@
       "card_images": [
         {
           "src": "assets/items/v2/today-142-600.webp",
-          "width": 513,
-          "height": 600
+          "width": 511,
+          "height": 519
         },
         {
           "src": "assets/items/v2/today-142-400.webp",
-          "width": 342,
-          "height": 400
+          "width": 341,
+          "height": 346
         }
       ]
     },
@@ -119497,13 +119497,13 @@
       "card_images": [
         {
           "src": "assets/items/v2/today-332-600.webp",
-          "width": 288,
-          "height": 600
+          "width": 285,
+          "height": 504
         },
         {
           "src": "assets/items/v2/today-332-400.webp",
-          "width": 192,
-          "height": 400
+          "width": 190,
+          "height": 336
         }
       ]
     },

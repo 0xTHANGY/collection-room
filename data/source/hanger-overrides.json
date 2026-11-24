@@ -3312,6 +3312,305 @@
       "patch_px": 6515,
       "align_ecc": 0.9994,
       "attempts": 1
+    },
+    "batch2-261": {
+      "kind": "top",
+      "method": "codex-image-edit+patch-composite +crop-above-collar",
+      "original_600": [
+        576,
+        600
+      ],
+      "original_400": [
+        384,
+        400
+      ],
+      "new_600": [
+        573,
+        425
+      ],
+      "new_400": [
+        382,
+        283
+      ],
+      "patch_px": 19024,
+      "align_ecc": 0.9892,
+      "attempts": 1
+    },
+    "batch2-151": {
+      "kind": "top",
+      "method": "codex-image-edit+patch-composite +crop-above-collar",
+      "original_600": [
+        331,
+        600
+      ],
+      "original_400": [
+        221,
+        400
+      ],
+      "new_600": [
+        328,
+        502
+      ],
+      "new_400": [
+        219,
+        335
+      ],
+      "patch_px": 11009,
+      "align_ecc": 0.999,
+      "attempts": 1
+    },
+    "batch2-153": {
+      "kind": "top",
+      "method": "codex-image-edit+patch-composite +crop-above-collar",
+      "original_600": [
+        451,
+        600
+      ],
+      "original_400": [
+        301,
+        400
+      ],
+      "new_600": [
+        450,
+        509
+      ],
+      "new_400": [
+        300,
+        339
+      ],
+      "patch_px": 4684,
+      "align_ecc": 0.9991,
+      "attempts": 1
+    },
+    "batch2-154": {
+      "kind": "top",
+      "method": "codex-image-edit+patch-composite +crop-above-collar",
+      "original_600": [
+        426,
+        600
+      ],
+      "original_400": [
+        284,
+        400
+      ],
+      "new_600": [
+        421,
+        507
+      ],
+      "new_400": [
+        281,
+        338
+      ],
+      "patch_px": 5420,
+      "align_ecc": 0.9995,
+      "attempts": 1
+    },
+    "batch2-184": {
+      "kind": "top",
+      "method": "codex-image-edit+patch-composite +crop-above-collar",
+      "original_600": [
+        436,
+        600
+      ],
+      "original_400": [
+        291,
+        400
+      ],
+      "new_600": [
+        434,
+        507
+      ],
+      "new_400": [
+        289,
+        338
+      ],
+      "patch_px": 5339,
+      "align_ecc": 0.9991,
+      "attempts": 1
+    },
+    "batch2-187": {
+      "kind": "top",
+      "method": "codex-image-edit+patch-composite +crop-above-collar",
+      "original_600": [
+        455,
+        600
+      ],
+      "original_400": [
+        303,
+        400
+      ],
+      "new_600": [
+        453,
+        503
+      ],
+      "new_400": [
+        302,
+        335
+      ],
+      "patch_px": 6037,
+      "align_ecc": 0.9993,
+      "attempts": 1
+    },
+    "batch2-258": {
+      "kind": "top",
+      "method": "codex-image-edit+patch-composite +crop-above-collar",
+      "original_600": [
+        418,
+        600
+      ],
+      "original_400": [
+        279,
+        400
+      ],
+      "new_600": [
+        415,
+        501
+      ],
+      "new_400": [
+        277,
+        334
+      ],
+      "patch_px": 5127,
+      "align_ecc": 0.998,
+      "attempts": 1
+    },
+    "batch2-207": {
+      "kind": "bottom",
+      "method": "codex-image-edit+patch-composite +waistband-crop",
+      "original_600": [
+        322,
+        600
+      ],
+      "original_400": [
+        215,
+        400
+      ],
+      "new_600": [
+        320,
+        529
+      ],
+      "new_400": [
+        213,
+        353
+      ],
+      "patch_px": 5685,
+      "align_ecc": 0.9729,
+      "attempts": 1
+    },
+    "batch2-211": {
+      "kind": "bottom",
+      "method": "codex-image-edit+patch-composite +waistband-crop",
+      "original_600": [
+        400,
+        600
+      ],
+      "original_400": [
+        267,
+        400
+      ],
+      "new_600": [
+        399,
+        538
+      ],
+      "new_400": [
+        266,
+        359
+      ],
+      "patch_px": 4898,
+      "align_ecc": 0.9955,
+      "attempts": 1
+    },
+    "today-332": {
+      "kind": "bottom",
+      "method": "codex-image-edit+patch-composite +waistband-crop",
+      "original_600": [
+        288,
+        600
+      ],
+      "original_400": [
+        192,
+        400
+      ],
+      "new_600": [
+        285,
+        504
+      ],
+      "new_400": [
+        190,
+        336
+      ],
+      "patch_px": 8481,
+      "align_ecc": 0.9959,
+      "attempts": 1
+    },
+    "batch2-349": {
+      "kind": "top",
+      "method": "codex-image-edit+patch-composite +crop-above-collar",
+      "original_600": [
+        474,
+        600
+      ],
+      "original_400": [
+        316,
+        400
+      ],
+      "new_600": [
+        470,
+        439
+      ],
+      "new_400": [
+        313,
+        293
+      ],
+      "patch_px": 17005,
+      "align_ecc": 0.9761,
+      "attempts": 1
+    },
+    "batch2-294": {
+      "kind": "top",
+      "method": "codex-image-edit+patch-composite +crop-above-collar",
+      "original_600": [
+        391,
+        600
+      ],
+      "original_400": [
+        260,
+        400
+      ],
+      "new_600": [
+        388,
+        549
+      ],
+      "new_400": [
+        259,
+        366
+      ],
+      "patch_px": 3329,
+      "align_ecc": 0.9971,
+      "attempts": 1
+    },
+    "today-142": {
+      "kind": "top",
+      "method": "codex-image-edit+patch-composite +crop-above-collar",
+      "original_600": [
+        513,
+        600
+      ],
+      "original_400": [
+        342,
+        400
+      ],
+      "new_600": [
+        511,
+        519
+      ],
+      "new_400": [
+        341,
+        346
+      ],
+      "patch_px": 6149,
+      "align_ecc": 0.9952,
+      "attempts": 1
     }
   }
 }
