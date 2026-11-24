@@ -1,0 +1,346 @@
+{
+  "baseline": "7fc1bc7",
+  "rect_units": "zone pixels (left, top, width, height)",
+  "pairs": {
+    "shoes-n001": {
+      "zone": "shoes-a",
+      "old_size": [
+        157,
+        348
+      ],
+      "new_size": [
+        314,
+        349
+      ],
+      "old_rect": [
+        591,
+        381,
+        94,
+        209
+      ],
+      "new_rect": [
+        544,
+        380,
+        188,
+        210
+      ],
+      "scale_factor": 1
+    },
+    "shoes-n002": {
+      "zone": "shoes-a",
+      "old_size": [
+        131,
+        331
+      ],
+      "new_size": [
+        301,
+        345
+      ],
+      "old_rect": [
+        822,
+        391,
+        79,
+        199
+      ],
+      "new_rect": [
+        770,
+        383,
+        182,
+        207
+      ],
+      "scale_factor": 1
+    },
+    "shoes-n006": {
+      "zone": "shoes-a",
+      "old_size": [
+        134,
+        255
+      ],
+      "new_size": [
+        275,
+        263
+      ],
+      "old_rect": [
+        1182,
+        857,
+        80,
+        153
+      ],
+      "new_rect": [
+        1140,
+        852,
+        164,
+        158
+      ],
+      "scale_factor": 1
+    },
+    "shoes-n014": {
+      "zone": "shoes-b",
+      "old_size": [
+        132,
+        320
+      ],
+      "new_size": [
+        280,
+        315
+      ],
+      "old_rect": [
+        708,
+        405,
+        79,
+        192
+      ],
+      "new_rect": [
+        664,
+        408,
+        168,
+        189
+      ],
+      "scale_factor": 1
+    },
+    "shoes-n015": {
+      "zone": "shoes-b",
+      "old_size": [
+        134,
+        334
+      ],
+      "new_size": [
+        277,
+        330
+      ],
+      "old_rect": [
+        1154,
+        810,
+        80,
+        200
+      ],
+      "new_rect": [
+        1112,
+        812,
+        165,
+        198
+      ],
+      "scale_factor": 1
+    },
+    "shoes-n018": {
+      "zone": "shoes-b",
+      "old_size": [
+        131,
+        249
+      ],
+      "new_size": [
+        262,
+        252
+      ],
+      "old_rect": [
+        949,
+        861,
+        79,
+        149
+      ],
+      "new_rect": [
+        910,
+        859,
+        158,
+        151
+      ],
+      "scale_factor": 1
+    },
+    "shoes-n025": {
+      "zone": "shoes-c",
+      "old_size": [
+        156,
+        390
+      ],
+      "new_size": [
+        317,
+        395
+      ],
+      "old_rect": [
+        1131,
+        778,
+        93,
+        232
+      ],
+      "new_rect": [
+        1086,
+        782,
+        183,
+        228
+      ],
+      "scale_factor": 0.9702127659574468
+    },
+    "shoes-n026": {
+      "zone": "shoes-c",
+      "old_size": [
+        144,
+        366
+      ],
+      "new_size": [
+        326,
+        401
+      ],
+      "old_rect": [
+        908,
+        790,
+        86,
+        220
+      ],
+      "new_rect": [
+        859,
+        782,
+        184,
+        228
+      ],
+      "scale_factor": 0.9460580912863071
+    },
+    "shoes-n035": {
+      "zone": "shoes-c",
+      "old_size": [
+        114,
+        232
+      ],
+      "new_size": [
+        233,
+        231
+      ],
+      "old_rect": [
+        752,
+        641,
+        68,
+        139
+      ],
+      "new_rect": [
+        716,
+        642,
+        139,
+        138
+      ],
+      "scale_factor": 1
+    },
+    "shoes-n044": {
+      "zone": "shoes-d",
+      "old_size": [
+        147,
+        360
+      ],
+      "new_size": [
+        301,
+        365
+      ],
+      "old_rect": [
+        1079,
+        602,
+        81,
+        198
+      ],
+      "new_rect": [
+        1036,
+        599,
+        166,
+        201
+      ],
+      "scale_factor": 1
+    },
+    "shoes-n049": {
+      "zone": "shoes-e",
+      "old_size": [
+        111,
+        371
+      ],
+      "new_size": [
+        237,
+        371
+      ],
+      "old_rect": [
+        374,
+        567,
+        67,
+        223
+      ],
+      "new_rect": [
+        337,
+        570,
+        141,
+        220
+      ],
+      "scale_factor": 0.9865470852017937
+    },
+    "shoes-n050": {
+      "zone": "shoes-e",
+      "old_size": [
+        151,
+        338
+      ],
+      "new_size": [
+        313,
+        338
+      ],
+      "old_rect": [
+        914,
+        807,
+        91,
+        203
+      ],
+      "new_rect": [
+        865,
+        807,
+        189,
+        203
+      ],
+      "scale_factor": 1
+    },
+    "shoes-n051": {
+      "zone": "shoes-e",
+      "old_size": [
+        152,
+        331
+      ],
+      "new_size": [
+        314,
+        362
+      ],
+      "old_rect": [
+        1137,
+        811,
+        91,
+        199
+      ],
+      "new_rect": [
+        1088,
+        792,
+        188,
+        218
+      ],
+      "scale_factor": 1
+    },
+    "shoes-n056": {
+      "zone": "shoes-e",
+      "old_size": [
+        318,
+        157
+      ],
+      "new_size": [
+        318,
+        303
+      ],
+      "old_rect": [
+        699,
+        169,
+        172,
+        85
+      ],
+      "new_rect": [
+        708,
+        108,
+        153,
+        146
+      ],
+      "scale_factor": 0.8902439024390244
+    }
+  },
+  "hotspot_only_adjustments": [
+    "shoes-n029"
+  ],
+  "moved_neighbours": {}
+}

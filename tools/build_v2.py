@@ -106,7 +106,12 @@ def main():
                     # Reject fragmented or implausibly sparse/solid extractions.
                     n,labels,stats,_=cv2.connectedComponentsWithStats(mask)
                     if n>1:
-                        largest=1+np.argmax(stats[1:,cv2.CC_STAT_AREA]);mask=np.uint8(labels==largest)*255
+                        if cat == 'shoes':
+                            # A shoe pair can have two disconnected silhouettes.
+                            areas=stats[1:,cv2.CC_STAT_AREA]
+                            mask=np.uint8(np.isin(labels,1+np.flatnonzero(areas>=.20*areas.max())))*255
+                        else:
+                            largest=1+np.argmax(stats[1:,cv2.CC_STAT_AREA]);mask=np.uint8(labels==largest)*255
                     coverage=np.count_nonzero(mask)/((x1-x0)*(y1-y0))
                     if coverage<.18 or coverage>.95: bad.add(iid)
                     masks[iid]=mask
