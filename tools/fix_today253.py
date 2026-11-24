@@ -18,7 +18,8 @@ def main(write=False):
         ["git", "-C", str(ROOT), "show", "9303dc6:assets/zones/jackets-f-1600.webp"], capture_output=True, check=True).stdout)).convert("RGB")).astype(np.int16)
     x0, y0, w, h, P = 993, 144, 216, 269, 40
     cr = paint[y0:y0 + h, x0 - P:x0 + w + P]
-    lay = np.array(Image.open(ROOT / "assets/zones/layers/today-253.webp").convert("RGBA"))
+    lay = np.array(Image.open(io.BytesIO(subprocess.run(["git", "-C", str(ROOT), "show", "326fc1d:assets/zones/layers/today-253.webp"],
+                                                       capture_output=True, check=True).stdout)).convert("RGBA"))
     cur = np.zeros(cr.shape[:2], np.uint8); cur[:, P:P + w] = lay[..., 3] > 128
     wall = np.array([182, 176, 176])
     L = cr.mean(2); sat = cr.max(2) - cr.min(2)

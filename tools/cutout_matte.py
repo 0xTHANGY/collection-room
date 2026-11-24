@@ -18,15 +18,28 @@ def soft_matte(mask, shrink=0.0, up=4, sigma=1.1):
     big = np.clip((big - thr) / 0.18 + 0.5, 0, 1)
     return cv2.resize(big, (w, h), interpolation=cv2.INTER_AREA)
 
-def drop_bits(alpha, keep_frac=0.2, min_px=12):
+def drop_bits(alpha, keep_frac=0.2, min_px=12, max_drop_px=150, top_frac=0.3, rgb=None, wall=None):
+    """Drop small detached specks. Hanger hardware is protected: anything touching the top `top_frac`
+    of the image (hooks, hanger bars) or larger than `max_drop_px` is kept."""
     m = (alpha > 0.25).astype(np.uint8)
     n, lab, st, _ = cv2.connectedComponentsWithStats(m, 8)
     if n <= 2:
         return alpha, 0
-    areas = st[1:, 4]; big = areas.max()
+    areas = st[1:, 4]; big = areas.max(); H = alpha.shape[0]
     keep = np.zeros(n, bool); keep[0] = False
+    near_main = None
+    if rgb is not None and wall is not None:
+        main = (lab == 1 + int(areas.argmax())).astype(np.uint8)
+        near_main = cv2.dilate(main, np.ones((3, 3), np.uint8), iterations=6) > 0
     for j in range(1, n):
-        keep[j] = areas[j - 1] >= max(min_px, keep_frac * big)
+        small = areas[j - 1] < max(min_px, keep_frac * big) and areas[j - 1] <= max_drop_px
+        in_top = st[j, 1] < top_frac * H
+        keep[j] = (not small) or in_top
+        # garment bits next to the body (cords, toggles) whose colour is not the wall stay
+        if not keep[j] and near_main is not None and areas[j - 1] >= 15:
+            cj = lab == j
+            if (cj & near_main).any() and np.abs(np.median(rgb[cj].astype(int), 0) - np.asarray(wall)).max() > 40:
+                keep[j] = True
     # pixels with low alpha not in any component stay as they are only if adjacent to kept comps
     kept = keep[lab]
     kept = cv2.dilate(kept.astype(np.uint8), np.ones((3, 3), np.uint8)) > 0
@@ -55,20 +68,36 @@ def decontaminate(rgb, alpha, depth=2, band=3, wall=None):
     out[sel] = filled[sel]
     return out
 
+def thin_parts(old_alpha, rgb=None):
+    """Structures thinner than ~3px in the old alpha (hook wires, hanger bars, cords) that the
+    smoothing would erase. Light low-saturation slivers (wall remnants) are not protected."""
+    m = (old_alpha > 0.5).astype(np.uint8)
+    opened = cv2.morphologyEx(m, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5)))
+    thin = (m > 0) & (opened == 0)
+    if rgb is not None:
+        f = rgb.astype(np.int16)
+        thin &= ~((f.mean(2) > 175) & ((f.max(2) - f.min(2)) < 25))
+    return thin
+
 def defringe_rgba(rgba, shrink=1.0, keep_frac=0.2, depth=2, band=2, wall=None):
     """Existing layer -> smoother alpha, no detached bits, edge colour from the interior."""
     rgb = rgba[..., :3].copy(); a = rgba[..., 3].astype(np.float32) / 255
     alpha = soft_matte(a > 0.5, shrink=shrink)
     alpha = np.minimum(alpha, cv2.dilate(a, np.ones((3, 3), np.uint8)))  # never grow past old coverage
-    alpha, dropped = drop_bits(alpha, keep_frac=keep_frac)
+    thin = thin_parts(a, rgb)
+    alpha = np.where(thin, np.maximum(alpha, a), alpha)
+    alpha, dropped = drop_bits(alpha, keep_frac=keep_frac, rgb=rgb, wall=wall)
     rgb = decontaminate(rgb, alpha, depth=depth, band=band, wall=wall)
     out = np.dstack([rgb, np.clip(alpha * 255 + 0.5, 0, 255).astype(np.uint8)])
     out[out[..., 3] == 0, :3] = 0
     return out, dropped
 
-def rgba_from_mask(rgb, mask, shrink=0.5, wall=None):
+def rgba_from_mask(rgb, mask, shrink=0.5, wall=None, old_alpha=None):
     alpha = soft_matte(mask, shrink=shrink)
-    alpha, _ = drop_bits(alpha)
+    if old_alpha is not None:
+        thin = thin_parts(old_alpha, rgb)
+        alpha = np.where(thin, np.maximum(alpha, old_alpha), alpha)
+    alpha, _ = drop_bits(alpha, rgb=rgb, wall=wall)
     rgb = decontaminate(rgb.copy(), alpha, depth=2, band=2, wall=wall)
     out = np.dstack([rgb, np.clip(alpha * 255 + 0.5, 0, 255).astype(np.uint8)])
     out[out[..., 3] == 0, :3] = 0

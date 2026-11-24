@@ -16,14 +16,17 @@ sys.path.insert(0, str(ROOT / "tools"))
 import cutout_locate as LOC
 from cutout_matte import rgba_from_mask
 
+BASE = None  # git ref holding the pre-fix layers (set by --base); default = working tree
+
 def recut(iid, core=6, pad=14, wall_tol=26):
-    loc = LOC.locate(iid)
+    loc = LOC.locate(iid, BASE or "HEAD")
     if loc is None:
         raise RuntimeError("no source painting found")
     diff, zc, src, (x, y, w, h), zid, lc = loc
     paint = np.array(Image.open(io.BytesIO(LOC.show(zc, src))).convert("RGB"))
     H, W = paint.shape[:2]
-    lay = np.array(Image.open(ROOT / f"assets/zones/layers/{iid}.webp").convert("RGBA"))
+    lay = np.array(Image.open(io.BytesIO(LOC.show(BASE, f"assets/zones/layers/{iid}.webp"))).convert("RGBA")) if BASE \
+        else np.array(Image.open(ROOT / f"assets/zones/layers/{iid}.webp").convert("RGBA"))
     a = lay[..., 3] > 128
     x0, y0 = max(0, x - pad), max(0, y - pad); x1, y1 = min(W, x + w + pad), min(H, y + h + pad)
     crop = paint[y0:y1, x0:x1].copy()
@@ -60,14 +63,24 @@ def recut(iid, core=6, pad=14, wall_tol=26):
     m = cv2.morphologyEx(m, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
     sub = m[y - y0:y - y0 + h, x - x0:x - x0 + w]
     rgb = lay[..., :3].copy()
-    out = rgba_from_mask(rgb, sub, shrink=0.5, wall=wall)
+    # give back garment parts GrabCut dropped (cords, toggles, hems): old-alpha blobs not wall-coloured
+    lost = (a & (cv2.dilate(sub, np.ones((3, 3), np.uint8), iterations=2) == 0)).astype(np.uint8)
+    n2, lab2, st2, _ = cv2.connectedComponentsWithStats(lost, 8)
+    for j in range(1, n2):
+        if st2[j, 4] >= 15:
+            pix = rgb[lab2 == j].astype(int)
+            if np.abs(np.median(pix, 0) - wall).max() > 40:
+                sub[lab2 == j] = 1
+    out = rgba_from_mask(rgb, sub, shrink=0.5, wall=wall, old_alpha=lay[..., 3].astype(np.float32) / 255)
     stats = dict(source_commit=zc, source=src, box=[x, y, w, h], rgb_diff=float(diff),
                  old_px=int(a.sum()), new_px=int((out[..., 3] > 128).sum()))
     return out, stats
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("ids", nargs="+"); ap.add_argument("--write", action="store_true"); ap.add_argument("--preview")
+    ap.add_argument("--base", help="read the original layer from this git ref (re-runs stay idempotent)")
     args = ap.parse_args()
+    global BASE; BASE = args.base
     res = {}
     for iid in args.ids:
         out, st = recut(iid)

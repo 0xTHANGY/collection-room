@@ -1,16 +1,19 @@
 """Find the original painting (git commit + zone image + pixel box) a layer was cut from (P3, 2026-11-24)."""
 import json,subprocess,io,sys,numpy as np
 from PIL import Image
-def git(*a): return subprocess.run(['git',*a],capture_output=True).stdout
+from pathlib import Path
+ROOT=str(Path(__file__).resolve().parents[1])
+def git(*a): return subprocess.run(['git','-C',ROOT,*a],capture_output=True).stdout
 def show(c,p):
-    r=subprocess.run(['git','show',f'{c}:{p}'],capture_output=True); return r.stdout if r.returncode==0 else None
+    r=subprocess.run(['git','-C',ROOT,'show',f'{c}:{p}'],capture_output=True); return r.stdout if r.returncode==0 else None
 cats={}
 def cat(c):
     if c not in cats: cats[c]=json.loads(show(c,'data/catalog.json'))
     return cats[c]
-def locate(iid):
-    lc=git('log','-1','--format=%h','--','assets/zones/layers/'+iid+'.webp').decode().strip()
-    lay=np.array(Image.open(f'assets/zones/layers/{iid}.webp').convert('RGBA')).astype(int)
+def locate(iid, ref='HEAD'):
+    """ref: git ref whose version of the layer is the one to match (use the pre-fix commit)."""
+    lc=git('log','-1','--format=%h',ref,'--','assets/zones/layers/'+iid+'.webp').decode().strip()
+    lay=np.array(Image.open(io.BytesIO(show(ref,f'assets/zones/layers/{iid}.webp'))).convert('RGBA')).astype(int)
     c=cat(lc); it=[i for i in c['items'] if i['id']==iid][0]; L=it['layer']; zid=it['zone']
     z=[z for z in c['zones'] if z['id']==zid][0]; src=max(z['images'],key=lambda x:x['width'])['src']
     best=None
