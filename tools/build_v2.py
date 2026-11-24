@@ -38,7 +38,9 @@ def variants(im, stem, sizes, longest=False):
         out=im.resize((max(1,round(im.width*scale)),max(1,round(im.height*scale))),Image.Resampling.LANCZOS)
         path=f'{stem}-{size}.webp'
         save(out,path)
-        result.append({'src':path,'width':out.width,'height':out.height})
+        # Frozen card bytes (e.g. hanger-free cards) may differ in size from the recomputed variant.
+        fw,fh=Image.open(ROOT/FROZEN[path]).size if path in FROZEN else out.size
+        result.append({'src':path,'width':fw,'height':fh})
     return result
 def rect(box,w,h):
     x,y,r,b=box
