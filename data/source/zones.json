@@ -48,67 +48,23 @@
   },
   "bags": {
     "a": [
+      "cr-007",
       "batch2-056",
-      "batch2-316",
-      "batch2-317",
-      "batch2-318",
-      "batch2-319",
-      "batch2-320",
-      "batch2-321",
-      "batch2-322"
-    ],
-    "b": [
-      "batch2-323",
-      "batch2-324",
-      "batch2-325",
       "batch2-326",
-      "batch2-358",
-      "batch2-359",
-      "batch2-360",
-      "batch2-362"
-    ],
-    "c": [
-      "batch2-364",
-      "batch2-365",
+      "batch2-362",
       "batch2-366",
-      "batch2-367",
-      "batch2-368",
-      "batch2-369",
-      "batch2-370",
-      "batch2-371"
-    ],
-    "d": [
-      "batch2-372",
-      "batch2-373",
-      "batch2-374",
-      "batch2-375",
-      "batch2-376",
-      "batch2-377",
-      "batch2-378",
-      "batch2-379"
-    ],
-    "e": [
-      "batch2-380",
-      "batch2-381",
-      "batch2-382",
-      "batch2-383",
-      "batch2-384",
       "batch2-385",
       "batch2-386",
       "batch2-387",
-      "cr-007"
-    ],
-    "f": [
       "today-388",
       "today-389",
-      "today-390",
       "today-391",
       "today-392",
       "today-393",
-      "today-394",
-      "today-395"
+      "today-394"
     ],
-    "g": [
+    "b": [
+      "today-395",
       "today-396",
       "today-397",
       "today-398",
@@ -116,19 +72,17 @@
       "today-400",
       "today-401",
       "today-402",
-      "today-403"
-    ],
-    "h": [
+      "today-403",
       "today-404",
       "today-405",
       "today-406",
       "today-407",
-      "today-408",
+      "today-408"
+    ],
+    "c": [
       "today-409",
       "today-410",
-      "today-411"
-    ],
-    "i": [
+      "today-411",
       "today-412",
       "today-413",
       "today-414",
@@ -136,17 +90,25 @@
       "today-416",
       "today-417",
       "today-418",
-      "today-419"
-    ],
-    "j": [
+      "today-419",
       "today-420",
       "today-421",
-      "today-422",
+      "today-422"
+    ],
+    "d": [
       "today-423",
       "today-424",
       "today-425",
       "today-426",
-      "today-427"
+      "today-427",
+      "today-455",
+      "today-457",
+      "today-461",
+      "today-462",
+      "today-463",
+      "today-464",
+      "today-467",
+      "today-468"
     ]
   },
   "bottoms": {
@@ -833,22 +795,50 @@
   },
   "totes": {
     "a": [
-      "today-455",
+      "batch2-316",
+      "batch2-317",
+      "batch2-318",
+      "batch2-319",
+      "batch2-320",
+      "batch2-321",
+      "batch2-322",
+      "batch2-323",
+      "batch2-324",
+      "batch2-325",
+      "batch2-358",
+      "batch2-359",
+      "batch2-360",
+      "batch2-364"
+    ],
+    "b": [
+      "batch2-365",
+      "batch2-367",
+      "batch2-368",
+      "batch2-369",
+      "batch2-370",
+      "batch2-371",
+      "batch2-372",
+      "batch2-373",
+      "batch2-374",
+      "batch2-375",
+      "batch2-376",
+      "batch2-377",
+      "batch2-378",
+      "batch2-379"
+    ],
+    "c": [
+      "batch2-380",
+      "batch2-381",
+      "batch2-382",
+      "batch2-383",
+      "batch2-384",
+      "today-390",
       "today-456",
-      "today-457",
       "today-458",
       "today-459",
       "today-460",
-      "today-461",
-      "today-462"
-    ],
-    "b": [
-      "today-463",
-      "today-464",
       "today-465",
       "today-466",
-      "today-467",
-      "today-468",
       "today-469"
     ]
   }
