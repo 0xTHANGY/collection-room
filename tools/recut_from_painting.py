@@ -47,6 +47,10 @@ def recut(iid, core=6, pad=14, wall_tol=26):
     bgd, fgd = np.zeros((1, 65), np.float64), np.zeros((1, 65), np.float64)
     cv2.grabCut(crop, gc, None, bgd, fgd, 6, cv2.GC_INIT_WITH_MASK)
     m = ((gc == cv2.GC_FGD) | (gc == cv2.GC_PR_FGD)).astype(np.uint8)
+    # keep the painted dark contour line: GrabCut tends to hand it to a dark background model
+    Lc = crop.astype(np.int16).mean(2)
+    outline = (old > 0) & (Lc < float(np.mean(wall)) - 60) & (cv2.dilate(m, np.ones((3, 3), np.uint8), iterations=2) > 0)
+    m[outline] = 1
     # fill only small holes (keep real gaps such as arm/body)
     inv = 1 - m
     n, lab, st, _ = cv2.connectedComponentsWithStats(inv, 4)

@@ -1,0 +1,509 @@
+{
+ "batch2-197": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/jackets-b-1600.webp",
+  "box": [
+   1365,
+   358,
+   197,
+   232
+  ],
+  "rgb_diff": 4.1,
+  "old_px": 32478,
+  "new_px": 31698
+ },
+ "batch2-013": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/jackets-a-1600.webp",
+  "box": [
+   548,
+   247,
+   109,
+   164
+  ],
+  "rgb_diff": 15.26,
+  "old_px": 13640,
+  "new_px": 13303
+ },
+ "batch2-010": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/jackets-a-1600.webp",
+  "box": [
+   445,
+   247,
+   127,
+   174
+  ],
+  "rgb_diff": 4.0,
+  "old_px": 14114,
+  "new_px": 13617
+ },
+ "batch2-077": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/jackets-a-1600.webp",
+  "box": [
+   876,
+   247,
+   122,
+   166
+  ],
+  "rgb_diff": 3.12,
+  "old_px": 14974,
+  "new_px": 14564
+ },
+ "batch2-015": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/jackets-a-1600.webp",
+  "box": [
+   778,
+   247,
+   111,
+   181
+  ],
+  "rgb_diff": 2.24,
+  "old_px": 15144,
+  "new_px": 14697
+ },
+ "batch2-073": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/jackets-a-1600.webp",
+  "box": [
+   970,
+   247,
+   119,
+   278
+  ],
+  "rgb_diff": 5.68,
+  "old_px": 24198,
+  "new_px": 23680
+ },
+ "batch2-074": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/jackets-a-1600.webp",
+  "box": [
+   1116,
+   246,
+   124,
+   321
+  ],
+  "rgb_diff": 3.37,
+  "old_px": 29706,
+  "new_px": 28835
+ },
+ "batch2-076": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/jackets-a-1600.webp",
+  "box": [
+   1320,
+   246,
+   111,
+   323
+  ],
+  "rgb_diff": 2.2,
+  "old_px": 28669,
+  "new_px": 27806
+ },
+ "batch2-081": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/jackets-b-1600.webp",
+  "box": [
+   566,
+   188,
+   148,
+   438
+  ],
+  "rgb_diff": 2.71,
+  "old_px": 48683,
+  "new_px": 47411
+ },
+ "batch2-033": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/dresses-a-1600.webp",
+  "box": [
+   500,
+   30,
+   142,
+   248
+  ],
+  "rgb_diff": 2.73,
+  "old_px": 22848,
+  "new_px": 21832
+ },
+ "batch2-039": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/dresses-a-1600.webp",
+  "box": [
+   502,
+   304,
+   124,
+   255
+  ],
+  "rgb_diff": 2.27,
+  "old_px": 23293,
+  "new_px": 22183
+ },
+ "batch2-172": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/tshirts-a-1600.webp",
+  "box": [
+   972,
+   431,
+   228,
+   281
+  ],
+  "rgb_diff": 4.62,
+  "old_px": 43950,
+  "new_px": 42930
+ },
+ "batch2-176": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/tshirts-b-1600.webp",
+  "box": [
+   760,
+   78,
+   222,
+   205
+  ],
+  "rgb_diff": 2.18,
+  "old_px": 28595,
+  "new_px": 27872
+ },
+ "batch2-014": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/jackets-a-1600.webp",
+  "box": [
+   696,
+   247,
+   93,
+   160
+  ],
+  "rgb_diff": 4.26,
+  "old_px": 12273,
+  "new_px": 11790
+ },
+ "batch2-303": {
+  "source_commit": "2f023c6",
+  "source": "assets/zones/bottoms-c-1600.webp",
+  "box": [
+   720,
+   498,
+   208,
+   384
+  ],
+  "rgb_diff": 2.86,
+  "old_px": 63264,
+  "new_px": 61716
+ },
+ "batch2-232": {
+  "source_commit": "2f023c6",
+  "source": "assets/zones/bottoms-c-1600.webp",
+  "box": [
+   197,
+   114,
+   202,
+   685
+  ],
+  "rgb_diff": 3.16,
+  "old_px": 106882,
+  "new_px": 104543
+ },
+ "batch2-306": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/bottoms-d-1600.webp",
+  "box": [
+   348,
+   69,
+   155,
+   365
+  ],
+  "rgb_diff": 4.38,
+  "old_px": 45147,
+  "new_px": 43234
+ },
+ "batch2-080": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/jackets-b-1600.webp",
+  "box": [
+   436,
+   188,
+   157,
+   434
+  ],
+  "rgb_diff": 4.48,
+  "old_px": 55031,
+  "new_px": 53659
+ },
+ "batch2-275": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/sweaters-b-1600.webp",
+  "box": [
+   857,
+   85,
+   211,
+   308
+  ],
+  "rgb_diff": 4.46,
+  "old_px": 51991,
+  "new_px": 50795
+ },
+ "batch2-097": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/jackets-b-1600.webp",
+  "box": [
+   728,
+   358,
+   180,
+   247
+  ],
+  "rgb_diff": 6.09,
+  "old_px": 29762,
+  "new_px": 28609
+ },
+ "batch2-309": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/bottoms-d-1600.webp",
+  "box": [
+   572,
+   482,
+   198,
+   413
+  ],
+  "rgb_diff": 2.76,
+  "old_px": 62434,
+  "new_px": 60346
+ },
+ "batch2-349": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/sweaters-d-1600.webp",
+  "box": [
+   810,
+   71,
+   213,
+   255
+  ],
+  "rgb_diff": 5.14,
+  "old_px": 33429,
+  "new_px": 31469
+ },
+ "batch2-311": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/bottoms-d-1600.webp",
+  "box": [
+   1057,
+   482,
+   198,
+   416
+  ],
+  "rgb_diff": 4.19,
+  "old_px": 63282,
+  "new_px": 61080
+ },
+ "batch2-086": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/dresses-a-1600.webp",
+  "box": [
+   1289,
+   304,
+   105,
+   255
+  ],
+  "rgb_diff": 2.31,
+  "old_px": 20506,
+  "new_px": 19686
+ },
+ "batch2-237": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/jackets-c-1600.webp",
+  "box": [
+   1346,
+   104,
+   197,
+   495
+  ],
+  "rgb_diff": 7.71,
+  "old_px": 78322,
+  "new_px": 76988
+ },
+ "batch2-308": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/bottoms-d-1600.webp",
+  "box": [
+   329,
+   482,
+   205,
+   414
+  ],
+  "rgb_diff": 4.06,
+  "old_px": 63673,
+  "new_px": 61576
+ },
+ "batch2-204": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/dresses-b-1600.webp",
+  "box": [
+   1382,
+   316,
+   214,
+   501
+  ],
+  "rgb_diff": 4.66,
+  "old_px": 73494,
+  "new_px": 71894
+ },
+ "batch2-166": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/bottoms-b-1600.webp",
+  "box": [
+   826,
+   62,
+   221,
+   362
+  ],
+  "rgb_diff": 3.66,
+  "old_px": 59715,
+  "new_px": 57264
+ },
+ "batch2-287": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/sweaters-b-1600.webp",
+  "box": [
+   1131,
+   448,
+   275,
+   314
+  ],
+  "rgb_diff": 2.72,
+  "old_px": 60429,
+  "new_px": 58770
+ },
+ "batch2-167": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/bottoms-b-1600.webp",
+  "box": [
+   1090,
+   62,
+   235,
+   364
+  ],
+  "rgb_diff": 4.69,
+  "old_px": 60610,
+  "new_px": 59024
+ },
+ "batch2-194": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/tshirts-c-1600.webp",
+  "box": [
+   675,
+   402,
+   223,
+   273
+  ],
+  "rgb_diff": 7.29,
+  "old_px": 39620,
+  "new_px": 38565
+ },
+ "batch2-036": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/dresses-a-1600.webp",
+  "box": [
+   1084,
+   30,
+   153,
+   241
+  ],
+  "rgb_diff": 5.29,
+  "old_px": 27958,
+  "new_px": 27097
+ },
+ "batch2-265": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/tshirts-d-1600.webp",
+  "box": [
+   868,
+   88,
+   221,
+   242
+  ],
+  "rgb_diff": 2.72,
+  "old_px": 35139,
+  "new_px": 34347
+ },
+ "batch2-082": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/sweaters-a-1600.webp",
+  "box": [
+   492,
+   85,
+   205,
+   313
+  ],
+  "rgb_diff": 2.4,
+  "old_px": 45549,
+  "new_px": 44395
+ },
+ "batch2-276": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/sweaters-b-1600.webp",
+  "box": [
+   1111,
+   85,
+   238,
+   305
+  ],
+  "rgb_diff": 3.96,
+  "old_px": 54651,
+  "new_px": 53757
+ },
+ "batch2-199": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/jackets-c-1600.webp",
+  "box": [
+   595,
+   94,
+   180,
+   238
+  ],
+  "rgb_diff": 2.48,
+  "old_px": 29944,
+  "new_px": 28903
+ },
+ "batch2-266": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/tshirts-d-1600.webp",
+  "box": [
+   1078,
+   88,
+   217,
+   242
+  ],
+  "rgb_diff": 2.01,
+  "old_px": 35389,
+  "new_px": 34296
+ },
+ "batch2-184": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/tshirts-c-1600.webp",
+  "box": [
+   520,
+   83,
+   241,
+   268
+  ],
+  "rgb_diff": 3.49,
+  "old_px": 41189,
+  "new_px": 40248
+ },
+ "batch2-332": {
+  "source_commit": "b03fdaf",
+  "source": "assets/zones/shirts-a-1600.webp",
+  "box": [
+   652,
+   404,
+   259,
+   303
+  ],
+  "rgb_diff": 3.36,
+  "old_px": 54027,
+  "new_px": 52731
+ }
+}
