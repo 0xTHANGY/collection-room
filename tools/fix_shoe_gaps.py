@@ -46,6 +46,18 @@ def gapcut(A):
     between=kl&kr
     central=np.abs(xs-w/2)<0.06*w
     removable=(a>0)&~keep&(between|central)
+    # only backdrop-coloured pixels go (a shoe edge reaching the centre strip is never cut straight)
+    L=f.mean(2)
+    removable&=(np.abs(f-med).max(2)<50)|((sat<45)&(L>70))
+    # leftover specks between the shoes (not part of the two shoes) go too
+    rest=((a>0)&~removable).astype(np.uint8)
+    nr,lr,sr,_=cv2.connectedComponentsWithStats(rest,8)
+    if nr>3:
+        two=np.argsort(-sr[1:,4])[:2]+1
+        for j in range(1,nr):
+            if j in two: continue
+            cj=lr==j
+            if (cj&(between|central)).sum()>=0.5*cj.sum(): removable|=cj
     keep=(a>0)&~removable
     return keep, med
 
