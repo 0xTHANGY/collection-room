@@ -61,6 +61,7 @@ def decontaminate(rgb, alpha, depth=2, band=3, wall=None):
     f = rgb.astype(np.int16); g = filled.astype(np.int16)
     L = f.mean(2); sat = f.max(2) - f.min(2); Lf = g.mean(2)
     bad = (sat < 32) & (L > 125) & (L - Lf > 14)
+    bad |= (sat < 40) & (L - Lf > 35)  # light halo on dark items (mixed wall/edge pixels)
     if wall is not None:
         bad |= np.abs(f - np.asarray(wall, np.int16)).max(2) < 22
     sel = edge & bad

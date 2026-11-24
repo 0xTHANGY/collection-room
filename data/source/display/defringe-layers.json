@@ -1,0 +1,1288 @@
+{
+ "today-249": {
+  "old_px": 44357,
+  "new_px": 44168,
+  "dropped_px": 0,
+  "wall": null
+ },
+ "batch2-278": {
+  "old_px": 58997,
+  "new_px": 58831,
+  "dropped_px": 0,
+  "wall": [
+   195,
+   191,
+   196
+  ]
+ },
+ "batch2-362": {
+  "old_px": 36879,
+  "new_px": 36637,
+  "dropped_px": 67,
+  "wall": [
+   207,
+   203,
+   205
+  ]
+ },
+ "batch2-003": {
+  "old_px": 76419,
+  "new_px": 76175,
+  "dropped_px": 0,
+  "wall": [
+   193,
+   191,
+   190
+  ]
+ },
+ "batch2-004": {
+  "old_px": 84584,
+  "new_px": 84304,
+  "dropped_px": 0,
+  "wall": [
+   198,
+   196,
+   196
+  ]
+ },
+ "batch2-005": {
+  "old_px": 79153,
+  "new_px": 78883,
+  "dropped_px": 0,
+  "wall": [
+   189,
+   185,
+   184
+  ]
+ },
+ "batch2-040": {
+  "old_px": 78729,
+  "new_px": 78429,
+  "dropped_px": 0,
+  "wall": [
+   187,
+   183,
+   183
+  ]
+ },
+ "batch2-155": {
+  "old_px": 78533,
+  "new_px": 78260,
+  "dropped_px": 0,
+  "wall": [
+   189,
+   187,
+   186
+  ]
+ },
+ "batch2-162": {
+  "old_px": 38886,
+  "new_px": 38630,
+  "dropped_px": 0,
+  "wall": [
+   193,
+   189,
+   190
+  ]
+ },
+ "batch2-163": {
+  "old_px": 42808,
+  "new_px": 42558,
+  "dropped_px": 0,
+  "wall": [
+   197,
+   195,
+   196
+  ]
+ },
+ "batch2-164": {
+  "old_px": 66215,
+  "new_px": 66018,
+  "dropped_px": 0,
+  "wall": [
+   205,
+   203,
+   206
+  ]
+ },
+ "batch2-165": {
+  "old_px": 62187,
+  "new_px": 61935,
+  "dropped_px": 0,
+  "wall": [
+   205,
+   203,
+   205
+  ]
+ },
+ "batch2-169": {
+  "old_px": 65281,
+  "new_px": 65112,
+  "dropped_px": 0,
+  "wall": [
+   212,
+   210,
+   210
+  ]
+ },
+ "batch2-205": {
+  "old_px": 56128,
+  "new_px": 56025,
+  "dropped_px": 0,
+  "wall": [
+   201,
+   198,
+   199
+  ]
+ },
+ "batch2-206": {
+  "old_px": 69655,
+  "new_px": 69426,
+  "dropped_px": 0,
+  "wall": [
+   204,
+   201,
+   203
+  ]
+ },
+ "batch2-207": {
+  "old_px": 63491,
+  "new_px": 63345,
+  "dropped_px": 0,
+  "wall": null
+ },
+ "batch2-208": {
+  "old_px": 63832,
+  "new_px": 63583,
+  "dropped_px": 0,
+  "wall": [
+   201,
+   197,
+   196
+  ]
+ },
+ "batch2-211": {
+  "old_px": 78562,
+  "new_px": 78320,
+  "dropped_px": 0,
+  "wall": [
+   203,
+   199,
+   198
+  ]
+ },
+ "batch2-301": {
+  "old_px": 69636,
+  "new_px": 69376,
+  "dropped_px": 0,
+  "wall": [
+   197,
+   193,
+   194
+  ]
+ },
+ "batch2-302": {
+  "old_px": 60304,
+  "new_px": 60149,
+  "dropped_px": 0,
+  "wall": [
+   193,
+   188,
+   187
+  ]
+ },
+ "batch2-304": {
+  "old_px": 58150,
+  "new_px": 57991,
+  "dropped_px": 0,
+  "wall": [
+   197,
+   193,
+   192
+  ]
+ },
+ "batch2-305": {
+  "old_px": 57396,
+  "new_px": 57236,
+  "dropped_px": 0,
+  "wall": [
+   195,
+   191,
+   189
+  ]
+ },
+ "batch2-307": {
+  "old_px": 54355,
+  "new_px": 54107,
+  "dropped_px": 0,
+  "wall": [
+   182,
+   180,
+   180
+  ]
+ },
+ "batch2-310": {
+  "old_px": 66481,
+  "new_px": 66220,
+  "dropped_px": 0,
+  "wall": [
+   190,
+   189,
+   192
+  ]
+ },
+ "batch2-315": {
+  "old_px": 41764,
+  "new_px": 41561,
+  "dropped_px": 0,
+  "wall": [
+   190,
+   187,
+   189
+  ]
+ },
+ "batch2-016": {
+  "old_px": 28819,
+  "new_px": 28626,
+  "dropped_px": 0,
+  "wall": [
+   228,
+   227,
+   229
+  ]
+ },
+ "batch2-034": {
+  "old_px": 25725,
+  "new_px": 25548,
+  "dropped_px": 0,
+  "wall": [
+   228,
+   227,
+   229
+  ]
+ },
+ "batch2-035": {
+  "old_px": 25259,
+  "new_px": 25107,
+  "dropped_px": 0,
+  "wall": [
+   227,
+   227,
+   229
+  ]
+ },
+ "batch2-037": {
+  "old_px": 26005,
+  "new_px": 25863,
+  "dropped_px": 0,
+  "wall": [
+   228,
+   227,
+   229
+  ]
+ },
+ "batch2-084": {
+  "old_px": 21848,
+  "new_px": 21698,
+  "dropped_px": 0,
+  "wall": [
+   228,
+   227,
+   229
+  ]
+ },
+ "batch2-088": {
+  "old_px": 21157,
+  "new_px": 21008,
+  "dropped_px": 0,
+  "wall": [
+   225,
+   223,
+   226
+  ]
+ },
+ "batch2-089": {
+  "old_px": 22347,
+  "new_px": 22132,
+  "dropped_px": 0,
+  "wall": [
+   229,
+   227,
+   229
+  ]
+ },
+ "batch2-091": {
+  "old_px": 26210,
+  "new_px": 26065,
+  "dropped_px": 0,
+  "wall": [
+   226,
+   224,
+   227
+  ]
+ },
+ "batch2-092": {
+  "old_px": 24631,
+  "new_px": 24481,
+  "dropped_px": 0,
+  "wall": [
+   227,
+   226,
+   228
+  ]
+ },
+ "batch2-100": {
+  "old_px": 19332,
+  "new_px": 19192,
+  "dropped_px": 0,
+  "wall": [
+   226,
+   225,
+   228
+  ]
+ },
+ "batch2-101": {
+  "old_px": 24229,
+  "new_px": 24056,
+  "dropped_px": 0,
+  "wall": [
+   218,
+   212,
+   211
+  ]
+ },
+ "batch2-103": {
+  "old_px": 18113,
+  "new_px": 17946,
+  "dropped_px": 0,
+  "wall": [
+   217,
+   212,
+   212
+  ]
+ },
+ "batch2-104": {
+  "old_px": 19800,
+  "new_px": 19610,
+  "dropped_px": 0,
+  "wall": [
+   218,
+   212,
+   212
+  ]
+ },
+ "batch2-161": {
+  "old_px": 35200,
+  "new_px": 34972,
+  "dropped_px": 0,
+  "wall": [
+   218,
+   211,
+   211
+  ]
+ },
+ "batch2-168": {
+  "old_px": 18889,
+  "new_px": 18659,
+  "dropped_px": 0,
+  "wall": [
+   217,
+   211,
+   211
+  ]
+ },
+ "batch2-170": {
+  "old_px": 22899,
+  "new_px": 22771,
+  "dropped_px": 0,
+  "wall": [
+   219,
+   212,
+   212
+  ]
+ },
+ "batch2-171": {
+  "old_px": 22249,
+  "new_px": 22097,
+  "dropped_px": 0,
+  "wall": [
+   189,
+   187,
+   187
+  ]
+ },
+ "batch2-209": {
+  "old_px": 20216,
+  "new_px": 20141,
+  "dropped_px": 0,
+  "wall": [
+   218,
+   212,
+   211
+  ]
+ },
+ "batch2-210": {
+  "old_px": 18753,
+  "new_px": 18510,
+  "dropped_px": 0,
+  "wall": [
+   219,
+   212,
+   212
+  ]
+ },
+ "batch2-234": {
+  "old_px": 25123,
+  "new_px": 24990,
+  "dropped_px": 0,
+  "wall": [
+   218,
+   211,
+   211
+  ]
+ },
+ "batch2-235": {
+  "old_px": 29011,
+  "new_px": 28822,
+  "dropped_px": 0,
+  "wall": [
+   217,
+   210,
+   210
+  ]
+ },
+ "batch2-348": {
+  "old_px": 27893,
+  "new_px": 27730,
+  "dropped_px": 0,
+  "wall": [
+   218,
+   211,
+   211
+  ]
+ },
+ "batch2-043": {
+  "old_px": 61861,
+  "new_px": 61693,
+  "dropped_px": 0,
+  "wall": [
+   191,
+   190,
+   190
+  ]
+ },
+ "batch2-214": {
+  "old_px": 48927,
+  "new_px": 48764,
+  "dropped_px": 0,
+  "wall": [
+   179,
+   181,
+   185
+  ]
+ },
+ "batch2-058": {
+  "old_px": 41876,
+  "new_px": 41737,
+  "dropped_px": 0,
+  "wall": null
+ },
+ "cr-002": {
+  "old_px": 47468,
+  "new_px": 47304,
+  "dropped_px": 0,
+  "wall": null
+ },
+ "batch2-072": {
+  "old_px": 40570,
+  "new_px": 40400,
+  "dropped_px": 0,
+  "wall": [
+   197,
+   194,
+   194
+  ]
+ },
+ "batch2-142": {
+  "old_px": 44302,
+  "new_px": 44114,
+  "dropped_px": 0,
+  "wall": [
+   191,
+   189,
+   194
+  ]
+ },
+ "batch2-148": {
+  "old_px": 35123,
+  "new_px": 34961,
+  "dropped_px": 0,
+  "wall": [
+   208,
+   201,
+   201
+  ]
+ },
+ "batch2-212": {
+  "old_px": 31574,
+  "new_px": 31309,
+  "dropped_px": 0,
+  "wall": [
+   202,
+   199,
+   199
+  ]
+ },
+ "batch2-008": {
+  "old_px": 69806,
+  "new_px": 69566,
+  "dropped_px": 0,
+  "wall": [
+   191,
+   188,
+   187
+  ]
+ },
+ "batch2-011": {
+  "old_px": 61521,
+  "new_px": 61312,
+  "dropped_px": 0,
+  "wall": [
+   184,
+   182,
+   182
+  ]
+ },
+ "batch2-095": {
+  "old_px": 64774,
+  "new_px": 64558,
+  "dropped_px": 0,
+  "wall": [
+   185,
+   182,
+   182
+  ]
+ },
+ "batch2-243": {
+  "old_px": 64551,
+  "new_px": 64307,
+  "dropped_px": 0,
+  "wall": [
+   183,
+   181,
+   180
+  ]
+ },
+ "batch2-244": {
+  "old_px": 66263,
+  "new_px": 65972,
+  "dropped_px": 0,
+  "wall": [
+   189,
+   186,
+   185
+  ]
+ },
+ "batch2-249": {
+  "old_px": 56894,
+  "new_px": 56693,
+  "dropped_px": 0,
+  "wall": [
+   199,
+   199,
+   201
+  ]
+ },
+ "batch2-250": {
+  "old_px": 50369,
+  "new_px": 50142,
+  "dropped_px": 0,
+  "wall": [
+   198,
+   197,
+   199
+  ]
+ },
+ "batch2-251": {
+  "old_px": 49050,
+  "new_px": 48807,
+  "dropped_px": 0,
+  "wall": [
+   197,
+   196,
+   199
+  ]
+ },
+ "batch2-282": {
+  "old_px": 61082,
+  "new_px": 60857,
+  "dropped_px": 0,
+  "wall": [
+   192,
+   192,
+   194
+  ]
+ },
+ "batch2-285": {
+  "old_px": 68824,
+  "new_px": 68557,
+  "dropped_px": 0,
+  "wall": [
+   198,
+   198,
+   200
+  ]
+ },
+ "batch2-286": {
+  "old_px": 77357,
+  "new_px": 77107,
+  "dropped_px": 0,
+  "wall": [
+   198,
+   198,
+   200
+  ]
+ },
+ "batch2-288": {
+  "old_px": 68078,
+  "new_px": 67831,
+  "dropped_px": 0,
+  "wall": [
+   196,
+   195,
+   198
+  ]
+ },
+ "batch2-289": {
+  "old_px": 55254,
+  "new_px": 55048,
+  "dropped_px": 0,
+  "wall": [
+   197,
+   196,
+   199
+  ]
+ },
+ "batch2-293": {
+  "old_px": 57083,
+  "new_px": 56889,
+  "dropped_px": 0,
+  "wall": [
+   188,
+   184,
+   183
+  ]
+ },
+ "batch2-294": {
+  "old_px": 54939,
+  "new_px": 54740,
+  "dropped_px": 0,
+  "wall": [
+   194,
+   191,
+   192
+  ]
+ },
+ "batch2-296": {
+  "old_px": 60429,
+  "new_px": 60193,
+  "dropped_px": 0,
+  "wall": [
+   187,
+   184,
+   183
+  ]
+ },
+ "batch2-297": {
+  "old_px": 52491,
+  "new_px": 52325,
+  "dropped_px": 0,
+  "wall": [
+   194,
+   190,
+   191
+  ]
+ },
+ "batch2-075": {
+  "old_px": 29856,
+  "new_px": 29761,
+  "dropped_px": 0,
+  "wall": [
+   209,
+   198,
+   189
+  ]
+ },
+ "batch2-078": {
+  "old_px": 29139,
+  "new_px": 28973,
+  "dropped_px": 0,
+  "wall": [
+   215,
+   202,
+   193
+  ]
+ },
+ "batch2-079": {
+  "old_px": 53343,
+  "new_px": 53213,
+  "dropped_px": 0,
+  "wall": [
+   224,
+   211,
+   201
+  ]
+ },
+ "batch2-090": {
+  "old_px": 28518,
+  "new_px": 28394,
+  "dropped_px": 0,
+  "wall": [
+   225,
+   214,
+   204
+  ]
+ },
+ "batch2-093": {
+  "old_px": 30679,
+  "new_px": 30504,
+  "dropped_px": 0,
+  "wall": [
+   205,
+   204,
+   194
+  ]
+ },
+ "batch2-094": {
+  "old_px": 33738,
+  "new_px": 33619,
+  "dropped_px": 0,
+  "wall": [
+   147,
+   152,
+   157
+  ]
+ },
+ "batch2-096": {
+  "old_px": 33824,
+  "new_px": 33669,
+  "dropped_px": 0,
+  "wall": [
+   164,
+   171,
+   174
+  ]
+ },
+ "batch2-196": {
+  "old_px": 31066,
+  "new_px": 30909,
+  "dropped_px": 0,
+  "wall": [
+   202,
+   192,
+   184
+  ]
+ },
+ "batch2-198": {
+  "old_px": 30401,
+  "new_px": 30257,
+  "dropped_px": 0,
+  "wall": [
+   210,
+   199,
+   191
+  ]
+ },
+ "batch2-314": {
+  "old_px": 30692,
+  "new_px": 30593,
+  "dropped_px": 0,
+  "wall": [
+   218,
+   204,
+   199
+  ]
+ },
+ "batch2-329": {
+  "old_px": 32590,
+  "new_px": 32445,
+  "dropped_px": 0,
+  "wall": [
+   168,
+   168,
+   162
+  ]
+ },
+ "batch2-330": {
+  "old_px": 30720,
+  "new_px": 30584,
+  "dropped_px": 0,
+  "wall": [
+   159,
+   161,
+   154
+  ]
+ },
+ "batch2-334": {
+  "old_px": 29433,
+  "new_px": 29305,
+  "dropped_px": 0,
+  "wall": [
+   161,
+   169,
+   176
+  ]
+ },
+ "batch2-335": {
+  "old_px": 31732,
+  "new_px": 31608,
+  "dropped_px": 0,
+  "wall": [
+   217,
+   205,
+   196
+  ]
+ },
+ "batch2-336": {
+  "old_px": 30768,
+  "new_px": 30625,
+  "dropped_px": 0,
+  "wall": null
+ },
+ "batch2-236": {
+  "old_px": 89389,
+  "new_px": 89083,
+  "dropped_px": 0,
+  "wall": [
+   199,
+   199,
+   199
+  ]
+ },
+ "batch2-260": {
+  "old_px": 26831,
+  "new_px": 26677,
+  "dropped_px": 0,
+  "wall": [
+   202,
+   202,
+   201
+  ]
+ },
+ "batch2-261": {
+  "old_px": 33815,
+  "new_px": 33544,
+  "dropped_px": 0,
+  "wall": [
+   203,
+   203,
+   203
+  ]
+ },
+ "batch2-292": {
+  "old_px": 43720,
+  "new_px": 43543,
+  "dropped_px": 0,
+  "wall": [
+   201,
+   201,
+   201
+  ]
+ },
+ "today-076": {
+  "old_px": 44900,
+  "new_px": 44702,
+  "dropped_px": 0,
+  "wall": null
+ },
+ "batch2-012": {
+  "old_px": 58097,
+  "new_px": 57885,
+  "dropped_px": 0,
+  "wall": [
+   198,
+   196,
+   198
+  ]
+ },
+ "batch2-253": {
+  "old_px": 45918,
+  "new_px": 45729,
+  "dropped_px": 0,
+  "wall": [
+   199,
+   198,
+   198
+  ]
+ },
+ "batch2-257": {
+  "old_px": 54506,
+  "new_px": 54329,
+  "dropped_px": 0,
+  "wall": [
+   195,
+   192,
+   193
+  ]
+ },
+ "batch2-272": {
+  "old_px": 61094,
+  "new_px": 60841,
+  "dropped_px": 0,
+  "wall": [
+   191,
+   189,
+   190
+  ]
+ },
+ "batch2-273": {
+  "old_px": 65942,
+  "new_px": 65684,
+  "dropped_px": 0,
+  "wall": [
+   202,
+   199,
+   202
+  ]
+ },
+ "batch2-277": {
+  "old_px": 48624,
+  "new_px": 48424,
+  "dropped_px": 0,
+  "wall": [
+   187,
+   186,
+   188
+  ]
+ },
+ "batch2-280": {
+  "old_px": 55632,
+  "new_px": 55433,
+  "dropped_px": 0,
+  "wall": [
+   196,
+   192,
+   195
+  ]
+ },
+ "batch2-281": {
+  "old_px": 53732,
+  "new_px": 53562,
+  "dropped_px": 0,
+  "wall": [
+   193,
+   192,
+   195
+  ]
+ },
+ "batch2-337": {
+  "old_px": 60151,
+  "new_px": 59897,
+  "dropped_px": 0,
+  "wall": [
+   203,
+   197,
+   195
+  ]
+ },
+ "batch2-338": {
+  "old_px": 54068,
+  "new_px": 53851,
+  "dropped_px": 0,
+  "wall": [
+   206,
+   200,
+   199
+  ]
+ },
+ "batch2-340": {
+  "old_px": 58514,
+  "new_px": 58289,
+  "dropped_px": 0,
+  "wall": [
+   200,
+   194,
+   193
+  ]
+ },
+ "batch2-342": {
+  "old_px": 66511,
+  "new_px": 66265,
+  "dropped_px": 0,
+  "wall": [
+   203,
+   196,
+   195
+  ]
+ },
+ "batch2-344": {
+  "old_px": 70514,
+  "new_px": 70256,
+  "dropped_px": 0,
+  "wall": [
+   203,
+   197,
+   195
+  ]
+ },
+ "batch2-350": {
+  "old_px": 66028,
+  "new_px": 65759,
+  "dropped_px": 2,
+  "wall": [
+   189,
+   186,
+   184
+  ]
+ },
+ "batch2-351": {
+  "old_px": 58706,
+  "new_px": 58479,
+  "dropped_px": 0,
+  "wall": [
+   192,
+   189,
+   188
+  ]
+ },
+ "batch2-002": {
+  "old_px": 45548,
+  "new_px": 45339,
+  "dropped_px": 0,
+  "wall": [
+   200,
+   197,
+   199
+  ]
+ },
+ "batch2-151": {
+  "old_px": 36284,
+  "new_px": 36157,
+  "dropped_px": 0,
+  "wall": [
+   202,
+   199,
+   200
+  ]
+ },
+ "batch2-152": {
+  "old_px": 30880,
+  "new_px": 30722,
+  "dropped_px": 0,
+  "wall": [
+   204,
+   202,
+   203
+  ]
+ },
+ "batch2-156": {
+  "old_px": 43788,
+  "new_px": 43592,
+  "dropped_px": 0,
+  "wall": [
+   198,
+   196,
+   197
+  ]
+ },
+ "batch2-157": {
+  "old_px": 42232,
+  "new_px": 42060,
+  "dropped_px": 0,
+  "wall": [
+   229,
+   225,
+   224
+  ]
+ },
+ "batch2-158": {
+  "old_px": 43875,
+  "new_px": 43698,
+  "dropped_px": 0,
+  "wall": [
+   198,
+   196,
+   197
+  ]
+ },
+ "batch2-173": {
+  "old_px": 45112,
+  "new_px": 44912,
+  "dropped_px": 0,
+  "wall": [
+   194,
+   192,
+   192
+  ]
+ },
+ "batch2-177": {
+  "old_px": 40504,
+  "new_px": 40327,
+  "dropped_px": 0,
+  "wall": [
+   222,
+   214,
+   211
+  ]
+ },
+ "batch2-178": {
+  "old_px": 44198,
+  "new_px": 44003,
+  "dropped_px": 0,
+  "wall": [
+   196,
+   194,
+   194
+  ]
+ },
+ "batch2-180": {
+  "old_px": 50478,
+  "new_px": 50260,
+  "dropped_px": 0,
+  "wall": [
+   196,
+   194,
+   194
+  ]
+ },
+ "batch2-181": {
+  "old_px": 51392,
+  "new_px": 51193,
+  "dropped_px": 0,
+  "wall": [
+   195,
+   192,
+   193
+  ]
+ },
+ "batch2-182": {
+  "old_px": 52308,
+  "new_px": 52094,
+  "dropped_px": 0,
+  "wall": [
+   193,
+   190,
+   191
+  ]
+ },
+ "batch2-183": {
+  "old_px": 50008,
+  "new_px": 49798,
+  "dropped_px": 0,
+  "wall": [
+   190,
+   187,
+   189
+  ]
+ },
+ "batch2-189": {
+  "old_px": 40869,
+  "new_px": 40678,
+  "dropped_px": 0,
+  "wall": [
+   197,
+   196,
+   198
+  ]
+ },
+ "batch2-258": {
+  "old_px": 43486,
+  "new_px": 43291,
+  "dropped_px": 0,
+  "wall": null
+ },
+ "batch2-263": {
+  "old_px": 34788,
+  "new_px": 34636,
+  "dropped_px": 0,
+  "wall": [
+   198,
+   193,
+   194
+  ]
+ },
+ "batch2-267": {
+  "old_px": 36724,
+  "new_px": 36565,
+  "dropped_px": 0,
+  "wall": [
+   195,
+   190,
+   190
+  ]
+ },
+ "batch2-268": {
+  "old_px": 38430,
+  "new_px": 38256,
+  "dropped_px": 0,
+  "wall": [
+   197,
+   193,
+   192
+  ]
+ },
+ "batch2-270": {
+  "old_px": 38113,
+  "new_px": 37945,
+  "dropped_px": 0,
+  "wall": [
+   186,
+   182,
+   181
+  ]
+ },
+ "batch2-283": {
+  "old_px": 46336,
+  "new_px": 46187,
+  "dropped_px": 0,
+  "wall": [
+   193,
+   189,
+   189
+  ]
+ },
+ "batch2-284": {
+  "old_px": 47571,
+  "new_px": 47413,
+  "dropped_px": 0,
+  "wall": [
+   191,
+   186,
+   186
+  ]
+ },
+ "batch2-290": {
+  "old_px": 49353,
+  "new_px": 49195,
+  "dropped_px": 0,
+  "wall": [
+   189,
+   185,
+   184
+  ]
+ },
+ "today-091": {
+  "old_px": 49192,
+  "new_px": 48998,
+  "dropped_px": 0,
+  "wall": null
+ },
+ "today-095": {
+  "old_px": 58680,
+  "new_px": 58428,
+  "dropped_px": 0,
+  "wall": null
+ },
+ "today-110": {
+  "old_px": 48925,
+  "new_px": 48772,
+  "dropped_px": 0,
+  "wall": null
+ },
+ "today-497": {
+  "old_px": 49895,
+  "new_px": 49885,
+  "dropped_px": 0,
+  "wall": null
+ }
+}
