@@ -17,7 +17,7 @@
  },
  "batch2-362": {
   "old_px": 36879,
-  "new_px": 36637,
+  "new_px": 36645,
   "dropped_px": 67,
   "wall": [
    207,
@@ -153,7 +153,7 @@
  },
  "batch2-208": {
   "old_px": 63832,
-  "new_px": 63583,
+  "new_px": 63659,
   "dropped_px": 0,
   "wall": [
    201,
@@ -303,7 +303,7 @@
  },
  "batch2-089": {
   "old_px": 22347,
-  "new_px": 22132,
+  "new_px": 22142,
   "dropped_px": 0,
   "wall": [
    229,
@@ -495,7 +495,7 @@
  },
  "batch2-072": {
   "old_px": 40570,
-  "new_px": 40400,
+  "new_px": 40401,
   "dropped_px": 0,
   "wall": [
    197,
@@ -505,7 +505,7 @@
  },
  "batch2-142": {
   "old_px": 44302,
-  "new_px": 44114,
+  "new_px": 44118,
   "dropped_px": 0,
   "wall": [
    191,
@@ -555,7 +555,7 @@
  },
  "batch2-095": {
   "old_px": 64774,
-  "new_px": 64558,
+  "new_px": 64559,
   "dropped_px": 0,
   "wall": [
    185,
@@ -655,7 +655,7 @@
  },
  "batch2-289": {
   "old_px": 55254,
-  "new_px": 55048,
+  "new_px": 55049,
   "dropped_px": 0,
   "wall": [
    197,
@@ -891,7 +891,7 @@
  },
  "today-076": {
   "old_px": 44900,
-  "new_px": 44702,
+  "new_px": 44715,
   "dropped_px": 0,
   "wall": null
  },
@@ -1263,13 +1263,13 @@
  },
  "today-091": {
   "old_px": 49192,
-  "new_px": 48998,
+  "new_px": 49004,
   "dropped_px": 0,
   "wall": null
  },
  "today-095": {
   "old_px": 58680,
-  "new_px": 58428,
+  "new_px": 58431,
   "dropped_px": 0,
   "wall": null
  },

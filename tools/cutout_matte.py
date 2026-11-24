@@ -88,10 +88,39 @@ def defringe_rgba(rgba, shrink=1.0, keep_frac=0.2, depth=2, band=2, wall=None):
     thin = thin_parts(a, rgb)
     alpha = np.where(thin, np.maximum(alpha, a), alpha)
     alpha, dropped = drop_bits(alpha, keep_frac=keep_frac, rgb=rgb, wall=wall)
+    alpha = reconnect(alpha, a)
     rgb = decontaminate(rgb, alpha, depth=depth, band=band, wall=wall)
     out = np.dstack([rgb, np.clip(alpha * 255 + 0.5, 0, 255).astype(np.uint8)])
     out[out[..., 3] == 0, :3] = 0
     return out, dropped
+
+def reconnect(alpha, old_alpha):
+    """Never break a part off: a piece that became detached from the main body but belonged to it in
+    the old alpha (cords, hooks, hems) gets back the removed pixel runs that touch it."""
+    mo = (old_alpha > 0.5).astype(np.uint8); mn = (alpha > 0.5).astype(np.uint8)
+    nn, ln, sn, _ = cv2.connectedComponentsWithStats(mn, 8)
+    no, lo, so, _ = cv2.connectedComponentsWithStats(mo, 8)
+    if nn <= 2 and no <= 2:
+        return alpha
+    main_o = lo == 1 + int(so[1:, 4].argmax())
+    big = sn[1:, 4].max()
+    removed = ((mo > 0) & (mn == 0)).astype(np.uint8)
+    nr, lr, _, _ = cv2.connectedComponentsWithStats(removed, 8)
+    give = np.zeros(mn.shape, bool)
+    for j in range(1, nn):
+        if sn[j, 4] >= 0.2 * big:
+            continue
+        cj = ln == j
+        if not (cj & main_o).any():
+            continue
+        touch = np.unique(lr[(cv2.dilate(cj.astype(np.uint8), np.ones((3, 3), np.uint8)) > 0) & (lr > 0)])
+        give |= np.isin(lr, touch[touch > 0])
+    # detached hanger hardware in the top 30% keeps its old alpha untouched (thin hooks would split)
+    H = mn.shape[0]
+    for j in range(1, no):
+        if j != 1 + int(so[1:, 4].argmax()) and so[j, 1] < 0.3 * H:
+            give |= lo == j
+    return np.where(give, np.maximum(alpha, old_alpha), alpha).astype(np.float32)
 
 def rgba_from_mask(rgb, mask, shrink=0.5, wall=None, old_alpha=None):
     alpha = soft_matte(mask, shrink=shrink)
@@ -99,6 +128,8 @@ def rgba_from_mask(rgb, mask, shrink=0.5, wall=None, old_alpha=None):
         thin = thin_parts(old_alpha, rgb)
         alpha = np.where(thin, np.maximum(alpha, old_alpha), alpha)
     alpha, _ = drop_bits(alpha, rgb=rgb, wall=wall)
+    if old_alpha is not None:
+        alpha = reconnect(alpha, old_alpha)
     rgb = decontaminate(rgb.copy(), alpha, depth=2, band=2, wall=wall)
     out = np.dstack([rgb, np.clip(alpha * 255 + 0.5, 0, 255).astype(np.uint8)])
     out[out[..., 3] == 0, :3] = 0

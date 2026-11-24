@@ -18,11 +18,35 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 from cutout_matte import soft_matte, decontaminate, thin_parts
 
-def fix_card(A):
+# opaque garments whose card was keyed against magenta so the whole body came out semi-transparent
+# (pink/red key spill, eye-confirmed): interior made solid, edge kept. Clear/organza items are left alone.
+KEY_SPILL_SOLID = {"cr-008", "batch2-331", "today-235", "today-189"}
+
+def solidify(A):
+    a = A[..., 3]
+    m = cv2.morphologyEx((a > 20).astype(np.uint8), cv2.MORPH_CLOSE, np.ones((5, 5), np.uint8))
+    n, l, s, _ = cv2.connectedComponentsWithStats(m, 8)
+    main = (l == 1 + s[1:, 4].argmax()).astype(np.uint8)
+    n2, l2, s2, _ = cv2.connectedComponentsWithStats(1 - main, 4)
+    for j in range(1, n2):
+        x, y, w, h, _ = s2[j]
+        if not (x == 0 or y == 0 or x + w >= a.shape[1] or y + h >= a.shape[0]):
+            main[l2 == j] = 1
+    core = cv2.erode(main, np.ones((3, 3), np.uint8), iterations=2) > 0
+    B = A.copy(); B[..., 3] = np.where(core, 255, a)
+    return B
+
+def fix_card(A, iid=""):
+    solid = False
+    if iid in KEY_SPILL_SOLID:
+        A = solidify(A); solid = True
     rgb = A[..., :3].copy(); a = A[..., 3].astype(np.float32) / 255
     m = (a > 0.5).astype(np.uint8)
     if m.sum() < 100:
         return A.copy(), {}
+    vis = a > 0.05
+    if ((a > 0.05) & (a < 0.95)).sum() > 0.3 * max(1, vis.sum()):
+        return A.copy(), dict(skipped="mostly semi-transparent (clear/sheer item or pre-existing see-through matte)")
     f = rgb.astype(np.int16); L = f.mean(2); sat = f.max(2) - f.min(2)
     core = cv2.erode(m, np.ones((3, 3), np.uint8), iterations=3)
     filled = cv2.inpaint(rgb, (core == 0).astype(np.uint8), 5, cv2.INPAINT_TELEA).astype(np.int16).mean(2) if core.sum() > 50 else L
@@ -72,7 +96,7 @@ def fix_card(A):
                 continue
             cj = lab == j
             med = np.median(f[cj], 0); mL = med.mean(); ms = med.max() - med.min()
-            if ar < 15 or (mL > 185 and ms < 30):
+            if ar < 15 or min(st[j, 2], st[j, 3]) <= 1 or (mL > 185 and ms < 30):
                 alpha[cj] = 0; dropped += int(ar)
     # 3) smooth the edge band, never grow; keep thin parts
     m2 = (alpha > 0.5).astype(np.uint8)
@@ -108,7 +132,10 @@ def fix_card(A):
     rgb = decontaminate(rgb, alpha, depth=2, band=2, wall=None)
     out = np.dstack([rgb, np.clip(alpha * 255 + .5, 0, 255).astype(np.uint8)])
     out[out[..., 3] == 0, :3] = 0
-    return out, dict(ghost_px=int(ghost.sum()), dropped_px=dropped, backdrop_px=holes_px)
+    st = dict(ghost_px=int(ghost.sum()), dropped_px=dropped, backdrop_px=holes_px)
+    if solid:
+        st["solidified"] = True
+    return out, st
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("srcs", nargs="+"); ap.add_argument("--write", action="store_true")
@@ -117,7 +144,7 @@ def main():
     for src in o.srcs:
         b = subprocess.run(["git", "-C", str(ROOT), "show", f"{o.base}:{src}"], capture_output=True, check=True).stdout
         A = np.array(Image.open(io.BytesIO(b)).convert("RGBA"))
-        out, st = fix_card(A)
+        out, st = fix_card(A, Path(src).stem.rsplit('-', 1)[0])
         log[src] = st
         if o.preview:
             Path(o.preview).mkdir(parents=True, exist_ok=True); Image.fromarray(out).save(f"{o.preview}/{Path(src).stem}.png")
