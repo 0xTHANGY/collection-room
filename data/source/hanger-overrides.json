@@ -2322,7 +2322,8 @@
       ],
       "patch_px": 8293,
       "align_ecc": 0.9889,
-      "attempts": 1
+      "attempts": 2,
+      "note": "qa-fix-1: green-key regeneration tried and rejected; card uses attempt 1 with key-aware edge matting + fabric hue/saturation clamp"
     },
     "batch2-008": {
       "kind": "top",
@@ -3265,7 +3266,8 @@
       ],
       "patch_px": 6131,
       "align_ecc": 0.982,
-      "attempts": 1
+      "attempts": 2,
+      "note": "qa-fix-1: green-key regeneration tried and rejected; card uses attempt 1 with key-aware edge matting + fabric hue/saturation clamp"
     },
     "today-316": {
       "kind": "bottom",
