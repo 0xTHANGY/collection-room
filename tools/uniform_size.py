@@ -117,7 +117,7 @@ def best_rows(bags, room, rod_count):
     return best
 
 
-def make_comparison(before_dir):
+def make_comparison(before_dir, before_label="b09e153", after_label="uniform"):
     def comparison(zid, image, factor, path):
         with Image.open(before_dir / f"{zid}.jpg") as before:
             before = before.resize(image.size, Image.Resampling.LANCZOS)
@@ -128,8 +128,8 @@ def make_comparison(before_dir):
         canvas.paste(image, (w + 24, label_h))
         font = ImageFont.truetype("DejaVuSans-Bold.ttf", 42)
         draw = ImageDraw.Draw(canvas)
-        draw.text((16, 10), f"BEFORE  {zid}  (b09e153)", font=font, fill="black")
-        draw.text((w + 40, 10), f"AFTER  {zid}  uniform  ×{factor:.2f}", font=font, fill="black")
+        draw.text((16, 10), f"BEFORE  {zid}  ({before_label})", font=font, fill="black")
+        draw.text((w + 40, 10), f"AFTER  {zid}  {after_label}  ×{factor:.2f}", font=font, fill="black")
         canvas.resize((canvas.width // 2, canvas.height // 2), Image.Resampling.LANCZOS).save(path, quality=93)
     return comparison
 
