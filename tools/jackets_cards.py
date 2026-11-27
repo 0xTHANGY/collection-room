@@ -26,16 +26,19 @@ from repack_three_rails import save_webp
 from shoes_fix import centre_safe_clip
 from rebuild_covers import composite
 
-us.CACHE = "20261126i"
+us.CACHE = "20261126j"
 W, H = 1536, 1024
 S_L = 2.5
+# round 2 (owner, 9:24 PM): jackets-c/d/e at 2.4 px/cm so the card versions fit their rods
+S_ROOM = {"jackets-c": 2.4, "jackets-d": 2.4, "jackets-e": 2.4}
 HANG, EDGE, GAP, RAIL_CLEAR, FLOOR_CLEAR = 5, 24, 28, 8, 14   # 8 px = the clearance jackets-a..e already use
 BENCH = {"jackets-f": 771}
 ROOMS = ["jackets-a", "jackets-b", "jackets-c", "jackets-d", "jackets-e", "jackets-f"]
-REP = ft.REPORT / "jackets-cards"
+REP = ft.REPORT / os.environ.get("JC_REPORT", "jackets-cards-2")
 OUT = REP / "work"
 HANGER_SRC = "batch2-015"
-HANGERLESS_TOP = 0.15         # top 6 % of the cutout wider than this fraction of the card = no hook
+HANGERLESS_TOP = 0.15
+CARD_OVERRIDE = REP / "card-override"   # <id>-600.png: re-matted / redrawn cards (also written as the item cards)         # top 6 % of the cutout wider than this fraction of the card = no hook
 
 
 def specs():
@@ -57,8 +60,15 @@ def trim(im):
 
 
 def card(item):
+    ov = CARD_OVERRIDE / f"{item['id']}-600.png"
+    if ov.exists():
+        return Image.open(ov).convert("RGBA")
     src = max(item["card_images"], key=lambda c: c["height"])["src"]
     return Image.open(ft.ROOT / src).convert("RGBA")
+
+
+def overrides():
+    return sorted(p.name[:-8] for p in CARD_OVERRIDE.glob("*-600.png")) if CARD_OVERRIDE.exists() else []
 
 
 def has_hook(im):
@@ -139,6 +149,44 @@ def layout(zid, bands, floor, entries, counts):
     return None, bad_b if entries[bad_b]["new"] else bad_a
 
 
+def search_layout(bands, floor, entries, counts, olddim, max_rev=6):
+    """Exhaustive: fewest reverted card layers, then fewest items moved off their rod. Rows keep old x order."""
+    from itertools import combinations
+    nb = len(bands)
+    cap = [((bands[k + 1][0] - RAIL_CLEAR) if k + 1 < nb else floor) - (bands[k][0] + HANG) for k in range(nb)]
+    span = [bands[k][3] - bands[k][2] - 2 * EDGE for k in range(nb)]
+    def row_ok(row, dims, k):
+        if any(dims[i]["h"] > cap[k] + 0.5 for i in row):
+            return False
+        tot = sum(dims[i]["w"] for i in row)
+        return len(row) < 2 or (span[k] - tot) / (len(row) - 1) >= GAP
+    ids = list(entries)
+    news = [i for i in ids if i in olddim]
+    for r in range(0, min(max_rev, len(news)) + 1):
+        best = None
+        for rev in combinations(news, r):
+            dims = {i: (olddim[i] if i in rev else entries[i]) for i in ids}
+            def rec(k, left, acc, moves):
+                nonlocal best
+                if k == nb - 1:
+                    row = sorted(left, key=lambda i: entries[i]["order"])
+                    if row_ok(row, dims, k):
+                        mv = moves + sum(1 for i in row if entries[i]["order"][0] != k)
+                        if best is None or mv < best[0]:
+                            best = (mv, acc + [row], list(rev))
+                    return
+                for row in combinations(sorted(left, key=lambda i: entries[i]["order"]), counts[k]):
+                    if row_ok(row, dims, k):
+                        mv = moves + sum(1 for i in row if entries[i]["order"][0] != k)
+                        if best is not None and mv >= best[0]:
+                            continue
+                        rec(k + 1, [i for i in left if i not in row], acc + [list(row)], mv)
+            rec(0, ids, [], 0)
+        if best:
+            return best[1], best[2]
+    return None
+
+
 def plan(cat, flagged, rooms):
     items = {i["id"]: i for i in cat["items"]}
     sp = specs()
@@ -150,6 +198,7 @@ def plan(cat, flagged, rooms):
     hanger_room_px = sprite.height * tgt015 / body_card(c015)
     new_imgs, info, placed = {}, {}, {}
     for zid in rooms:
+        S = S_ROOM.get(zid, S_L); k_s = S / S_L
         z = next(z for z in cat["zones"] if z["id"] == zid)
         room = fh.load_room(z)
         bands = room.bg.bands
@@ -161,23 +210,40 @@ def plan(cat, flagged, rooms):
             k = min(range(len(bands)), key=lambda j: abs(bands[j][0] + HANG - top))
             counts[k] += 1
             old = Image.open(ft.ROOT / L["image"]).convert("RGBA")
-            ow, oh = L["width"] / 100 * W, L["height"] / 100 * H
+            ow, oh = L["width"] / 100 * W * k_s, L["height"] / 100 * H * k_s   # kept layers: uniform S/2.5
             entries[iid] = dict(w=ow, h=oh * alpha_bottom(old), box_h=oh, order=(k, L["left"]), new=False)
             cmv = cm_of(sp, iid)
-            tgt = S_L * cmv if cmv else gl.body_px(it)
-            info[iid] = dict(zone=zid, cm=cmv, body_target=round(tgt, 1), old_row=k)
+            tgt = S * cmv if cmv else gl.body_px(it) * k_s
+            info[iid] = dict(zone=zid, scale=S, cm=cmv, body_target=round(tgt, 1), old_row=k, card_src="override" if (CARD_OVERRIDE / f"{iid}-600.png").exists() else "card")
             if iid in flagged:
                 info[iid].update(kept=True, reason=flagged[iid]); continue
             im = trim(card(it))
             f = tgt / body_card(im)
             hook = has_hook(im)
             if not hook:
-                im = add_hanger(im, sprite, hanger_room_px / f)
+                im = add_hanger(im, sprite, hanger_room_px * k_s / f)
             cand[iid] = im
             entries[iid].update(w=im.width * f, h=im.height * f, box_h=im.height * f, new=True)
             info[iid].update(kept=False, hanger_added=not hook, factor=round(f, 4))
+        rows0, _ = layout(zid, bands, floor, entries, counts)
+        if not rows0:
+            # round 2: search for the fewest card layers to keep at their current size (then the fewest rod moves)
+            olddim = {}
+            for iid in entries:
+                if entries[iid]["new"]:
+                    L = items[iid]["layer"]; old = Image.open(ft.ROOT / L["image"]).convert("RGBA")
+                    oh = L["height"] / 100 * H * k_s
+                    olddim[iid] = dict(w=L["width"] / 100 * W * k_s, h=oh * alpha_bottom(old), box_h=oh)
+            res = search_layout(bands, floor, entries, counts, olddim)
+            if res:
+                rows_s, reverts = res
+                for bad in reverts:
+                    entries[bad].update(new=False, **olddim[bad]); cand.pop(bad)
+                    info[bad].update(kept=True, reason=f"card version does not fit the room's rods at {S} px/cm (taller hanger/collar than the current layer)", card_h=info[bad].pop("factor", None))
         while True:
             rows, bad = layout(zid, bands, floor, entries, counts)
+            if not rows and rows0 is None and res:
+                rows = rows_s
             if rows:
                 break
             if not entries[bad]["new"]:
@@ -187,10 +253,10 @@ def plan(cat, flagged, rooms):
                 bad = max(news, key=lambda i: entries[i]["h"])
             # the card version is too long/wide for the rods at 2.5 px/cm: keep the current layer
             L = items[bad]["layer"]; old = Image.open(ft.ROOT / L["image"]).convert("RGBA")
-            oh = L["height"] / 100 * H
-            entries[bad].update(w=L["width"] / 100 * W, h=oh * alpha_bottom(old), box_h=oh, new=False)
+            oh = L["height"] / 100 * H * k_s
+            entries[bad].update(w=L["width"] / 100 * W * k_s, h=oh * alpha_bottom(old), box_h=oh, new=False)
             cand.pop(bad)
-            info[bad].update(kept=True, reason="card version does not fit the room's rods at 2.5 px/cm (taller hanger/collar than the current layer)", card_h=info[bad].pop("factor", None))
+            info[bad].update(kept=True, reason=f"card version does not fit the room's rods at {S} px/cm (taller hanger/collar than the current layer)", card_h=info[bad].pop("factor", None))
         new_imgs.update(cand)
         for k, row in enumerate(rows):
             y0 = bands[k][0] + HANG
@@ -284,6 +350,16 @@ def main():
             stage = Path(tmp); paths = []
             for iid, im in imgs.items():
                 p = Path(f"assets/zones/layers/{iid}.webp"); save_webp(im, stage / p, quality=92); paths.append(p)
+            its = {i["id"]: i for i in new["items"]}
+            for iid in overrides():
+                if its[iid]["zone"] not in rooms:
+                    continue
+                src = Image.open(CARD_OVERRIDE / f"{iid}-600.png").convert("RGBA")
+                for c in its[iid]["card_images"]:
+                    assert c["height"] in (600, 400), (iid, c)
+                    im = src if c["height"] == 600 else src.resize((c["width"], c["height"]), Image.Resampling.LANCZOS)
+                    assert im.size == (c["width"], c["height"]), (iid, im.size, c)
+                    p = Path(c["src"]); save_webp(im, stage / p, quality=92); paths.append(p)
             for zid in rooms:
                 z = next(z for z in new["zones"] if z["id"] == zid)
                 img = compose(new, zid, imgs)
