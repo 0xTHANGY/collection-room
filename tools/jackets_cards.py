@@ -26,15 +26,15 @@ from repack_three_rails import save_webp
 from shoes_fix import centre_safe_clip
 from rebuild_covers import composite
 
-us.CACHE = "20261126j"
+us.CACHE = "20261126k"
 W, H = 1536, 1024
 S_L = 2.5
 # round 2 (owner, 9:24 PM): jackets-c/d/e at 2.4 px/cm so the card versions fit their rods
-S_ROOM = {"jackets-c": 2.4, "jackets-d": 2.4, "jackets-e": 2.4}
+S_ROOM = {"jackets-c": 2.4, "jackets-d": 2.35, "jackets-e": 2.31}   # round 3: d/e lowered so every card version fits
 HANG, EDGE, GAP, RAIL_CLEAR, FLOOR_CLEAR = 5, 24, 28, 8, 14   # 8 px = the clearance jackets-a..e already use
 BENCH = {"jackets-f": 771}
 ROOMS = ["jackets-a", "jackets-b", "jackets-c", "jackets-d", "jackets-e", "jackets-f"]
-REP = ft.REPORT / os.environ.get("JC_REPORT", "jackets-cards-2")
+REP = ft.REPORT / os.environ.get("JC_REPORT", "jackets-cards-3")
 OUT = REP / "work"
 HANGER_SRC = "batch2-015"
 HANGERLESS_TOP = 0.15
@@ -187,6 +187,20 @@ def search_layout(bands, floor, entries, counts, olddim, max_rev=6):
     return None
 
 
+BASE = ft.REPORT / "jackets-cards/originals"   # f5aec6f layers + catalog: the 2.5 px/cm reference
+
+
+def base_body_25(iid, _cache={}):
+    """Shoulder-hem px at 2.5 px/cm for items without a measured length, from the f5aec6f layer (the
+    reference every round scales from), so re-running at another room scale never compounds."""
+    if "cat" not in _cache:
+        _cache["cat"] = {i["id"]: i for i in json.loads((BASE / "catalog-f5aec6f.json").read_text())["items"]}
+    L = _cache["cat"][iid]["layer"]
+    a = np.asarray(Image.open(BASE / Path(L["image"]).name).convert("RGBA"))[..., 3] > 60
+    s, e = gl.landmarks_alpha(a)
+    return (e - s) * L["height"] / 100 * H
+
+
 def plan(cat, flagged, rooms):
     items = {i["id"]: i for i in cat["items"]}
     sp = specs()
@@ -213,7 +227,7 @@ def plan(cat, flagged, rooms):
             ow, oh = L["width"] / 100 * W * k_s, L["height"] / 100 * H * k_s   # kept layers: uniform S/2.5
             entries[iid] = dict(w=ow, h=oh * alpha_bottom(old), box_h=oh, order=(k, L["left"]), new=False)
             cmv = cm_of(sp, iid)
-            tgt = S * cmv if cmv else gl.body_px(it) * k_s
+            tgt = S * cmv if cmv else base_body_25(iid) * k_s
             info[iid] = dict(zone=zid, scale=S, cm=cmv, body_target=round(tgt, 1), old_row=k, card_src="override" if (CARD_OVERRIDE / f"{iid}-600.png").exists() else "card")
             if iid in flagged:
                 info[iid].update(kept=True, reason=flagged[iid]); continue
