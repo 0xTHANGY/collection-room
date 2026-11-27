@@ -30,6 +30,11 @@ def landmarks(item):
     if item["id"] in OVERRIDE:
         return OVERRIDE[item["id"]]
     a = np.asarray(Image.open(ROOT / item["layer"]["image"]).convert("RGBA"))[..., 3] > 60
+    return landmarks_alpha(a)
+
+
+def landmarks_alpha(a):
+    """landmarks() on a boolean opaque mask (any image, e.g. a card cutout)."""
     h = a.shape[0]
     ys = np.where(a.any(1))[0]
     top, bot = ys[0], ys[-1]
