@@ -26,17 +26,25 @@ from repack_three_rails import save_webp
 from shoes_fix import centre_safe_clip
 from rebuild_covers import composite
 
-us.CACHE = "20261126k"
+us.CACHE = "20261126l"
 W, H = 1536, 1024
 S_L = 2.5
 # round 2 (owner, 9:24 PM): jackets-c/d/e at 2.4 px/cm so the card versions fit their rods
-S_ROOM = {"jackets-c": 2.4, "jackets-d": 2.35, "jackets-e": 2.31}   # round 3: d/e lowered so every card version fits
+S_ROOM = {"jackets-c": 2.4}   # round 4: jackets-d/e rods re-spaced (tools/move_rods.py) -> back to 2.5
+# round 4: explicit rows (top -> bottom), chosen by size (tallest at the bottom) and colour balance
+ORDER = {
+    "jackets-d": [["today-268", "today-231", "today-251", "today-254", "today-261"],
+                  ["today-256", "today-257", "today-239", "today-255", "today-238"],
+                  ["batch2-199", "today-266", "batch2-007", "today-242"]],
+}
+ROW_COUNTS = {"jackets-e": (4, 4, 4)}
 HANG, EDGE, GAP, RAIL_CLEAR, FLOOR_CLEAR = 5, 24, 28, 8, 14   # 8 px = the clearance jackets-a..e already use
 BENCH = {"jackets-f": 771}
 ROOMS = ["jackets-a", "jackets-b", "jackets-c", "jackets-d", "jackets-e", "jackets-f"]
-REP = ft.REPORT / os.environ.get("JC_REPORT", "jackets-cards-3")
+REP = ft.REPORT / os.environ.get("JC_REPORT", "jackets-cards-4")
 OUT = REP / "work"
 HANGER_SRC = "batch2-015"
+fh.baseline = lambda path: (ft.ROOT / path).read_bytes()   # plates from the working tree (d/e rods moved in round 4)
 HANGERLESS_TOP = 0.15
 CARD_OVERRIDE = REP / "card-override"   # <id>-600.png: re-matted / redrawn cards (also written as the item cards)         # top 6 % of the cutout wider than this fraction of the card = no hook
 
@@ -239,7 +247,19 @@ def plan(cat, flagged, rooms):
             cand[iid] = im
             entries[iid].update(w=im.width * f, h=im.height * f, box_h=im.height * f, new=True)
             info[iid].update(kept=False, hanger_added=not hook, factor=round(f, 4))
-        rows0, _ = layout(zid, bands, floor, entries, counts)
+        if zid in ROW_COUNTS:
+            counts = list(ROW_COUNTS[zid])
+        rows0 = None
+        if zid in ORDER:
+            rows0 = [list(r) for r in ORDER[zid]]
+            assert sorted(sum(rows0, [])) == sorted(entries), zid
+            capk = [((bands[k + 1][0] - RAIL_CLEAR) if k + 1 < len(bands) else floor) - (bands[k][0] + HANG) for k in range(len(bands))]
+            for k, row in enumerate(rows0):
+                tot = sum(entries[i]["w"] for i in row)
+                assert all(entries[i]["h"] <= capk[k] + 0.5 for i in row), (zid, k, [(i, entries[i]["h"], capk[k]) for i in row])
+                assert (bands[k][3] - bands[k][2] - 2 * EDGE - tot) / max(1, len(row) - 1) >= GAP, (zid, k, tot)
+        if rows0 is None:
+            rows0, _ = layout(zid, bands, floor, entries, counts)
         if not rows0:
             # round 2: search for the fewest card layers to keep at their current size (then the fewest rod moves)
             olddim = {}
@@ -255,7 +275,7 @@ def plan(cat, flagged, rooms):
                     entries[bad].update(new=False, **olddim[bad]); cand.pop(bad)
                     info[bad].update(kept=True, reason=f"card version does not fit the room's rods at {S} px/cm (taller hanger/collar than the current layer)", card_h=info[bad].pop("factor", None))
         while True:
-            rows, bad = layout(zid, bands, floor, entries, counts)
+            rows, bad = (rows0, None) if zid in ORDER else layout(zid, bands, floor, entries, counts)
             if not rows and rows0 is None and res:
                 rows = rows_s
             if rows:
